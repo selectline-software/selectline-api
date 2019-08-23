@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<style>
+    .Header
+     {
+        color: #009fda;
+        margin-top: 100px;
+        text-align: center;
+        padding: 10px;
+        font-size: 28px;         
+     }
+    .Bar
+    {
+        box-sizing: border-box;
+        height: 10px;
+        width: 0px;
+        margin: auto;
+        background-color: #009fda;
+    }
+    .ApiInfo
+    {
+        padding: 10px;
+        text-align: center;
+    }
+    .Error
+    {
+        padding: 10px;
+        text-align: center;
+        color: red;
+    }
+</style>
+<body>
+    <main>
+        <div class="Bar"></div>
+        <div class="ApiInfo">
+            <div id="Product"></div>
+            <div id="Version"></div>
+            <div id="BuildDate"></div>
+        </div>
+        <div class="Error"></div>
+    </main>
+    <script src="application.js"></script>
+    <script src="index.js"></script>  
+</body>
+</html>  

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<body style="display: none">
+    <main>
+        <fieldset>
+                <input type="button" value="Portal" data-url="portal.html" />
+        </fieldset>   
+        <fieldset>
+            <input type="text" id="SearchText"/>
+        </fieldset>
+        <grid id="Grid">
+            <template>
+                <row>
+                    <div data-bind style="font-weight: bold">{{Name}}</div>
+                    <div class="CellContent" data-bind>Tel <a href="tel:{{Telefon1}}">{{Telefon1}}</a></div>
+                    <div class="CellContent" data-bind>Tel2 <a href="tel:{{Telefon2}}">{{Telefon2}}</a></div>
+                    <div class="CellContent" data-bind>Mail <a href="mailto:{{Mail1}}">{{Mail1}}</a></div>
+                    <div class="CellContent" data-bind>Mail2 <a href="mailto:{{Mail2}}">{{Mail2}}</a></div>
+                </row>
+            </template>
+        </grid>
+        <fieldset>
+            <input type="button" id="NextResult" value="Mehr"/>
+        </fieldset>        
+    </main>
+    <footer>
+    </footer>
+    <script src="application.js"></script>
+    <script src="interessenten.js"></script>    
+</body>
+</html> 

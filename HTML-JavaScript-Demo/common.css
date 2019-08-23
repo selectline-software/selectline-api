@@ -1,0 +1,193 @@
+body
+{
+    font-family: Arial,Helvetica,sans-serif; 
+    letter-spacing: 1px;
+    background-color: #EEE;
+}
+
+header,
+main,
+footer
+{
+    max-width: 400px;
+    border: 0px;
+    background-color: #FFF;
+    margin: auto;
+}
+
+header > h1
+{
+    color: #009fda;
+    font-size: 22px;
+    font-weight: normal;
+    text-align: center;
+    padding: 8px;
+    margin: 0px;
+} 
+
+header > h2
+{
+    background-color: #009fda;
+    color: white;
+    font-size: 20px;
+    padding: 8px;
+    text-align: center;
+    margin: 0px;
+    font-weight: normal;
+}
+
+header > h3
+{
+    margin: 0px;
+    font-weight: normal;
+    padding: 8px;
+    font-size: 14px;
+}
+
+.DefaultForm
+{
+    margin: 0px;
+    padding: 10px;
+}
+
+fieldset
+{
+    color: #009fda;
+    box-sizing: border-box;
+    width: 100%;
+    margin: auto;
+    border: 0px; 
+    padding: 8px;
+}
+
+fieldset > label
+{
+    display: block;
+    margin: 8px 0px;
+}
+
+fieldset > input
+{
+    box-sizing: border-box;
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #009fda;
+}
+
+fieldset > input[type=button]
+{
+    background-color: #FFF;
+    font-size: 16px;
+    width: auto;
+    padding: 12px; 
+    margin: auto;
+    display: block;
+}
+
+fieldset > input[type=button]:hover
+{
+    background-color: #009fda;
+    color: #FFF;
+}
+
+fieldset > input[type=button]:disabled
+{
+    background-color: #EEE;
+    color: #FFF;
+}
+
+error
+{
+    color: red;
+    padding: 8px;
+    display: block;
+}
+
+.Portal .TileContainer
+{
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.Portal .Tile
+{
+    padding: 8px;
+    margin: 10px;
+    height: 60px;
+    border: 1px solid #009fda;
+    background-color: #FFF;
+    color: #009fda;    
+    font-size: 18px;
+    flex-grow: 1;
+    min-width: 200px;
+}
+
+.Portal .Tile:hover{
+    background-color: #009fda;
+    color: #FFF;
+}
+
+grid
+{
+    display: block;
+    padding: 4px;
+}
+
+grid > row 
+{
+    display: block;
+    padding: 8px;
+    margin: -1px;
+    border-top: 1px solid #009fda;
+    border-bottom: 1px solid #009fda;
+}
+
+grid > row > div
+{
+    padding: 2px;
+}
+
+.CellContent
+{
+    color: #888;
+    font-size: 14px;
+}
+
+.CellContent > a
+{
+    color: #009fda;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.Welcome
+{
+    padding: 10px;
+}
+
+.Welcome > span
+{
+    margin:4px;
+    font-weight: bold;
+}
+
+.UserInfo,
+.ApiInfo 
+{
+    margin: 10px;
+}
+
+.UserInfo > label,
+.ApiInfo > label
+{
+    color: #888;
+    font-size: 14px;
+}
+
+.UserInfo > div
+{
+    word-wrap: normal;
+    word-wrap: break-word;
+}
+
