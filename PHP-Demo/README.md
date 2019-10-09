@@ -7,15 +7,15 @@ Der hier veröffentlichte Code zeigt die Nutzung der **SelectLine API**. Die unt
 Es werden die allgemeinen Informationen der API abgerufen.
 <http://demo.slmobile.de/demoApi/>
 
-#### Login [GET]
+#### Login
 Mit Benutzername und Passwort wird sich bei er "SelectLine API" angemeldet.
 <http://demo.slmobile.de/demoApi/login>
 
-#### Kundenliste abrufen [GET]
+#### Kundenliste abrufen
 Es wird die Liste der Kunden abgerufen.
 <http://demo.slmobile.de/demoApi/customers>
 
-#### Kunde (10001) abrufen [GET]
+#### Kunde (10001) abrufen
 Abrufen von Informationen des Kunden 10001.
 <http://demo.slmobile.de/demoApi/customers/10001>
 
