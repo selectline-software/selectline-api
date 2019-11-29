@@ -10,7 +10,7 @@
 		<h1>PHP-DEMO FOR SELECTLINE API</h1>
 <?php
 
-$BaseUri = "http://demo.slmobile.de/demoapi/";
+$BaseUri = "https://demo.slmobile.de/demoapi/";
 
 function CallSLMAPI($method, $url, $auth = "", $data = false, $print = false)
 {
@@ -115,7 +115,8 @@ echo "<h2>Login:</h2>";
 
 //Define parameters for the request as an array
 $myData = array ('UserName' => 'APIDemo',
-				 'Password' => 'Ap1Dem0');
+				 'Password' => 'Ap1Dem0',
+				 'AppKey' => 'App-Demo20191122');
 
 $returnValue = CallSLMAPI("POST",$BaseUri."Login","",json_encode($myData),true);
 
