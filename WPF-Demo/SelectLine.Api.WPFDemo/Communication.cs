@@ -1,32 +1,33 @@
-﻿using SelectLine.Erp.Models.ApiResponseModels;
-
-namespace SelectLine.Api.WPFDemo
+﻿namespace SelectLine.Api.WPFDemo
 {
     using System;
     using System.Net.Http;
     using System.Net.Http.Headers;
+    using Erp.Models;
+    using Erp.Models.ApiResponseModels;
 
     using Newtonsoft.Json;
-    using SelectLine.Erp.Models;
 
     public static class Communication
     {
         private static String Username { get; set; }
         private static String Password { get; set; }
+        private static String AppKey { get; set; }
         private static String AccessToken { get; set; }
 
         public static String GetApiUrl()
         {
-            return "http://demo.slmobile.de/demoapi/";
+            return "https://demo.slmobile.de/demoapi/";
         }
 
         public static WebApiInfoModel InfoModel { get; set; }
         public static WebApiUserModel UserModel { get; set; }
 
-        public static void SetCredentials(String username, String password)
+        public static void SetCredentials(String username, String password, String appkey)
         {
             Username = username;
             Password = password;
+            AppKey = appkey;
         }
 
         internal static HttpResponseMessage PostLoginRequest(String apiUri)
@@ -119,7 +120,8 @@ namespace SelectLine.Api.WPFDemo
             return new Credentials
             {
                 UserName = Username,
-                Password = Password
+                Password = Password,
+                AppKey = AppKey
             };
         }
 

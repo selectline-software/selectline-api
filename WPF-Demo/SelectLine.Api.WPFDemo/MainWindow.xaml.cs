@@ -1,18 +1,7 @@
-﻿
-
-using SelectLine.Erp.Models.ApiResponseModels;
-
-namespace SelectLine.Api.WPFDemo
+﻿namespace SelectLine.Api.WPFDemo
 {
     using System;
-    using System.Collections.Generic;
-    using System.Net;
-    using System.Net.Http;
-    using System.Text.RegularExpressions;
     using System.Windows;
-    using System.Windows.Controls;
-
-    using Newtonsoft.Json;
 
     /// <summary>
     /// Interaction logic for MainWindow.xaml

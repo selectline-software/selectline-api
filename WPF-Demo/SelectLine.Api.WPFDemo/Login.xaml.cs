@@ -1,19 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
-
-namespace SelectLine.Api.WPFDemo
+﻿namespace SelectLine.Api.WPFDemo
 {
+    using System;
+    using System.Windows;
+
     /// <summary>
     /// Interaktionslogik für Login.xaml
     /// </summary>
@@ -24,9 +13,9 @@ namespace SelectLine.Api.WPFDemo
             InitializeComponent();
         }
 
-        private Boolean RequiredValuesAreValid(String userName, String password)
+        private Boolean RequiredValuesAreValid(String userName, String password, String appkey)
         {
-            return !String.IsNullOrWhiteSpace(userName) && !String.IsNullOrWhiteSpace(password);
+            return !String.IsNullOrWhiteSpace(userName) && !String.IsNullOrWhiteSpace(password) && !String.IsNullOrWhiteSpace(appkey);
         }
 
         private void BtnLoginClick(object sender, RoutedEventArgs e)
@@ -34,15 +23,16 @@ namespace SelectLine.Api.WPFDemo
             LaError.Content = "";
             var userName = EdUser.Text;
             var password = EdPassword.Password;
+            var appkey = EdAppKey.Text;
             try
             {
-                if (!RequiredValuesAreValid(userName, password))
+                if (!RequiredValuesAreValid(userName, password, appkey))
                 {
                     LaError.Content = "Error: Logindaten fehlen.";
                     return;
                 }
 
-                Communication.SetCredentials(userName, password);
+                Communication.SetCredentials(userName, password, appkey);
                 var message = Communication.PostLoginRequest("");
                 if (message.IsSuccessStatusCode)
                 {

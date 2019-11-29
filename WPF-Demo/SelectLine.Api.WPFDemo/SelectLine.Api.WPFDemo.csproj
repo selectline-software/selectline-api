@@ -100,6 +100,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Communication.cs" />
+    <Compile Include="Credentials.cs" />
     <Compile Include="GetAnsicht.xaml.cs">
       <DependentUpon>GetAnsicht.xaml</DependentUpon>
     </Compile>
