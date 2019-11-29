@@ -65,7 +65,7 @@ class Api
 {
     static GetApiUrl()
     {
-        return "http://demo.slmobile.de/demoapi/";
+        return "https://demo.slmobile.de/demoapi/";
     }
 
     static async CallApiAsync(type, url, userToken, content)
@@ -207,9 +207,9 @@ class User
         }
     }
 
-    static async LoginAsync(username, password) 
+    static async LoginAsync(username, password, appkey) 
     {
-        var result = await Api.PostApiAsync("Login", null, { UserName: username, Password: password });
+        var result = await Api.PostApiAsync("Login", null, { UserName: username, Password: password, AppKey: appkey });
         User.SetCurrentUserToken(result.AccessToken);
     }
 

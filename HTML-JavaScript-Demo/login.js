@@ -9,7 +9,7 @@ class Login
             $("#LoginResult").html("");
             try
             {
-                await User.LoginAsync($("#Username").val(), $("#Password").val());
+                await User.LoginAsync($("#Username").val(), $("#Password").val(), $("AppKey").val());
                 Application.RedirectToPortal();
             }
             catch (exception)
