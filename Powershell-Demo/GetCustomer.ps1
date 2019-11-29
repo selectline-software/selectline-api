@@ -1,7 +1,7 @@
-$baseurl = "http://demo.slmobile.de/demoapi/";
+$baseurl = "https://demo.slmobile.de/demoapi/";
 
 # Login
-$accesstoken = Invoke-RestMethod -Uri "$baseurl/Login" -Method POST -ContentType 'application/json' -Body '{"username":"APIDemo", "password": "Ap1Dem0"}';
+$accesstoken = Invoke-RestMethod -Uri "$baseurl/Login" -Method POST -ContentType 'application/json' -Body '{"username":"APIDemo", "password": "Ap1Dem0", "AppKey": "App-Demo20191122"}';
 
 $headerinfo = @{"Authorization"=$accesstoken.TokenType + " " + $accesstoken.AccessToken};
 
