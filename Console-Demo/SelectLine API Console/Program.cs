@@ -1,10 +1,9 @@
-﻿
+﻿using System.Linq;
 
 namespace SelectLine_API_Console
 {
     using System;
     using System.Collections.Generic;
-    using System.Linq;
     using System.Net;
     using System.Net.Http;
     using System.Net.Http.Headers;
@@ -13,7 +12,7 @@ namespace SelectLine_API_Console
 
     public class Program
     {
-        private const String BaseAddress = @"http://demo.slmobile.de/demoapi/";
+        private const String BaseAddress = @"https://demo.slmobile.de/demoapi/";
 
         private static Token Token { get; set; }
 
@@ -90,7 +89,8 @@ namespace SelectLine_API_Console
                 var credentials = new Credentials
                 {
                     UserName = "APIDemo",
-                    Password = "Ap1Dem0"
+                    Password = "Ap1Dem0",
+                    AppKey = "App-Demo20191122"
                 };
 
                 // Gibt das Antwortformat, welches man verarbeiten kann, ist das in .Net wichtig? 
