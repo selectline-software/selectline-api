@@ -2,7 +2,7 @@
 
 # Beispielprojekte für die SelectLine API
 Der hier veröffentlichte Code zeigt die Nutzung der **SelectLine API** in verschiedenen Programmiersprachen. 
-Für alle Funktionen bietet die "SelectLine API" eine Hilfe. Siehe <http://demo.slmobile.de/demoApi/help>
+Für alle Funktionen bietet die "SelectLine API" eine Hilfe. Siehe <https://demo.slmobile.de/demoApi/help>
 
 ## DEMO-Zugang
 
