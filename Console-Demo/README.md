@@ -1,27 +1,27 @@
 <img align="left" src="sllogo.png" style="margin-right:30px;">
 
 # Consolen-Demo für die SelectLine API
-Der hier veröffentlichte Code zeigt die Nutzung der **SelectLine API**. Die unten aufgeführten Funktionen werden aktuell von der DemoApp unterstützt. Die Url der "SelectLine API", welche von dieser Funktion  genutzt wird, ist ebenso vermerkt. Für alle Funktionen bietet die "SelectLine API" eine Hilfe. Siehe <http://demo.slmobile.de/demoApi/help>
+Der hier veröffentlichte Code zeigt die Nutzung der **SelectLine API**. Die unten aufgeführten Funktionen werden aktuell von der DemoApp unterstützt. Die Url der "SelectLine API", welche von dieser Funktion  genutzt wird, ist ebenso vermerkt. Für alle Funktionen bietet die "SelectLine API" eine Hilfe. Siehe <https://demo.slmobile.de/demoApi/help>
 
 #### API Informationen abrufen 
 Von der API wird die Bezeichnung, die Versionsnummer und die Beschreibung abgerufen.
-<http://demo.slmobile.de/demoApi/>
+<https://demo.slmobile.de/demoApi/>
 
 #### Login
 Mit Benutzername und Passwort wird sich bei er "SelectLine API" angemeldet.
-<http://demo.slmobile.de/demoApi/login>
+<https://demo.slmobile.de/demoApi/login>
 
 #### Kundenliste abrufen
 Es wird die Liste der Kunden abgerufen.
-<http://demo.slmobile.de/demoApi/customers>
+<https://demo.slmobile.de/demoApi/customers>
 
 #### Kunde (10007) abrufen
 Abrufen von Informationen des Kunden 10007.
-<http://demo.slmobile.de/demoApi/customers?filter=Number EQ '10007'>
+<https://demo.slmobile.de/demoApi/customers?filter=Number EQ '10007'>
 
 #### Kunde (10007) ändern
 Es wird die Telefonnummer geändert.
-<http://demo.slmobile.de/demoApi/Customers/10007>
+<https://demo.slmobile.de/demoApi/Customers/10007>
 
 ## Technische Grundlagen des Projektes
 Das Projekt wurde mit C# als Consolenanwendung umgesetzt.
