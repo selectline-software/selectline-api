@@ -1,0 +1,6432 @@
+{
+	"info": {
+		"_postman_id": "00c3cad2-5c63-4223-98c0-47d4511dab31",
+		"name": "API copy",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Administration",
+			"item": [
+				{
+					"name": "Account",
+					"item": [
+						{
+							"name": "Login with AppKey",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "75a83acc-89fb-41fd-910c-06112bc25ef8",
+										"exec": [
+											"var jsonData = JSON.parse(responseBody);\r",
+											"postman.setEnvironmentVariable(\"AccessToken\", \"LoginId \"+jsonData.AccessToken);"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\": \"{{user}}\",\r\n    \"password\": \"{{password}}\",\r\n    \"LoginKind\": \"{{loginKind}}\",\r\n    \"AppKey\": \"{{appKey}}\"\r\n}"
+								},
+								"url": {
+									"raw": "{{url}}/Login",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"Login"
+									]
+								},
+								"description": "Anmelden bei der API."
+							},
+							"response": []
+						},
+						{
+							"name": "Logout",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "75a83acc-89fb-41fd-910c-06112bc25ef8",
+										"exec": [
+											"var jsonData = JSON.parse(responseBody);\r",
+											"postman.setEnvironmentVariable(\"AccessToken\", \"LoginId \"+jsonData.AccessToken);"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{AccessToken}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "Authorization",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/Logout",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"Logout"
+									]
+								},
+								"description": "Abmelden bei der API. Die LoginId wird dadurch ungültig."
+							},
+							"response": []
+						}
+					],
+					"description": "Anmelden und Abmelden bei der API.",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "1349b328-6f8e-4160-9eb6-4536dd8472fd",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "932cf5c9-0319-4cf4-9f4d-15c6c9e5bc66",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Info",
+					"item": [
+						{
+							"name": "🆓 Get Information",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/Info",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"Info"
+									]
+								},
+								"description": "Liefert Informationen zur aktuell laufenen API u.a. die Versionsnummer"
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Tenant",
+					"item": [
+						{
+							"name": "Read all tenants",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{AccessToken}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "Authorization",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/Tenants",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"Tenants"
+									]
+								},
+								"description": "Gibt eine Liste an Mandanten zurück."
+							},
+							"response": []
+						},
+						{
+							"name": "Read tenant",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{AccessToken}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "Authorization",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/Tenants/SL_MWAWI",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"Tenants",
+										"SL_MWAWI"
+									]
+								},
+								"description": "Gibt einen Mandanen zurück. TenantName = SL_M[Mandantenname] - Bsp.: SL_MWAWI"
+							},
+							"response": []
+						}
+					],
+					"auth": {
+						"type": "apikey",
+						"apikey": [
+							{
+								"key": "value",
+								"value": "{{AccessToken}}",
+								"type": "string"
+							},
+							{
+								"key": "key",
+								"value": "Authorization",
+								"type": "string"
+							}
+						]
+					},
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Artikel",
+			"item": [
+				{
+					"name": "AccessoryArticle",
+					"item": [
+						{
+							"name": "Read article of accessory article",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{AccessToken}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "Authorization",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/AccessoryArticles/400005/Articles",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"AccessoryArticles",
+										"400005",
+										"Articles"
+									]
+								},
+								"description": "Gibt eine Liste an Hauptartikeln, bei denen der Artikel als Zubehör enthalten ist, zurück."
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Article",
+					"item": [
+						{
+							"name": "Read all articles",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{AccessToken}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "Authorization",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/Articles",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"Articles"
+									]
+								},
+								"description": "Gibt eine Liste von Artikeln zurück."
+							},
+							"response": []
+						},
+						{
+							"name": "Read article",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{AccessToken}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "Authorization",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/Articles/130004",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"Articles",
+										"130004"
+									]
+								},
+								"description": "Gibt einen Artikel zurück."
+							},
+							"response": []
+						},
+						{
+							"name": "Read variants of article",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{AccessToken}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "Authorization",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/Articles/400005/VariantArticles",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"Articles",
+										"400005",
+										"VariantArticles"
+									]
+								},
+								"description": "Gibt eine Liste der Variantenartikel zu einem Artikel zurück. Dieser Artikel kann auch ein Variantenartikel sein."
+							},
+							"response": []
+						},
+						{
+							"name": "Read accessory of article",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{AccessToken}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "Authorization",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/Articles/400003/AccessoryArticles",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"Articles",
+										"400003",
+										"AccessoryArticles"
+									]
+								},
+								"description": "Gibt eine Liste der Variantenartikel zu einem Artikel zurück. Dieser Artikel kann auch ein Variantenartikel sein."
+							},
+							"response": []
+						},
+						{
+							"name": "Read article set of article",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{AccessToken}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "Authorization",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/Articles/120004/SetArticles",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"Articles",
+										"120004",
+										"SetArticles"
+									]
+								},
+								"description": "Gibt eine Liste der enthaltenen Artikel eines Stücklistenartikels zurück."
+							},
+							"response": []
+						},
+						{
+							"name": "Read alternative articles",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{AccessToken}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "Authorization",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/Articles/210011/AlternativeArticles",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"Articles",
+										"210011",
+										"AlternativeArticles"
+									]
+								},
+								"description": "Gibt eine Liste der Alternativartikel zu einem Artikel zurück."
+							},
+							"response": []
+						},
+						{
+							"name": "Read stock of articles",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{AccessToken}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "Authorization",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/Articles/Stock",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"Articles",
+										"Stock"
+									]
+								},
+								"description": "Gibt die Lagerbestände zu den Artikeln zurück."
+							},
+							"response": []
+						},
+						{
+							"name": "Read quantity unit of article",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{AccessToken}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "Authorization",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/Articles/300009/QuantityUnits",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"Articles",
+										"300009",
+										"QuantityUnits"
+									]
+								},
+								"description": "Gibt die Mengenumrechnungen zu dem Artikel zurück."
+							},
+							"response": []
+						},
+						{
+							"name": "Read quantity unit of supplier of article",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{AccessToken}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "Authorization",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/Articles/300009/QuantityUnits/70001",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"Articles",
+										"300009",
+										"QuantityUnits",
+										"70001"
+									]
+								},
+								"description": "Gibt die Mengenumrechnungen zu dem Artikel mit dem Lieferanten zurück."
+							},
+							"response": []
+						},
+						{
+							"name": "Read characteristics of article",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{AccessToken}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "Authorization",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/ArticleGroups",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"ArticleGroups"
+									]
+								},
+								"description": "Gibt die Sachmerkmale zu einem Artikel zurück."
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "ArticleGroup",
+					"item": [
+						{
+							"name": "Read all article groups",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{AccessToken}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "Authorization",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/ArticleGroups",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"ArticleGroups"
+									]
+								},
+								"description": "Gibt eine Liste von Artikelgruppen zurück."
+							},
+							"response": []
+						},
+						{
+							"name": "Read article group",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{AccessToken}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "Authorization",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/ArticleGroups/100",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"ArticleGroups",
+										"100"
+									]
+								},
+								"description": "Gibt eine Artikelgruppe zurück."
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Characteristic",
+					"item": [
+						{
+							"name": "Read all lists of characteristics",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{AccessToken}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "Authorization",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/CharacteristicLists",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"CharacteristicLists"
+									]
+								},
+								"description": "Gibt die Sachmerkmal-Listen zurück."
+							},
+							"response": []
+						},
+						{
+							"name": "Read list of characteristics",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{AccessToken}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "Authorization",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/CharacteristicLists/1",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"CharacteristicLists",
+										"1"
+									]
+								},
+								"description": "Gibt eine Sachmerkmal-Liste zurück."
+							},
+							"response": []
+						},
+						{
+							"name": "Read characteristics of list of characteristics",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{AccessToken}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "Authorization",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/CharacteristicLists/1/Characteristics",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"CharacteristicLists",
+										"1",
+										"Characteristics"
+									]
+								},
+								"description": "Gibt die Sachmerkmale zu einer Sachmerkmalliste zurück."
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "SetArticle",
+					"item": [
+						{
+							"name": "Read a list of parent articles with the article set",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{AccessToken}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "Authorization",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/SetArticles/120001/Articles",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"SetArticles",
+										"120001",
+										"Articles"
+									]
+								},
+								"description": "Liefert eine Liste der Hauptstücklistenartikel, bei denen der Stücklistenartikel enthalten ist."
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "SurchargeArticle",
+					"item": [
+						{
+							"name": "Read all surcharge articles",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{AccessToken}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "Authorization",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/SurchargeArticles",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"SurchargeArticles"
+									]
+								},
+								"description": "Gibt eine Liste der Aufschlagsartikel zurück."
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Belege",
+			"item": [
+				{
+					"name": "DeleiveryTerm",
+					"item": [
+						{
+							"name": "Read all delivery terms",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{AccessToken}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "Authorization",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/DeliveryTerms",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"DeliveryTerms"
+									]
+								},
+								"description": "Gibt eine Liste von Lieferbedingungen zurück."
+							},
+							"response": []
+						},
+						{
+							"name": "Read delivery term",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{AccessToken}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "Authorization",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/DeliveryTerms/10",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"DeliveryTerms",
+										"10"
+									]
+								},
+								"description": "Gibt eine Lieferbedingungen zurück."
+							},
+							"response": []
+						},
+						{
+							"name": "Read shipping charges relations of delivery term",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{AccessToken}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "Authorization",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/DeliveryTerms/10/ShippingChargesRelations",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"DeliveryTerms",
+										"10",
+										"ShippingChargesRelations"
+									]
+								},
+								"description": "Gibt eine Lieferbedingungen zurück."
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Document",
+					"item": [
+						{
+							"name": "Read all documents",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{AccessToken}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "Authorization",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/Documents",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"Documents"
+									]
+								},
+								"description": "Gibt eine Liste von Belegen zurück."
+							},
+							"response": []
+						},
+						{
+							"name": "Read document",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{AccessToken}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "Authorization",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/Documents/SWE250",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"Documents",
+										"SWE250"
+									]
+								},
+								"description": "Gibt ein Beleg zurück.\n\ndocumentKey = BelegTyp + Belegnummer z.B. SWE250\n\nStandard:\n=============================\nB - Bestellung\nS - Wareneingang\nF - Auftrag\nP - Packzettel\nL - Lieferschein"
+							},
+							"response": [
+								{
+									"name": "Document/SWE250",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{url}}/",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												""
+											],
+											"query": [
+												{
+													"key": "",
+													"value": "",
+													"disabled": true
+												}
+											]
+										}
+									},
+									"_postman_previewlanguage": "Text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "🔑 Create document",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{AccessToken}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "Authorization",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\t\"KindFlag\": \"B\",\r\n\t\"BusinessPartner\":\r\n\t\t{\r\n\t\t\t\"Address\":\r\n\t\t\t{\r\n\t\t\t\"Number\": \"10001\"\r\n\t\t\t}\r\n\t\t}\r\n}"
+								},
+								"url": {
+									"raw": "{{url}}/Documents",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"Documents"
+									]
+								},
+								"description": "Erstellen eines neuen Beleges."
+							},
+							"response": []
+						},
+						{
+							"name": "🔑 Update document",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{AccessToken}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "Authorization",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\t\"GrossAmount\": 123.45\r\n}"
+								},
+								"url": {
+									"raw": "{{url}}/Documents/SWE250",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"Documents",
+										"SWE250"
+									]
+								},
+								"description": "Bearbeiten eines Beleges."
+							},
+							"response": []
+						},
+						{
+							"name": "🔑 Update document Copy",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{AccessToken}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "Authorization",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\t\"GrossAmount\": 123.45\r\n}"
+								},
+								"url": {
+									"raw": "{{url}}/Documents/SWE250",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"Documents",
+										"SWE250"
+									]
+								},
+								"description": "Bearbeiten eines Beleges."
+							},
+							"response": []
+						},
+						{
+							"name": "🔑 Delete document",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{AccessToken}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "Authorization",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/Documents/SWE250",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"Documents",
+										"SWE250"
+									]
+								},
+								"description": "Löschen eines Beleges."
+							},
+							"response": []
+						},
+						{
+							"name": "🔑 Read all positions of document",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{AccessToken}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "Authorization",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/Documents/SWE250/Positions",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"Documents",
+										"SWE250",
+										"Positions"
+									]
+								},
+								"description": "Gibt alle Belegpositionen eines Beleges zurück"
+							},
+							"response": []
+						},
+						{
+							"name": "🔑 Read all store informations of position",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{AccessToken}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "Authorization",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/Documents/SWE250/Positions/10e4782b-91d4-4f22-8eb3-6e63cf5aa8cb/Storeinformation",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"Documents",
+										"SWE250",
+										"Positions",
+										"10e4782b-91d4-4f22-8eb3-6e63cf5aa8cb",
+										"Storeinformation"
+									]
+								},
+								"description": "Gibt alle Lageinformationen zu einer Belegpositionen eines Beleges zurück."
+							},
+							"response": []
+						},
+						{
+							"name": "🔑 Create article position",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{AccessToken}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "Authorization",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"CalculatedQuantityValue\": 5.00,\r\n  \"ArticleNumber\": \"751C93063\",\r\n  \"UnitPrice\": 4.05,\r\n  \"Name\": \"ORACAL® 751C High Performance Cast glänzend 930 Gold I 630 mm x Lfm.\"\r\n}"
+								},
+								"url": {
+									"raw": "{{url}}/Documents/FAU396/Positions",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"Documents",
+										"FAU396",
+										"Positions"
+									]
+								},
+								"description": "Lagerbuchung auf einer Position"
+							},
+							"response": []
+						},
+						{
+							"name": "🔑 Update document position",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{AccessToken}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "Authorization",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"CalculatedQuantityValue\": 5.00\r\n}"
+								},
+								"url": {
+									"raw": "{{url}}/Documents/FAU396/Positions/B67EFA8B-979C-46A7-9EBC-901DA7703073",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"Documents",
+										"FAU396",
+										"Positions",
+										"B67EFA8B-979C-46A7-9EBC-901DA7703073"
+									]
+								},
+								"description": "Bearbeiten einer Belegposition."
+							},
+							"response": []
+						},
+						{
+							"name": "🔑 Delete document position",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{AccessToken}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "Authorization",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/Documents/FAU396/Positions/B67EFA8B-979C-46A7-9EBC-901DA7703073",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"Documents",
+										"FAU396",
+										"Positions",
+										"B67EFA8B-979C-46A7-9EBC-901DA7703073"
+									]
+								},
+								"description": "Löschen einer Belegposition."
+							},
+							"response": []
+						},
+						{
+							"name": "🔑 Create shipping item position",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{AccessToken}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "Authorization",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"ArticleNumber\": \"751C93063\",\r\n  \"UnitPrice\": 4.05,\r\n  \"AlternativePositionDescription\": \"Schneckenpost Express\"\r\n}"
+								},
+								"url": {
+									"raw": "{{url}}/Documents/FAU396/Positions",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"Documents",
+										"FAU396",
+										"Positions"
+									]
+								},
+								"description": "Lagerbuchung auf einer Position"
+							},
+							"response": []
+						},
+						{
+							"name": "🔑 Store in position",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{AccessToken}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "Authorization",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "[\r\n  {\r\n    \"Identifier\": \"FCC2D453-EDC4-4B01-94BF-14F02E776BCE\",\r\n    \"Warehouse\": \"100\",\r\n    \"Quantity\": 2\r\n  }\r\n]"
+								},
+								"url": {
+									"raw": "{{url}}/Documents/FAU396/Positions/Store",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"Documents",
+										"FAU396",
+										"Positions",
+										"Store"
+									]
+								},
+								"description": "Lagerbuchung auf einer Position"
+							},
+							"response": []
+						},
+						{
+							"name": "🔑 Create document successors",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{AccessToken}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "Authorization",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\t \"DocumentKindDestination\" : \"L\",\r\n\t \"Positions\": []\r\n}"
+								},
+								"url": {
+									"raw": "{{url}}/Documents/FAU467/Successors",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"Documents",
+										"FAU467",
+										"Successors"
+									]
+								},
+								"description": "Belegübergabe, alle Positionen werden mit Menge = 0 übergeben."
+							},
+							"response": []
+						},
+						{
+							"name": "🔑 Create document successors with positions",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{AccessToken}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "Authorization",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\t \"DocumentKindDestination\" : \"L\",\r\n\t \"Positions\": [{\r\n\t \t\"Identifier\": \"47A34ECC-37C6-4475-AECA-06A49E699A33\",\r\n\t \t\"ArticleNumber\": \"100001\",\r\n\t \t\"Quantity\":1,\r\n\t \t\"Warehouse\": \"200\"\r\n\t }]\r\n}"
+								},
+								"url": {
+									"raw": "{{url}}/Documents/FAU466/Successors",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"Documents",
+										"FAU466",
+										"Successors"
+									]
+								},
+								"description": "Belegübergabe mit der Angabe von Positionen und Mengen die übergeben werden sollen."
+							},
+							"response": []
+						},
+						{
+							"name": "Update document status flag",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{AccessToken}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "Authorization",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\t\"statusFlag\": \"0\"\r\n}"
+								},
+								"url": {
+									"raw": "{{url}}/Documents/SWE250/StatusFlag",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"Documents",
+										"SWE250",
+										"StatusFlag"
+									]
+								},
+								"description": "Setzen des Belegstatus"
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "DocumentKind",
+					"item": [
+						{
+							"name": "Read all kind of document",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{AccessToken}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "Authorization",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/DocumentKinds",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"DocumentKinds"
+									]
+								},
+								"description": "Gibt alle Belegarten zurück."
+							},
+							"response": []
+						},
+						{
+							"name": "Read kind of document",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{AccessToken}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "Authorization",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/DocumentKinds/E",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"DocumentKinds",
+										"E"
+									]
+								},
+								"description": "Gibt alle Belegarten zurück."
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "PriceGroup",
+					"item": [
+						{
+							"name": "Read all price groups",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{AccessToken}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "Authorization",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/PriceGroups",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"PriceGroups"
+									]
+								},
+								"description": "Gibt alle Preisgruppen zurück."
+							},
+							"response": []
+						},
+						{
+							"name": "Read price group",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{AccessToken}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "Authorization",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/PriceGroups/2",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"PriceGroups",
+										"2"
+									]
+								},
+								"description": "Gibt eine Preisgruppe zurück."
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Project",
+					"item": [
+						{
+							"name": "Read all projects",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{AccessToken}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "Authorization",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/Projects",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"Projects"
+									]
+								},
+								"description": "Gibt alle Projekte zurück."
+							},
+							"response": []
+						},
+						{
+							"name": "Read project",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{AccessToken}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "Authorization",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/Projects",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"Projects"
+									]
+								},
+								"description": "Gibt alle Projekte zurück."
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Signature",
+					"item": [
+						{
+							"name": "Read all signatures",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{AccessToken}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "Authorization",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/Signatures",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"Signatures"
+									]
+								},
+								"description": "Gibt alle Unterschriften zurück."
+							},
+							"response": []
+						},
+						{
+							"name": "Read signature",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{AccessToken}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "Authorization",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/Signatures/1",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"Signatures",
+										"1"
+									]
+								},
+								"description": "Gibt eine Signatur zurück."
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Benutzerverwaltung",
+			"item": [
+				{
+					"name": "User",
+					"item": [
+						{
+							"name": "Read current user",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{AccessToken}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "Authorization",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/Users/Current",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"Users",
+										"Current"
+									]
+								},
+								"description": "Gibt den angemeldeten Benutzer zurück."
+							},
+							"response": []
+						},
+						{
+							"name": "Read current MDE configuration",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{AccessToken}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "Authorization",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/Users/Current/MDEConfiguration",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"Users",
+										"Current",
+										"MDEConfiguration"
+									]
+								},
+								"description": "Gibt die MDE Konfiguration zu dem angemeldeten Benutzer zurück."
+							},
+							"response": []
+						},
+						{
+							"name": "Read current BDE configuration",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{AccessToken}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "Authorization",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/Users/Current/MDEConfiguration",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"Users",
+										"Current",
+										"MDEConfiguration"
+									]
+								},
+								"description": "Gibt die BDE Konfiguration zu dem angemeldeten Benutzer zurück."
+							},
+							"response": []
+						},
+						{
+							"name": "Update current user",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{AccessToken}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "Authorization",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"TenantDatabaseName\": \"SL_MWUNDF\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/Users/Current",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"Users",
+										"Current"
+									]
+								},
+								"description": "Ändert den angemeldeten Benutzer."
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Geschäftspartner",
+			"item": [
+				{
+					"name": "Customer",
+					"item": [
+						{
+							"name": "Read all customers",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{AccessToken}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "Authorization",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/Customers",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"Customers"
+									]
+								},
+								"description": "Gibt eine Liste aller Kunden zurück."
+							},
+							"response": []
+						},
+						{
+							"name": "Read customer",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{AccessToken}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "Authorization",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/Customers/10001",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"Customers",
+										"10001"
+									]
+								},
+								"description": "Gibt eine Liste aller Kunden zurück."
+							},
+							"response": []
+						},
+						{
+							"name": "Create customer",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{AccessToken}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "Authorization",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"FirstName\": \"Max\",\n  \"LastName\": \"Mustermann\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/Customers",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"Customers"
+									]
+								},
+								"description": "Erstellt einen neuen Kunden."
+							},
+							"response": []
+						},
+						{
+							"name": "Update customer",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{AccessToken}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "Authorization",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"FirstName\": \"Max\",\n  \"LastName\": \"Musterfrau\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/Customers/10122",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"Customers",
+										"10122"
+									]
+								},
+								"description": "Erstellt einen neuen Kunden."
+							},
+							"response": []
+						},
+						{
+							"name": "Read all contact persons of customer",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{AccessToken}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "Authorization",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/Customers/10001/ContactPersons",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"Customers",
+										"10001",
+										"ContactPersons"
+									]
+								},
+								"description": "Gibt eine Liste aller Kontaktpersonen eines Kunden zurück."
+							},
+							"response": []
+						},
+						{
+							"name": "Read contact person of customer",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{AccessToken}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "Authorization",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/Customers/10001/ContactPersons",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"Customers",
+										"10001",
+										"ContactPersons"
+									]
+								},
+								"description": "Gibt eine Kontaktperson eines Kunden zurück."
+							},
+							"response": []
+						},
+						{
+							"name": "Create contact person of customer",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{AccessToken}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "Authorization",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"FirstName\": \"Hermann\",\r\n    \"LastName\": \"Hinz\",\r\n    \"Company\": \"Baustoffcenter Hinz GmbH\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/Customers/10001/ContactPersons",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"Customers",
+										"10001",
+										"ContactPersons"
+									]
+								},
+								"description": "Erstellt eine Kontaktperson zu einem Kunden."
+							},
+							"response": []
+						},
+						{
+							"name": "Update contact person of customer",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{AccessToken}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "Authorization",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"FirstName\": \"Hermann\",\r\n    \"LastName\": \"Hinz\",\r\n    \"Company\": \"Baustoffcenter Hinz KG\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/Customers/10001/ContactPersons/1531",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"Customers",
+										"10001",
+										"ContactPersons",
+										"1531"
+									]
+								},
+								"description": "Bearbeiten eine Kontaktperson zu einem Kunden."
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "DeliveryAddress",
+					"item": [
+						{
+							"name": "Read all delivery addresses of customer",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{AccessToken}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "Authorization",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/Customers/10004/DeliveryAddresses",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"Customers",
+										"10004",
+										"DeliveryAddresses"
+									]
+								},
+								"description": "Gibt eine Liste aller Lieferadressen eines Kunden."
+							},
+							"response": []
+						},
+						{
+							"name": "Read delivery address of customer",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{AccessToken}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "Authorization",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/Customers/10004/DeliveryAddresses/1",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"Customers",
+										"10004",
+										"DeliveryAddresses",
+										"1"
+									]
+								},
+								"description": "Gibt eine Lieferadresse eines Kunden zurück."
+							},
+							"response": []
+						},
+						{
+							"name": "Read all delivery addresses of supplier",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{AccessToken}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "Authorization",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/Suppliers/70001/DeliveryAddresses",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"Suppliers",
+										"70001",
+										"DeliveryAddresses"
+									]
+								},
+								"description": "Gibt eine Liste aller Lieferadressen eines Lieferanten."
+							},
+							"response": []
+						},
+						{
+							"name": "Read delivery address of supplier",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{AccessToken}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "Authorization",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/Suppliers/70001/DeliveryAddresses/1",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"Suppliers",
+										"70001",
+										"DeliveryAddresses",
+										"1"
+									]
+								},
+								"description": "Gibt eine Lieferadresse eines Kunden zurück."
+							},
+							"response": []
+						},
+						{
+							"name": "Read all delivery addresses of prospect",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{AccessToken}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "Authorization",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/Prospects/1/DeliveryAddresses",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"Prospects",
+										"1",
+										"DeliveryAddresses"
+									]
+								},
+								"description": "Gibt eine Liste aller Lieferadressen eines Interessenten zurück."
+							},
+							"response": []
+						},
+						{
+							"name": "Read delivery address of prospect",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{AccessToken}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "Authorization",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/Prospects/1/DeliveryAddresses/1",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"Prospects",
+										"1",
+										"DeliveryAddresses",
+										"1"
+									]
+								},
+								"description": "Gibt eine Lieferadresse eines Interessenten zurück."
+							},
+							"response": []
+						},
+						{
+							"name": "Read all delivery addresses of document",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{AccessToken}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "Authorization",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/Prospects/1/DeliveryAddresses",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"Prospects",
+										"1",
+										"DeliveryAddresses"
+									]
+								},
+								"description": "Gibt eine Liste aller Lieferadressen eines Beleges zurück."
+							},
+							"response": []
+						},
+						{
+							"name": "Read delivery address of document",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{AccessToken}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "Authorization",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/Prospects/1/DeliveryAddresses/1",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"Prospects",
+										"1",
+										"DeliveryAddresses",
+										"1"
+									]
+								},
+								"description": "Gibt eine Liste aller Lieferadressen eines Beleges zurück."
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Prospect",
+					"item": [
+						{
+							"name": "Read all prospects",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{AccessToken}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "Authorization",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/Prospects",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"Prospects"
+									]
+								},
+								"description": "Gibt eine Liste von Interessenten zurück."
+							},
+							"response": []
+						},
+						{
+							"name": "Read prospect",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{AccessToken}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "Authorization",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/Prospects/2",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"Prospects",
+										"2"
+									]
+								},
+								"description": "Gibt einen Interessenten zurück."
+							},
+							"response": []
+						},
+						{
+							"name": "Create prospect",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{AccessToken}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "Authorization",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"Salutation\": \"Firma\",\n  \"Company\": \"Holz Company GmbH\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/Prospects",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"Prospects"
+									]
+								},
+								"description": "Erstellt einen neuen Interessenten."
+							},
+							"response": []
+						},
+						{
+							"name": "Update prospect",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{AccessToken}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "Authorization",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"Salutation\": \"Firma\",\n  \"Company\": \"Holz Company GmbH\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/Prospects/2",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"Prospects",
+										"2"
+									]
+								},
+								"description": "Bearbeiten eines Interessenten."
+							},
+							"response": []
+						},
+						{
+							"name": "Read contact persons of prospect",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{AccessToken}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "Authorization",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/Prospects/2/ContactPersons",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"Prospects",
+										"2",
+										"ContactPersons"
+									]
+								},
+								"description": "Gibt eine Liste der Kontaktpesonen zu einen Interessenten zurück."
+							},
+							"response": []
+						},
+						{
+							"name": "Read contact person of prospect",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{AccessToken}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "Authorization",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/Prospects/2/ContactPersons/1107",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"Prospects",
+										"2",
+										"ContactPersons",
+										"1107"
+									]
+								},
+								"description": "Gibt eine Kontaktpeson zu einen Interessenten zurück."
+							},
+							"response": []
+						},
+						{
+							"name": "Create contact person of prospect",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{AccessToken}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "Authorization",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"FirstName\": \"Hermann\",\r\n    \"LastName\": \"Hinz\",\r\n    \"Company\": \"Baustoffcenter Hinz GmbH\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/Prospects/2/ContactPersons",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"Prospects",
+										"2",
+										"ContactPersons"
+									]
+								},
+								"description": "Erstellt eine Kontaktpeson zu einen Interessenten."
+							},
+							"response": []
+						},
+						{
+							"name": "Update contact person of prospect",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{AccessToken}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "Authorization",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"Company\": \"Baustoffcenter Hinz KG\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/Prospects/2/ContactPersons/1529",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"Prospects",
+										"2",
+										"ContactPersons",
+										"1529"
+									]
+								},
+								"description": "Bearbeiten einer Kontaktperson zu einen Interessenten."
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Supplier",
+					"item": [
+						{
+							"name": "Read all suppliers",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{AccessToken}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "Authorization",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/Suppliers",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"Suppliers"
+									]
+								},
+								"description": "Gibt eine Liste von Lieferanten zurück. Die Anzahl der Lieferanten, sowie weitere Filtermöglichkeiten können über die Url angegeben werden."
+							},
+							"response": []
+						},
+						{
+							"name": "Read supplier",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{AccessToken}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "Authorization",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/Suppliers/70001",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"Suppliers",
+										"70001"
+									]
+								},
+								"description": "Gibt einen Lieferanten zurück."
+							},
+							"response": []
+						},
+						{
+							"name": "Create supplier",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{AccessToken}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "Authorization",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"Number\": \"7777\",\r\n  \"FirstName\": \"Max\",\r\n  \"LastName\": \"Mustermann\",\r\n  \"Address\": {\r\n    \"Street\": \"Musterweg 2\",\r\n    \"City\": \"Musterort\"\r\n  }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/Suppliers",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"Suppliers"
+									]
+								},
+								"description": "Legt einen neuen Lieferanten an."
+							},
+							"response": []
+						},
+						{
+							"name": "Update supplier",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{AccessToken}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "Authorization",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"FirstName\": \"Max\",\r\n  \"LastName\": \"Mustermann\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/Suppliers/70001",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"Suppliers",
+										"70001"
+									]
+								},
+								"description": "Legt einen neuen Lieferanten an."
+							},
+							"response": []
+						},
+						{
+							"name": "Read contact persons of supplier",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{AccessToken}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "Authorization",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/Suppliers/70001/ContactPersons",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"Suppliers",
+										"70001",
+										"ContactPersons"
+									]
+								},
+								"description": "Gibt alle Kontakte zu einen Lieferanten zurück."
+							},
+							"response": []
+						},
+						{
+							"name": "Read contact person of supplier",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{AccessToken}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "Authorization",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/Suppliers/70001/ContactPersons/31",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"Suppliers",
+										"70001",
+										"ContactPersons",
+										"31"
+									]
+								},
+								"description": "Gibt einen kompletten Kontakt zu einem Lieferanten zurück."
+							},
+							"response": []
+						},
+						{
+							"name": "Create contact person of supplier",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{AccessToken}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "Authorization",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"FirstName\": \"Hermann\",\r\n    \"LastName\": \"Hinz\",\r\n    \"Company\": \"Baustoffcenter Hinz GmbH\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/Suppliers/70001/ContactPersons",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"Suppliers",
+										"70001",
+										"ContactPersons"
+									]
+								},
+								"description": "Erstellt einen Kontakt zu einen Lieferanten."
+							},
+							"response": []
+						},
+						{
+							"name": "Create contact person of supplier Copy",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{AccessToken}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "Authorization",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"FirstName\": \"Hermann\",\r\n    \"LastName\": \"Hinz\",\r\n    \"Company\": \"Baustoffcenter Hinz GmbH\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/Suppliers/70001/ContactPersons/31",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"Suppliers",
+										"70001",
+										"ContactPersons",
+										"31"
+									]
+								},
+								"description": "Erstellt einen Kontakt zu einen Lieferanten."
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Employee",
+					"item": [
+						{
+							"name": "Read all employees",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{AccessToken}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "Authorization",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/Employees",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"Employees"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Read employee",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{AccessToken}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "Authorization",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/Employees/1",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"Employees",
+										"1"
+									]
+								},
+								"description": "Gibt einen Mitarbeiter zurück."
+							},
+							"response": []
+						},
+						{
+							"name": "Read the last x production steps",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{AccessToken}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "Authorization",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/Employees/4/ProductionSteps?countOfLastProcessedProductionStepts=3",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"Employees",
+										"4",
+										"ProductionSteps"
+									],
+									"query": [
+										{
+											"key": "countOfLastProcessedProductionStepts",
+											"value": "3"
+										}
+									]
+								},
+								"description": "Gibt die letzten x beareiteten Arbeitsschritte zurück."
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Inventory",
+			"item": [
+				{
+					"name": "Read all active inventories",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{AccessToken}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "Authorization",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/Inventories",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"Inventories"
+							]
+						},
+						"description": "Gibt alle offene (aktive) Inventuren zurück."
+					},
+					"response": []
+				},
+				{
+					"name": "Read all warehouses of a inventory",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{AccessToken}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "Authorization",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/Inventories/Inv001/Warehouses",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"Inventories",
+								"Inv001",
+								"Warehouses"
+							]
+						},
+						"description": "Gibt alle Läger, Zähllisten, Artikelanzahl und Anzahl erfasster Artikel zu einer Inventur zurück."
+					},
+					"response": []
+				},
+				{
+					"name": "Read all article of a inventory",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{AccessToken}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "Authorization",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/Inventories/Inv001/Warehouses/100/Articles",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"Inventories",
+								"Inv001",
+								"Warehouses",
+								"100",
+								"Articles"
+							]
+						},
+						"description": "Gibt alle Artikel zu einerInventur und einem Lagerplatz zurück.Inkl. Artikelbezeichnung und IST-Bestand."
+					},
+					"response": []
+				},
+				{
+					"name": "Write Quantity of article of a inventory",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{AccessToken}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "Authorization",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"Quantity\": 1,\r\n  \"Serialnumber\": \"SNR1\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/Inventories/Inv001/Warehouses/100/Articles/120005",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"Inventories",
+								"Inv001",
+								"Warehouses",
+								"100",
+								"Articles",
+								"120005"
+							]
+						},
+						"description": "IST-Erfassung eines Artikels einer Inventur. Menge wird dazu gezählt."
+					},
+					"response": []
+				},
+				{
+					"name": "Update Quantity of article of a inventory",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{AccessToken}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "Authorization",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"Quantity\": 1,\r\n  \"Serialnumber\": \"SNR1\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/Inventories/Inv001/Warehouses/100/Articles/120005",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"Inventories",
+								"Inv001",
+								"Warehouses",
+								"100",
+								"Articles",
+								"120005"
+							]
+						},
+						"description": "IST-Erfassung eines Artikels einer Inventur. Menge wird neu gesetzt."
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Journal",
+			"item": [
+				{
+					"name": "Create Journal",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{AccessToken}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "Authorization",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"Date\": \"2019-06-19T06:18:32.835Z\",\r\n  \"StatusId\": 1,\r\n  \"Label\": \"test\",\r\n  \"Text\": \"test\",\r\n  \"JournalLinkInformation\": {\r\n    \"LinkType\": \"document\",\r\n    \"DocumentType\": \"L\",\r\n    \"DocumentNumber\": \"LS488\"\r\n  }\r\n}"
+						},
+						"url": {
+							"raw": "{{url}}/Journals",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"Journals"
+							]
+						},
+						"description": "Journaleintrag anlegen"
+					},
+					"response": []
+				},
+				{
+					"name": "Read Journals",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{AccessToken}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "Authorization",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/Journals",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"Journals"
+							]
+						},
+						"description": "Gibt eine Liste von Journalen zurück."
+					},
+					"response": []
+				},
+				{
+					"name": "Read Journal",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{AccessToken}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "Authorization",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/Journals/3223744c-385f-4f49-8aac-acdbb8742b13",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"Journals",
+								"3223744c-385f-4f49-8aac-acdbb8742b13"
+							]
+						},
+						"description": "Gibt eine Journal zurück."
+					},
+					"response": []
+				},
+				{
+					"name": "Add attachment to a journal",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{AccessToken}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "Authorization",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "",
+									"description": "Datei",
+									"type": "file",
+									"src": "/C:/Users/ssteglitz/Desktop/drink.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/Journals/077D2B66-158B-4FA1-966E-DD4074F59280/Attachments",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"Journals",
+								"077D2B66-158B-4FA1-966E-DD4074F59280",
+								"Attachments"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Read all attachments of journal",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{AccessToken}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "Authorization",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/Journals/077D2B66-158B-4FA1-966E-DD4074F59280/Attachments",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"Journals",
+								"077D2B66-158B-4FA1-966E-DD4074F59280",
+								"Attachments"
+							]
+						},
+						"description": "Gibt eine Liste von Anhängen zu einen Journal zurück."
+					},
+					"response": []
+				},
+				{
+					"name": "Read attachment of journal",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{AccessToken}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "Authorization",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/Journals/28f0a283-9d58-4119-a2bb-0f18dfa61683/Attachments/11",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"Journals",
+								"28f0a283-9d58-4119-a2bb-0f18dfa61683",
+								"Attachments",
+								"11"
+							]
+						},
+						"description": "Gibt einen Anhang zu einen Journal zurück."
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Warehouse",
+			"item": [
+				{
+					"name": "Read Warehouse",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{AccessToken}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "Authorization",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}\\Warehouses/500",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"Warehouses",
+								"500"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Production",
+			"item": [
+				{
+					"name": "Working Hours",
+					"item": [
+						{
+							"name": "Read working hours of productionstep",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{AccessToken}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "Authorization",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/ProductionOrders/1/ProductionSteps/74/WorkingHours",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"ProductionOrders",
+										"1",
+										"ProductionSteps",
+										"74",
+										"WorkingHours"
+									]
+								},
+								"description": "Liest alle Arbeitszeiten zu einem Produktionsschritt"
+							},
+							"response": []
+						},
+						{
+							"name": "Create working hours of productionstep",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{AccessToken}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "Authorization",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"StartTime\": \"2019-08-20T08:00:00\",\n\t\"EndTime\":\"2019-08-20T10:00:00\",\n\t\"EmployeeNumber\": \"1\"\n}"
+								},
+								"url": {
+									"raw": "{{url}}/ProductionOrders/1/ProductionSteps/137/WorkingHours",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"ProductionOrders",
+										"1",
+										"ProductionSteps",
+										"137",
+										"WorkingHours"
+									]
+								},
+								"description": "Erfasst die Arbeitszeit (Start- und Endzeit) eines Mitarbeiters zu einen Arbeitsschritt."
+							},
+							"response": []
+						},
+						{
+							"name": "Create working hours (start time) of productionstep",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{AccessToken}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "Authorization",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"StartTime\": \"2019-08-19T13:00:00\",\n\t\"EmployeeNumber\": \"1\"\n}"
+								},
+								"url": {
+									"raw": "{{url}}/ProductionOrders/1/ProductionSteps/137/WorkingHours",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"ProductionOrders",
+										"1",
+										"ProductionSteps",
+										"137",
+										"WorkingHours"
+									]
+								},
+								"description": "Erfasst die Arbeitszeit (Startzeit) eines Mitarbeiters zu einen Arbeitsschritt."
+							},
+							"response": []
+						},
+						{
+							"name": "Create working hours (end time) of productionstep",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{AccessToken}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "Authorization",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"EndTime\": \"2019-08-19T16:00:00\",\n\t\"EmployeeNumber\": \"1\"\n}"
+								},
+								"url": {
+									"raw": "{{url}}/ProductionOrders/1/ProductionSteps/137/WorkingHours",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"ProductionOrders",
+										"1",
+										"ProductionSteps",
+										"137",
+										"WorkingHours"
+									]
+								},
+								"description": "Erfasst die Arbeitszeit (Endzeit) eines Mitarbeiters zu einen Arbeitsschritt."
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Operating Times",
+					"item": [
+						{
+							"name": "Read operating time of productionstep",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{AccessToken}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "Authorization",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/ProductionOrders/1/ProductionSteps/74/OperatingTimes",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"ProductionOrders",
+										"1",
+										"ProductionSteps",
+										"74",
+										"OperatingTimes"
+									]
+								},
+								"description": "Liest alle Maschinenarbeitszeiten zu einem Produktionsschritt"
+							},
+							"response": []
+						},
+						{
+							"name": "Create operating time of productionstep",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{AccessToken}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "Authorization",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"StartTime\": \"2019-07-17T10:00:00\",\n\t\"EndTime\":\"2019-07-17T10:10:00\",\n\t\"ResourceIdentifier\": \"0400\"\n}"
+								},
+								"url": {
+									"raw": "{{url}}/ProductionOrders/1/ProductionSteps/74/OperatingTimes",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"ProductionOrders",
+										"1",
+										"ProductionSteps",
+										"74",
+										"OperatingTimes"
+									]
+								},
+								"description": "Erfasst die Maschinenarbeitszeit (Start- und Endzeit) eines Arbeitsschritt."
+							},
+							"response": []
+						},
+						{
+							"name": "Create operating time (start time) of productionstep",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{AccessToken}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "Authorization",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"StartTime\": \"2019-07-18T10:00:00\",\n\t\"ResourceIdentifier\": \"0200\"\n}"
+								},
+								"url": {
+									"raw": "{{url}}/ProductionOrders/1/ProductionSteps/74/OperatingTimes",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"ProductionOrders",
+										"1",
+										"ProductionSteps",
+										"74",
+										"OperatingTimes"
+									]
+								},
+								"description": "Erfasst die Maschinenarbeitszeit (Startzeit) eines Arbeitsschrittes."
+							},
+							"response": []
+						},
+						{
+							"name": "Create operating time (end time) of productionstep",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{AccessToken}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "Authorization",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"EndTime\": \"2019-07-18T12:30:00\",\n\t\"ResourceIdentifier\": \"0200\"\n}"
+								},
+								"url": {
+									"raw": "{{url}}/ProductionOrders/1/ProductionSteps/74/OperatingTimes",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"ProductionOrders",
+										"1",
+										"ProductionSteps",
+										"74",
+										"OperatingTimes"
+									]
+								},
+								"description": "Erfasst die Maschinenarbeitszeit (Endzeit) eines Arbeitsschrittes."
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Read all production orders",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{AccessToken}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "Authorization",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/ProductionOrders",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"ProductionOrders"
+							]
+						},
+						"description": "Rückgabe aller Fertigungsaufträge und deren Kopfinformationen"
+					},
+					"response": []
+				},
+				{
+					"name": "Read production order",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{AccessToken}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "Authorization",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/ProductionOrders/1002",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"ProductionOrders",
+								"1002"
+							]
+						},
+						"description": "Rückgabe der Kopfinformationen zu einem Fertigungsauftrag"
+					},
+					"response": []
+				},
+				{
+					"name": "Read productionsteps of production order",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{AccessToken}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "Authorization",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/ProductionOrders/FA7/ProductionSteps?productionStepsListFilter.items=0&productionStepsListFilter.orderBy=PositionNumber",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"ProductionOrders",
+								"FA7",
+								"ProductionSteps"
+							],
+							"query": [
+								{
+									"key": "productionStepsListFilter.items",
+									"value": "0"
+								},
+								{
+									"key": "productionStepsListFilter.orderBy",
+									"value": "PositionNumber"
+								},
+								{
+									"key": "page",
+									"value": "2",
+									"disabled": true
+								}
+							]
+						},
+						"description": "Liest die Arbeitsschritte zu einem Fertigungsauftrag aus."
+					},
+					"response": []
+				},
+				{
+					"name": "Read production requirements of production order",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{AccessToken}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "Authorization",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/ProductionOrders/1/ProductionRequirements",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"ProductionOrders",
+								"1",
+								"ProductionRequirements"
+							]
+						},
+						"description": "Liest die Ergebnisartikel und weitere Informationen zu dem Fertigungsbedarf zu einem Fertigungsauftrag."
+					},
+					"response": []
+				},
+				{
+					"name": "Read articles of productionstep",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{AccessToken}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "Authorization",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/ProductionOrders/1002/ProductionSteps/154/Articles",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"ProductionOrders",
+								"1002",
+								"ProductionSteps",
+								"154",
+								"Articles"
+							]
+						},
+						"description": "Liest die Artikel zu einem Fertigungsauftrag."
+					},
+					"response": []
+				},
+				{
+					"name": "Read articles of production order",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{AccessToken}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "Authorization",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/ProductionOrders/1008/Articles",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"ProductionOrders",
+								"1008",
+								"Articles"
+							]
+						},
+						"description": "Liest die Artikel zu einem Fertigungsauftrag."
+					},
+					"response": []
+				},
+				{
+					"name": "Create productionorder using article and quantity",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{AccessToken}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "Authorization",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\tArticleNumber: \"700025\",\n\tQuantity: 10\n}"
+						},
+						"url": {
+							"raw": "{{url}}/ProductionOrders",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"ProductionOrders"
+							]
+						},
+						"description": "Erstellt einem Fertigungsauftrag anhand der Artikelnummer eines Ergebnisartikels und der Bedarfsmenge."
+					},
+					"response": []
+				},
+				{
+					"name": "Update productionstep",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{AccessToken}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "Authorization",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"Parallelism\": false,\n    \"Deadline\": \"2019-10-25T00:00:00\"\n}"
+						},
+						"url": {
+							"raw": "{{url}}/ProductionOrders/1/ProductionSteps/74",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"ProductionOrders",
+								"1",
+								"ProductionSteps",
+								"74"
+							]
+						},
+						"description": "Bearbeitet einen Produktionsschritt."
+					},
+					"response": []
+				},
+				{
+					"name": "Update production step status",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{AccessToken}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "Authorization",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "1"
+						},
+						"url": {
+							"raw": "{{url}}/ProductionOrders/FA18/ProductionSteps/219/ProductionStepState",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"ProductionOrders",
+								"FA18",
+								"ProductionSteps",
+								"219",
+								"ProductionStepState"
+							]
+						},
+						"description": "Bearbeiten des Status eines Produktonsschrittes."
+					},
+					"response": []
+				},
+				{
+					"name": "Reserve productionstep",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{AccessToken}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "Authorization",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/ProductionOrders/1001/Reserve",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"ProductionOrders",
+								"1001",
+								"Reserve"
+							]
+						},
+						"description": "Reserviert einen Fertigungsschritt"
+					},
+					"response": []
+				},
+				{
+					"name": "Store finished items of productionorder",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{AccessToken}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "Authorization",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"ProductionOrderIdentifier\": \"1005\",\n\t\"Date\": \"2019-07-17T00:00:00\",\n\t\"WarehouseList\": [\n\t\t{\n\t\t\"ProductionArticleIdentifier\": \"146\",\n\t\t\"StoreInformation\": {\n\t\t  \"Warehouse\": 200,\n\t\t  \"Quantity\": 1,\n\t\t  \"ExpirationDate\": \"2019-12-17T00:00:00\"\n\t\t\t}\n\t\t}\n    ]\n}"
+						},
+						"url": {
+							"raw": "{{url}}/ProductionOrders/1005/Store",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"ProductionOrders",
+								"1005",
+								"Store"
+							]
+						},
+						"description": "Lagert die Ergebnisartikel eines Fertigungsauftrages ein."
+					},
+					"response": []
+				},
+				{
+					"name": "Outsource consumer items of productionorder",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{AccessToken}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "Authorization",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"ProductionOderIdentifier\": \"1005\",\n\t\"Date\": \"2019-12-17T00:00:00\",\n\t\"WarehouseList\": [\n\t\t{\n\t\t\"ProductionArticleIdentifier\": 144,\n\t\t\"StoreInformation\": {\n\t\t  \"Warehouse\": 200,\n\t\t  \"Quantity\": 1,\n\t\t  \"ExpirationDate\": \"2019-12-17T00:00:00\"\n\t\t\t}\n\t\t}\n    ]\n}"
+						},
+						"url": {
+							"raw": "{{url}}/ProductionOrders/1005/Outsource",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"ProductionOrders",
+								"1005",
+								"Outsource"
+							]
+						},
+						"description": "Lagert die mitgelieferten Verbrauchsartikel eines Fertigungsauftrages aus."
+					},
+					"response": []
+				},
+				{
+					"name": "Restore",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{AccessToken}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "Authorization",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"ProductionOrderIdentifier\": \"3\",\n\t\"WarehouseList\": [\t\t{\n\t\t\"ProductionArticleIdentifier\": 43,\n\t\t\"StoreInformation\": {\n\t\t  \"Quantity\": 1,\n\t\t  \"StoragePlaceIdentifier\": 1,\n\t\t  \"TargetWarehouse\": \"200\"\n\t\t\t}\n\t\t}\n    ]\n}"
+						},
+						"url": {
+							"raw": "{{url}}/ProductionOrders/3/Restore",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"ProductionOrders",
+								"3",
+								"Restore"
+							]
+						},
+						"description": "Einlagerung von bereits ausgelagerten Artikeln in ein beliebiges Lager (Umlagerung)."
+					},
+					"response": []
+				},
+				{
+					"name": "Outsource Undo (Warehouse)",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "key",
+									"value": "Authorization",
+									"type": "string"
+								},
+								{
+									"key": "value",
+									"value": "{{AccessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"ProductionOrderIdentifier\": \"1002\",\n\t\"WarehouseList\": [\t\t{\n\t\t\"ProductionArticleIdentifier\": 110,\n\t\t\"StoreInformation\": {\n\t\t  \"Warehouse\": 100,\n\t\t  \"Quantity\": 1,\n\t\t  \"StoragePlace\": 4\n\t\t\t}\n\t\t}\n    ]\n}"
+						},
+						"url": {
+							"raw": "{{url}}/ProductionOrders/1002/OutsourceUndo",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"ProductionOrders",
+								"1002",
+								"OutsourceUndo"
+							]
+						},
+						"description": "Lagert bereits ausgelagerte Artikel wieder ein."
+					},
+					"response": []
+				},
+				{
+					"name": "Store Undo (Warehouse)",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "key",
+									"value": "Authorization",
+									"type": "string"
+								},
+								{
+									"key": "value",
+									"value": "{{AccessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"ProductionOrderIdentifier\": \"1008\",\n\t\"WarehouseList\": [\t\t{\n\t\t\"ProductionArticleIdentifier\": 169,\n\t\t\"StoreInformation\": {\n\t\t  \"Warehouse\": 100,\n\t\t  \"Quantity\": 1\n\t\t\t}\n\t\t}\n    ]\n}"
+						},
+						"url": {
+							"raw": "{{url}}/ProductionOrders/1008/StoreUndo",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"ProductionOrders",
+								"1008",
+								"StoreUndo"
+							]
+						},
+						"description": "Lagert bereits ausgelagerte Artikel wieder ein."
+					},
+					"response": []
+				},
+				{
+					"name": "Reserve Undo (Warehouse)",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "key",
+									"value": "Authorization",
+									"type": "string"
+								},
+								{
+									"key": "value",
+									"value": "{{AccessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/ProductionOrders/1002/ReserveUndo",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"ProductionOrders",
+								"1002",
+								"ReserveUndo"
+							]
+						},
+						"description": "Lagert bereits ausgelagerte Artikel wieder ein."
+					},
+					"response": []
+				},
+				{
+					"name": "Read journals of productionorder",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{AccessToken}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "Authorization",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/ProductionOrders/1/Journals",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"ProductionOrders",
+								"1",
+								"Journals"
+							]
+						},
+						"description": "Liest alle Journale eines bestimmten Fertigungsauftrages"
+					},
+					"response": []
+				},
+				{
+					"name": "Read storage information of article of productionstep",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{AccessToken}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "Authorization",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/ProductionOrders/1/ProductionSteps/137/Articles/StorageInformation",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"ProductionOrders",
+								"1",
+								"ProductionSteps",
+								"137",
+								"Articles",
+								"StorageInformation"
+							]
+						},
+						"description": "Gibt Lagerinformationen zu einem bestimmten Artikel eines Fertigungsauftrages zurück."
+					},
+					"response": []
+				},
+				{
+					"name": "Read all production notification",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{AccessToken}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "Authorization",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/ProductionOrders/1/ProductionSteps/74/Notification",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"ProductionOrders",
+								"1",
+								"ProductionSteps",
+								"74",
+								"Notification"
+							]
+						},
+						"description": "Erstellt eine Meldung (Störungsmeldung) zu einem Arbeitsschritt"
+					},
+					"response": []
+				},
+				{
+					"name": "Create production notification",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{AccessToken}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "Authorization",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"Text\": \"Neue Notiz\",\r\n    \"EmployeeNumber\": \"3\"\r\n}"
+						},
+						"url": {
+							"raw": "{{url}}/ProductionOrders/1001/ProductionSteps/13061/Notification",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"ProductionOrders",
+								"1001",
+								"ProductionSteps",
+								"13061",
+								"Notification"
+							]
+						},
+						"description": "Erstellt eine Meldung (Störungsmeldung) zu einem Arbeitsschritt"
+					},
+					"response": []
+				},
+				{
+					"name": "Update production notification",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{AccessToken}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "Authorization",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"Text\": \"Dringende Eilmeldung!!!\",\n\t\"EmployeeNumber\": \"2\"\n}"
+						},
+						"url": {
+							"raw": "{{url}}/ProductionOrders/1/ProductionSteps/74/Notification/4",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"ProductionOrders",
+								"1",
+								"ProductionSteps",
+								"74",
+								"Notification",
+								"4"
+							]
+						},
+						"description": "Erstellt eine Meldung (Störungsmeldung) zu einem Arbeitsschritt"
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Resource",
+			"item": [
+				{
+					"name": "Read all resources",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{AccessToken}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "Authorization",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/Resources",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"Resources"
+							]
+						},
+						"description": "Gibt alle Ressourchen zurück"
+					},
+					"response": []
+				},
+				{
+					"name": "Read resource",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{AccessToken}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "Authorization",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/Resources/0400",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"Resources",
+								"0400"
+							]
+						},
+						"description": "Gibt eine Ressource zurück"
+					},
+					"response": []
+				},
+				{
+					"name": "Update resource",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{AccessToken}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "Authorization",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"Failure\": true\n}"
+						},
+						"url": {
+							"raw": "{{url}}/Resources/0140",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"Resources",
+								"0140"
+							]
+						},
+						"description": "Gibt alle Ressourchen zurück"
+					},
+					"response": []
+				},
+				{
+					"name": "Read all alternative resources",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{AccessToken}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "Authorization",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/Resources",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"Resources"
+							]
+						},
+						"description": "Gibt alle Alternativressourchen zurück."
+					},
+					"response": []
+				},
+				{
+					"name": "Read alternative resource",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{AccessToken}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "Authorization",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/AlternativeResources/1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"AlternativeResources",
+								"1"
+							]
+						},
+						"description": "Gibt eine Alternativressource zurück."
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "WarehouseLocation",
+			"item": [
+				{
+					"name": "Read all warehouse locations",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{AccessToken}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "Authorization",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/WarehouseLocations",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"WarehouseLocations"
+							]
+						},
+						"description": "Gibt alle Standorte zurück."
+					},
+					"response": []
+				},
+				{
+					"name": "Read warehouse location",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{AccessToken}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "Authorization",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/WarehouseLocations/1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"WarehouseLocations",
+								"1"
+							]
+						},
+						"description": "Gibt einen Standort zurück."
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Warehouses",
+			"item": [
+				{
+					"name": "Read all warehouses",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{AccessToken}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "Authorization",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/Warehouses",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"Warehouses"
+							]
+						},
+						"description": "Gibt alle Läger zurück."
+					},
+					"response": []
+				},
+				{
+					"name": "Read warehouse",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{AccessToken}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "Authorization",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/Warehouses/100",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"Warehouses",
+								"100"
+							]
+						},
+						"description": "Gibt ein Läger zurück."
+					},
+					"response": []
+				},
+				{
+					"name": "Read all storageplaces of warehouse",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{AccessToken}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "Authorization",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/Warehouses/500/StoragePlaces",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"Warehouses",
+								"500",
+								"StoragePlaces"
+							]
+						},
+						"description": "Gibt alle Lagerplätze eines Lagers zurück."
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Analysis",
+			"item": [
+				{
+					"name": "Read total analysis",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{AccessToken}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "Authorization",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/Analysis/Total",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"Analysis",
+								"Total"
+							]
+						},
+						"description": "Liefert die Gesamtauswertungen."
+					},
+					"response": []
+				},
+				{
+					"name": "Read analysis of article",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{AccessToken}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "Authorization",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/Analysis/Total",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"Analysis",
+								"Total"
+							]
+						},
+						"description": "Liefert die Auswertung für einen bestimmten Kunden."
+					},
+					"response": []
+				},
+				{
+					"name": "Read analysis of total",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{AccessToken}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "Authorization",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/Analysis/Total",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"Analysis",
+								"Total"
+							]
+						},
+						"description": "Liefert die Auswertung für einen bestimmten Kunden."
+					},
+					"response": []
+				},
+				{
+					"name": "Read analysis of supplier",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{AccessToken}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "Authorization",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/Analysis/Total",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"Analysis",
+								"Total"
+							]
+						},
+						"description": "Liefert die Auswertungen für einen bstimmten Lieferanten."
+					},
+					"response": []
+				},
+				{
+					"name": "Read analysis of employee",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{AccessToken}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "Authorization",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/Analysis/Employees/1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"Analysis",
+								"Employees",
+								"1"
+							]
+						},
+						"description": "Liefert die Auswertungen für einen bstimmten Mitarbeiter."
+					},
+					"response": []
+				},
+				{
+					"name": "Read analysis of article group",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{AccessToken}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "Authorization",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/Analysis/ArticleGroups/101",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"Analysis",
+								"ArticleGroups",
+								"101"
+							]
+						},
+						"description": "Liefert die Auswertungen für einen bestimmten Artikelgruppe."
+					},
+					"response": []
+				},
+				{
+					"name": "Read analysis of supplier group",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{AccessToken}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "Authorization",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/Analysis/SupplierGroup/101",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"Analysis",
+								"SupplierGroup",
+								"101"
+							]
+						},
+						"description": "Liefert die Auswertungen für einen bestimmten Lieferantengruppe."
+					},
+					"response": []
+				},
+				{
+					"name": "Read analysis of top articles",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{AccessToken}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "Authorization",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/Analysis/TopArticles",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"Analysis",
+								"TopArticles"
+							]
+						},
+						"description": "Liefert die Auswertungen für eine bestimmte Anzahl an Top - Artikel. Wird die Anzahl nicht übergeben, werden standardmäßig die Top 3 - Artikel geliefert."
+					},
+					"response": []
+				},
+				{
+					"name": "Read analysis of top customers",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{AccessToken}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "Authorization",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/Analysis/TopCustomers",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"Analysis",
+								"TopCustomers"
+							]
+						},
+						"description": "Liefert die Auswertungen für eine bestimmte Anzahl an Top - Kunden. Wird die Anzahl nicht übergeben, werden standardmäßig die Top 3 - Kunden geliefert."
+					},
+					"response": []
+				},
+				{
+					"name": "Read analysis of top suppliers",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{AccessToken}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "Authorization",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/Analysis/TopSuppliers",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"Analysis",
+								"TopSuppliers"
+							]
+						},
+						"description": "Liefert die Auswertungen für eine bestimmte Anzahl an Top - Lieferanten. Wird die Anzahl nicht übergeben, werden standardmäßig die Top 3 - Lieferanten geliefert."
+					},
+					"response": []
+				},
+				{
+					"name": "Read analysis of top employees",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{AccessToken}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "Authorization",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/Analysis/TopEmployees",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"Analysis",
+								"TopEmployees"
+							]
+						},
+						"description": "Liefert die Auswertungen für eine bestimmte Anzahl an Top - Mitarbeiter. Wird die Anzahl nicht übergeben, werden standardmäßig die Top 3 - Mitarbeiter geliefert."
+					},
+					"response": []
+				},
+				{
+					"name": "Read analysis of customer group",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{AccessToken}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "Authorization",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/Analysis/CustomerGroup/101",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"Analysis",
+								"CustomerGroup",
+								"101"
+							]
+						},
+						"description": "Liefert die Auswertungen für einen bestimmten Kundengruppe."
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Currency",
+			"item": [
+				{
+					"name": "Read all currencies",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{AccessToken}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "Authorization",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/Currencies",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"Currencies"
+							]
+						},
+						"description": "Gibt alle Währungen zurück."
+					},
+					"response": []
+				},
+				{
+					"name": "Read currency",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{AccessToken}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "Authorization",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/Currencies/AUD",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"Currencies",
+								"AUD"
+							]
+						},
+						"description": "Gibt eine Währung anhand des Währungscodes zurück."
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Macro",
+			"item": [
+				{
+					"name": "Run macro",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{AccessToken}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "Authorization",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n  {\r\n    \"Name\": \"artikel\",\r\n    \"Value\": \"\\\"100001\\\"\"\r\n  }\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/Macros/SQL 30001",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"Macros",
+								"SQL 30001"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
