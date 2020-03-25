@@ -1,0 +1,211 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h1>
+    SelectLine API Example
+  </h1>
+  <img width="300" alt="Angular Logo"
+       src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-6">
+      <div class="card">
+        <div class="card-header">Login</div>
+        <div class="card-body">
+          <div class="form-group" [formGroup]="loginFromGroup">
+            <label for="username">Username</label>
+            <input type="text" formControlName="user" class="form-control" id="username" placeholder="username">
+            <label for="password">Password</label>
+            <input type="text" formControlName="password" class="form-control" id="password" placeholder="password">
+            <label for="appkey">AppKey</label>
+            <input type="text" formControlName="appKey" class="form-control" id="appkey" placeholder="AppKey">
+          </div>
+          <button type="submit" class="btn btn-primary mb-2" (click)="anmelden()">Login</button>
+        </div>
+        <div class="card-footer">
+          {{token?.AccessToken}}
+        </div>
+      </div>
+    </div>
+    <div class="col-6">
+      <h2>Here are some links to help you start: </h2>
+      <ul>
+        <li>
+          <h2><a target="_blank" rel="noopener" href="https://demo.slmobile.de/demoapi/help">SelectLine API</a></h2>
+        </li>
+        <li>
+          <h2><a target="_blank" rel="noopener" href="https://github.com/selectline-software/selectline-api">SelectLine
+            GitHub</a></h2>
+        </li>
+      </ul>
+      <div class="card">
+        <div class="card-header">Hinweise</div>
+        <div class="card-body">
+          Die Funktionen Belegdruck und Makrodruck funktionieren nicht mit den Demo Daten gegen unseren Demo-Server.
+          Diese Funktionen können Sie nur in Ihrer lokalen Umgebung gegen Ihre lokalen Installation testen.
+        </div>
+      </div>
+    </div>
+  </div>
+
+<!--  Articles and Customers-->
+  <div class="row">
+    <div class="col">
+      <div class="card mt-3">
+        <div class="card-header">
+          Articles
+        </div>
+        <div class="card-body">
+          <button type="submit" class="btn btn-primary mb-2" (click)="getArticles()">Get articles</button>
+          <div *ngFor="let article of articles">
+            <div>{{article.Number}} - {{article.Name}}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card mt-3">
+        <div class="card-header">
+          Customers
+        </div>
+        <div class="card-body">
+          <button type="submit" class="btn btn-primary mb-2" (click)="getCustomers()">Get customers</button>
+          <div *ngFor="let customer of customers">
+            <div>{{customer.Number}} - {{customer.Company}}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<!--Document-->
+  <div class="card mt-3">
+    <div class="card-header">
+      Documents
+    </div>
+    <div class="card-body">
+      <div class="card">
+        <div class="card-header">Create document</div>
+        <div class="row p-3">
+          <div class="col">
+            Select customer ...
+          </div>
+          <div class="col">
+            <select [(ngModel)]="selectedCustomer">
+              <option [ngValue]="null">--Select customer --</option> <!-- Default item to show -->
+              <option *ngFor="let customer of customerList" [ngValue]="customer">
+                {{ customer.Number }} - {{ customer.Company}}
+              </option>
+            </select>
+          </div>
+          <div class="col align-self-center">
+            <button type="submit" class="btn btn-primary mb-2" (click)="createDocument()">Create document</button>
+          </div>
+        </div>
+        <div class="card-footer">
+          {{selectedDocument | json}}
+        </div>
+      </div>
+
+      <div class="card mt-3">
+        <div class="card-header">Add position</div>
+        <div class="row p-3">
+          <div class="col">
+            Select article ...
+          </div>
+          <div class="col">
+            <select [(ngModel)]="selectedArticle">
+              <option *ngFor="let article of articleList" [ngValue]="article">
+                {{ article.Number }} - {{ article.Name}}
+              </option>
+            </select>
+          </div>
+          <div class="col align-self-center">
+            <button type="submit" class="btn btn-primary mb-2" (click)="addDocumentPosition()">Add position</button>
+            <button type="submit" class="btn btn-primary ml-3 mb-2" (click)="printDocument()">Print document</button>
+          </div>
+        </div>
+        <div class="card-footer">
+          <div class="row" *ngFor="let position of documentPositions">
+            <div class="col-5">{{position.Identifier}}</div>
+            <div class="col-3">{{position.ArticleNumber}}</div>
+            <div class="col-2">{{position.Quantity}}</div>
+            <div class="col-2">{{position.QuantityUnit}}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<!--  Journale-->
+  <div class="card mt-3">
+    <div class="card-header">
+      Journals
+    </div>
+    <div class="card-body">
+      <div class="card">
+        <div class="card-header">Create Journal</div>
+        <div class="row p-3">
+          <div class="col">
+            <label for="documentKind">DocumentKind</label>
+            <input type="text" [(ngModel)]="currentDocumentKind" class="form-control" id="documentKind" placeholder="documentKind">
+          </div>
+          <div class="col">
+            <label for="documentNumber">DocumentNumber</label>
+            <input type="text" [(ngModel)]="currentDocumentNumber" class="form-control" id="documentNumber" placeholder="documentKind">
+          </div>
+          <div class="col align-self-center">
+            <button type="submit" class="btn btn-primary mb-2" (click)="addJournal()">Add Journal</button>
+          </div>
+        </div>
+        <div class="card-footer">
+          {{selectedJournal | json}}
+        </div>
+      </div>
+
+      <div class="card mt-3">
+        <div class="card-header">Add attachement to journal</div>
+        <div class="row p-3">
+          <div class="col">
+            <div class="form-group">
+              <label for="file">Choose File</label>
+              <input type="file"
+                     id="file"
+                     (change)="handleFileInput($event)">
+            </div>
+          </div>
+          <div class="col">
+            <input type="text" [(ngModel)]="currentJournalIdendifier">
+          </div>
+          <div class="col align-self-center">
+            <button type="submit" class="btn btn-primary mb-2" (click)="addAttachementToJournal()">Add attachement</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<!--  Macro-->
+  <div class="card mt-3">
+    <div class="card-header">
+      Macro
+    </div>
+    <div class="card-body">
+      <div class="card">
+        <div class="card-header">Print macro</div>
+        <div class="row p-3">
+          <div class="col">
+            <select [(ngModel)]="selectedArticle">
+              <option *ngFor="let article of articleList" [ngValue]="article">
+                {{ article.Number }} - {{ article.Name}}
+              </option>
+            </select>
+          </div>
+          <div class="col align-self-center">
+            <button type="submit" class="btn btn-primary mb-2" (click)="runPrintMacro()">Run print macro</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
