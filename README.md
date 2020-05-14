@@ -6,7 +6,7 @@ Für alle Funktionen bietet die "SelectLine API" eine Hilfe. Siehe <https://demo
 
 ## DEMO-API-Zugangsdaten
 
-**Aktuelle API-Version:** 19.3.0
+**Aktuelle API-Version:** 20.1.0
 
 > **Demo-Url:** `https://demo.slmobile.de/demoapi/`<br/>
 > **Username:**	`APIDemo`<br/>
