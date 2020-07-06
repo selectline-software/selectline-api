@@ -38,7 +38,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"username\": \"{{user}}\",\r\n    \"password\": \"{{password}}\",\r\n    \"LoginKind\": \"{{loginKind}}\",\r\n    \"AppKey\": \"{{appKey}}\"\r\n}",
+									"raw": "{\r\n    \"username\": \"{{user}}\",\r\n    \"password\": \"{{password}}\",\r\n    \"AppKey\": \"{{appKey}}\"\r\n}",
 									"options": {
 										"raw": {}
 									}
@@ -83,7 +83,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"username\": \"{{user}}\",\r\n    \"password\": \"{{password}}\",\r\n    \"LoginKind\": \"{{loginKind}}\",\r\n}"
+									"raw": "{\r\n    \"username\": \"{{user}}\",\r\n    \"password\": \"{{password}}\"\r\n    }"
 								},
 								"url": {
 									"raw": "{{url}}/Login",
