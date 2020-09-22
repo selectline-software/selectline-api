@@ -20,3 +20,4 @@ Für alle Funktionen bietet die "SelectLine API" eine Hilfe. Siehe <https://demo
 - **HTML-JavaScript** 
 - **PHP**
 - **PowerShell**
+- **Python 3.x**
