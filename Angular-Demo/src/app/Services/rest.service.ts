@@ -41,11 +41,12 @@ export class RestService {
 
   public AddDocumentPosition(documentTyp: string, documentNmber: string, articleNumber: string): Promise<any>{
     const data = {
-      PositionKind: 'A',
+      // PositionKind: 'A',
       ArticleNumber: articleNumber,
-      CalculatedQuantityValue: 1,
+      // CalculatedQuantityValue: 1,
       StoreInformation: [
         {
+          ArticleNumber: articleNumber,
           Warehouse: 100,
           Quantity: 1,
         }
@@ -118,7 +119,7 @@ export class RestService {
         Authorization: `LoginId ${loginId}`
       })
     };
-    return this.http.post<any>(`${BaseUrl}/Documents/${documentType}${documentNumber}/Positions`, data, httpOptions);
+    return this.http.post<any>(`${BaseUrl}/Documents/${documentType}${documentNumber}/ArticleItem`, data, httpOptions);
   }
 
   private GET_documentPositions(documentKind: string, documentNumber: string) {

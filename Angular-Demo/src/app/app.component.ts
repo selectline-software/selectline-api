@@ -1,8 +1,10 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {FormControl, FormGroup} from '@angular/forms';
 import {RestService} from './Services/rest.service';
 import {JournalRestService} from './Services/journal-rest.service';
 import {MacroRestService} from './Services/macro-rest.service';
+import {ProductionRestService} from "./Services/production-rest.service";
+import {ancestorWhere} from "tslint";
 
 @Component({
   selector: 'app-root',
@@ -15,6 +17,8 @@ export class AppComponent implements OnInit{
 
   articleList: any[];
   customerList: any[];
+  productionOrderList: any[];
+  productionStepList: any[];
 
   articles: any[];
   customers: any[];
@@ -23,10 +27,11 @@ export class AppComponent implements OnInit{
   selectedArticle: any;
   selectedDocumentPosition: any;
   selectedJournal: any;
+  selectedProdctionOrder: any;
 
   documentPositions: any[];
-  fileToUpload: File = null;
 
+  fileToUpload: File = null;
   public loginFromGroup = new FormGroup({
     user: new FormControl('APIDemo'),
     password: new FormControl('Ap1Dem0'),
@@ -35,14 +40,19 @@ export class AppComponent implements OnInit{
   currentDocumentKind: string;
   currentDocumentNumber: string;
   currentJournalIdendifier: string;
+  selectedProductionStep: any;
+
 
   get UserName() { return this.loginFromGroup.get('user').value; }
   get Password() { return this.loginFromGroup.get('password').value; }
   get AppKey() { return this.loginFromGroup.get('appKey').value; }
 
+  @ViewChild('selectState') selectState: ElementRef;
+
   constructor(private restService: RestService,
               private journalRestService: JournalRestService,
-              private macroService: MacroRestService) {
+              private macroService: MacroRestService,
+              private prodcutionService: ProductionRestService) {
   }
 
 
@@ -50,6 +60,7 @@ export class AppComponent implements OnInit{
     await this.RefreshArticlesAndCustomerList();
     console.log('this.customerList');
     console.log(this.customerList);
+    await this.ReadProductionOrderList();
   }
 
   private async RefreshArticlesAndCustomerList() {
@@ -116,5 +127,22 @@ export class AppComponent implements OnInit{
 
   async runPrintMacro() {
     await this.macroService.RunMacro('SQL 3001', 'artikel', this.selectedArticle.Number);
+  }
+
+  async readProductionOrder() {
+    this.productionStepList = await this.prodcutionService.GetProductionSteps(this.selectedProdctionOrder.ProductionOrderIdentifier);
+  }
+
+  private async ReadProductionOrderList() {
+    this.productionOrderList = await this.prodcutionService.GetProductionOrders();
+  }
+
+  async changeStatus() {
+    console.log('selectState');
+    console.log(this.selectState.nativeElement.value);
+    this.prodcutionService.SetProductionStepState(
+      this.selectedProdctionOrder.ProductionOrderIdentifier,
+      this.selectedProductionStep.ProductionStepIdentifier,
+      this.selectState.nativeElement.value);
   }
 }

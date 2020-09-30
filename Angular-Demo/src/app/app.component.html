@@ -208,4 +208,69 @@
       </div>
     </div>
   </div>
+
+  <!--Fertigungsaufträge-->
+  <div class="card mt-3">
+    <div class="card-header">
+      Fertigungsaufträge
+    </div>
+    <div class="card-body">
+      <div class="card">
+        <div class="card-header">Productionorder</div>
+        <div class="row p-3">
+          <div class="col-8">
+            <select [(ngModel)]="selectedProdctionOrder" class="w-100">
+              <option [ngValue]="null">--Select productionorder --</option> <!-- Default item to show -->
+              <option *ngFor="let productionOrder of productionOrderList" [ngValue]="productionOrder">
+                {{ productionOrder.ProductionOrderIdentifier }} - {{ productionOrder.Description }}
+              </option>
+            </select>
+          </div>
+          <div class="col-4 align-self-center w-100">
+            <button type="submit" class="btn btn-primary mb-2 w-100" (click)="readProductionOrder()">Read Productionorder</button>
+          </div>
+        </div>
+        <div class="card-footer">
+          <div *ngFor="let productionStep of productionStepList">
+            <div>{{productionStep.ProductionStepIdentifier}} - {{productionStep.Name}}</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card mt-3">
+        <div class="card-header">Change status of Productionsstep</div>
+        <div class="row p-3">
+          <div class="col-5">
+            <select [(ngModel)]="selectedProductionStep" class="w-100">
+              <option *ngFor="let productionStep of productionStepList" [ngValue]="productionStep">
+                {{ productionStep.ProductionStepIdentifier }} - {{ productionStep.Name}} - {{productionStep.ProductionStepState}}
+              </option>
+            </select>
+          </div>
+          <div class="col-3">
+            <select #selectState class="w-100">
+              <option value="0">Planned</option> <!-- Default item to show -->
+              <option value="1">Started</option> <!-- Default item to show -->
+              <option value="2">Finished</option> <!-- Default item to show -->
+              <option value="3">Paused</option> <!-- Default item to show -->
+              <option value="4">Unplanned</option> <!-- Default item to show -->
+            </select>
+          </div>
+
+          <div class="col-4 align-self-center w-100">
+            <button type="submit" class="btn btn-primary mb-2 w-100" (click)="changeStatus()">Change status</button>
+          </div>
+        </div>
+        <div class="card-footer">
+          <div class="row" *ngFor="let position of documentPositions">
+            <div class="col-5">{{position.Identifier}}</div>
+            <div class="col-3">{{position.ArticleNumber}}</div>
+            <div class="col-2">{{position.Quantity}}</div>
+            <div class="col-2">{{position.QuantityUnit}}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
 </div>

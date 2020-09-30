@@ -38,7 +38,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"username\": \"{{user}}\",\r\n    \"password\": \"{{password}}\",\r\n    \"AppKey\": \"{{appKey}}\"\r\n}",
+									"raw": "{\r\n    \"username\": \"{{user}}\",\r\n    \"password\": \"{{password}}\",\r\n    \"LoginKind\": \"{{loginKind}}\",\r\n    \"AppKey\": \"{{appKey}}\"\r\n}",
 									"options": {
 										"raw": {}
 									}
@@ -57,7 +57,7 @@
 							"response": []
 						},
 						{
-							"name": "Login",
+							"name": "Login ohne AppKey",
 							"event": [
 								{
 									"listen": "test",
@@ -83,7 +83,10 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"username\": \"{{user}}\",\r\n    \"password\": \"{{password}}\"\r\n    }"
+									"raw": "{\r\n    \"username\": \"{{user}}\",\r\n    \"password\": \"{{password}}\",\r\n    \"LoginKind\": \"{{loginKind}}\"\r\n}",
+									"options": {
+										"raw": {}
+									}
 								},
 								"url": {
 									"raw": "{{url}}/Login",
@@ -94,7 +97,49 @@
 										"Login"
 									]
 								},
-								"description": "Anmelden bei der API. (Funktionen bis zur 18.2. sind auch mit der \"alten\" Toolbox-Lizenz ausführbar)"
+								"description": "Anmelden bei der API."
+							},
+							"response": []
+						},
+						{
+							"name": "Login BDE per UserTag",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "75a83acc-89fb-41fd-910c-06112bc25ef8",
+										"exec": [
+											"var jsonData = JSON.parse(responseBody);\r",
+											"postman.setEnvironmentVariable(\"AccessToken\", \"LoginId \"+jsonData.AccessToken);"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"LoginKind\": \"{{loginKind}}\",\r\n    \"usertag\": \"123\"\r\n}"
+								},
+								"url": {
+									"raw": "{{url}}/LoginByUserTag",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"LoginByUserTag"
+									]
+								},
+								"description": "Anmelden an die BDE mit UserTag."
 							},
 							"response": []
 						},
@@ -183,24 +228,6 @@
 					"item": [
 						{
 							"name": "🆓 Get Information",
-							"request": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "{{url}}/Info",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"Info"
-									]
-								},
-								"description": "Liefert Informationen zur aktuell laufenen API u.a. die Versionsnummer"
-							},
-							"response": []
-						},
-						{
-							"name": "🆓 Get Information Copy",
 							"request": {
 								"method": "GET",
 								"header": [],
@@ -314,6 +341,424 @@
 			"protocolProfileBehavior": {}
 		},
 		{
+			"name": "❌ Analysis   ✔",
+			"item": [
+				{
+					"name": "❌ Read total analysis",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{AccessToken}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "Authorization",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/Analysis/Total",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"Analysis",
+								"Total"
+							]
+						},
+						"description": "Liefert die Gesamtauswertungen."
+					},
+					"response": []
+				},
+				{
+					"name": "❌ Read analysis of article",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{AccessToken}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "Authorization",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/Analysis/Total",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"Analysis",
+								"Total"
+							]
+						},
+						"description": "Liefert die Auswertung für einen bestimmten Kunden."
+					},
+					"response": []
+				},
+				{
+					"name": "❌ Read analysis of customer",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{AccessToken}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "Authorization",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/Analysis/Total",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"Analysis",
+								"Total"
+							]
+						},
+						"description": "Liefert die Auswertung für einen bestimmten Kunden."
+					},
+					"response": []
+				},
+				{
+					"name": "❌ Read analysis of supplier",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{AccessToken}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "Authorization",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/Analysis/Total",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"Analysis",
+								"Total"
+							]
+						},
+						"description": "Liefert die Auswertungen für einen bstimmten Lieferanten."
+					},
+					"response": []
+				},
+				{
+					"name": "❌ Read analysis of employee",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{AccessToken}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "Authorization",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/Analysis/Employees/1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"Analysis",
+								"Employees",
+								"1"
+							]
+						},
+						"description": "Liefert die Auswertungen für einen bstimmten Mitarbeiter."
+					},
+					"response": []
+				},
+				{
+					"name": "❌ Read analysis of article group",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{AccessToken}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "Authorization",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/Analysis/ArticleGroups/101",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"Analysis",
+								"ArticleGroups",
+								"101"
+							]
+						},
+						"description": "Liefert die Auswertungen für einen bestimmten Artikelgruppe."
+					},
+					"response": []
+				},
+				{
+					"name": "❌ Read analysis of supplier group",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{AccessToken}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "Authorization",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/Analysis/SupplierGroup/101",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"Analysis",
+								"SupplierGroup",
+								"101"
+							]
+						},
+						"description": "Liefert die Auswertungen für einen bestimmten Lieferantengruppe."
+					},
+					"response": []
+				},
+				{
+					"name": "❌ Read analysis of top articles",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{AccessToken}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "Authorization",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/Analysis/TopArticles",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"Analysis",
+								"TopArticles"
+							]
+						},
+						"description": "Liefert die Auswertungen für eine bestimmte Anzahl an Top - Artikel. Wird die Anzahl nicht übergeben, werden standardmäßig die Top 3 - Artikel geliefert."
+					},
+					"response": []
+				},
+				{
+					"name": "❌ Read analysis of top customers",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{AccessToken}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "Authorization",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/Analysis/TopCustomers",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"Analysis",
+								"TopCustomers"
+							]
+						},
+						"description": "Liefert die Auswertungen für eine bestimmte Anzahl an Top - Kunden. Wird die Anzahl nicht übergeben, werden standardmäßig die Top 3 - Kunden geliefert."
+					},
+					"response": []
+				},
+				{
+					"name": "❌ Read analysis of top suppliers",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{AccessToken}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "Authorization",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/Analysis/TopSuppliers",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"Analysis",
+								"TopSuppliers"
+							]
+						},
+						"description": "Liefert die Auswertungen für eine bestimmte Anzahl an Top - Lieferanten. Wird die Anzahl nicht übergeben, werden standardmäßig die Top 3 - Lieferanten geliefert."
+					},
+					"response": []
+				},
+				{
+					"name": "❌ Read analysis of top employees",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{AccessToken}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "Authorization",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/Analysis/TopEmployees",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"Analysis",
+								"TopEmployees"
+							]
+						},
+						"description": "Liefert die Auswertungen für eine bestimmte Anzahl an Top - Mitarbeiter. Wird die Anzahl nicht übergeben, werden standardmäßig die Top 3 - Mitarbeiter geliefert."
+					},
+					"response": []
+				},
+				{
+					"name": "❌ Read analysis of customer group",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{AccessToken}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "Authorization",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/Analysis/CustomerGroup/101",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"Analysis",
+								"CustomerGroup",
+								"101"
+							]
+						},
+						"description": "Liefert die Auswertungen für einen bestimmten Kundengruppe."
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
 			"name": "Artikel ✔",
 			"item": [
 				{
@@ -415,13 +860,13 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{url}}/Articles/130004",
+									"raw": "{{url}}/Articles/100001",
 									"host": [
 										"{{url}}"
 									],
 									"path": [
 										"Articles",
-										"130004"
+										"100001"
 									]
 								},
 								"description": "Gibt einen Artikel zurück."
@@ -449,13 +894,19 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{url}}/Articles/130004",
+									"raw": "{{url}}/Articles/130004?considerReferenceAndSerial=true",
 									"host": [
 										"{{url}}"
 									],
 									"path": [
 										"Articles",
 										"130004"
+									],
+									"query": [
+										{
+											"key": "considerReferenceAndSerial",
+											"value": "true"
+										}
 									]
 								},
 								"description": "Gibt einen Artikel zurück."
@@ -658,6 +1109,47 @@
 								"method": "GET",
 								"header": [],
 								"url": {
+									"raw": "{{url}}/Articles/Stock",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"Articles",
+										"Stock"
+									],
+									"query": [
+										{
+											"key": "filter",
+											"value": "StoragePlace.WarehouseName EQ 'Verkaufsraum'",
+											"disabled": true
+										}
+									]
+								},
+								"description": "Gibt die Lagerbestände zu den Artikeln zurück."
+							},
+							"response": []
+						},
+						{
+							"name": "Read article stocks with filter",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{AccessToken}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "Authorization",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
 									"raw": "{{url}}/Articles/Stock?filter=ArticleNumber EQ '120008'",
 									"host": [
 										"{{url}}"
@@ -670,6 +1162,11 @@
 										{
 											"key": "filter",
 											"value": "ArticleNumber EQ '120008'"
+										},
+										{
+											"key": "filter",
+											"value": "StoragePlace.WarehouseName EQ 'Verkaufsraum'",
+											"disabled": true
 										}
 									]
 								},
@@ -1232,7 +1729,7 @@
 										"ShippingChargesRelations"
 									]
 								},
-								"description": "Gibt eine Lieferbedingungen zurück."
+								"description": "Gibt die Versandkosten, in Abhängigkeit zum Umsatz, zur einer Lieferbedingung zurück."
 							},
 							"response": []
 						}
@@ -1243,6 +1740,699 @@
 				{
 					"name": "Document",
 					"item": [
+						{
+							"name": "Document.Position",
+							"item": [
+								{
+									"name": "🔑 Read all positions of document",
+									"request": {
+										"auth": {
+											"type": "apikey",
+											"apikey": [
+												{
+													"key": "value",
+													"value": "{{AccessToken}}",
+													"type": "string"
+												},
+												{
+													"key": "key",
+													"value": "Authorization",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{url}}/Documents/FAU490/Positions",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"Documents",
+												"FAU490",
+												"Positions"
+											]
+										},
+										"description": "Gibt alle Belegpositionen eines Beleges zurück"
+									},
+									"response": []
+								},
+								{
+									"name": "🔑 Read all store informations of position",
+									"request": {
+										"auth": {
+											"type": "apikey",
+											"apikey": [
+												{
+													"key": "value",
+													"value": "{{AccessToken}}",
+													"type": "string"
+												},
+												{
+													"key": "key",
+													"value": "Authorization",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{url}}/Documents/SWE250/Positions/10e4782b-91d4-4f22-8eb3-6e63cf5aa8cb/Storeinformation",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"Documents",
+												"SWE250",
+												"Positions",
+												"10e4782b-91d4-4f22-8eb3-6e63cf5aa8cb",
+												"Storeinformation"
+											]
+										},
+										"description": "Gibt alle Lageinformationen zu einer Belegpositionen eines Beleges zurück."
+									},
+									"response": []
+								},
+								{
+									"name": "🔑 Read document position without documentKey",
+									"request": {
+										"auth": {
+											"type": "apikey",
+											"apikey": [
+												{
+													"key": "value",
+													"value": "{{AccessToken}}",
+													"type": "string"
+												},
+												{
+													"key": "key",
+													"value": "Authorization",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{url}}/DocumentPositions",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"DocumentPositions"
+											]
+										},
+										"description": "Gibt alle Belegpositionen eines Beleges zurück"
+									},
+									"response": []
+								},
+								{
+									"name": "🔑 Read document position",
+									"request": {
+										"auth": {
+											"type": "apikey",
+											"apikey": [
+												{
+													"key": "value",
+													"value": "{{AccessToken}}",
+													"type": "string"
+												},
+												{
+													"key": "key",
+													"value": "Authorization",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{url}}/DocumentPositions/FAU492/Positions/38AE6FB8-B38D-4AF3-9790-3AD86014680C",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"DocumentPositions",
+												"FAU492",
+												"Positions",
+												"38AE6FB8-B38D-4AF3-9790-3AD86014680C"
+											]
+										},
+										"description": "Gibt alle Belegpositionen eines Beleges zurück"
+									},
+									"response": []
+								},
+								{
+									"name": "🔑 Store in position",
+									"request": {
+										"auth": {
+											"type": "apikey",
+											"apikey": [
+												{
+													"key": "value",
+													"value": "{{AccessToken}}",
+													"type": "string"
+												},
+												{
+													"key": "key",
+													"value": "Authorization",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"type": "text",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "[\r\n  {\r\n    \"Identifier\": \"FCC2D453-EDC4-4B01-94BF-14F02E776BCE\",\r\n    \"Warehouse\": \"100\",\r\n    \"Quantity\": 2\r\n  }\r\n]"
+										},
+										"url": {
+											"raw": "{{url}}/Documents/FAU396/Positions/Store",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"Documents",
+												"FAU396",
+												"Positions",
+												"Store"
+											]
+										},
+										"description": "Lagerbuchung auf einer Position"
+									},
+									"response": []
+								},
+								{
+									"name": "🔑 Create article position",
+									"request": {
+										"auth": {
+											"type": "apikey",
+											"apikey": [
+												{
+													"key": "value",
+													"value": "{{AccessToken}}",
+													"type": "string"
+												},
+												{
+													"key": "key",
+													"value": "Authorization",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"type": "text",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"ArticleNumber\": \"500011\",\r\n  \"UnitPrice\": 4.05,\r\n  \"StoreInformation\": [\r\n      {\r\n        \"ArticleNumber\": \"400001\",\r\n        \"Warehouse\": \"200\",\r\n        \"Quantity\": 1\r\n      }\r\n  ]\r\n}",
+											"options": {
+												"raw": {}
+											}
+										},
+										"url": {
+											"raw": "{{url}}/Documents/FAU505/ArticleItem",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"Documents",
+												"FAU505",
+												"ArticleItem"
+											]
+										},
+										"description": "Lagerbuchung auf einer Position"
+									},
+									"response": []
+								},
+								{
+									"name": "🔑 Create surcharge item position",
+									"request": {
+										"auth": {
+											"type": "apikey",
+											"apikey": [
+												{
+													"key": "key",
+													"value": "Authorization",
+													"type": "string"
+												},
+												{
+													"key": "value",
+													"value": "{{AccessToken}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"type": "text",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n\t\"ArticleNumber\": \"600002\",\n\t\"UseQuantityFormula\": true\n}",
+											"options": {
+												"raw": {}
+											}
+										},
+										"url": {
+											"raw": "{{url}}/Documents/FAU490/Positions/62e4f44b-3fd9-48e5-bba8-9b4d60b56991/SurchargeArticleItem",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"Documents",
+												"FAU490",
+												"Positions",
+												"62e4f44b-3fd9-48e5-bba8-9b4d60b56991",
+												"SurchargeArticleItem"
+											]
+										},
+										"description": "Legt Zuschlagsartikel als Unterposition zu einer Hauptkennung an."
+									},
+									"response": []
+								},
+								{
+									"name": "🔑 Create accessory article item position",
+									"request": {
+										"auth": {
+											"type": "apikey",
+											"apikey": [
+												{
+													"key": "key",
+													"value": "Authorization",
+													"type": "string"
+												},
+												{
+													"key": "value",
+													"value": "{{AccessToken}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n\t\"ArticleNumber\": \"600002\",\n\t\"StoreInformation\": \n\t[\n\t\t{\n\t\t\t\"Warehouse\": \"100\",\n\t\t\t\"Quantity\": \"2\"\n\t\t}\n\t]\n}",
+											"options": {
+												"raw": {}
+											}
+										},
+										"url": {
+											"raw": "{{url}}/Documents/FAU4788/Positions/653df3d5-fbeb-4fa0-928c-2ab999b8a0f4/AccessoryArticleItem",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"Documents",
+												"FAU4788",
+												"Positions",
+												"653df3d5-fbeb-4fa0-928c-2ab999b8a0f4",
+												"AccessoryArticleItem"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "🔑 Create shipping item position",
+									"request": {
+										"auth": {
+											"type": "apikey",
+											"apikey": [
+												{
+													"key": "value",
+													"value": "{{AccessToken}}",
+													"type": "string"
+												},
+												{
+													"key": "key",
+													"value": "Authorization",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"type": "text",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"ArticleNumber\": \"100001\",\r\n  \"UnitPrice\": 4.05,\r\n  \"AlternativePositionDescription\": \"Schneckenpost Express\"\r\n}",
+											"options": {
+												"raw": {}
+											}
+										},
+										"url": {
+											"raw": "{{url}}/Documents/FAU502/ShippingItemPosition",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"Documents",
+												"FAU502",
+												"ShippingItemPosition"
+											]
+										},
+										"description": "Erstellen einer Versandposition in einem Beleg"
+									},
+									"response": []
+								},
+								{
+									"name": "🔑 Create new page",
+									"request": {
+										"auth": {
+											"type": "apikey",
+											"apikey": [
+												{
+													"key": "value",
+													"value": "{{AccessToken}}",
+													"type": "string"
+												},
+												{
+													"key": "key",
+													"value": "Authorization",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [],
+										"url": {
+											"raw": "{{url}}/Documents/FAU502/NewPage",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"Documents",
+												"FAU502",
+												"NewPage"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "🔑 Create comment position",
+									"request": {
+										"auth": {
+											"type": "apikey",
+											"apikey": [
+												{
+													"key": "value",
+													"value": "{{AccessToken}}",
+													"type": "string"
+												},
+												{
+													"key": "key",
+													"value": "Authorization",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"Name\" : \"Ein Test Kommentar\",\r\n    \"AdditionalDescription\" : \"Test Comment\",\r\n    \"Memo\" : \"Dies ist ein Kommentar zum Testen der Funktion\",\r\n    \"Employee\" :\"2\",\r\n    \"ReferenceCustomer\" : \"10021\",\r\n    \"IsPrintLock\" : \"true\",\r\n    \"CustomFields\":\r\n        {\r\n            \"Text1\" : \"abc\"\r\n        }\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{url}}/Documents/FAU502/CommentPosition",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"Documents",
+												"FAU502",
+												"CommentPosition"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "🔑 Create intermediate total position",
+									"request": {
+										"auth": {
+											"type": "apikey",
+											"apikey": [
+												{
+													"key": "value",
+													"value": "{{AccessToken}}",
+													"type": "string"
+												},
+												{
+													"key": "key",
+													"value": "Authorization",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [],
+										"url": {
+											"raw": "{{url}}/Documents/FAU502/IntermediateTotalPosition",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"Documents",
+												"FAU502",
+												"IntermediateTotalPosition"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "🔑 Create subtotal position",
+									"request": {
+										"auth": {
+											"type": "apikey",
+											"apikey": [
+												{
+													"key": "value",
+													"value": "{{AccessToken}}",
+													"type": "string"
+												},
+												{
+													"key": "key",
+													"value": "Authorization",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"DiscountPercent\": 10,  \r\n    \"DiscountPercent2\": 1  \r\n}",
+											"options": {
+												"raw": {}
+											}
+										},
+										"url": {
+											"raw": "{{url}}/Documents/FAU491/SubTotalPosition",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"Documents",
+												"FAU491",
+												"SubTotalPosition"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "🔑 Update document position",
+									"request": {
+										"auth": {
+											"type": "apikey",
+											"apikey": [
+												{
+													"key": "value",
+													"value": "{{AccessToken}}",
+													"type": "string"
+												},
+												{
+													"key": "key",
+													"value": "Authorization",
+													"type": "string"
+												}
+											]
+										},
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"type": "text",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"Memo\": \"uuuuuuuuuuuuuuuuuuuuuuuuuuuuuuu\"\r\n}",
+											"options": {
+												"raw": {}
+											}
+										},
+										"url": {
+											"raw": "{{url}}/Documents/FAU492/Positions/b13e1c3b-3207-4cfc-9644-b6edf9c9df7f",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"Documents",
+												"FAU492",
+												"Positions",
+												"b13e1c3b-3207-4cfc-9644-b6edf9c9df7f"
+											]
+										},
+										"description": "Bearbeiten einer Belegposition."
+									},
+									"response": []
+								},
+								{
+									"name": "🔑 Update shipping item position",
+									"request": {
+										"auth": {
+											"type": "apikey",
+											"apikey": [
+												{
+													"key": "value",
+													"value": "{{AccessToken}}",
+													"type": "string"
+												},
+												{
+													"key": "key",
+													"value": "Authorization",
+													"type": "string"
+												}
+											]
+										},
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"type": "text",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"WarehouseId\": \"200\"\r\n}",
+											"options": {
+												"raw": {}
+											}
+										},
+										"url": {
+											"raw": "{{url}}/Documents/FAU509/ShippingItemPosition/2eba2404-5c7e-479c-a6a3-137b52d468db",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"Documents",
+												"FAU509",
+												"ShippingItemPosition",
+												"2eba2404-5c7e-479c-a6a3-137b52d468db"
+											]
+										},
+										"description": "Bearbeiten einer Versandposition eines Beleges"
+									},
+									"response": []
+								},
+								{
+									"name": "🔑 Delete document position",
+									"request": {
+										"auth": {
+											"type": "apikey",
+											"apikey": [
+												{
+													"key": "value",
+													"value": "{{AccessToken}}",
+													"type": "string"
+												},
+												{
+													"key": "key",
+													"value": "Authorization",
+													"type": "string"
+												}
+											]
+										},
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"type": "text",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{url}}/Documents/FAU490/Positions/14571795-ac62-4d42-b32e-fbb269715134",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"Documents",
+												"FAU490",
+												"Positions",
+												"14571795-ac62-4d42-b32e-fbb269715134"
+											]
+										},
+										"description": "Löschen einer Belegposition."
+									},
+									"response": []
+								}
+							],
+							"protocolProfileBehavior": {},
+							"_postman_isSubFolder": true
+						},
 						{
 							"name": "Read all documents",
 							"request": {
@@ -1277,6 +2467,45 @@
 							"response": []
 						},
 						{
+							"name": "Read all documents with filter",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{AccessToken}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "Authorization",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/Documents?filter=DeliveryDate GE '20200916' AND DeliveryDate LT '20200917'",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"Documents"
+									],
+									"query": [
+										{
+											"key": "filter",
+											"value": "DeliveryDate GE '20200916' AND DeliveryDate LT '20200917'"
+										}
+									]
+								},
+								"description": "Gibt eine gefilterte Liste von Belegen zurück."
+							},
+							"response": []
+						},
+						{
 							"name": "Read document",
 							"request": {
 								"auth": {
@@ -1297,13 +2526,13 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{url}}/Documents/SWE250",
+									"raw": "{{url}}/Documents/FAU493",
 									"host": [
 										"{{url}}"
 									],
 									"path": [
 										"Documents",
-										"SWE250"
+										"FAU493"
 									]
 								},
 								"description": "Gibt ein Beleg zurück.\n\ndocumentKey = BelegTyp + Belegnummer z.B. SWE250\n\nStandard:\n=============================\nB - Bestellung\nS - Wareneingang\nF - Auftrag\nP - Packzettel\nL - Lieferschein"
@@ -1337,6 +2566,55 @@
 									"body": ""
 								}
 							]
+						},
+						{
+							"name": "🔑 Read document successors",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{AccessToken}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "Authorization",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\t \"DocumentKindDestination\" : \"L\",\r\n\t \"Positions\": []\r\n}"
+								},
+								"url": {
+									"raw": "{{url}}/Documents/FAU467/Successors",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"Documents",
+										"FAU467",
+										"Successors"
+									]
+								},
+								"description": "Belegübergabe, alle Positionen werden mit Menge = 0 übergeben."
+							},
+							"response": []
 						},
 						{
 							"name": "🔑 Create document",
@@ -1382,6 +2660,154 @@
 									]
 								},
 								"description": "Erstellen eines neuen Beleges."
+							},
+							"response": []
+						},
+						{
+							"name": "🔑 Create document successors",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{AccessToken}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "Authorization",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n     \"DocumentKindDestination\" : \"P\",\r\n     \"Positions\": []\r\n}",
+									"options": {
+										"raw": {}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/Documents/FAU402/Successors",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"Documents",
+										"FAU402",
+										"Successors"
+									]
+								},
+								"description": "Belegübergabe, alle Positionen werden mit Menge = 0 übergeben."
+							},
+							"response": []
+						},
+						{
+							"name": "🔑 Create document successors with positions",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{AccessToken}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "Authorization",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\t \"DocumentKindDestination\" : \"L\",\r\n\t \"Positions\": [{\r\n\t \t\"Identifier\": \"9E54F4CC-F6F0-4465-B318-8C890FA5F748\",\r\n\t \t\"ArticleNumber\": \"400004\",\r\n\t \t\"Quantity\":1,\r\n\t \t\"Warehouse\": \"100\"\r\n\t }]\r\n}",
+									"options": {
+										"raw": {}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/Documents/FAU481/Successors",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"Documents",
+										"FAU481",
+										"Successors"
+									]
+								},
+								"description": "Belegübergabe mit der Angabe von Positionen und Mengen die übergeben werden sollen."
+							},
+							"response": []
+						},
+						{
+							"name": "Print document",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{AccessToken}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "Authorization",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"NumberOfCopies\" : \"1\",\r\n  \"MasterName\" : \"!Blatt1\",\r\n  \"PrintTarget\" : \"Printer\",\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/Documents/RAR001/Print",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"Documents",
+										"RAR001",
+										"Print"
+									]
+								}
 							},
 							"response": []
 						},
@@ -1479,692 +2905,6 @@
 							"response": []
 						},
 						{
-							"name": "🔑 Delete document",
-							"request": {
-								"auth": {
-									"type": "apikey",
-									"apikey": [
-										{
-											"key": "value",
-											"value": "{{AccessToken}}",
-											"type": "string"
-										},
-										{
-											"key": "key",
-											"value": "Authorization",
-											"type": "string"
-										}
-									]
-								},
-								"method": "DELETE",
-								"header": [
-									{
-										"key": "Content-Type",
-										"name": "Content-Type",
-										"type": "text",
-										"value": "application/json"
-									}
-								],
-								"url": {
-									"raw": "{{url}}/Documents/SWE250",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"Documents",
-										"SWE250"
-									]
-								},
-								"description": "Löschen eines Beleges."
-							},
-							"response": []
-						},
-						{
-							"name": "🔑 Read all positions of document",
-							"request": {
-								"auth": {
-									"type": "apikey",
-									"apikey": [
-										{
-											"key": "value",
-											"value": "{{AccessToken}}",
-											"type": "string"
-										},
-										{
-											"key": "key",
-											"value": "Authorization",
-											"type": "string"
-										}
-									]
-								},
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "{{url}}/Documents/SWE250/Positions",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"Documents",
-										"SWE250",
-										"Positions"
-									]
-								},
-								"description": "Gibt alle Belegpositionen eines Beleges zurück"
-							},
-							"response": []
-						},
-						{
-							"name": "🔑 Read all store informations of position",
-							"request": {
-								"auth": {
-									"type": "apikey",
-									"apikey": [
-										{
-											"key": "value",
-											"value": "{{AccessToken}}",
-											"type": "string"
-										},
-										{
-											"key": "key",
-											"value": "Authorization",
-											"type": "string"
-										}
-									]
-								},
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "{{url}}/Documents/SWE250/Positions/10e4782b-91d4-4f22-8eb3-6e63cf5aa8cb/Storeinformation",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"Documents",
-										"SWE250",
-										"Positions",
-										"10e4782b-91d4-4f22-8eb3-6e63cf5aa8cb",
-										"Storeinformation"
-									]
-								},
-								"description": "Gibt alle Lageinformationen zu einer Belegpositionen eines Beleges zurück."
-							},
-							"response": []
-						},
-						{
-							"name": "🔑 Create document position",
-							"request": {
-								"auth": {
-									"type": "apikey",
-									"apikey": [
-										{
-											"key": "value",
-											"value": "{{AccessToken}}",
-											"type": "string"
-										},
-										{
-											"key": "key",
-											"value": "Authorization",
-											"type": "string"
-										}
-									]
-								},
-								"method": "POST",
-								"header": [
-									{
-										"key": "Content-Type",
-										"name": "Content-Type",
-										"type": "text",
-										"value": "application/json"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n  \"CalculatedQuantityValue\": 5.00,\r\n  \"PositionKind\": \"A\",\r\n  \"ArticleNumber\": \"751C93063\",\r\n  \"UnitPrice\": 4.05,\r\n  \"Name\": \"ORACAL® 751C High Performance Cast glänzend 930 Gold I 630 mm x Lfm.\"\r\n}"
-								},
-								"url": {
-									"raw": "{{url}}/Documents/FAU396/Positions",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"Documents",
-										"FAU396",
-										"Positions"
-									]
-								},
-								"description": "Lagerbuchung auf einer Position"
-							},
-							"response": []
-						},
-						{
-							"name": "🔑 Create article position",
-							"request": {
-								"auth": {
-									"type": "apikey",
-									"apikey": [
-										{
-											"key": "value",
-											"value": "{{AccessToken}}",
-											"type": "string"
-										},
-										{
-											"key": "key",
-											"value": "Authorization",
-											"type": "string"
-										}
-									]
-								},
-								"method": "POST",
-								"header": [
-									{
-										"key": "Content-Type",
-										"name": "Content-Type",
-										"type": "text",
-										"value": "application/json"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n  \"CalculatedQuantityValue\": 3,\r\n  \"ArticleNumber\": \"130004\",\r\n  \"UnitPrice\": 4.05,\r\n  \"DeliveryDate\": \"2020-02-28T18:06:36.6870384+01:00\",\r\n   \"StoreInformation\": [\r\n    {\r\n      \"ArticleNumber\": \"130004\",\r\n      \"Warehouse\": \"200\",\r\n      \"Quantity\": 3,\r\n      \"ExpirationDate\": \"2020-09-07T17:06:36.6870384+01:00\"\r\n    }\r\n  ]\r\n}",
-									"options": {
-										"raw": {}
-									}
-								},
-								"url": {
-									"raw": "{{url}}/Documents/M15000031/ArticleItem",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"Documents",
-										"M15000031",
-										"ArticleItem"
-									]
-								},
-								"description": "Lagerbuchung auf einer Position"
-							},
-							"response": []
-						},
-						{
-							"name": "🔑 Create article position with autoAccessory",
-							"request": {
-								"auth": {
-									"type": "apikey",
-									"apikey": [
-										{
-											"key": "value",
-											"value": "{{AccessToken}}",
-											"type": "string"
-										},
-										{
-											"key": "key",
-											"value": "Authorization",
-											"type": "string"
-										}
-									]
-								},
-								"method": "POST",
-								"header": [
-									{
-										"key": "Content-Type",
-										"name": "Content-Type",
-										"type": "text",
-										"value": "application/json"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n  \"CalculatedQuantityValue\": 3,\r\n  \"ArticleNumber\": \"130004\",\r\n  \"UnitPrice\": 4.05,\r\n  \"DeliveryDate\": \"2020-02-28T18:06:36.6870384+01:00\",\r\n   \"StoreInformation\": [\r\n    {\r\n      \"ArticleNumber\": \"130004\",\r\n      \"Warehouse\": \"200\",\r\n      \"Quantity\": 3,\r\n      \"ExpirationDate\": \"2020-09-07T17:06:36.6870384+01:00\"\r\n    }\r\n  ]\r\n}",
-									"options": {
-										"raw": {}
-									}
-								},
-								"url": {
-									"raw": "{{url}}/Documents/SW304/ArticleItem?AdditionalActions=1",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"Documents",
-										"SW304",
-										"ArticleItem"
-									],
-									"query": [
-										{
-											"key": "AdditionalActions",
-											"value": "1"
-										}
-									]
-								},
-								"description": "Lagerbuchung auf einer Position"
-							},
-							"response": []
-						},
-						{
-							"name": "🔑 Create shipping item position",
-							"request": {
-								"auth": {
-									"type": "apikey",
-									"apikey": [
-										{
-											"key": "value",
-											"value": "{{AccessToken}}",
-											"type": "string"
-										},
-										{
-											"key": "key",
-											"value": "Authorization",
-											"type": "string"
-										}
-									]
-								},
-								"method": "POST",
-								"header": [
-									{
-										"key": "Content-Type",
-										"name": "Content-Type",
-										"type": "text",
-										"value": "application/json"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n  \"ArticleNumber\": \"751C93063\",\r\n  \"UnitPrice\": 4.05,\r\n  \"AlternativePositionDescription\": \"Schneckenpost Express\"\r\n}"
-								},
-								"url": {
-									"raw": "{{url}}/Documents/FAU396/Positions",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"Documents",
-										"FAU396",
-										"Positions"
-									]
-								},
-								"description": "Lagerbuchung auf einer Position"
-							},
-							"response": []
-						},
-						{
-							"name": "🔑 Create Surcharge item position",
-							"request": {
-								"auth": {
-									"type": "apikey",
-									"apikey": [
-										{
-											"key": "key",
-											"value": "Authorization",
-											"type": "string"
-										},
-										{
-											"key": "value",
-											"value": "{{AccessToken}}",
-											"type": "string"
-										}
-									]
-								},
-								"method": "POST",
-								"header": [
-									{
-										"key": "Content-Type",
-										"type": "text",
-										"value": "application/json"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n\t\"ArticleNumber\": \"600002\",\n\t\"UseQuantityFormula\": true\n}",
-									"options": {
-										"raw": {}
-									}
-								},
-								"url": {
-									"raw": "{{url}}/Documents/FAU4788/Positions/653df3d5-fbeb-4fa0-928c-2ab999b8a0f4/SurchargeArticleItem",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"Documents",
-										"FAU4788",
-										"Positions",
-										"653df3d5-fbeb-4fa0-928c-2ab999b8a0f4",
-										"SurchargeArticleItem"
-									]
-								},
-								"description": "Legt Zuschlagsartikel als Unterposition zu einer Hauptkennung an."
-							},
-							"response": []
-						},
-						{
-							"name": "🔑 Update document position",
-							"request": {
-								"auth": {
-									"type": "apikey",
-									"apikey": [
-										{
-											"key": "value",
-											"value": "{{AccessToken}}",
-											"type": "string"
-										},
-										{
-											"key": "key",
-											"value": "Authorization",
-											"type": "string"
-										}
-									]
-								},
-								"method": "PUT",
-								"header": [
-									{
-										"key": "Content-Type",
-										"name": "Content-Type",
-										"type": "text",
-										"value": "application/json"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n  \"CalculatedQuantityValue\": 5.00\r\n}"
-								},
-								"url": {
-									"raw": "{{url}}/Documents/FAU396/Positions/B67EFA8B-979C-46A7-9EBC-901DA7703073",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"Documents",
-										"FAU396",
-										"Positions",
-										"B67EFA8B-979C-46A7-9EBC-901DA7703073"
-									]
-								},
-								"description": "Bearbeiten einer Belegposition."
-							},
-							"response": []
-						},
-						{
-							"name": "🔑 Store in position",
-							"request": {
-								"auth": {
-									"type": "apikey",
-									"apikey": [
-										{
-											"key": "value",
-											"value": "{{AccessToken}}",
-											"type": "string"
-										},
-										{
-											"key": "key",
-											"value": "Authorization",
-											"type": "string"
-										}
-									]
-								},
-								"method": "POST",
-								"header": [
-									{
-										"key": "Content-Type",
-										"name": "Content-Type",
-										"type": "text",
-										"value": "application/json"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "[\r\n  {\r\n    \"Identifier\": \"FCC2D453-EDC4-4B01-94BF-14F02E776BCE\",\r\n    \"Warehouse\": \"100\",\r\n    \"Quantity\": 2\r\n  }\r\n]"
-								},
-								"url": {
-									"raw": "{{url}}/Documents/FAU396/Positions/Store",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"Documents",
-										"FAU396",
-										"Positions",
-										"Store"
-									]
-								},
-								"description": "Lagerbuchung auf einer Position"
-							},
-							"response": []
-						},
-						{
-							"name": "🔑 Delete document position",
-							"request": {
-								"auth": {
-									"type": "apikey",
-									"apikey": [
-										{
-											"key": "value",
-											"value": "{{AccessToken}}",
-											"type": "string"
-										},
-										{
-											"key": "key",
-											"value": "Authorization",
-											"type": "string"
-										}
-									]
-								},
-								"method": "DELETE",
-								"header": [
-									{
-										"key": "Content-Type",
-										"name": "Content-Type",
-										"type": "text",
-										"value": "application/json"
-									}
-								],
-								"url": {
-									"raw": "{{url}}/Documents/FAU396/Positions/B67EFA8B-979C-46A7-9EBC-901DA7703073",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"Documents",
-										"FAU396",
-										"Positions",
-										"B67EFA8B-979C-46A7-9EBC-901DA7703073"
-									]
-								},
-								"description": "Löschen einer Belegposition."
-							},
-							"response": []
-						},
-						{
-							"name": "🔑 Create document successors",
-							"request": {
-								"auth": {
-									"type": "apikey",
-									"apikey": [
-										{
-											"key": "value",
-											"value": "{{AccessToken}}",
-											"type": "string"
-										},
-										{
-											"key": "key",
-											"value": "Authorization",
-											"type": "string"
-										}
-									]
-								},
-								"method": "POST",
-								"header": [
-									{
-										"key": "Content-Type",
-										"name": "Content-Type",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n\t \"DocumentKindDestination\" : \"L\",\r\n\t \"Positions\": []\r\n}"
-								},
-								"url": {
-									"raw": "{{url}}/Documents/FAU467/Successors",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"Documents",
-										"FAU467",
-										"Successors"
-									]
-								},
-								"description": "Belegübergabe, alle Positionen werden mit Menge = 0 übergeben."
-							},
-							"response": []
-						},
-						{
-							"name": "🔑 Create accessory article item position",
-							"request": {
-								"auth": {
-									"type": "apikey",
-									"apikey": [
-										{
-											"key": "key",
-											"value": "Authorization",
-											"type": "string"
-										},
-										{
-											"key": "value",
-											"value": "{{AccessToken}}",
-											"type": "string"
-										}
-									]
-								},
-								"method": "POST",
-								"header": [
-									{
-										"key": "Content-Type",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n\t\"ArticleNumber\": \"600002\",\n\t\"StoreInformation\": \n\t[\n\t\t{\n\t\t\t\"Warehouse\": \"100\",\n\t\t\t\"Quantity\": \"2\"\n\t\t}\n\t]\n}",
-									"options": {
-										"raw": {}
-									}
-								},
-								"url": {
-									"raw": "{{url}}/Documents/FAU4788/Positions/653df3d5-fbeb-4fa0-928c-2ab999b8a0f4/AccessoryArticleItem",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"Documents",
-										"FAU4788",
-										"Positions",
-										"653df3d5-fbeb-4fa0-928c-2ab999b8a0f4",
-										"AccessoryArticleItem"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "🔑 Read document successors",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"auth": {
-									"type": "apikey",
-									"apikey": [
-										{
-											"key": "value",
-											"value": "{{AccessToken}}",
-											"type": "string"
-										},
-										{
-											"key": "key",
-											"value": "Authorization",
-											"type": "string"
-										}
-									]
-								},
-								"method": "GET",
-								"header": [
-									{
-										"key": "Content-Type",
-										"name": "Content-Type",
-										"type": "text",
-										"value": "application/json"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n\t \"DocumentKindDestination\" : \"L\",\r\n\t \"Positions\": []\r\n}"
-								},
-								"url": {
-									"raw": "{{url}}/Documents/FAU467/Successors",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"Documents",
-										"FAU467",
-										"Successors"
-									]
-								},
-								"description": "Belegübergabe, alle Positionen werden mit Menge = 0 übergeben."
-							},
-							"response": []
-						},
-						{
-							"name": "🔑 Create document successors with positions",
-							"request": {
-								"auth": {
-									"type": "apikey",
-									"apikey": [
-										{
-											"key": "value",
-											"value": "{{AccessToken}}",
-											"type": "string"
-										},
-										{
-											"key": "key",
-											"value": "Authorization",
-											"type": "string"
-										}
-									]
-								},
-								"method": "POST",
-								"header": [
-									{
-										"key": "Content-Type",
-										"name": "Content-Type",
-										"type": "text",
-										"value": "application/json"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n\t \"DocumentKindDestination\" : \"L\",\r\n\t \"Positions\": [{\r\n\t \t\"Identifier\": \"47A34ECC-37C6-4475-AECA-06A49E699A33\",\r\n\t \t\"ArticleNumber\": \"100001\",\r\n\t \t\"Quantity\":1,\r\n\t \t\"Warehouse\": \"200\"\r\n\t }]\r\n}"
-								},
-								"url": {
-									"raw": "{{url}}/Documents/FAU466/Successors",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"Documents",
-										"FAU466",
-										"Successors"
-									]
-								},
-								"description": "Belegübergabe mit der Angabe von Positionen und Mengen die übergeben werden sollen."
-							},
-							"response": []
-						},
-						{
 							"name": "Update document status flag",
 							"request": {
 								"auth": {
@@ -2211,7 +2951,7 @@
 							"response": []
 						},
 						{
-							"name": "Print document",
+							"name": "🔑 Delete document",
 							"request": {
 								"auth": {
 									"type": "apikey",
@@ -2228,35 +2968,26 @@
 										}
 									]
 								},
-								"method": "POST",
+								"method": "DELETE",
 								"header": [
 									{
 										"key": "Content-Type",
 										"name": "Content-Type",
-										"value": "application/json",
-										"type": "text"
+										"type": "text",
+										"value": "application/json"
 									}
 								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n  \"NumberOfCopies\" : \"1\",\r\n  \"MasterName\" : \"!Blatt1\",\r\n  \"PrintTarget\" : \"Printer\",\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
 								"url": {
-									"raw": "{{url}}/Documents/RAR001/Print",
+									"raw": "{{url}}/Documents/SWE250",
 									"host": [
 										"{{url}}"
 									],
 									"path": [
 										"Documents",
-										"RAR001",
-										"Print"
+										"SWE250"
 									]
-								}
+								},
+								"description": "Löschen eines Beleges."
 							},
 							"response": []
 						}
@@ -2419,6 +3150,46 @@
 							"response": []
 						},
 						{
+							"name": "Read all positions of manual storage",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "key",
+											"value": "Authorization",
+											"type": "string"
+										},
+										{
+											"key": "value",
+											"value": "{{AccessToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/ManualStorages/15000037/Positions",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"ManualStorages",
+										"15000037",
+										"Positions"
+									]
+								}
+							},
+							"response": []
+						},
+						{
 							"name": "Create manual storage",
 							"request": {
 								"auth": {
@@ -2445,45 +3216,6 @@
 									],
 									"path": [
 										"ManualStorages"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Delete manual storage",
-							"request": {
-								"auth": {
-									"type": "apikey",
-									"apikey": [
-										{
-											"key": "key",
-											"value": "Authorization",
-											"type": "string"
-										},
-										{
-											"key": "value",
-											"value": "{{AccessToken}}",
-											"type": "string"
-										}
-									]
-								},
-								"method": "DELETE",
-								"header": [
-									{
-										"key": "Content-Type",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"url": {
-									"raw": "{{url}}/ManualStorages/15000044",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"ManualStorages",
-										"15000044"
 									]
 								}
 							},
@@ -2537,7 +3269,7 @@
 							"response": []
 						},
 						{
-							"name": "Read all positions of manual storage",
+							"name": "Delete manual storage",
 							"request": {
 								"auth": {
 									"type": "apikey",
@@ -2554,7 +3286,7 @@
 										}
 									]
 								},
-								"method": "GET",
+								"method": "DELETE",
 								"header": [
 									{
 										"key": "Content-Type",
@@ -2563,14 +3295,13 @@
 									}
 								],
 								"url": {
-									"raw": "{{url}}/ManualStorages/15000037/Positions",
+									"raw": "{{url}}/ManualStorages/15000044",
 									"host": [
 										"{{url}}"
 									],
 									"path": [
 										"ManualStorages",
-										"15000037",
-										"Positions"
+										"15000044"
 									]
 								}
 							},
@@ -2797,6 +3528,57 @@
 								"description": "Gibt eine Signatur zurück."
 							},
 							"response": []
+						},
+						{
+							"name": "Create document signatures",
+							"protocolProfileBehavior": {
+								"disabledSystemHeaders": {}
+							},
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{AccessToken}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "Authorization",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "multipart/mixed; boundary=<calculated when request is sent>",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"DocumentType\": \"M\",\r\n    \"DocumentNumber\": \"15000029\",\r\n    \"Signer\": \"Superman\",\r\n    \"TransferId\": \"M15000029\",\r\n    \"Picture\": \"iVBORw0KGgoAAAANSUhEUgAAAMMAAAA0CAYAAAA36IwLAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAEZBJREFUeNrsXQm4llMe/9+tFKXbqpKiMiKlREWa1NBEBtmStGCMfd/CEMqYwTAjxl4jsrRiilRKUVmaUpaKKK2SJHNT3e69c37P93ufe+75znmX73534/09z/+p+37vOe97lv96/ue8GUVFRZIx5guJEeNXgl6K+ijKVPSyovdxsWhIa8kOWcGBitopaqqojqJ8RRsVrVX0X0U/xX0cowpguKLBiuYp2qPoeUUPKnocP/oxQzVFlyrqr6iTz72bFc1U9Jyi6RXUyFsV9VZUQI7/RtGgX+Fg/1NRe/ZDBq8NVbS6FHXWU/SiohwIUEVZip5WNLaK9c1ARcMUjVb0P0VbFW1SNErR54reyXCYSacoekhRy4gPfF3RJYo2lHNDZ1L9editqHoVn9hg6oMplArYnvWKvvUpg0nf3LjWUdHiUrzHAYrWGNcwN66rYv35KYXm0Yr2U9SATADBeaYyk47PtBS6UNFrKTCCx0SLUyxbGmyyTIqqjn0UfaDoY0WfKFqk6OaAMmst13aX8j32WOrYWgX782dIf7bnWEV700z6mP9PMn06UQXasILctZ1SClLrSMt9DfnQg9IwEL9mwMypYVzLqYD3yKZ20tGgCvbnXopOJFNAI9RStIx+xA4bMzxjqQQFr3X4A20prQYa1+Foj1B0UzynU0YRAxO52rWdFfAeP9IsytZ8hmlVsD9HSiJ6BG1wuqLWimYr6kx/swQzwLZsZ1SwgTe7okVQ3+ezwy43frta0d10VmJUXfxYBf0DGxAEaCGJgNB/KFiaKLpSEtEl0X2G4ywVPCHhwqZXSCKqpAOqtUc8l1IGzNFC41osWEqHv0hijQFm/Fy6Bc/o9qCHRpbC6yM86F1F/Yxr3cmFQWhDZoSfsS8nwiq+8PIy7iBoxG6MmtRUtI2mIdrzdYp1IlrRlZo2l7b+NrZpoaLPHOVq0ueCr1XbYsY25jjlkH5gvWWJLLYni8yJ537PMTLbDF+ygO+91binJ8e4Adu3kX0xL8X3Oo5WS2P6A+iLpaxvo085WDv3u5wjDwWW3/s6/AgbnqTq2UnbEgO7IKAMwqHDpGRY1MR02nvz0jzIZym6RtExPlGUCYruisCQCGsifDeA0SAXIJkeUTTRuI5oHOL3+dTaexm/X8i6szkpH1Z0YxkzQ0Myb3WNGf6s6D7jvhkMqhSScRBif1bRCRy/oxz1f6jodkVvhXyfP9ISaef4PU/RC3SMN0aNFHhYZfn9NEms2P07RF3TJdqi293s1CD0Jt1KNZcOPM2JFdQ3sC/PUHQBHS8/4L4xAUzg4bek0axb1ww5PlGjbEZBPNQpB9Mii1pKRy3LfY2MqNM6atygSX4U5w36b5LPfRAOUygw/IAw6cWsb0AEJivhM7zpuGcMOa1PyIEOg7/5MEKe4/q9IZknCFMcjFDoeHYOpfX5PnWeTC1i65/dPm0aKiVXcqMuFO5dDsxQKMkh8p8t920zylykaGoEn2eiw1TXtamNEaBFd1iu1yOT9UyFGTZR7dowgOG0LzmZriNHZ6bQuf0sqh3qDCHaQyWxYNeO5km+RZucUIqBhTo+1bj2GVVvKz67i6MfnuM9JupLYpHSBHylP7BMK5pjf7fcN1Ab5Jk0L0DXWgZ5hvY7aFQldVQzaIbWJuNAiB3OfmhDLe8KxLg0eTfj2nxF53DMWtI/fdZSdlpYDWpLx5jriCzZgILvKXo7pMMJyfedoWY/ZdRpi+X+Dqy3psG0TeiXeIAJc57290pFvzHq2l+SV2in0hTcY3n2SRbJ9p5lUJ6lhNcxkownDtNzsnFtCdtq4jsym4ebqVVdmGd5v7bs41TRhOOqm0CY3COM+9DnrS1avrPj+edTwOhYYPHhOtGv0GGalzqgkZ6yCLLBfo1E1qpNsnenMxwGaPwQPuwLmlp+Nt0FBiNA/Z7oYARgsTHJvahF/xQG9QaLNurrYARPopgT+lgOjq4VhloY5vYAM820jY+gVtRRm/a6jqq28nuxDyOOtfipTS1tvtP4e6kPI3haZLRxbRCZOrSZpONPDA0+IfZ8F5ej1Zsmw2OOe4ZYpGpQUh8mzzLj2uAUnMBzjWthnPGRkpyHM8iI/pgI49fcz0FdQlpuaIBfAuBAjwu4x4w21jAiaPXpj+m4LaTgM4Vc/1SZAVhIu7Q1nRDY8LMksSIZBKR+P25cqyuJmL7pnIfB8xbVGcXZPIIhQr86XTD9ga6GptCxlY5eENC37WkadaAd/e4vjBkWhrjHtAgKDPO3uxSnonuOe5h1q60WRuseVCjM5p5dksjhmK2p6i4MDfZ02LqedplIp8+zXc3n3UEfoJrP82FKHWaJFLSQRPJgGJjli6j18nz6oIgOfCfjegtGmPIlOTt3mSSvGkeJ2vySsD0NdRzmMK8KLOaUOW7NjOst08EMNqfudZInpeEMXWW5d4TGDLkOJzVV1Ixwb2NHtCMV1KU6z7eYNhslhocwGbZB0ch9LWbUwBTfp1ZYZqjDm3fxb0jqzRIuBfsj0mcW0+hoRnHWGequMg5MWGRq/WSmWO+MeSCtKEpjXXXDMsMtklg72KkxwyURbHqh2XGlRbW1JTPscjioywLMJNtkLBD7irkL2ywmyTW0WaNoR6jmn7S2mItIdeL5m1YUWMbxWilOVwmLbElOJHUyQ74kpwG0T+Hll1qYwYsO2KJSr7BMeUQ2TDPpSQeDRsFGo5/ahCy3r5RcGcXAIpb+TTz/S2CDRcOPKauHedz1QZrs+f18IgZYlPnB+O2cCHU3Y0QIsegmEd9rcSl8hizt2c2MNprZp1joax6iToT5Jmk0weLwlbXZUBWwyPgb6SfdIviU+2vjVj8sM8yR5NSHg2lKhAWOkzFDjfma5If/Mdv4fWjIusfTLEI6yFeKHo3YqWssGuiKkGXna89ereh67beplvuvD1HnQEtQYoGFYU1TIJVttNurMDO8bxGgV4csu4xj9iU1buh1BtjBtszUh+gHBAEcOM1i+081BuMxS5TnkYC6kUt0JlVkLT5jRgodazr3nWl/+uEWBgG8Z2caDPC2JJ8cgf7qEqAVTOk2TpJDq4UWTdA4RccxSzODw1ANSS3vLN3AwpmZb4S5cHpAOcwz7I2prkWR3grLDMAwsce6cRbPQkq8zlQ5Xpz/d5JYyQUXHmIpe4fx9yxyuymhn+LL66hBJ36KcX2tuFe4/YBnmMesIHEO2bBmmgNSIe6U5FXqOSQdN1ieBQ14npSMoGGSYTHyRcv9D1qu5UnyLkNMAmQPI7uzZUhzEcy7IgKtpDQ9RSoH7rVcm0RBZmbtwoQexX7W8TTbFcqB9mx7ZFnaVvg6kzzTJ48Txk96DJPkNArgbEnkMelaBMlVSLFAXg9212FNoh01jokzSiFl+vEZ5nteSgd2E32C9pK8Yr1DkvOkhPb+eMMHQdAAK9zDJZFuAaY4kgLExE2O4EIhHX/dl8ilBkYUax8KhcsD2t00xf6qLHlQWE0+1yJEIMiQ/YyjXr6n1uxsYRA44VeFDTmZUgQT5jlx712AhAsKIWKC3ef4DfZbD0nkmtcy6u0RUO/ZkpzB6Dm5fu3S7X9M6BeM62iPX2o4UlB6iTuPCu/1mkWaeunbftrqfp/fEfHqarm+j6OdWWmchDt9+jMzxFwK8y6ZIcftJQqnf1jMRj/TEb4e8uV+lhReBkB6MdYGxkr0FAHYZd19GMHDAkrfySHrfYe2+3gfu1iH3yYR2OfHWDSECxP4rosC7oNWvS2kw7qVjuDFAfeNCfCpzEW/hmlkhhrapM60mJES0Oe5IZ5hCtX64l6chbneV8KfDghfo6NEWI/KCDiFG3bpSZTYraiyq9OxK6RJgwgLkszekMQhxFHRhU5yF5oouTQDNlELTAvhMHdj9Ctfijejvxri2b+nDX4kBxODvI3tWkBm/ShiexrRtu/F/mvE/trMgZlFBtsSoU6sX2Bdojm1aR7f803j/XrTLMovJSNk0zf6mkzRj9e8PdAfWkzgUymU9tAEXh5C4GCD2OF83yyO+xRxp9XrpjL81Q4UADU55rA65tGn+DxKg7GfISPikfT12FCPGTZL+uENdnknrmXw2ekORe7N/tohMcoC2WTYUp0EH+VIeg/fl0PjKup4+yIpm5h8XjxfyxR70jVnMuO+jBEjZoYYMWJmiBEjZoYYMWJmiBEjGNlxF5QLkEPUQxIroVipLghRBkfoYM0AETxssfVL30aMHmFvrJN4IekM/h+pHl7c3lsnArBOgf0c+kId1lew8lyNZDsBD6kmu8Ue+kZoOiiyE+YeAKvsDaR4JXutBO8/wSJefePdUB45adtjZqh4DJdE/hEWc7A4hBSMIeI+5QELgOM5mddzgHH482XiXoFHxnE3TpgcbWwR1kWW53e8hoTAVpzkDTixN/BeTBrkiC0hIyBZD0mUE7TnZPA6Ftz6GO+A/C4cAnGET18gl+geMvpcn/vwjlicxMIk1mewGQqLsVjEc6ViI83mAUmk+GdK8Uo22oiTXSbHzFCxwOS4kxNyIvv7ZUr6+pK8boNjebCiPI6TazsnKVLJsSvwLGNyejiBE+UabUw9zaDvB7iemgGS/WFOyh58hsd8QmbB+w02nncUtVVT1qNL6sESnI80iOWGBTBDM9LZZFYsqnVgv+DTAbaT0zvz+QOM9/A0Q2wmVTCQfjxFio+eh7mCVIKuYj88ACbUCimZHQuTCnvFW2gawwSYBrvugraN6tmx0FRIu1/juBen0pmJh5DKK/nup5GxPRwk9nRrDxdxUncnIzQT9wF1MAnXUTB4JuVKElJ+kDv3iVEmn1phTexAV04gX8Z2Xs8CSV6ZbsrJeYGPlgH6WX4rkOSkvSDsFSDJkd/TSEom00GTPMpJqr9HG/oCfqYItBv2sswj897jc28h56aZyOftSWjoKFOqrN2YGcoW8A2QiPaCBJ8A2JsMMt9ngkCa97X8liPpTyWZrTGA94z9qeUWScmPj5xOxndJZe+k7JH8+yHxPyI0i1rUNCO9TV220/oySjufY2YoW8COR3blyRzYh32Y4uAQE3qd2DcIraVGGUtTajwd9NJ8mBCm0Cop3mLZk+bLekr3/aT4kC+00S+1+h7a/t4BCg9oTGTDFkr/qRQkE8iEx9E/siU94l1xMsuHDAJg089S/ntA7DNUDsyiur+BUaXLGImZZRmLIDVf5BizHErmVVK8gxBMV9oT/t6mxvI0l+eILqMT3ovmFCbhCB8p31+rx3PQx7HMZMe83MP2QIggdR2HR3T0Ybq6bO9j7Cc9FL0tZobKhQdIkNgzKa3WGpIt6AjE5pK8hxzAbq9nNDMkXXhVM2faSsldhl8xEDCJ/sokH/Mvgw53HzLHLjrch7KsuRMtl8ytb9fsxsjcaY7nNCAzjI7NpKoDz+Y3P4v1JifG0T5lYXfbPkgOKV2vDN4Vm6p+5DvXMp6N3YetKPW/FfeXYW+kr9OUGgTOdjsyE2A7WmcPBbW+Dxu7Ak8V957u3RL9M2CxZignIFrzL/oJH1t+N2Pf2FWGBa3n6T+Y8I66eakc27CbkaNRnOzTjWgT2oYFrTmO8tB+PcgEts/9/sDyI0K8yxyaO2PF/p02z+mOHehKiEJGk5ZI8Vd5EFtfThNgrKUMHO3WtKNzNdt/uCRCqziB0JbKUT+EiWWitoQ7AWMGzbPdUvLDLXCiDyTjvugoC9PtJ3F/93oE5+AA43o1OtDm/MS3946X5O98eIK9OTWPTodIyL3hMTOUrVRFtGUuJw4WiRZRenUU++l4iKMjZImUBoQP32VEBCYCjkt5xfGsFSk4yxsk3Pet32B0Z6aDUbaIfa9zDv0Mvy8ZbWJZ84TBPDKQKekn0LcaZqnLOyJ1ikGvS/IXo2IzqQKwnTbxbbTpERpFfpDfKinMEqRV4PO82D/9DTWFn3kEE2p1xHd7KyQzrKZj/o5D8s8XewJdBs2oSQH1/1WSQ59oM07DsIVQ73L4RwtYpqXFfPo6TIf8X4ABAMji8sXSN9SrAAAAAElFTkSuQmCC\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/Signatures",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"Signatures"
+									]
+								}
+							},
+							"response": []
 						}
 					],
 					"protocolProfileBehavior": {},
@@ -3013,6 +3795,321 @@
 					],
 					"protocolProfileBehavior": {},
 					"_postman_isSubFolder": true
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Currency",
+			"item": [
+				{
+					"name": "Read all currencies",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{AccessToken}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "Authorization",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/Currencies",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"Currencies"
+							]
+						},
+						"description": "Gibt alle Währungen zurück."
+					},
+					"response": []
+				},
+				{
+					"name": "Read currency",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{AccessToken}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "Authorization",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/Currencies/AUD",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"Currencies",
+								"AUD"
+							]
+						},
+						"description": "Gibt eine Währung anhand des Währungscodes zurück."
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "ExtraTable",
+			"item": [
+				{
+					"name": "Read",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{AccessToken}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "Authorization",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/ExtraTable/XMeineTabelle",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"ExtraTable",
+								"XMeineTabelle"
+							]
+						},
+						"description": "Rückgabe aller Fertigungsaufträge und deren Kopfinformationen"
+					},
+					"response": []
+				},
+				{
+					"name": "Read with filter",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{AccessToken}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "Authorization",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/ExtraTable/XMeineTabelle?filter=Id EQ '25'",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"ExtraTable",
+								"XMeineTabelle"
+							],
+							"query": [
+								{
+									"key": "filter",
+									"value": "Id EQ '25'"
+								}
+							]
+						},
+						"description": "Rückgabe aller Fertigungsaufträge und deren Kopfinformationen"
+					},
+					"response": []
+				},
+				{
+					"name": "Insert",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{AccessToken}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "Authorization",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"Fields\": {\n        \"_Breite\": 3,\n        \"_Datum\": \"2020-09-18T07:36:34.705Z\",\n        \"_Fertigungsauftrag\": \"3A\",\n        \"_IstFertig\": false,\n        \"_Laenge\": 2,\n        \"_Mitarbeiter\": \"Claudia Sommer\",\n        \"_Termin\": \"2020-09-20T00:00:00.000Z\"\n\t}\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/ExtraTable/XMeineTabelle",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"ExtraTable",
+								"XMeineTabelle"
+							]
+						},
+						"description": "Rückgabe aller Fertigungsaufträge und deren Kopfinformationen"
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{AccessToken}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "Authorization",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"IdentifierName\": \"Id\",\n\t\"Fields\": {\n\t\t\"_MYTEXT\": \"Neuer Test456\",\n\t\t\"_MYBOOLEAN\": false,\n\t\t\"_MYDATE\" :\"2020-04-28\",\n\t\t\"_MYSHORTNUMBER\": 123,\n\t\t\"_MYLONGNUMBER\": 123456789,\n\t\t\"_MYGUID\": \"fb98d72f-8c7d-4dbf-8efc-90316da628ed\"\n\t}\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/ExtraTable/XMeineTabelle2/28",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"ExtraTable",
+								"XMeineTabelle2",
+								"28"
+							]
+						},
+						"description": "Rückgabe aller Fertigungsaufträge und deren Kopfinformationen"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{AccessToken}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "Authorization",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/ExtraTable/XMeineTabelle?filter=Id EQ '26'",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"ExtraTable",
+								"XMeineTabelle"
+							],
+							"query": [
+								{
+									"key": "filter",
+									"value": "Id EQ '26'"
+								}
+							]
+						},
+						"description": "Rückgabe aller Fertigungsaufträge und deren Kopfinformationen"
+					},
+					"response": []
 				}
 			],
 			"protocolProfileBehavior": {}
@@ -3723,13 +4820,13 @@
 									"type": "apikey",
 									"apikey": [
 										{
-											"key": "value",
-											"value": "{{AccessToken}}",
+											"key": "key",
+											"value": "Authorization",
 											"type": "string"
 										},
 										{
-											"key": "key",
-											"value": "Authorization",
+											"key": "value",
+											"value": "{{AccessToken}}",
 											"type": "string"
 										}
 									]
@@ -4516,6 +5613,41 @@
 								"description": "Gibt die letzten x beareiteten Arbeitsschritte zurück."
 							},
 							"response": []
+						},
+						{
+							"name": "Read the competence groups of the employee",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{AccessToken}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "Authorization",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/Employees/1/CompetenceGroups",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"Employees",
+										"1",
+										"CompetenceGroups"
+									]
+								},
+								"description": "Gibt die letzten x beareiteten Arbeitsschritte zurück."
+							},
+							"response": []
 						}
 					],
 					"protocolProfileBehavior": {},
@@ -4528,7 +5660,7 @@
 			"name": "Inventory ✔",
 			"item": [
 				{
-					"name": "Read all active inventories",
+					"name": "Read all inventories",
 					"request": {
 						"auth": {
 							"type": "apikey",
@@ -4556,7 +5688,7 @@
 								"Inventories"
 							]
 						},
-						"description": "Gibt alle offene (aktive) Inventuren zurück."
+						"description": "Gibt alle Inventuren zurück."
 					},
 					"response": []
 				},
@@ -4663,9 +5795,7 @@
 							"mode": "raw",
 							"raw": "{\r\n  \"Quantity\": 1,\r\n  \"Serialnumber\": \"SNR1\"\r\n}\r\n",
 							"options": {
-								"raw": {
-									"language": "json"
-								}
+								"raw": {}
 							}
 						},
 						"url": {
@@ -4746,50 +5876,6 @@
 		{
 			"name": "Journal ✔",
 			"item": [
-				{
-					"name": "Create Journal",
-					"request": {
-						"auth": {
-							"type": "apikey",
-							"apikey": [
-								{
-									"key": "value",
-									"value": "{{AccessToken}}",
-									"type": "string"
-								},
-								{
-									"key": "key",
-									"value": "Authorization",
-									"type": "string"
-								}
-							]
-						},
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"name": "Content-Type",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n  \"Date\": \"2019-06-19T06:18:32.835Z\",\r\n  \"StatusId\": 1,\r\n  \"Label\": \"test\",\r\n  \"Text\": \"test\",\r\n  \"JournalLinkInformation\": {\r\n    \"LinkType\": \"document\",\r\n    \"DocumentType\": \"L\",\r\n    \"DocumentNumber\": \"LS488\"\r\n  }\r\n}"
-						},
-						"url": {
-							"raw": "{{url}}/Journals",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"Journals"
-							]
-						},
-						"description": "Journaleintrag anlegen"
-					},
-					"response": []
-				},
 				{
 					"name": "Read Journals",
 					"protocolProfileBehavior": {
@@ -4886,51 +5972,6 @@
 					"response": []
 				},
 				{
-					"name": "Add attachment to a journal",
-					"request": {
-						"auth": {
-							"type": "apikey",
-							"apikey": [
-								{
-									"key": "value",
-									"value": "{{AccessToken}}",
-									"type": "string"
-								},
-								{
-									"key": "key",
-									"value": "Authorization",
-									"type": "string"
-								}
-							]
-						},
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "formdata",
-							"formdata": [
-								{
-									"key": "",
-									"description": "Datei",
-									"type": "file",
-									"src": "/C:/Users/ssteglitz/Desktop/drink.png"
-								}
-							]
-						},
-						"url": {
-							"raw": "{{url}}/Journals/077D2B66-158B-4FA1-966E-DD4074F59280/Attachments",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"Journals",
-								"077D2B66-158B-4FA1-966E-DD4074F59280",
-								"Attachments"
-							]
-						}
-					},
-					"response": []
-				},
-				{
 					"name": "Read all attachments of journal",
 					"request": {
 						"auth": {
@@ -5000,15 +6041,9 @@
 						"description": "Gibt einen Anhang zu einen Journal zurück."
 					},
 					"response": []
-				}
-			],
-			"protocolProfileBehavior": {}
-		},
-		{
-			"name": "Warehouse",
-			"item": [
+				},
 				{
-					"name": "Read Warehouse",
+					"name": "Create Journal",
 					"request": {
 						"auth": {
 							"type": "apikey",
@@ -5025,16 +6060,72 @@
 								}
 							]
 						},
-						"method": "GET",
-						"header": [],
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"Date\": \"2019-06-19T06:18:32.835Z\",\r\n  \"StatusId\": 1,\r\n  \"Label\": \"test\",\r\n  \"Text\": \"test\",\r\n  \"JournalLinkInformation\": {\r\n    \"LinkType\": \"document\",\r\n    \"DocumentType\": \"L\",\r\n    \"DocumentNumber\": \"LS488\"\r\n  }\r\n}"
+						},
 						"url": {
-							"raw": "{{url}}\\Warehouses/500",
+							"raw": "{{url}}/Journals",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
-								"Warehouses",
-								"500"
+								"Journals"
+							]
+						},
+						"description": "Journaleintrag anlegen"
+					},
+					"response": []
+				},
+				{
+					"name": "Add attachment to a journal",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{AccessToken}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "Authorization",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "",
+									"description": "Datei",
+									"type": "file",
+									"src": "/C:/Users/ssteglitz/Desktop/drink.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/Journals/077D2B66-158B-4FA1-966E-DD4074F59280/Attachments",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"Journals",
+								"077D2B66-158B-4FA1-966E-DD4074F59280",
+								"Attachments"
 							]
 						}
 					},
@@ -5044,7 +6135,108 @@
 			"protocolProfileBehavior": {}
 		},
 		{
-			"name": "Production ✔",
+			"name": "Macro",
+			"item": [
+				{
+					"name": "Run wawi macro",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{AccessToken}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "Authorization",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"MacroName\": \"SQL 3001\",\r\n  \"Parameters\":[\r\n  {\r\n    \"Name\": \"artikel\",\r\n    \"Value\": \"\\\"100003\\\"\"\r\n  }\r\n]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/Macros",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"Macros"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Run API Macro",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{AccessToken}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "Authorization",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n\t{\r\n\t\t\"Name\": \"artikelnummer\",\r\n\t\t\"Value\": \"11001\"\r\n\t}\r\n]",
+							"options": {
+								"raw": {}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/Macros/SelectArticleByExplicitNumber",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"Macros",
+								"SelectArticleByExplicitNumber"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "❌ Production ✔",
 			"item": [
 				{
 					"name": "Working Hours",
@@ -5476,13 +6668,13 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{url}}/ProductionOrders/1002",
+							"raw": "{{url}}/ProductionOrders/3",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
 								"ProductionOrders",
-								"1002"
+								"3"
 							]
 						},
 						"description": "Rückgabe der Kopfinformationen zu einem Fertigungsauftrag"
@@ -5510,7 +6702,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{url}}/ProductionOrders/FA7/ProductionSteps?productionStepsListFilter.items=0&productionStepsListFilter.orderBy=PositionNumber",
+							"raw": "{{url}}/ProductionOrders/FA7/ProductionSteps",
 							"host": [
 								"{{url}}"
 							],
@@ -5521,12 +6713,50 @@
 							],
 							"query": [
 								{
-									"key": "productionStepsListFilter.items",
-									"value": "0"
+									"key": "page",
+									"value": "2",
+									"disabled": true
+								}
+							]
+						},
+						"description": "Liest die Arbeitsschritte zu einem Fertigungsauftrag aus."
+					},
+					"response": []
+				},
+				{
+					"name": "Read productionsteps of production order with filter",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{AccessToken}}",
+									"type": "string"
 								},
 								{
-									"key": "productionStepsListFilter.orderBy",
-									"value": "PositionNumber"
+									"key": "key",
+									"value": "Authorization",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/ProductionOrders/5/ProductionSteps?EmployeeIdentifier=1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"ProductionOrders",
+								"5",
+								"ProductionSteps"
+							],
+							"query": [
+								{
+									"key": "EmployeeIdentifier",
+									"value": "1"
 								},
 								{
 									"key": "page",
@@ -5647,6 +6877,200 @@
 					"response": []
 				},
 				{
+					"name": "Read competence groups of production step",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{AccessToken}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "Authorization",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/ProductionSteps/47/CompetenceGroups",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"ProductionSteps",
+								"47",
+								"CompetenceGroups"
+							]
+						},
+						"description": "Liest die Artikel zu einem Fertigungsauftrag."
+					},
+					"response": []
+				},
+				{
+					"name": "Read journals of productionorder",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{AccessToken}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "Authorization",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/ProductionOrders/1/Journals",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"ProductionOrders",
+								"1",
+								"Journals"
+							]
+						},
+						"description": "Liest alle Journale eines bestimmten Fertigungsauftrages"
+					},
+					"response": []
+				},
+				{
+					"name": "Read storage information of article of productionstep",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{AccessToken}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "Authorization",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/ProductionOrders/9/ProductionSteps/134/Articles/114/StorageInformation",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"ProductionOrders",
+								"9",
+								"ProductionSteps",
+								"134",
+								"Articles",
+								"114",
+								"StorageInformation"
+							]
+						},
+						"description": "Gibt Lagerinformationen zu einem bestimmten Artikel eines Fertigungsauftrages zurück."
+					},
+					"response": []
+				},
+				{
+					"name": "Read all production notification",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{AccessToken}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "Authorization",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/ProductionOrders/1/ProductionSteps/74/Notification",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"ProductionOrders",
+								"1",
+								"ProductionSteps",
+								"74",
+								"Notification"
+							]
+						},
+						"description": "Erstellt eine Meldung (Störungsmeldung) zu einem Arbeitsschritt"
+					},
+					"response": []
+				},
+				{
+					"name": "Read all stored Quantities of Productionordes",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{AccessToken}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "Authorization",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/ProductionOrders/StoredQuantities",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"ProductionOrders",
+								"StoredQuantities"
+							]
+						},
+						"description": "Gibt die Lagerinformationen zu gelagerten Artikel eines Fertigungsauftrages und/oder Fertigungsschrittes zurück"
+					},
+					"response": []
+				},
+				{
 					"name": "Create productionorder using article and quantity",
 					"request": {
 						"auth": {
@@ -5687,6 +7111,384 @@
 							]
 						},
 						"description": "Erstellt einem Fertigungsauftrag anhand der Artikelnummer eines Ergebnisartikels und der Bedarfsmenge."
+					},
+					"response": []
+				},
+				{
+					"name": "Reserve productionstep",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{AccessToken}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "Authorization",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/ProductionOrders/1001/Reserve",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"ProductionOrders",
+								"1001",
+								"Reserve"
+							]
+						},
+						"description": "Reserviert einen Fertigungsschritt"
+					},
+					"response": []
+				},
+				{
+					"name": "Store finished items of productionorder",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{AccessToken}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "Authorization",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"ProductionOrderIdentifier\": \"8\",\n\t\"Date\": \"2019-07-17T00:00:00\",\n\t\"WarehouseList\": [\n\t\t{\n\t\t\t\"ProductionArticleIdentifier\": \"114\",\n\t\t\t\"Warehouse\": 200,\n\t\t\t\"Quantity\": 1\n\t\t}\n\t]\n}",
+							"options": {
+								"raw": {}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/ProductionOrders/8/Store",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"ProductionOrders",
+								"8",
+								"Store"
+							]
+						},
+						"description": "Lagert die Ergebnisartikel eines Fertigungsauftrages ein."
+					},
+					"response": []
+				},
+				{
+					"name": "Outsource consumer items of productionorder",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{AccessToken}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "Authorization",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"ProductionOderIdentifier\": \"1005\",\n\t\"Date\": \"2019-12-17T00:00:00\",\n\t\"WarehouseList\": [\n\t\t{\n\t\t\t\"ProductionArticleIdentifier\": 144,\n\t\t\t\"Warehouse\": 200,\n\t\t\t\"Quantity\": 1,\n\t\t\t\"ExpirationDate\": \"2019-12-17T00:00:00\"\n\t\t}\n    ]\n}",
+							"options": {
+								"raw": {}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/ProductionOrders/1005/Outsource",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"ProductionOrders",
+								"1005",
+								"Outsource"
+							]
+						},
+						"description": "Lagert die mitgelieferten Verbrauchsartikel eines Fertigungsauftrages aus."
+					},
+					"response": []
+				},
+				{
+					"name": "Restore",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{AccessToken}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "Authorization",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"ProductionOrderIdentifier\": \"3\",\n\t\"WarehouseList\": [\t\t{\n\t\t\"ProductionArticleIdentifier\": 43,\n\t\t\"Quantity\": 1,\n\t\t\"StoragePlaceIdentifier\": 1,\n\t\t\"TargetWarehouse\": \"200\"\n\t}]\n}",
+							"options": {
+								"raw": {}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/ProductionOrders/3/Restore",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"ProductionOrders",
+								"3",
+								"Restore"
+							]
+						},
+						"description": "Einlagerung von bereits ausgelagerten Artikeln in ein beliebiges Lager (Umlagerung)."
+					},
+					"response": []
+				},
+				{
+					"name": "Outsource Undo (Warehouse)",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "key",
+									"value": "Authorization",
+									"type": "string"
+								},
+								{
+									"key": "value",
+									"value": "{{AccessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"ProductionOrderIdentifier\": \"1002\",\n\t\"WarehouseList\": [{\n\t\t\"ProductionArticleIdentifier\": 110,\n\t\t\"Warehouse\": 100,\n\t\t\"Quantity\": 1,\n\t\t\"StoragePlace\": 4\n\t}]\n}",
+							"options": {
+								"raw": {}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/ProductionOrders/1002/OutsourceUndo",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"ProductionOrders",
+								"1002",
+								"OutsourceUndo"
+							]
+						},
+						"description": "Lagert bereits ausgelagerte Artikel wieder ein."
+					},
+					"response": []
+				},
+				{
+					"name": "Store Undo (Warehouse)",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "key",
+									"value": "Authorization",
+									"type": "string"
+								},
+								{
+									"key": "value",
+									"value": "{{AccessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"ProductionOrderIdentifier\": \"1008\",\n\t\"WarehouseList\": [\t\t{\n\t\t\"ProductionArticleIdentifier\": 169,\n\t\t\"Warehouse\": 100,\n\t\t\"Quantity\": 1\n\t}]\n}",
+							"options": {
+								"raw": {}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/ProductionOrders/1008/StoreUndo",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"ProductionOrders",
+								"1008",
+								"StoreUndo"
+							]
+						},
+						"description": "Lagert bereits ausgelagerte Artikel wieder ein."
+					},
+					"response": []
+				},
+				{
+					"name": "Reserve Undo (Warehouse)",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "key",
+									"value": "Authorization",
+									"type": "string"
+								},
+								{
+									"key": "value",
+									"value": "{{AccessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/ProductionOrders/1002/ReserveUndo",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"ProductionOrders",
+								"1002",
+								"ReserveUndo"
+							]
+						},
+						"description": "Lagert bereits ausgelagerte Artikel wieder ein."
+					},
+					"response": []
+				},
+				{
+					"name": "Create production notification",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{AccessToken}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "Authorization",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"Text\": \"Neue Notiz\",\r\n    \"EmployeeNumber\": \"3\"\r\n}"
+						},
+						"url": {
+							"raw": "{{url}}/ProductionOrders/1001/ProductionSteps/13061/Notification",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"ProductionOrders",
+								"1001",
+								"ProductionSteps",
+								"13061",
+								"Notification"
+							]
+						},
+						"description": "Erstellt eine Meldung (Störungsmeldung) zu einem Arbeitsschritt"
 					},
 					"response": []
 				},
@@ -5786,493 +7588,6 @@
 					"response": []
 				},
 				{
-					"name": "Reserve productionstep",
-					"request": {
-						"auth": {
-							"type": "apikey",
-							"apikey": [
-								{
-									"key": "value",
-									"value": "{{AccessToken}}",
-									"type": "string"
-								},
-								{
-									"key": "key",
-									"value": "Authorization",
-									"type": "string"
-								}
-							]
-						},
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"name": "Content-Type",
-								"type": "text",
-								"value": "application/json"
-							}
-						],
-						"url": {
-							"raw": "{{url}}/ProductionOrders/1001/Reserve",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"ProductionOrders",
-								"1001",
-								"Reserve"
-							]
-						},
-						"description": "Reserviert einen Fertigungsschritt"
-					},
-					"response": []
-				},
-				{
-					"name": "Store finished items of productionorder",
-					"request": {
-						"auth": {
-							"type": "apikey",
-							"apikey": [
-								{
-									"key": "value",
-									"value": "{{AccessToken}}",
-									"type": "string"
-								},
-								{
-									"key": "key",
-									"value": "Authorization",
-									"type": "string"
-								}
-							]
-						},
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"name": "Content-Type",
-								"type": "text",
-								"value": "application/json"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n\t\"ProductionOrderIdentifier\": \"1005\",\n\t\"Date\": \"2019-07-17T00:00:00\",\n\t\"WarehouseList\": [\n\t\t{\n\t\t\"ProductionArticleIdentifier\": \"146\",\n\t\t\"StoreInformation\": {\n\t\t  \"Warehouse\": 200,\n\t\t  \"Quantity\": 1,\n\t\t  \"ExpirationDate\": \"2019-12-17T00:00:00\"\n\t\t\t}\n\t\t}\n    ]\n}"
-						},
-						"url": {
-							"raw": "{{url}}/ProductionOrders/1005/Store",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"ProductionOrders",
-								"1005",
-								"Store"
-							]
-						},
-						"description": "Lagert die Ergebnisartikel eines Fertigungsauftrages ein."
-					},
-					"response": []
-				},
-				{
-					"name": "Outsource consumer items of productionorder",
-					"request": {
-						"auth": {
-							"type": "apikey",
-							"apikey": [
-								{
-									"key": "value",
-									"value": "{{AccessToken}}",
-									"type": "string"
-								},
-								{
-									"key": "key",
-									"value": "Authorization",
-									"type": "string"
-								}
-							]
-						},
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"name": "Content-Type",
-								"type": "text",
-								"value": "application/json"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n\t\"ProductionOderIdentifier\": \"1005\",\n\t\"Date\": \"2019-12-17T00:00:00\",\n\t\"WarehouseList\": [\n\t\t{\n\t\t\"ProductionArticleIdentifier\": 144,\n\t\t\"StoreInformation\": {\n\t\t  \"Warehouse\": 200,\n\t\t  \"Quantity\": 1,\n\t\t  \"ExpirationDate\": \"2019-12-17T00:00:00\"\n\t\t\t}\n\t\t}\n    ]\n}"
-						},
-						"url": {
-							"raw": "{{url}}/ProductionOrders/1005/Outsource",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"ProductionOrders",
-								"1005",
-								"Outsource"
-							]
-						},
-						"description": "Lagert die mitgelieferten Verbrauchsartikel eines Fertigungsauftrages aus."
-					},
-					"response": []
-				},
-				{
-					"name": "Restore",
-					"request": {
-						"auth": {
-							"type": "apikey",
-							"apikey": [
-								{
-									"key": "value",
-									"value": "{{AccessToken}}",
-									"type": "string"
-								},
-								{
-									"key": "key",
-									"value": "Authorization",
-									"type": "string"
-								}
-							]
-						},
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"name": "Content-Type",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n\t\"ProductionOrderIdentifier\": \"3\",\n\t\"WarehouseList\": [\t\t{\n\t\t\"ProductionArticleIdentifier\": 43,\n\t\t\"StoreInformation\": {\n\t\t  \"Quantity\": 1,\n\t\t  \"StoragePlaceIdentifier\": 1,\n\t\t  \"TargetWarehouse\": \"200\"\n\t\t\t}\n\t\t}\n    ]\n}"
-						},
-						"url": {
-							"raw": "{{url}}/ProductionOrders/3/Restore",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"ProductionOrders",
-								"3",
-								"Restore"
-							]
-						},
-						"description": "Einlagerung von bereits ausgelagerten Artikeln in ein beliebiges Lager (Umlagerung)."
-					},
-					"response": []
-				},
-				{
-					"name": "Outsource Undo (Warehouse)",
-					"request": {
-						"auth": {
-							"type": "apikey",
-							"apikey": [
-								{
-									"key": "key",
-									"value": "Authorization",
-									"type": "string"
-								},
-								{
-									"key": "value",
-									"value": "{{AccessToken}}",
-									"type": "string"
-								}
-							]
-						},
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"type": "text",
-								"value": "application/json"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n\t\"ProductionOrderIdentifier\": \"1002\",\n\t\"WarehouseList\": [\t\t{\n\t\t\"ProductionArticleIdentifier\": 110,\n\t\t\"StoreInformation\": {\n\t\t  \"Warehouse\": 100,\n\t\t  \"Quantity\": 1,\n\t\t  \"StoragePlace\": 4\n\t\t\t}\n\t\t}\n    ]\n}"
-						},
-						"url": {
-							"raw": "{{url}}/ProductionOrders/1002/OutsourceUndo",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"ProductionOrders",
-								"1002",
-								"OutsourceUndo"
-							]
-						},
-						"description": "Lagert bereits ausgelagerte Artikel wieder ein."
-					},
-					"response": []
-				},
-				{
-					"name": "Store Undo (Warehouse)",
-					"request": {
-						"auth": {
-							"type": "apikey",
-							"apikey": [
-								{
-									"key": "key",
-									"value": "Authorization",
-									"type": "string"
-								},
-								{
-									"key": "value",
-									"value": "{{AccessToken}}",
-									"type": "string"
-								}
-							]
-						},
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"type": "text",
-								"value": "application/json"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n\t\"ProductionOrderIdentifier\": \"1008\",\n\t\"WarehouseList\": [\t\t{\n\t\t\"ProductionArticleIdentifier\": 169,\n\t\t\"StoreInformation\": {\n\t\t  \"Warehouse\": 100,\n\t\t  \"Quantity\": 1\n\t\t\t}\n\t\t}\n    ]\n}"
-						},
-						"url": {
-							"raw": "{{url}}/ProductionOrders/1008/StoreUndo",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"ProductionOrders",
-								"1008",
-								"StoreUndo"
-							]
-						},
-						"description": "Lagert bereits ausgelagerte Artikel wieder ein."
-					},
-					"response": []
-				},
-				{
-					"name": "Reserve Undo (Warehouse)",
-					"request": {
-						"auth": {
-							"type": "apikey",
-							"apikey": [
-								{
-									"key": "key",
-									"value": "Authorization",
-									"type": "string"
-								},
-								{
-									"key": "value",
-									"value": "{{AccessToken}}",
-									"type": "string"
-								}
-							]
-						},
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"type": "text",
-								"value": "application/json"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
-						"url": {
-							"raw": "{{url}}/ProductionOrders/1002/ReserveUndo",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"ProductionOrders",
-								"1002",
-								"ReserveUndo"
-							]
-						},
-						"description": "Lagert bereits ausgelagerte Artikel wieder ein."
-					},
-					"response": []
-				},
-				{
-					"name": "Read journals of productionorder",
-					"request": {
-						"auth": {
-							"type": "apikey",
-							"apikey": [
-								{
-									"key": "value",
-									"value": "{{AccessToken}}",
-									"type": "string"
-								},
-								{
-									"key": "key",
-									"value": "Authorization",
-									"type": "string"
-								}
-							]
-						},
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{url}}/ProductionOrders/1/Journals",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"ProductionOrders",
-								"1",
-								"Journals"
-							]
-						},
-						"description": "Liest alle Journale eines bestimmten Fertigungsauftrages"
-					},
-					"response": []
-				},
-				{
-					"name": "Read storage information of article of productionstep",
-					"request": {
-						"auth": {
-							"type": "apikey",
-							"apikey": [
-								{
-									"key": "value",
-									"value": "{{AccessToken}}",
-									"type": "string"
-								},
-								{
-									"key": "key",
-									"value": "Authorization",
-									"type": "string"
-								}
-							]
-						},
-						"method": "GET",
-						"header": [
-							{
-								"key": "Content-Type",
-								"name": "Content-Type",
-								"type": "text",
-								"value": "application/json"
-							}
-						],
-						"url": {
-							"raw": "{{url}}/ProductionOrders/1/ProductionSteps/137/Articles/StorageInformation",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"ProductionOrders",
-								"1",
-								"ProductionSteps",
-								"137",
-								"Articles",
-								"StorageInformation"
-							]
-						},
-						"description": "Gibt Lagerinformationen zu einem bestimmten Artikel eines Fertigungsauftrages zurück."
-					},
-					"response": []
-				},
-				{
-					"name": "Read all production notification",
-					"request": {
-						"auth": {
-							"type": "apikey",
-							"apikey": [
-								{
-									"key": "value",
-									"value": "{{AccessToken}}",
-									"type": "string"
-								},
-								{
-									"key": "key",
-									"value": "Authorization",
-									"type": "string"
-								}
-							]
-						},
-						"method": "GET",
-						"header": [
-							{
-								"key": "Content-Type",
-								"name": "Content-Type",
-								"type": "text",
-								"value": "application/json"
-							}
-						],
-						"url": {
-							"raw": "{{url}}/ProductionOrders/1/ProductionSteps/74/Notification",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"ProductionOrders",
-								"1",
-								"ProductionSteps",
-								"74",
-								"Notification"
-							]
-						},
-						"description": "Erstellt eine Meldung (Störungsmeldung) zu einem Arbeitsschritt"
-					},
-					"response": []
-				},
-				{
-					"name": "Create production notification",
-					"request": {
-						"auth": {
-							"type": "apikey",
-							"apikey": [
-								{
-									"key": "value",
-									"value": "{{AccessToken}}",
-									"type": "string"
-								},
-								{
-									"key": "key",
-									"value": "Authorization",
-									"type": "string"
-								}
-							]
-						},
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"name": "Content-Type",
-								"type": "text",
-								"value": "application/json"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n\t\"Text\": \"Neue Notiz\",\r\n    \"EmployeeNumber\": \"3\"\r\n}"
-						},
-						"url": {
-							"raw": "{{url}}/ProductionOrders/1001/ProductionSteps/13061/Notification",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"ProductionOrders",
-								"1001",
-								"ProductionSteps",
-								"13061",
-								"Notification"
-							]
-						},
-						"description": "Erstellt eine Meldung (Störungsmeldung) zu einem Arbeitsschritt"
-					},
-					"response": []
-				},
-				{
 					"name": "Update production notification",
 					"request": {
 						"auth": {
@@ -6320,7 +7635,792 @@
 						"description": "Erstellt eine Meldung (Störungsmeldung) zu einem Arbeitsschritt"
 					},
 					"response": []
-				}				
+				},
+				{
+					"name": "Update status of production order",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "key",
+									"value": "Authorization",
+									"type": "string"
+								},
+								{
+									"key": "value",
+									"value": "{{AccessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "content-type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "1",
+							"options": {
+								"raw": {}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/ProductionOrders/3/Status",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"ProductionOrders",
+								"3",
+								"Status"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Produktionssteuerung",
+			"item": [
+				{
+					"name": "Read all jobs",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "key",
+									"value": "Authorization",
+									"type": "string"
+								},
+								{
+									"key": "value",
+									"value": "{{AccessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/ProductionControl/Jobs",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"ProductionControl",
+								"Jobs"
+							],
+							"query": [
+								{
+									"key": "listFilter.Items",
+									"value": "10",
+									"disabled": true
+								},
+								{
+									"key": "listFilter.Page",
+									"value": "2",
+									"disabled": true
+								},
+								{
+									"key": "stateFilter",
+									"value": "Planned",
+									"disabled": true
+								},
+								{
+									"key": "listFilter.Filter",
+									"value": "Description CT 'Hack'",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Read all jobs with filter",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "key",
+									"value": "Authorization",
+									"type": "string"
+								},
+								{
+									"key": "value",
+									"value": "{{AccessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/ProductionControl/Jobs?listFilter.Filter=Category EQ Essen",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"ProductionControl",
+								"Jobs"
+							],
+							"query": [
+								{
+									"key": "listFilter.Items",
+									"value": "10",
+									"disabled": true
+								},
+								{
+									"key": "listFilter.Page",
+									"value": "2",
+									"disabled": true
+								},
+								{
+									"key": "stateFilter",
+									"value": "Planned",
+									"disabled": true
+								},
+								{
+									"key": "listFilter.Filter",
+									"value": "Description CT 'Hack'",
+									"disabled": true
+								},
+								{
+									"key": "listFilter.Filter",
+									"value": "Category EQ Essen"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Read job",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "key",
+									"value": "Authorization",
+									"type": "string"
+								},
+								{
+									"key": "value",
+									"value": "{{AccessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/ProductionControl/2/14/Header",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"ProductionControl",
+								"2",
+								"14",
+								"Header"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Read triggering jobs",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "key",
+									"value": "Authorization",
+									"type": "string"
+								},
+								{
+									"key": "value",
+									"value": "{{AccessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/ProductionControl/0/002165476/TriggeringOrders",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"ProductionControl",
+								"0",
+								"002165476",
+								"TriggeringOrders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Read required jobs",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "key",
+									"value": "Authorization",
+									"type": "string"
+								},
+								{
+									"key": "value",
+									"value": "{{AccessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/ProductionControl/0/002165475/RequiredOrders",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"ProductionControl",
+								"0",
+								"002165475",
+								"RequiredOrders"
+							],
+							"query": [
+								{
+									"key": "listFilter.Filter",
+									"value": "Description CT 'Gr. 2'",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Read article headers",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "key",
+									"value": "Authorization",
+									"type": "string"
+								},
+								{
+									"key": "value",
+									"value": "{{AccessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/ProductionControl/2/WA114/Articles",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"ProductionControl",
+								"2",
+								"WA114",
+								"Articles"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Read production plan",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "key",
+									"value": "Authorization",
+									"type": "string"
+								},
+								{
+									"key": "value",
+									"value": "{{AccessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/ProductionControl/2/14/ProductionPlan",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"ProductionControl",
+								"2",
+								"14",
+								"ProductionPlan"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Read work steps",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "key",
+									"value": "Authorization",
+									"type": "string"
+								},
+								{
+									"key": "value",
+									"value": "{{AccessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/ProductionControl/2/14/WorkSteps/?detailed=true",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"ProductionControl",
+								"2",
+								"14",
+								"WorkSteps",
+								""
+							],
+							"query": [
+								{
+									"key": "detailed",
+									"value": "true"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Schedule",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "key",
+									"value": "Authorization",
+									"type": "string"
+								},
+								{
+									"key": "value",
+									"value": "{{AccessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"DateTime\" : \"2020-07-20\",\r\n    \"Direction\" : \"Forward\",\r\n    \"Prioritized\" : false,\r\n    \"Recursive\" : true,\r\n    \"Simulation\" : false\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/ProductionControl/0/WA114/Schedule",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"ProductionControl",
+								"0",
+								"WA114",
+								"Schedule"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Report failure operating resource",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "key",
+									"value": "Authorization",
+									"type": "string"
+								},
+								{
+									"key": "value",
+									"value": "{{AccessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Begin\" : \"2020-09-18 09:00\",\r\n    \"End\" : \"2020-09-18 11:00\",\r\n    \"FailureCount\" : 2,\r\n    \"Name\" : \"Fällt aus wegen is nich.\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/ProductionControl/ReportFailure/OperatingResource/0400",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"ProductionControl",
+								"ReportFailure",
+								"OperatingResource",
+								"0400"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Report failure - employee",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "key",
+									"value": "Authorization",
+									"type": "string"
+								},
+								{
+									"key": "value",
+									"value": "{{AccessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Begin\" : \"2020-09-18 08:00\",\r\n    \"End\" : \"2020-09-18 10:00\",\r\n    \"FailureCount\" : 1,\r\n    \"Name\" : \"Fällt aus wegen is nich.\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/ProductionControl/ReportFailure/Employee/2",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"ProductionControl",
+								"ReportFailure",
+								"Employee",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deschedule",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "key",
+									"value": "Authorization",
+									"type": "string"
+								},
+								{
+									"key": "value",
+									"value": "{{AccessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/ProductionControl/2/14/Deschedule",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"ProductionControl",
+								"2",
+								"14",
+								"Deschedule"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Calculate",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "key",
+									"value": "Authorization",
+									"type": "string"
+								},
+								{
+									"key": "value",
+									"value": "{{AccessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"DateTime\" : \"2020-07-20\",\r\n    \"Direction\" : \"Forward\",\r\n    \"BetriebsmittelIdentifier\" : null,\r\n    \"EffortPerPatch\" : 10,\r\n    \"EffortTotal\" : null,\r\n    \"ImpactKind\" : \"OnDemand\",\r\n    \"Prioritized\" : \"false\",\r\n    \"IsParallel\" : \"false\",\r\n    \"MaxBetriebsmittelCount\" : \"5\",\r\n    \"Simulation\" : false\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/ProductionControl/2/14/WorkSteps/0/Calculate",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"ProductionControl",
+								"2",
+								"14",
+								"WorkSteps",
+								"0",
+								"Calculate"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Adjust actual values",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "key",
+									"value": "Authorization",
+									"type": "string"
+								},
+								{
+									"key": "value",
+									"value": "{{AccessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"ActualEffort\" : \"04:00\",\r\n    \"ActualStaffTime\" : \"04:00\",\r\n    \"ActualHourlyRate\" : \"10.50\",\r\n    \"ImpactKind\" : \"OnDemand\",\r\n    \"Simulation\" : false\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/ProductionControl/2/14/WorkSteps/0/AdjustActualValues",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"ProductionControl",
+								"2",
+								"14",
+								"WorkSteps",
+								"0",
+								"AdjustActualValues"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Post intermediate report",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "key",
+									"value": "Authorization",
+									"type": "string"
+								},
+								{
+									"key": "value",
+									"value": "{{AccessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"DateTime\" : \"2020-08-21 11:00\",\r\n    \"Quantity\" : 1\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/ProductionControl/2/14/WorkSteps/1/IntermediateReport",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"ProductionControl",
+								"2",
+								"14",
+								"WorkSteps",
+								"1",
+								"IntermediateReport"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Interrupt work step",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "key",
+									"value": "Authorization",
+									"type": "string"
+								},
+								{
+									"key": "value",
+									"value": "{{AccessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"InterruptionStart\" : \"2020-07-20T09:00\",\r\n    \"InterruptionEnd\" : \"2020-07-20T10:00\",\r\n    \"Simulation\" : false\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/ProductionControl/2/14/WorkSteps/0/Interrupt",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"ProductionControl",
+								"2",
+								"14",
+								"WorkSteps",
+								"0",
+								"Interrupt"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Interrupt operating resource",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "key",
+									"value": "Authorization",
+									"type": "string"
+								},
+								{
+									"key": "value",
+									"value": "{{AccessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"InterruptionStart\" : \"2020-08-20T15:00\",\r\n    \"InterruptionEnd\" : \"2020-08-20T16:00\",\r\n    \"Simulation\" : false\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/ProductionControl/0110/Interrupt",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"ProductionControl",
+								"0110",
+								"Interrupt"
+							]
+						}
+					},
+					"response": []
+				}
 			],
 			"protocolProfileBehavior": {}
 		},
@@ -6462,6 +8562,73 @@
 					"response": []
 				},
 				{
+					"name": "Read all alternative resources",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{AccessToken}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "Authorization",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/Resources",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"Resources"
+							]
+						},
+						"description": "Gibt alle Alternativressourchen zurück."
+					},
+					"response": []
+				},
+				{
+					"name": "Read alternative resource",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{AccessToken}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "Authorization",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/AlternativeResources/1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"AlternativeResources",
+								"1"
+							]
+						},
+						"description": "Gibt eine Alternativressource zurück."
+					},
+					"response": []
+				},
+				{
 					"name": "Update resource",
 					"request": {
 						"auth": {
@@ -6550,82 +8717,15 @@
 						"description": "Gibt alle Ressourchen zurück"
 					},
 					"response": []
-				},
-				{
-					"name": "Read all alternative resources",
-					"request": {
-						"auth": {
-							"type": "apikey",
-							"apikey": [
-								{
-									"key": "value",
-									"value": "{{AccessToken}}",
-									"type": "string"
-								},
-								{
-									"key": "key",
-									"value": "Authorization",
-									"type": "string"
-								}
-							]
-						},
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{url}}/Resources",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"Resources"
-							]
-						},
-						"description": "Gibt alle Alternativressourchen zurück."
-					},
-					"response": []
-				},
-				{
-					"name": "Read alternative resource",
-					"request": {
-						"auth": {
-							"type": "apikey",
-							"apikey": [
-								{
-									"key": "value",
-									"value": "{{AccessToken}}",
-									"type": "string"
-								},
-								{
-									"key": "key",
-									"value": "Authorization",
-									"type": "string"
-								}
-							]
-						},
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{url}}/AlternativeResources/1",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"AlternativeResources",
-								"1"
-							]
-						},
-						"description": "Gibt eine Alternativressource zurück."
-					},
-					"response": []
 				}
 			],
 			"protocolProfileBehavior": {}
 		},
 		{
-			"name": "WarehouseLocation ✔",
+			"name": "SerialNumber",
 			"item": [
 				{
-					"name": "Read all warehouse locations",
+					"name": "Get serial numbers",
 					"request": {
 						"auth": {
 							"type": "apikey",
@@ -6645,20 +8745,19 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{url}}/WarehouseLocations",
+							"raw": "{{url}}/SerialNumbers",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
-								"WarehouseLocations"
+								"SerialNumbers"
 							]
-						},
-						"description": "Gibt alle Standorte zurück."
+						}
 					},
 					"response": []
 				},
 				{
-					"name": "Read warehouse location",
+					"name": "Get serial numbers with filter",
 					"request": {
 						"auth": {
 							"type": "apikey",
@@ -6678,16 +8777,20 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{url}}/WarehouseLocations/1",
+							"raw": "{{url}}/SerialNumbers?filter=RecordId NOTEQ 9",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
-								"WarehouseLocations",
-								"1"
+								"SerialNumbers"
+							],
+							"query": [
+								{
+									"key": "filter",
+									"value": "RecordId NOTEQ 9"
+								}
 							]
-						},
-						"description": "Gibt einen Standort zurück."
+						}
 					},
 					"response": []
 				}
@@ -6727,6 +8830,39 @@
 							]
 						},
 						"description": "Gibt alle Läger zurück."
+					},
+					"response": []
+				},
+				{
+					"name": "Read Warehouse",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{AccessToken}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "Authorization",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/Warehouses/500",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"Warehouses",
+								"500"
+							]
+						}
 					},
 					"response": []
 				},
@@ -6820,7 +8956,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{url}}/Warehouses/1001/StoragePlaces/Stocks?filter=Storageplaceidentifier EQ 139",
+							"raw": "{{url}}/Warehouses/1001/StoragePlaces/Stocks",
 							"host": [
 								"{{url}}"
 							],
@@ -6829,12 +8965,6 @@
 								"1001",
 								"StoragePlaces",
 								"Stocks"
-							],
-							"query": [
-								{
-									"key": "filter",
-									"value": "Storageplaceidentifier EQ 139"
-								}
 							]
 						},
 						"description": "Gibt alle Läger zurück."
@@ -6951,10 +9081,10 @@
 			"protocolProfileBehavior": {}
 		},
 		{
-			"name": "Analysis   ✔",
+			"name": "WarehouseLocation ✔",
 			"item": [
 				{
-					"name": "Read total analysis",
+					"name": "Read all warehouse locations",
 					"request": {
 						"auth": {
 							"type": "apikey",
@@ -6974,21 +9104,20 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{url}}/Analysis/Total",
+							"raw": "{{url}}/WarehouseLocations",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
-								"Analysis",
-								"Total"
+								"WarehouseLocations"
 							]
 						},
-						"description": "Liefert die Gesamtauswertungen."
+						"description": "Gibt alle Standorte zurück."
 					},
 					"response": []
 				},
 				{
-					"name": "Read analysis of article",
+					"name": "Read warehouse location",
 					"request": {
 						"auth": {
 							"type": "apikey",
@@ -7008,828 +9137,16 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{url}}/Analysis/Total",
+							"raw": "{{url}}/WarehouseLocations/1",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
-								"Analysis",
-								"Total"
-							]
-						},
-						"description": "Liefert die Auswertung für einen bestimmten Kunden."
-					},
-					"response": []
-				},
-				{
-					"name": "Read analysis of customer",
-					"request": {
-						"auth": {
-							"type": "apikey",
-							"apikey": [
-								{
-									"key": "value",
-									"value": "{{AccessToken}}",
-									"type": "string"
-								},
-								{
-									"key": "key",
-									"value": "Authorization",
-									"type": "string"
-								}
-							]
-						},
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{url}}/Analysis/Total",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"Analysis",
-								"Total"
-							]
-						},
-						"description": "Liefert die Auswertung für einen bestimmten Kunden."
-					},
-					"response": []
-				},
-				{
-					"name": "Read analysis of supplier",
-					"request": {
-						"auth": {
-							"type": "apikey",
-							"apikey": [
-								{
-									"key": "value",
-									"value": "{{AccessToken}}",
-									"type": "string"
-								},
-								{
-									"key": "key",
-									"value": "Authorization",
-									"type": "string"
-								}
-							]
-						},
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{url}}/Analysis/Total",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"Analysis",
-								"Total"
-							]
-						},
-						"description": "Liefert die Auswertungen für einen bstimmten Lieferanten."
-					},
-					"response": []
-				},
-				{
-					"name": "Read analysis of employee",
-					"request": {
-						"auth": {
-							"type": "apikey",
-							"apikey": [
-								{
-									"key": "value",
-									"value": "{{AccessToken}}",
-									"type": "string"
-								},
-								{
-									"key": "key",
-									"value": "Authorization",
-									"type": "string"
-								}
-							]
-						},
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{url}}/Analysis/Employees/1",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"Analysis",
-								"Employees",
+								"WarehouseLocations",
 								"1"
 							]
 						},
-						"description": "Liefert die Auswertungen für einen bstimmten Mitarbeiter."
-					},
-					"response": []
-				},
-				{
-					"name": "Read analysis of article group",
-					"request": {
-						"auth": {
-							"type": "apikey",
-							"apikey": [
-								{
-									"key": "value",
-									"value": "{{AccessToken}}",
-									"type": "string"
-								},
-								{
-									"key": "key",
-									"value": "Authorization",
-									"type": "string"
-								}
-							]
-						},
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{url}}/Analysis/ArticleGroups/101",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"Analysis",
-								"ArticleGroups",
-								"101"
-							]
-						},
-						"description": "Liefert die Auswertungen für einen bestimmten Artikelgruppe."
-					},
-					"response": []
-				},
-				{
-					"name": "Read analysis of supplier group",
-					"request": {
-						"auth": {
-							"type": "apikey",
-							"apikey": [
-								{
-									"key": "value",
-									"value": "{{AccessToken}}",
-									"type": "string"
-								},
-								{
-									"key": "key",
-									"value": "Authorization",
-									"type": "string"
-								}
-							]
-						},
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{url}}/Analysis/SupplierGroup/101",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"Analysis",
-								"SupplierGroup",
-								"101"
-							]
-						},
-						"description": "Liefert die Auswertungen für einen bestimmten Lieferantengruppe."
-					},
-					"response": []
-				},
-				{
-					"name": "Read analysis of top articles",
-					"request": {
-						"auth": {
-							"type": "apikey",
-							"apikey": [
-								{
-									"key": "value",
-									"value": "{{AccessToken}}",
-									"type": "string"
-								},
-								{
-									"key": "key",
-									"value": "Authorization",
-									"type": "string"
-								}
-							]
-						},
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{url}}/Analysis/TopArticles",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"Analysis",
-								"TopArticles"
-							]
-						},
-						"description": "Liefert die Auswertungen für eine bestimmte Anzahl an Top - Artikel. Wird die Anzahl nicht übergeben, werden standardmäßig die Top 3 - Artikel geliefert."
-					},
-					"response": []
-				},
-				{
-					"name": "Read analysis of top customers",
-					"request": {
-						"auth": {
-							"type": "apikey",
-							"apikey": [
-								{
-									"key": "value",
-									"value": "{{AccessToken}}",
-									"type": "string"
-								},
-								{
-									"key": "key",
-									"value": "Authorization",
-									"type": "string"
-								}
-							]
-						},
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{url}}/Analysis/TopCustomers",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"Analysis",
-								"TopCustomers"
-							]
-						},
-						"description": "Liefert die Auswertungen für eine bestimmte Anzahl an Top - Kunden. Wird die Anzahl nicht übergeben, werden standardmäßig die Top 3 - Kunden geliefert."
-					},
-					"response": []
-				},
-				{
-					"name": "Read analysis of top suppliers",
-					"request": {
-						"auth": {
-							"type": "apikey",
-							"apikey": [
-								{
-									"key": "value",
-									"value": "{{AccessToken}}",
-									"type": "string"
-								},
-								{
-									"key": "key",
-									"value": "Authorization",
-									"type": "string"
-								}
-							]
-						},
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{url}}/Analysis/TopSuppliers",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"Analysis",
-								"TopSuppliers"
-							]
-						},
-						"description": "Liefert die Auswertungen für eine bestimmte Anzahl an Top - Lieferanten. Wird die Anzahl nicht übergeben, werden standardmäßig die Top 3 - Lieferanten geliefert."
-					},
-					"response": []
-				},
-				{
-					"name": "Read analysis of top employees",
-					"request": {
-						"auth": {
-							"type": "apikey",
-							"apikey": [
-								{
-									"key": "value",
-									"value": "{{AccessToken}}",
-									"type": "string"
-								},
-								{
-									"key": "key",
-									"value": "Authorization",
-									"type": "string"
-								}
-							]
-						},
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{url}}/Analysis/TopEmployees",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"Analysis",
-								"TopEmployees"
-							]
-						},
-						"description": "Liefert die Auswertungen für eine bestimmte Anzahl an Top - Mitarbeiter. Wird die Anzahl nicht übergeben, werden standardmäßig die Top 3 - Mitarbeiter geliefert."
-					},
-					"response": []
-				},
-				{
-					"name": "Read analysis of customer group",
-					"request": {
-						"auth": {
-							"type": "apikey",
-							"apikey": [
-								{
-									"key": "value",
-									"value": "{{AccessToken}}",
-									"type": "string"
-								},
-								{
-									"key": "key",
-									"value": "Authorization",
-									"type": "string"
-								}
-							]
-						},
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{url}}/Analysis/CustomerGroup/101",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"Analysis",
-								"CustomerGroup",
-								"101"
-							]
-						},
-						"description": "Liefert die Auswertungen für einen bestimmten Kundengruppe."
-					},
-					"response": []
-				}
-			],
-			"protocolProfileBehavior": {}
-		},
-		{
-			"name": "Currency",
-			"item": [
-				{
-					"name": "Read all currencies",
-					"request": {
-						"auth": {
-							"type": "apikey",
-							"apikey": [
-								{
-									"key": "value",
-									"value": "{{AccessToken}}",
-									"type": "string"
-								},
-								{
-									"key": "key",
-									"value": "Authorization",
-									"type": "string"
-								}
-							]
-						},
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{url}}/Currencies",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"Currencies"
-							]
-						},
-						"description": "Gibt alle Währungen zurück."
-					},
-					"response": []
-				},
-				{
-					"name": "Read currency",
-					"request": {
-						"auth": {
-							"type": "apikey",
-							"apikey": [
-								{
-									"key": "value",
-									"value": "{{AccessToken}}",
-									"type": "string"
-								},
-								{
-									"key": "key",
-									"value": "Authorization",
-									"type": "string"
-								}
-							]
-						},
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{url}}/Currencies/AUD",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"Currencies",
-								"AUD"
-							]
-						},
-						"description": "Gibt eine Währung anhand des Währungscodes zurück."
-					},
-					"response": []
-				}
-			],
-			"protocolProfileBehavior": {}
-		},
-		{
-			"name": "Macro",
-			"item": [
-				{
-					"name": "Run wawi macro",
-					"request": {
-						"auth": {
-							"type": "apikey",
-							"apikey": [
-								{
-									"key": "value",
-									"value": "{{AccessToken}}",
-									"type": "string"
-								},
-								{
-									"key": "key",
-									"value": "Authorization",
-									"type": "string"
-								}
-							]
-						},
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"name": "Content-Type",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n  \"MacroName\": \"SQL 3001\",\r\n  \"Parameters\":[\r\n  {\r\n    \"Name\": \"artikel\",\r\n    \"Value\": \"\\\"100003\\\"\"\r\n  }\r\n]\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{url}}/Macros",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"Macros"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Run API Macro",
-					"request": {
-						"auth": {
-							"type": "apikey",
-							"apikey": [
-								{
-									"key": "value",
-									"value": "{{AccessToken}}",
-									"type": "string"
-								},
-								{
-									"key": "key",
-									"value": "Authorization",
-									"type": "string"
-								}
-							]
-						},
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"name": "Content-Type",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "[\r\n\t{\r\n\t\t\"Name\": \"artikelnummer\",\r\n\t\t\"Value\": \"11001\"\r\n\t}\r\n]",
-							"options": {
-								"raw": {}
-							}
-						},
-						"url": {
-							"raw": "{{url}}/Macros/SelectArticleByExplicitNumber",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"Macros",
-								"SelectArticleByExplicitNumber"
-							]
-						}
-					},
-					"response": []
-				}
-			],
-			"protocolProfileBehavior": {}
-		},
-		{
-			"name": "ExtraTable",
-			"item": [
-				{
-					"name": "Read ExtraTable",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"auth": {
-							"type": "apikey",
-							"apikey": [
-								{
-									"key": "value",
-									"value": "{{AccessToken}}",
-									"type": "string"
-								},
-								{
-									"key": "key",
-									"value": "Authorization",
-									"type": "string"
-								}
-							]
-						},
-						"method": "GET",
-						"header": [
-							{
-								"key": "Content-Type",
-								"name": "Content-Type",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n\t\"TableName\": \"XMeineTabelle\",\n\t\"FieldNames\": [\n\t\t\"Id\", \"_Bezeichnung\", \"_Nummer\"\n\t\t]\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{url}}/ExtraTable",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"ExtraTable"
-							]
-						},
-						"description": "Rückgabe aller Fertigungsaufträge und deren Kopfinformationen"
-					},
-					"response": []
-				},
-				{
-					"name": "Read",
-					"request": {
-						"auth": {
-							"type": "apikey",
-							"apikey": [
-								{
-									"key": "value",
-									"value": "{{AccessToken}}",
-									"type": "string"
-								},
-								{
-									"key": "key",
-									"value": "Authorization",
-									"type": "string"
-								}
-							]
-						},
-						"method": "GET",
-						"header": [
-							{
-								"key": "Content-Type",
-								"name": "Content-Type",
-								"type": "text",
-								"value": "application/json"
-							}
-						],
-						"url": {
-							"raw": "{{url}}/ExtraTable/XMeineTabelle?filter=Id EQ '25'",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"ExtraTable",
-								"XMeineTabelle"
-							],
-							"query": [
-								{
-									"key": "filter",
-									"value": "Id EQ '25'"
-								}
-							]
-						},
-						"description": "Rückgabe aller Fertigungsaufträge und deren Kopfinformationen"
-					},
-					"response": []
-				},
-				{
-					"name": "Read all",
-					"request": {
-						"auth": {
-							"type": "apikey",
-							"apikey": [
-								{
-									"key": "value",
-									"value": "{{AccessToken}}",
-									"type": "string"
-								},
-								{
-									"key": "key",
-									"value": "Authorization",
-									"type": "string"
-								}
-							]
-						},
-						"method": "GET",
-						"header": [
-							{
-								"key": "Content-Type",
-								"name": "Content-Type",
-								"type": "text",
-								"value": "application/json"
-							}
-						],
-						"url": {
-							"raw": "{{url}}/ExtraTable/XMeineTabelle",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"ExtraTable",
-								"XMeineTabelle"
-							]
-						},
-						"description": "Rückgabe aller Fertigungsaufträge und deren Kopfinformationen"
-					},
-					"response": []
-				},
-				{
-					"name": "Delete",
-					"request": {
-						"auth": {
-							"type": "apikey",
-							"apikey": [
-								{
-									"key": "value",
-									"value": "{{AccessToken}}",
-									"type": "string"
-								},
-								{
-									"key": "key",
-									"value": "Authorization",
-									"type": "string"
-								}
-							]
-						},
-						"method": "DELETE",
-						"header": [
-							{
-								"key": "Content-Type",
-								"name": "Content-Type",
-								"type": "text",
-								"value": "application/json"
-							}
-						],
-						"url": {
-							"raw": "{{url}}/ExtraTable/XMeineTabelle?filter=Id EQ '26'",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"ExtraTable",
-								"XMeineTabelle"
-							],
-							"query": [
-								{
-									"key": "filter",
-									"value": "Id EQ '26'"
-								}
-							]
-						},
-						"description": "Rückgabe aller Fertigungsaufträge und deren Kopfinformationen"
-					},
-					"response": []
-				},
-				{
-					"name": "Insert",
-					"request": {
-						"auth": {
-							"type": "apikey",
-							"apikey": [
-								{
-									"key": "value",
-									"value": "{{AccessToken}}",
-									"type": "string"
-								},
-								{
-									"key": "key",
-									"value": "Authorization",
-									"type": "string"
-								}
-							]
-						},
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"name": "Content-Type",
-								"type": "text",
-								"value": "application/json"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n\t\"Fields\": {\n\t\"_MYTEXT\": \"Neuer Test 123\",\n\t\"_MYBOOLEAN\": true,\n\t\"_MYDATE\" :\"2020-05-11\",\n\t\"_MYSHORTNUMBER\": 123,\n\t\"_MYLONGNUMBER\": 123456789,\n\t\"_MYGUID\": \"fb98d72f-8c7d-4dbf-8efc-90316da628ed\"\n\t}\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{url}}/ExtraTable/XMeineTabelle",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"ExtraTable",
-								"XMeineTabelle"
-							]
-						},
-						"description": "Rückgabe aller Fertigungsaufträge und deren Kopfinformationen"
-					},
-					"response": []
-				},
-				{
-					"name": "Update",
-					"request": {
-						"auth": {
-							"type": "apikey",
-							"apikey": [
-								{
-									"key": "value",
-									"value": "{{AccessToken}}",
-									"type": "string"
-								},
-								{
-									"key": "key",
-									"value": "Authorization",
-									"type": "string"
-								}
-							]
-						},
-						"method": "PUT",
-						"header": [
-							{
-								"key": "Content-Type",
-								"name": "Content-Type",
-								"type": "text",
-								"value": "application/json"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n\t\"IdentifierName\": \"Id\",\n\t\"Fields\": {\n\t\t\"_MYTEXT\": \"Neuer Test456\",\n\t\t\"_MYBOOLEAN\": false,\n\t\t\"_MYDATE\" :\"2020-04-28\",\n\t\t\"_MYSHORTNUMBER\": 123,\n\t\t\"_MYLONGNUMBER\": 123456789,\n\t\t\"_MYGUID\": \"fb98d72f-8c7d-4dbf-8efc-90316da628ed\"\n\t}\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{url}}/ExtraTable/XMeineTabelle2/28",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"ExtraTable",
-								"XMeineTabelle2",
-								"28"
-							]
-						},
-						"description": "Rückgabe aller Fertigungsaufträge und deren Kopfinformationen"
+						"description": "Gibt einen Standort zurück."
 					},
 					"response": []
 				}
