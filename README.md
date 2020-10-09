@@ -6,17 +6,18 @@ Für alle Funktionen bietet die "SelectLine API" eine Hilfe. Siehe <https://demo
 
 ## DEMO-API-Zugangsdaten
 
-**Aktuelle API-Version:** 20.1.0
+**Aktuelle API-Version:** 20.3.0
 
 > **Demo-Url:** `https://demo.slmobile.de/demoapi/`<br/>
 > **Username:**	`APIDemo`<br/>
 > **Password:**	`Ap1Dem0`<br/>
-> **AppKey:**		`App-Demo20191122`<br/>
+> **AppKey:**	`App-Demo20191122`<br/>
 
 ## Derzeitige Programmiersprachen
  
 - **C#/Console** 
 - **C#/WPF**
+- **Angular**
 - **HTML-JavaScript** 
 - **PHP**
 - **PowerShell**
