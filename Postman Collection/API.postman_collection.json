@@ -1,7 +1,7 @@
 {
 	"info": {
-		"_postman_id": "456dedc3-1d96-4baf-af5a-d35f53e16984",
 		"name": "API",
+		"_postman_id": "a8d9a4af-61bb-472d-a12f-6fb404597c32",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
@@ -17,7 +17,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "75a83acc-89fb-41fd-910c-06112bc25ef8",
+										"id": "007c6e31-f70d-4c9b-a2df-646851baa7f5",
 										"exec": [
 											"var jsonData = JSON.parse(responseBody);\r",
 											"postman.setEnvironmentVariable(\"AccessToken\", \"LoginId \"+jsonData.AccessToken);"
@@ -38,7 +38,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"username\": \"{{user}}\",\r\n    \"password\": \"{{password}}\",\r\n    \"LoginKind\": \"{{loginKind}}\",\r\n    \"AppKey\": \"{{appKey}}\"\r\n}",
+									"raw": "{\r\n    \"username\": \"{{user}}\",\r\n    \"password\": \"{{password}}\",\r\n    \"AppKey\": \"{{appKey}}\"\r\n}",
 									"options": {
 										"raw": {}
 									}
@@ -62,7 +62,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "75a83acc-89fb-41fd-910c-06112bc25ef8",
+										"id": "1621d8bb-4b9d-4a03-b007-3e0a5cfd4f95",
 										"exec": [
 											"var jsonData = JSON.parse(responseBody);\r",
 											"postman.setEnvironmentVariable(\"AccessToken\", \"LoginId \"+jsonData.AccessToken);"
@@ -83,7 +83,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"username\": \"{{user}}\",\r\n    \"password\": \"{{password}}\",\r\n    \"LoginKind\": \"{{loginKind}}\"\r\n}",
+									"raw": "{\r\n    \"username\": \"{{user}}\",\r\n    \"password\": \"{{password}}\"\r\n}",
 									"options": {
 										"raw": {}
 									}
@@ -107,7 +107,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "75a83acc-89fb-41fd-910c-06112bc25ef8",
+										"id": "1cee6e78-2e39-4c19-b87e-9fef42842928",
 										"exec": [
 											"var jsonData = JSON.parse(responseBody);\r",
 											"postman.setEnvironmentVariable(\"AccessToken\", \"LoginId \"+jsonData.AccessToken);"
@@ -149,7 +149,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "75a83acc-89fb-41fd-910c-06112bc25ef8",
+										"id": "1b97f474-a7e4-4a8d-b47f-accb557eacf4",
 										"exec": [
 											"var jsonData = JSON.parse(responseBody);\r",
 											"postman.setEnvironmentVariable(\"AccessToken\", \"LoginId \"+jsonData.AccessToken);"
@@ -202,7 +202,7 @@
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "1349b328-6f8e-4160-9eb6-4536dd8472fd",
+								"id": "93d2483b-a0ec-426c-b3e7-029ef0944b9f",
 								"type": "text/javascript",
 								"exec": [
 									""
@@ -212,7 +212,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "932cf5c9-0319-4cf4-9f4d-15c6c9e5bc66",
+								"id": "8018ca74-79ec-4f51-be30-25495fb435e8",
 								"type": "text/javascript",
 								"exec": [
 									""
@@ -2544,7 +2544,7 @@
 										"method": "GET",
 										"header": [],
 										"url": {
-											"raw": "{{url}}/?",
+											"raw": "{{url}}/",
 											"host": [
 												"{{url}}"
 											],
@@ -3209,6 +3209,15 @@
 								},
 								"method": "POST",
 								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"IsPrinted\": true,\r\n    \"BusinessPartnerType\": 1,\r\n    \"BusinessPartner\": {\r\n        \"LastName\": \"Mustermann\",\r\n        \"FirstName\": \"Max\",\r\n        \"Address\": {\r\n            \"Number\": 70011\r\n        }\r\n    },\r\n    \"Payment\": {\r\n        \"CostCenterNumber\": \"P001\"\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
 								"url": {
 									"raw": "{{url}}/ManualStorages",
 									"host": [
@@ -6236,7 +6245,7 @@
 			"protocolProfileBehavior": {}
 		},
 		{
-			"name": "❌ Production ✔",
+			"name": "Production ✔",
 			"item": [
 				{
 					"name": "Working Hours",
