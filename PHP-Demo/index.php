@@ -37,7 +37,9 @@ function CallSLMAPI($method, $url, $auth = "", $data = false, $print = false)
                 curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
             break;
         case "PUT":
-            curl_setopt($curl, CURLOPT_PUT, 1);
+            curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "PUT");
+            if ($data)
+                curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
             break;
         default:
             if ($data)
