@@ -20,6 +20,5 @@ Abrufen von Informationen des Kunden 10001.
 <https://demo.slmobile.de/demoApi/customers/10001>
 
 ## Technische Grundlagen des Projektes
-Umsetzung als Powershell-Script.
 
 Die Anmeldedaten sind in der Datei **index.php** hinterlegt. Hier kann man diese leicht umstellen auf eine Url einer selbst gehosteten "SelectLine API".
