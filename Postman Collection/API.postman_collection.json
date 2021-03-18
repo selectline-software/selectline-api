@@ -1,7 +1,7 @@
 {
 	"info": {
+		"_postman_id": "456dedc3-1d96-4baf-af5a-d35f53e16984",
 		"name": "API",
-		"_postman_id": "a8d9a4af-61bb-472d-a12f-6fb404597c32",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
@@ -17,7 +17,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "007c6e31-f70d-4c9b-a2df-646851baa7f5",
 										"exec": [
 											"var jsonData = JSON.parse(responseBody);\r",
 											"postman.setEnvironmentVariable(\"AccessToken\", \"LoginId \"+jsonData.AccessToken);"
@@ -38,10 +37,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"username\": \"{{user}}\",\r\n    \"password\": \"{{password}}\",\r\n    \"AppKey\": \"{{appKey}}\"\r\n}",
-									"options": {
-										"raw": {}
-									}
+									"raw": "{\r\n    \"username\": \"{{user}}\",\r\n    \"password\": \"{{password}}\",\r\n    \"LoginKind\": \"{{loginKind}}\",\r\n    \"AppKey\": \"{{appKey}}\"\r\n}"
 								},
 								"url": {
 									"raw": "{{url}}/Login",
@@ -62,7 +58,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "1621d8bb-4b9d-4a03-b007-3e0a5cfd4f95",
 										"exec": [
 											"var jsonData = JSON.parse(responseBody);\r",
 											"postman.setEnvironmentVariable(\"AccessToken\", \"LoginId \"+jsonData.AccessToken);"
@@ -83,10 +78,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"username\": \"{{user}}\",\r\n    \"password\": \"{{password}}\"\r\n}",
-									"options": {
-										"raw": {}
-									}
+									"raw": "{\r\n    \"username\": \"{{user}}\",\r\n    \"password\": \"{{password}}\",\r\n    \"LoginKind\": \"{{loginKind}}\"\r\n}"
 								},
 								"url": {
 									"raw": "{{url}}/Login",
@@ -107,7 +99,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "1cee6e78-2e39-4c19-b87e-9fef42842928",
 										"exec": [
 											"var jsonData = JSON.parse(responseBody);\r",
 											"postman.setEnvironmentVariable(\"AccessToken\", \"LoginId \"+jsonData.AccessToken);"
@@ -149,7 +140,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "1b97f474-a7e4-4a8d-b47f-accb557eacf4",
 										"exec": [
 											"var jsonData = JSON.parse(responseBody);\r",
 											"postman.setEnvironmentVariable(\"AccessToken\", \"LoginId \"+jsonData.AccessToken);"
@@ -202,7 +192,6 @@
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "93d2483b-a0ec-426c-b3e7-029ef0944b9f",
 								"type": "text/javascript",
 								"exec": [
 									""
@@ -212,16 +201,13 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "8018ca74-79ec-4f51-be30-25495fb435e8",
 								"type": "text/javascript",
 								"exec": [
 									""
 								]
 							}
 						}
-					],
-					"protocolProfileBehavior": {},
-					"_postman_isSubFolder": true
+					]
 				},
 				{
 					"name": "Info",
@@ -244,9 +230,7 @@
 							},
 							"response": []
 						}
-					],
-					"protocolProfileBehavior": {},
-					"_postman_isSubFolder": true
+					]
 				},
 				{
 					"name": "Tenant",
@@ -333,12 +317,9 @@
 								"type": "string"
 							}
 						]
-					},
-					"protocolProfileBehavior": {},
-					"_postman_isSubFolder": true
+					}
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		},
 		{
 			"name": "❌ Analysis   ✔",
@@ -639,16 +620,16 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{url}}/Analysis/TopCustomers",
+							"raw": "{{url}}/Analysis/TopArticles",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
 								"Analysis",
-								"TopCustomers"
+								"TopArticles"
 							]
 						},
-						"description": "Liefert die Auswertungen für eine bestimmte Anzahl an Top - Kunden. Wird die Anzahl nicht übergeben, werden standardmäßig die Top 3 - Kunden geliefert."
+						"description": "Liefert die Auswertungen für eine bestimmte Anzahl an Top - Artikel. Wird die Anzahl nicht übergeben, werden standardmäßig die Top 3 - Artikel geliefert."
 					},
 					"response": []
 				},
@@ -755,8 +736,7 @@
 					},
 					"response": []
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		},
 		{
 			"name": "Artikel ✔",
@@ -799,9 +779,7 @@
 							},
 							"response": []
 						}
-					],
-					"protocolProfileBehavior": {},
-					"_postman_isSubFolder": true
+					]
 				},
 				{
 					"name": "Article",
@@ -833,6 +811,23 @@
 									],
 									"path": [
 										"Articles"
+									],
+									"query": [
+										{
+											"key": "filter",
+											"value": "Name EQ 'Sessel'",
+											"disabled": true
+										},
+										{
+											"key": "filter",
+											"value": "Payment.ListPrice EQ 51.04",
+											"disabled": true
+										},
+										{
+											"key": "filter",
+											"value": "Payment.PriceReferenceArticleNumber EQ '100001'",
+											"disabled": true
+										}
 									]
 								},
 								"description": "Gibt eine Liste von Artikeln zurück."
@@ -1120,7 +1115,17 @@
 									"query": [
 										{
 											"key": "filter",
-											"value": "StoragePlace.WarehouseName EQ 'Verkaufsraum'",
+											"value": "WarehouseName EQ 'Verkaufsraum'",
+											"disabled": true
+										},
+										{
+											"key": "filter",
+											"value": "StoragePlace.Warehouse EQ 1000",
+											"disabled": true
+										},
+										{
+											"key": "filter",
+											"value": "StorageTypeLabel EQ 'DefaultStorage'",
 											"disabled": true
 										}
 									]
@@ -1195,13 +1200,13 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{url}}/Articles/120008/Stocks",
+									"raw": "{{url}}/Articles/100001/Stocks",
 									"host": [
 										"{{url}}"
 									],
 									"path": [
 										"Articles",
-										"120008",
+										"100001",
 										"Stocks"
 									]
 								},
@@ -1353,9 +1358,7 @@
 							},
 							"response": []
 						}
-					],
-					"protocolProfileBehavior": {},
-					"_postman_isSubFolder": true
+					]
 				},
 				{
 					"name": "ArticleGroup",
@@ -1427,9 +1430,7 @@
 							},
 							"response": []
 						}
-					],
-					"protocolProfileBehavior": {},
-					"_postman_isSubFolder": true
+					]
 				},
 				{
 					"name": "Characteristic",
@@ -1536,9 +1537,7 @@
 							},
 							"response": []
 						}
-					],
-					"protocolProfileBehavior": {},
-					"_postman_isSubFolder": true
+					]
 				},
 				{
 					"name": "SetArticle",
@@ -1578,9 +1577,7 @@
 							},
 							"response": []
 						}
-					],
-					"protocolProfileBehavior": {},
-					"_postman_isSubFolder": true
+					]
 				},
 				{
 					"name": "SurchargeArticle",
@@ -1618,12 +1615,9 @@
 							},
 							"response": []
 						}
-					],
-					"protocolProfileBehavior": {},
-					"_postman_isSubFolder": true
+					]
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		},
 		{
 			"name": "Belege",
@@ -1733,9 +1727,7 @@
 							},
 							"response": []
 						}
-					],
-					"protocolProfileBehavior": {},
-					"_postman_isSubFolder": true
+					]
 				},
 				{
 					"name": "Document",
@@ -1744,7 +1736,158 @@
 							"name": "Document.Position",
 							"item": [
 								{
-									"name": "🔑 Read all positions of document",
+									"name": "Handelsstücklisten",
+									"item": [
+										{
+											"name": "🔑 Create sales BOM position",
+											"request": {
+												"auth": {
+													"type": "apikey",
+													"apikey": [
+														{
+															"key": "value",
+															"value": "{{AccessToken}}",
+															"type": "string"
+														},
+														{
+															"key": "key",
+															"value": "Authorization",
+															"type": "string"
+														}
+													]
+												},
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"name": "Content-Type",
+														"type": "text",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\r\n    \"Information\": {\r\n        \"ArticleNumber\": \"700047\",\r\n        \"CalculatedQuantityValue\": 1,\r\n        \"StoreInformation\": [{\r\n            \"ArticleNumber\": \"700047\",\r\n            \"ExpirationDate\": \"2021-01-29T00:00:00+01:00\",\r\n            \"StorageplaceIdentifier\": 189,\r\n            \"SerialNumber\": \"500009-20070719\",\r\n            \"Quantity\": 1\r\n        }]\r\n    }\r\n}"
+												},
+												"url": {
+													"raw": "{{url}}/Documents/LLS474/SalesBOMPosition",
+													"host": [
+														"{{url}}"
+													],
+													"path": [
+														"Documents",
+														"LLS474",
+														"SalesBOMPosition"
+													]
+												},
+												"description": "Lagerbuchung auf einer Position"
+											},
+											"response": []
+										},
+										{
+											"name": "🔑 Create bill of material item",
+											"protocolProfileBehavior": {
+												"disabledSystemHeaders": {
+													"content-type": true
+												}
+											},
+											"request": {
+												"auth": {
+													"type": "apikey",
+													"apikey": [
+														{
+															"key": "value",
+															"value": "{{AccessToken}}",
+															"type": "string"
+														},
+														{
+															"key": "key",
+															"value": "Authorization",
+															"type": "string"
+														}
+													]
+												},
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json",
+														"type": "text"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\r\n    \"ArticleNumber\": \"700043\",\r\n    \"Memo\": \"Neuer Kommentar (3)\",\r\n    \"CalculatedQuantityValue\": 1,\r\n    \"StoreInformation\": [{\r\n        \"ArticleNumber\": \"700043\",\r\n        \"ExpirationDate\": \"2021-01-27T00:00:00+01:00\",\r\n        \"SerialNumber\": \"500009-20070712\",\r\n        \"StoragePlaceIdentifier\": 1,\r\n        \"Quantity\": 1\r\n    }]\r\n}"
+												},
+												"url": {
+													"raw": "{{url}}/Documents/LLS474/SalesBOMPosition/68F82382-A6B8-4DE8-BEA0-195E1BC9DC35/BillOfMaterialItem",
+													"host": [
+														"{{url}}"
+													],
+													"path": [
+														"Documents",
+														"LLS474",
+														"SalesBOMPosition",
+														"68F82382-A6B8-4DE8-BEA0-195E1BC9DC35",
+														"BillOfMaterialItem"
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "🔑 Update bill of material item",
+											"request": {
+												"auth": {
+													"type": "apikey",
+													"apikey": [
+														{
+															"key": "value",
+															"value": "{{AccessToken}}",
+															"type": "string"
+														},
+														{
+															"key": "key",
+															"value": "Authorization",
+															"type": "string"
+														}
+													]
+												},
+												"method": "PUT",
+												"header": [
+													{
+														"key": "Content-Type",
+														"name": "Content-Type",
+														"type": "text",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\r\n  \"Memo\": \"Neuer Kommentar (3)\",\r\n  \"CalculatedQuantityValue\": 1,\r\n  \"StoreInformation\": [{\r\n      \"ArticleNumber\": \"100003\",\r\n      \"Warehouse\": \"200\",\r\n      \"Quantity\": -10\r\n  }]\r\n}"
+												},
+												"url": {
+													"raw": "{{url}}/Documents/LLS474/SalesBOMPosition/FA1F2217-59DF-4FE5-A5EC-FEC6C64B12F6/BillOfMaterialItem/9A74C7FA-2122-4A06-A28C-1A0F216C79A5",
+													"host": [
+														"{{url}}"
+													],
+													"path": [
+														"Documents",
+														"LLS474",
+														"SalesBOMPosition",
+														"FA1F2217-59DF-4FE5-A5EC-FEC6C64B12F6",
+														"BillOfMaterialItem",
+														"9A74C7FA-2122-4A06-A28C-1A0F216C79A5"
+													]
+												},
+												"description": "Lagerbuchung auf einer Position"
+											},
+											"response": []
+										}
+									]
+								},
+								{
+									"name": "🔑 Read all positions of document with options",
 									"request": {
 										"auth": {
 											"type": "apikey",
@@ -1764,14 +1907,49 @@
 										"method": "GET",
 										"header": [],
 										"url": {
-											"raw": "{{url}}/Documents/FAU490/Positions",
+											"raw": "{{url}}/Documents/FAU088/Positions?withWarehouseLabel=true&withStoragePlacelabel=true&withLocationLabel=true&withTaxCode=true&withRejectArticleLabel=true&withEmployeeLabel=true&withProjectLabel=true",
 											"host": [
 												"{{url}}"
 											],
 											"path": [
 												"Documents",
-												"FAU490",
+												"FAU088",
 												"Positions"
+											],
+											"query": [
+												{
+													"key": "withWarehouseLabel",
+													"value": "true"
+												},
+												{
+													"key": "withStoragePlacelabel",
+													"value": "true"
+												},
+												{
+													"key": "withLocationLabel",
+													"value": "true"
+												},
+												{
+													"key": "withTaxCode",
+													"value": "true"
+												},
+												{
+													"key": "withRejectArticleLabel",
+													"value": "true"
+												},
+												{
+													"key": "withEmployeeLabel",
+													"value": "true"
+												},
+												{
+													"key": "withProjectLabel",
+													"value": "true"
+												},
+												{
+													"key": "filter",
+													"value": "Name EQ 'Zypresse'",
+													"disabled": true
+												}
 											]
 										},
 										"description": "Gibt alle Belegpositionen eines Beleges zurück"
@@ -1779,44 +1957,7 @@
 									"response": []
 								},
 								{
-									"name": "🔑 Read all store informations of position",
-									"request": {
-										"auth": {
-											"type": "apikey",
-											"apikey": [
-												{
-													"key": "value",
-													"value": "{{AccessToken}}",
-													"type": "string"
-												},
-												{
-													"key": "key",
-													"value": "Authorization",
-													"type": "string"
-												}
-											]
-										},
-										"method": "GET",
-										"header": [],
-										"url": {
-											"raw": "{{url}}/Documents/SWE250/Positions/10e4782b-91d4-4f22-8eb3-6e63cf5aa8cb/Storeinformation",
-											"host": [
-												"{{url}}"
-											],
-											"path": [
-												"Documents",
-												"SWE250",
-												"Positions",
-												"10e4782b-91d4-4f22-8eb3-6e63cf5aa8cb",
-												"Storeinformation"
-											]
-										},
-										"description": "Gibt alle Lageinformationen zu einer Belegpositionen eines Beleges zurück."
-									},
-									"response": []
-								},
-								{
-									"name": "🔑 Read document position without documentKey",
+									"name": "🔑 Read document positions without documentKey",
 									"request": {
 										"auth": {
 											"type": "apikey",
@@ -1869,18 +2010,61 @@
 										"method": "GET",
 										"header": [],
 										"url": {
-											"raw": "{{url}}/DocumentPositions/FAU492/Positions/38AE6FB8-B38D-4AF3-9790-3AD86014680C",
+											"raw": "{{url}}/Documents/D21000002/Positions",
 											"host": [
 												"{{url}}"
 											],
 											"path": [
-												"DocumentPositions",
-												"FAU492",
-												"Positions",
-												"38AE6FB8-B38D-4AF3-9790-3AD86014680C"
+												"Documents",
+												"D21000002",
+												"Positions"
+											],
+											"query": [
+												{
+													"key": "filter",
+													"value": "Identifier EQ '0211CC94-5B59-43A7-99DF-61C6FDF514F9'",
+													"disabled": true
+												}
 											]
 										},
 										"description": "Gibt alle Belegpositionen eines Beleges zurück"
+									},
+									"response": []
+								},
+								{
+									"name": "🔑 Read all store informations of position",
+									"request": {
+										"auth": {
+											"type": "apikey",
+											"apikey": [
+												{
+													"key": "value",
+													"value": "{{AccessToken}}",
+													"type": "string"
+												},
+												{
+													"key": "key",
+													"value": "Authorization",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{url}}/Documents/LLS533/Positions/11f922af-582a-4b11-a69f-fb15da725973/Storeinformation",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"Documents",
+												"LLS533",
+												"Positions",
+												"11f922af-582a-4b11-a69f-fb15da725973",
+												"Storeinformation"
+											]
+										},
+										"description": "Gibt alle Lageinformationen zu einer Belegpositionen eines Beleges zurück."
 									},
 									"response": []
 								},
@@ -1913,7 +2097,7 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "[\r\n  {\r\n    \"Identifier\": \"FCC2D453-EDC4-4B01-94BF-14F02E776BCE\",\r\n    \"Warehouse\": \"100\",\r\n    \"Quantity\": 2\r\n  }\r\n]"
+											"raw": "[\r\n  {\r\n    \"Identifier\": \"66DED9AD-6BB4-4071-B085-725E81C3A718\",\r\n    \"ArticleNumber\": \"\",\r\n    \"Warehouse\": \"3\",\r\n    \"Quantity\": 3\r\n  }\r\n]"
 										},
 										"url": {
 											"raw": "{{url}}/Documents/FAU396/Positions/Store",
@@ -1960,19 +2144,16 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "{\r\n  \"ArticleNumber\": \"500011\",\r\n  \"UnitPrice\": 4.05,\r\n  \"StoreInformation\": [\r\n      {\r\n        \"ArticleNumber\": \"400001\",\r\n        \"Warehouse\": \"200\",\r\n        \"Quantity\": 1\r\n      }\r\n  ]\r\n}",
-											"options": {
-												"raw": {}
-											}
+											"raw": "{\r\n  \"ArticleNumber\": \"210011\",\r\n  \"UnitPrice\": 4.05,\r\n  \"StoreInformation\": [\r\n      {\r\n        \"ArticleNumber\": \"210011\",\r\n        \"Warehouse\": 100,\r\n        \"Quantity\": 1\r\n      }\r\n  ]\r\n}"
 										},
 										"url": {
-											"raw": "{{url}}/Documents/FAU505/ArticleItem",
+											"raw": "{{url}}/Documents/FAU527/ArticleItem",
 											"host": [
 												"{{url}}"
 											],
 											"path": [
 												"Documents",
-												"FAU505",
+												"FAU527",
 												"ArticleItem"
 											]
 										},
@@ -2008,10 +2189,7 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n\t\"ArticleNumber\": \"600002\",\n\t\"UseQuantityFormula\": true\n}",
-											"options": {
-												"raw": {}
-											}
+											"raw": "{\n\t\"ArticleNumber\": \"600002\",\n\t\"UseQuantityFormula\": true\n}"
 										},
 										"url": {
 											"raw": "{{url}}/Documents/FAU490/Positions/62e4f44b-3fd9-48e5-bba8-9b4d60b56991/SurchargeArticleItem",
@@ -2058,21 +2236,18 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n\t\"ArticleNumber\": \"600002\",\n\t\"StoreInformation\": \n\t[\n\t\t{\n\t\t\t\"Warehouse\": \"100\",\n\t\t\t\"Quantity\": \"2\"\n\t\t}\n\t]\n}",
-											"options": {
-												"raw": {}
-											}
+											"raw": "{\n\t\"ArticleNumber\": \"200007\",\n    \"UseQuantityFormula\": true\n}"
 										},
 										"url": {
-											"raw": "{{url}}/Documents/FAU4788/Positions/653df3d5-fbeb-4fa0-928c-2ab999b8a0f4/AccessoryArticleItem",
+											"raw": "{{url}}/Documents/FAU527/Positions/BD017F7F-E8A9-4021-B87B-65EB9927AC01/AccessoryArticleItem",
 											"host": [
 												"{{url}}"
 											],
 											"path": [
 												"Documents",
-												"FAU4788",
+												"FAU527",
 												"Positions",
-												"653df3d5-fbeb-4fa0-928c-2ab999b8a0f4",
+												"BD017F7F-E8A9-4021-B87B-65EB9927AC01",
 												"AccessoryArticleItem"
 											]
 										}
@@ -2108,10 +2283,7 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "{\r\n  \"ArticleNumber\": \"100001\",\r\n  \"UnitPrice\": 4.05,\r\n  \"AlternativePositionDescription\": \"Schneckenpost Express\"\r\n}",
-											"options": {
-												"raw": {}
-											}
+											"raw": "{\r\n  \"ArticleNumber\": \"100001\",\r\n  \"UnitPrice\": 4.05,\r\n  \"AlternativePositionDescription\": \"Schneckenpost Express\"\r\n}"
 										},
 										"url": {
 											"raw": "{{url}}/Documents/FAU502/ShippingItemPosition",
@@ -2267,10 +2439,7 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "{\r\n    \"DiscountPercent\": 10,  \r\n    \"DiscountPercent2\": 1  \r\n}",
-											"options": {
-												"raw": {}
-											}
+											"raw": "{\r\n    \"DiscountPercent\": 10,  \r\n    \"DiscountPercent2\": 1  \r\n}"
 										},
 										"url": {
 											"raw": "{{url}}/Documents/FAU491/SubTotalPosition",
@@ -2315,21 +2484,114 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "{\r\n  \"Memo\": \"uuuuuuuuuuuuuuuuuuuuuuuuuuuuuuu\"\r\n}",
-											"options": {
-												"raw": {}
-											}
+											"raw": "{\r\n  \"Memo\": \"Das ist ne Solarteichpumpe mit 49 Metern Saughöhe!\",\r\n  \"CalculatedQuantityValue\":3,\r\n  \"StoreInformation\": [{\r\n      \"ArticleNumber\": \"700044\",\r\n        \"StoragePlaceIdentifier\": 189,\r\n        \"SerialNumber\": \"500009-20070720\",\r\n        \"ExpirationDate\": \"2021-01-29T00:00:00+01:00\",\r\n      \"Quantity\": 1\r\n  },\r\n  {\r\n      \"ArticleNumber\": \"700044\",\r\n        \"StoragePlaceIdentifier\": 188,\r\n        \"SerialNumber\": \"500009-20070722\",\r\n        \"ExpirationDate\": \"2021-01-29T00:00:00+01:00\",\r\n      \"Quantity\": 1\r\n  }]\r\n}"
 										},
 										"url": {
-											"raw": "{{url}}/Documents/FAU492/Positions/b13e1c3b-3207-4cfc-9644-b6edf9c9df7f",
+											"raw": "{{url}}/Documents/LLS474/Positions/86DA1220-0E58-4DF3-8B11-DA5F31681160",
 											"host": [
 												"{{url}}"
 											],
 											"path": [
 												"Documents",
-												"FAU492",
+												"LLS474",
 												"Positions",
-												"b13e1c3b-3207-4cfc-9644-b6edf9c9df7f"
+												"86DA1220-0E58-4DF3-8B11-DA5F31681160"
+											]
+										},
+										"description": "Bearbeiten einer Belegposition."
+									},
+									"response": []
+								},
+								{
+									"name": "🔑 Update document position with accessory article item",
+									"request": {
+										"auth": {
+											"type": "apikey",
+											"apikey": [
+												{
+													"key": "value",
+													"value": "{{AccessToken}}",
+													"type": "string"
+												},
+												{
+													"key": "key",
+													"value": "Authorization",
+													"type": "string"
+												}
+											]
+										},
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"type": "text",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"Quantity\": 10\r\n}"
+										},
+										"url": {
+											"raw": "{{url}}/Documents/FAU529/Positions/F970A58B-A417-49C9-9A04-F374B878D55C/AccessoryArticleItem/09C96EF2-81CC-4903-93F9-4AF5F8374303",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"Documents",
+												"FAU529",
+												"Positions",
+												"F970A58B-A417-49C9-9A04-F374B878D55C",
+												"AccessoryArticleItem",
+												"09C96EF2-81CC-4903-93F9-4AF5F8374303"
+											]
+										},
+										"description": "Bearbeiten einer Belegposition."
+									},
+									"response": []
+								},
+								{
+									"name": "🔑 Update extra fields",
+									"request": {
+										"auth": {
+											"type": "apikey",
+											"apikey": [
+												{
+													"key": "value",
+													"value": "{{AccessToken}}",
+													"type": "string"
+												},
+												{
+													"key": "key",
+													"value": "Authorization",
+													"type": "string"
+												}
+											]
+										},
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"type": "text",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"ExtraFields\": \r\n    {\r\n        \"_KUENSTLER\": false,\r\n        \"_KUENSTLERNAME\": \"Bernd\"\r\n    }\r\n}"
+										},
+										"url": {
+											"raw": "{{url}}/Documents/FAU495/Positions/98cd1a64-e607-4a67-b289-ae78af4d58b2",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"Documents",
+												"FAU495",
+												"Positions",
+												"98cd1a64-e607-4a67-b289-ae78af4d58b2"
 											]
 										},
 										"description": "Bearbeiten einer Belegposition."
@@ -2365,10 +2627,7 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "{\r\n  \"WarehouseId\": \"200\"\r\n}",
-											"options": {
-												"raw": {}
-											}
+											"raw": "{\r\n  \"WarehouseId\": \"200\"\r\n}"
 										},
 										"url": {
 											"raw": "{{url}}/Documents/FAU509/ShippingItemPosition/2eba2404-5c7e-479c-a6a3-137b52d468db",
@@ -2429,9 +2688,7 @@
 									},
 									"response": []
 								}
-							],
-							"protocolProfileBehavior": {},
-							"_postman_isSubFolder": true
+							]
 						},
 						{
 							"name": "Read all documents",
@@ -2526,52 +2783,21 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{url}}/Documents/FAU493",
+									"raw": "{{url}}/Documents/FAU458",
 									"host": [
 										"{{url}}"
 									],
 									"path": [
 										"Documents",
-										"FAU493"
+										"FAU458"
 									]
 								},
 								"description": "Gibt ein Beleg zurück.\n\ndocumentKey = BelegTyp + Belegnummer z.B. SWE250\n\nStandard:\n=============================\nB - Bestellung\nS - Wareneingang\nF - Auftrag\nP - Packzettel\nL - Lieferschein"
 							},
-							"response": [
-								{
-									"name": "Document/SWE250",
-									"originalRequest": {
-										"method": "GET",
-										"header": [],
-										"url": {
-											"raw": "{{url}}/",
-											"host": [
-												"{{url}}"
-											],
-											"path": [
-												""
-											],
-											"query": [
-												{
-													"key": "",
-													"value": "",
-													"disabled": true
-												}
-											]
-										}
-									},
-									"_postman_previewlanguage": "Text",
-									"header": [],
-									"cookie": [],
-									"body": ""
-								}
-							]
+							"response": []
 						},
 						{
 							"name": "🔑 Read document successors",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
 							"request": {
 								"auth": {
 									"type": "apikey",
@@ -2597,19 +2823,21 @@
 										"value": "application/json"
 									}
 								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n\t \"DocumentKindDestination\" : \"L\",\r\n\t \"Positions\": []\r\n}"
-								},
 								"url": {
-									"raw": "{{url}}/Documents/FAU467/Successors",
+									"raw": "{{url}}/Documents/BBE276/Successors?filter=Number EQ 'WE293'",
 									"host": [
 										"{{url}}"
 									],
 									"path": [
 										"Documents",
-										"FAU467",
+										"BBE276",
 										"Successors"
+									],
+									"query": [
+										{
+											"key": "filter",
+											"value": "Number EQ 'WE293'"
+										}
 									]
 								},
 								"description": "Belegübergabe, alle Positionen werden mit Menge = 0 übergeben."
@@ -2645,10 +2873,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n\t\"KindFlag\": \"F\",\r\n\t\"BusinessPartner\":\r\n\t\t{\r\n\t\t\t\"Address\":\r\n\t\t\t{\r\n\t\t\t\"Number\": \"10001\"\r\n\t\t\t}\r\n\t\t}\r\n}",
-									"options": {
-										"raw": {}
-									}
+									"raw": "{\r\n\t\"KindFlag\": \"F\",\r\n\t\"BusinessPartner\":\r\n\t\t{\r\n\t\t\t\"Address\":\r\n\t\t\t{\r\n\t\t\t\"Number\": \"10001\"\r\n\t\t\t}\r\n\t\t}\r\n}"
 								},
 								"url": {
 									"raw": "{{url}}/Documents",
@@ -2692,19 +2917,21 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n     \"DocumentKindDestination\" : \"P\",\r\n     \"Positions\": []\r\n}",
+									"raw": "{\r\n     \"DocumentKindDestination\" : \"L\",\r\n     \"Positions\": [\r\n         {\r\n             \"Identifier\": \"71458B64-0158-483B-AF58-7FCECE05E948\",\r\n             \"ArticleNumber\": \"100002\",\r\n             \"Quantity\": 2,\r\n             \"Warehouse\": \"200\"\r\n         }\r\n     ]\r\n}",
 									"options": {
-										"raw": {}
+										"raw": {
+											"language": "json"
+										}
 									}
 								},
 								"url": {
-									"raw": "{{url}}/Documents/FAU402/Successors",
+									"raw": "{{url}}/Documents/C21000003/Successors",
 									"host": [
 										"{{url}}"
 									],
 									"path": [
 										"Documents",
-										"FAU402",
+										"C21000003",
 										"Successors"
 									]
 								},
@@ -2741,10 +2968,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n\t \"DocumentKindDestination\" : \"L\",\r\n\t \"Positions\": [{\r\n\t \t\"Identifier\": \"9E54F4CC-F6F0-4465-B318-8C890FA5F748\",\r\n\t \t\"ArticleNumber\": \"400004\",\r\n\t \t\"Quantity\":1,\r\n\t \t\"Warehouse\": \"100\"\r\n\t }]\r\n}",
-									"options": {
-										"raw": {}
-									}
+									"raw": "{\r\n\t \"DocumentKindDestination\" : \"L\",\r\n\t \"Positions\": [{\r\n\t \t\"Identifier\": \"9E54F4CC-F6F0-4465-B318-8C890FA5F748\",\r\n\t \t\"ArticleNumber\": \"400004\",\r\n\t \t\"Quantity\":1,\r\n\t \t\"Warehouse\": \"100\"\r\n\t }]\r\n}"
 								},
 								"url": {
 									"raw": "{{url}}/Documents/FAU481/Successors",
@@ -2790,21 +3014,16 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n  \"NumberOfCopies\" : \"1\",\r\n  \"MasterName\" : \"!Blatt1\",\r\n  \"PrintTarget\" : \"Printer\",\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
+									"raw": "{ \"MasterName\" : \"!LISTE1\" }"
 								},
 								"url": {
-									"raw": "{{url}}/Documents/RAR001/Print",
+									"raw": "{{url}}/Documents/FAU526/Print",
 									"host": [
 										"{{url}}"
 									],
 									"path": [
 										"Documents",
-										"RAR001",
+										"FAU526",
 										"Print"
 									]
 								}
@@ -2840,10 +3059,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n\t\"BusinessPartner\":\r\n\t\t{\r\n\t\t\t\"Address\":\r\n\t\t\t{\r\n\t\t\t\"Number\": \"10003\"\r\n\t\t\t}\r\n\t\t}\r\n}",
-									"options": {
-										"raw": {}
-									}
+									"raw": "{\r\n\t\"BusinessPartner\":\r\n\t\t{\r\n\t\t\t\"Address\":\r\n\t\t\t{\r\n\t\t\t\"Number\": \"10003\"\r\n\t\t\t}\r\n\t\t}\r\n}"
 								},
 								"url": {
 									"raw": "{{url}}/Documents/LLS492",
@@ -2860,52 +3076,7 @@
 							"response": []
 						},
 						{
-							"name": "🔑 Update document Copy",
-							"request": {
-								"auth": {
-									"type": "apikey",
-									"apikey": [
-										{
-											"key": "value",
-											"value": "{{AccessToken}}",
-											"type": "string"
-										},
-										{
-											"key": "key",
-											"value": "Authorization",
-											"type": "string"
-										}
-									]
-								},
-								"method": "PUT",
-								"header": [
-									{
-										"key": "Content-Type",
-										"name": "Content-Type",
-										"type": "text",
-										"value": "application/json"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n\t\"GrossAmount\": 123.45\r\n}"
-								},
-								"url": {
-									"raw": "{{url}}/Documents/SWE250",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"Documents",
-										"SWE250"
-									]
-								},
-								"description": "Bearbeiten eines Beleges."
-							},
-							"response": []
-						},
-						{
-							"name": "Update document status flag",
+							"name": "[Deprecated] Update status flag",
 							"request": {
 								"auth": {
 									"type": "apikey",
@@ -2933,17 +3104,63 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n\t\"statusFlag\": \"0\"\r\n}"
+									"raw": "{\r\n\t\"StatusFlag\": \"0\"\r\n}"
 								},
 								"url": {
-									"raw": "{{url}}/Documents/SWE250/StatusFlag",
+									"raw": "{{url}}/Documents/FAU517/StatusFlag",
 									"host": [
 										"{{url}}"
 									],
 									"path": [
 										"Documents",
-										"SWE250",
+										"FAU517",
 										"StatusFlag"
+									]
+								},
+								"description": "Setzen des Belegstatus"
+							},
+							"response": []
+						},
+						{
+							"name": "[New] Update document status",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{AccessToken}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "Authorization",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"Value\": 3, //\"3\"\r\n    \"Name\": \"CompletedManually\"\r\n}"
+								},
+								"url": {
+									"raw": "{{url}}/Documents/FAU517/Status",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"Documents",
+										"FAU517",
+										"Status"
 									]
 								},
 								"description": "Setzen des Belegstatus"
@@ -2991,9 +3208,7 @@
 							},
 							"response": []
 						}
-					],
-					"protocolProfileBehavior": {},
-					"_postman_isSubFolder": true
+					]
 				},
 				{
 					"name": "DocumentKind",
@@ -3065,261 +3280,7 @@
 							},
 							"response": []
 						}
-					],
-					"protocolProfileBehavior": {},
-					"_postman_isSubFolder": true
-				},
-				{
-					"name": "ManualStorages",
-					"item": [
-						{
-							"name": "Read all manual storages",
-							"request": {
-								"auth": {
-									"type": "apikey",
-									"apikey": [
-										{
-											"key": "key",
-											"value": "Authorization",
-											"type": "string"
-										},
-										{
-											"key": "value",
-											"value": "{{AccessToken}}",
-											"type": "string"
-										}
-									]
-								},
-								"method": "GET",
-								"header": [
-									{
-										"key": "Content-Type",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"url": {
-									"raw": "{{url}}/ManualStorages",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"ManualStorages"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Read manual storage",
-							"request": {
-								"auth": {
-									"type": "apikey",
-									"apikey": [
-										{
-											"key": "key",
-											"value": "Authorization",
-											"type": "string"
-										},
-										{
-											"key": "value",
-											"value": "{{AccessToken}}",
-											"type": "string"
-										}
-									]
-								},
-								"method": "GET",
-								"header": [
-									{
-										"key": "Content-Type",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"url": {
-									"raw": "{{url}}/ManualStorages/15000037",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"ManualStorages",
-										"15000037"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Read all positions of manual storage",
-							"request": {
-								"auth": {
-									"type": "apikey",
-									"apikey": [
-										{
-											"key": "key",
-											"value": "Authorization",
-											"type": "string"
-										},
-										{
-											"key": "value",
-											"value": "{{AccessToken}}",
-											"type": "string"
-										}
-									]
-								},
-								"method": "GET",
-								"header": [
-									{
-										"key": "Content-Type",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"url": {
-									"raw": "{{url}}/ManualStorages/15000037/Positions",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"ManualStorages",
-										"15000037",
-										"Positions"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Create manual storage",
-							"request": {
-								"auth": {
-									"type": "apikey",
-									"apikey": [
-										{
-											"key": "key",
-											"value": "Authorization",
-											"type": "string"
-										},
-										{
-											"key": "value",
-											"value": "{{AccessToken}}",
-											"type": "string"
-										}
-									]
-								},
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n    \"IsPrinted\": true,\r\n    \"BusinessPartnerType\": 1,\r\n    \"BusinessPartner\": {\r\n        \"LastName\": \"Mustermann\",\r\n        \"FirstName\": \"Max\",\r\n        \"Address\": {\r\n            \"Number\": 70011\r\n        }\r\n    },\r\n    \"Payment\": {\r\n        \"CostCenterNumber\": \"P001\"\r\n    }\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{url}}/ManualStorages",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"ManualStorages"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Store positions",
-							"request": {
-								"auth": {
-									"type": "apikey",
-									"apikey": [
-										{
-											"key": "key",
-											"value": "Authorization",
-											"type": "string"
-										},
-										{
-											"key": "value",
-											"value": "{{AccessToken}}",
-											"type": "string"
-										}
-									]
-								},
-								"method": "POST",
-								"header": [
-									{
-										"key": "Content-Type",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "[\r\n  {  \r\n    \"ArticleNumber\": \"100001\",\r\n    \"Warehouse\": \"100\",\r\n    \"Quantity\": 2,\r\n    \"TargetWarehouse\": \"400\"\r\n  }\r\n]",
-									"options": {
-										"raw": {}
-									}
-								},
-								"url": {
-									"raw": "{{url}}/ManualStorages/15000037/Positions",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"ManualStorages",
-										"15000037",
-										"Positions"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Delete manual storage",
-							"request": {
-								"auth": {
-									"type": "apikey",
-									"apikey": [
-										{
-											"key": "key",
-											"value": "Authorization",
-											"type": "string"
-										},
-										{
-											"key": "value",
-											"value": "{{AccessToken}}",
-											"type": "string"
-										}
-									]
-								},
-								"method": "DELETE",
-								"header": [
-									{
-										"key": "Content-Type",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"url": {
-									"raw": "{{url}}/ManualStorages/15000044",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"ManualStorages",
-										"15000044"
-									]
-								}
-							},
-							"response": []
-						}
-					],
-					"description": "Ressourcen der Manuellen Lagerung",
-					"protocolProfileBehavior": {},
-					"_postman_isSubFolder": true
+					]
 				},
 				{
 					"name": "PriceGroup",
@@ -3391,9 +3352,7 @@
 							},
 							"response": []
 						}
-					],
-					"protocolProfileBehavior": {},
-					"_postman_isSubFolder": true
+					]
 				},
 				{
 					"name": "Project",
@@ -3464,9 +3423,7 @@
 							},
 							"response": []
 						}
-					],
-					"protocolProfileBehavior": {},
-					"_postman_isSubFolder": true
+					]
 				},
 				{
 					"name": "Signature",
@@ -3589,9 +3546,7 @@
 							},
 							"response": []
 						}
-					],
-					"protocolProfileBehavior": {},
-					"_postman_isSubFolder": true
+					]
 				},
 				{
 					"name": "TransferDocument",
@@ -3628,18 +3583,395 @@
 							},
 							"response": []
 						}
-					],
-					"protocolProfileBehavior": {},
-					"_postman_isSubFolder": true
+					]
 				},
 				{
 					"name": "TransferHandover",
-					"item": [],
-					"protocolProfileBehavior": {},
-					"_postman_isSubFolder": true
+					"item": []
+				}
+			]
+		},
+		{
+			"name": "ManualStorages",
+			"item": [
+				{
+					"name": "Read all manual storages",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "key",
+									"value": "Authorization",
+									"type": "string"
+								},
+								{
+									"key": "value",
+									"value": "{{AccessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/ManualStorages",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"ManualStorages"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Read manual storage",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "key",
+									"value": "Authorization",
+									"type": "string"
+								},
+								{
+									"key": "value",
+									"value": "{{AccessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/ManualStorages/15000037",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"ManualStorages",
+								"15000037"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Read all positions of manual storage",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "key",
+									"value": "Authorization",
+									"type": "string"
+								},
+								{
+									"key": "value",
+									"value": "{{AccessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/ManualStorages/15000037/Positions",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"ManualStorages",
+								"15000037",
+								"Positions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create manual storage",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "key",
+									"value": "Authorization",
+									"type": "string"
+								},
+								{
+									"key": "value",
+									"value": "{{AccessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"BusinessPartnerType\": 1,\r\n    \"BusinessPartner\": {\r\n        \"LastName\": \"Mustermann\",\r\n        \"FirstName\": \"Max\",\r\n        \"Address\": {\r\n            \"Number\": 70011\r\n        }\r\n    },\r\n    \"Payment\": {\r\n        \"CostCenterNumber\": \"P001\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/ManualStorages",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"ManualStorages"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Store positions",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "key",
+									"value": "Authorization",
+									"type": "string"
+								},
+								{
+									"key": "value",
+									"value": "{{AccessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n  {  \r\n    \"ArticleNumber\": \"100001\",\r\n    \"Warehouse\": \"100\",\r\n    \"Quantity\": 3,\r\n    \"TargetWarehouse\": \"400\"\r\n  }\r\n]"
+						},
+						"url": {
+							"raw": "{{url}}/ManualStorages/15000033/Positions/Store",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"ManualStorages",
+								"15000033",
+								"Positions",
+								"Store"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Print Manual Storage",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{AccessToken}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "Authorization",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"NumberOfCopies\" : \"1\",\r\n  \"MasterName\" : \"!LISTE1\",\r\n  \"PrintTarget\" : \"Printer\"\r\n}"
+						},
+						"url": {
+							"raw": "{{url}}/ManualStorages/15000010/Print",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"ManualStorages",
+								"15000010",
+								"Print"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update status flag",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{AccessToken}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "Authorization",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"Value\": 0\r\n}"
+						},
+						"url": {
+							"raw": "{{url}}/ManualStorages/15000038/Status",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"ManualStorages",
+								"15000038",
+								"Status"
+							]
+						},
+						"description": "Setzen des Belegstatus"
+					},
+					"response": []
+				},
+				{
+					"name": "🔑 Update manual storage",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{AccessToken}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "Authorization",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"BusinessPartnerType\": 0,\r\n    \"BusinessPartner\": {\r\n        \"LastName\": \"Musterla\",\r\n        \"FirstName\": \"Maxima\",\r\n        \"Address\": {\r\n            \"Number\": 10047\r\n        }\r\n    },\r\n    \"Payment\": {\r\n        \"CostCenterNumber\": \"P002\"\r\n    }\r\n}"
+						},
+						"url": {
+							"raw": "{{url}}/ManualStorages/15000041",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"ManualStorages",
+								"15000041"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete manual storage",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "key",
+									"value": "Authorization",
+									"type": "string"
+								},
+								{
+									"key": "value",
+									"value": "{{AccessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/ManualStorages/15000044",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"ManualStorages",
+								"15000044"
+							]
+						}
+					},
+					"response": []
 				}
 			],
-			"protocolProfileBehavior": {}
+			"description": "Ressourcen der Manuellen Lagerung"
 		},
 		{
 			"name": "Benutzerverwaltung  ✔",
@@ -3737,14 +4069,14 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{url}}/Users/Current/MDEConfiguration",
+									"raw": "{{url}}/Users/Current/BDEConfiguration",
 									"host": [
 										"{{url}}"
 									],
 									"path": [
 										"Users",
 										"Current",
-										"MDEConfiguration"
+										"BDEConfiguration"
 									]
 								},
 								"description": "Gibt die BDE Konfiguration zu dem angemeldeten Benutzer zurück."
@@ -3780,12 +4112,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n\t\"TenantDatabaseName\": \"SL_MWUNDF\"\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
+									"raw": "{\n\t\"TenantDatabaseName\": \"SL_MWUNDF\"\n}"
 								},
 								"url": {
 									"raw": "{{url}}/Users/Current",
@@ -3801,12 +4128,9 @@
 							},
 							"response": []
 						}
-					],
-					"protocolProfileBehavior": {},
-					"_postman_isSubFolder": true
+					]
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		},
 		{
 			"name": "Currency",
@@ -3878,8 +4202,7 @@
 					},
 					"response": []
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		},
 		{
 			"name": "ExtraTable",
@@ -4120,8 +4443,7 @@
 					},
 					"response": []
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		},
 		{
 			"name": "Geschäftspartner  ✔",
@@ -4150,12 +4472,18 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{url}}/Customers",
+									"raw": "{{url}}/Customers?filter=InternationalLocationNumber CT GerümpelLieferNummer",
 									"host": [
 										"{{url}}"
 									],
 									"path": [
 										"Customers"
+									],
+									"query": [
+										{
+											"key": "filter",
+											"value": "InternationalLocationNumber CT GerümpelLieferNummer"
+										}
 									]
 								},
 								"description": "Gibt eine Liste aller Kunden zurück."
@@ -4163,19 +4491,19 @@
 							"response": []
 						},
 						{
-							"name": "Read customer",
+							"name": "Read Customer",
 							"request": {
 								"auth": {
 									"type": "apikey",
 									"apikey": [
 										{
-											"key": "value",
-											"value": "{{AccessToken}}",
+											"key": "key",
+											"value": "Authorization",
 											"type": "string"
 										},
 										{
-											"key": "key",
-											"value": "Authorization",
+											"key": "value",
+											"value": "{{AccessToken}}",
 											"type": "string"
 										}
 									]
@@ -4183,16 +4511,16 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{url}}/Customers/10001",
+									"raw": "{{url}}/Customers/10123",
 									"host": [
 										"{{url}}"
 									],
 									"path": [
 										"Customers",
-										"10001"
+										"10123"
 									]
 								},
-								"description": "Gibt eine Liste aller Kunden zurück."
+								"description": "Leist eine einzelnen Kunden."
 							},
 							"response": []
 						},
@@ -4225,12 +4553,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n  \"FirstName\": \"Max\",\n  \"LastName\": \"Mustermann\"\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
+									"raw": "{\n    \"FirstName\": \"Wilhelm Tölke UNiversität\",\n    \"City\": \"Stenkelfeld\",\n    \"InternationalLocationNumber\": \"GerümpelLieferNummer\"\n}"
 								},
 								"url": {
 									"raw": "{{url}}/Customers",
@@ -4274,12 +4597,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n  \"FirstName\": \"Max\",\n  \"LastName\": \"Musterfrau\"\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
+									"raw": "{\n    \"InternationalLocationNumber\": \"GerümpelLieferNummer2\"\n}"
 								},
 								"url": {
 									"raw": "{{url}}/Customers/10122",
@@ -4394,12 +4712,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"FirstName\": \"Hermann\",\r\n    \"LastName\": \"Hinz\",\r\n    \"Company\": \"Baustoffcenter Hinz GmbH\"\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
+									"raw": "{\r\n    \"FirstName\": \"Hermann\",\r\n    \"LastName\": \"Hinz\",\r\n    \"Company\": \"Baustoffcenter Hinz GmbH\"\r\n}"
 								},
 								"url": {
 									"raw": "{{url}}/Customers/10001/ContactPersons",
@@ -4445,12 +4758,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"FirstName\": \"Hermann\",\r\n    \"LastName\": \"Hinz\",\r\n    \"Company\": \"Baustoffcenter Hinz KG\"\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
+									"raw": "{\r\n    \"FirstName\": \"Hermann\",\r\n    \"LastName\": \"Hinz\",\r\n    \"Company\": \"Baustoffcenter Hinz KG\"\r\n}"
 								},
 								"url": {
 									"raw": "{{url}}/Customers/10001/ContactPersons/1531",
@@ -4468,9 +4776,7 @@
 							},
 							"response": []
 						}
-					],
-					"protocolProfileBehavior": {},
-					"_postman_isSubFolder": true
+					]
 				},
 				{
 					"name": "DeliveryAddress",
@@ -4815,9 +5121,7 @@
 							},
 							"response": []
 						}
-					],
-					"protocolProfileBehavior": {},
-					"_postman_isSubFolder": true
+					]
 				},
 				{
 					"name": "Prospect",
@@ -4918,12 +5222,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n  \"Salutation\": \"Firma\",\n  \"Company\": \"Holz Company GmbH\"\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
+									"raw": "{\n  \"Salutation\": \"Firma\",\n  \"Company\": \"Holz Company GmbH\"\n}"
 								},
 								"url": {
 									"raw": "{{url}}/Prospects",
@@ -4967,12 +5266,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n  \"Salutation\": \"Firma\",\n  \"Company\": \"Holz Company GmbH\"\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
+									"raw": "{\n  \"Salutation\": \"Firma\",\n  \"Company\": \"Holz Company GmbH\"\n}"
 								},
 								"url": {
 									"raw": "{{url}}/Prospects/2",
@@ -5088,12 +5382,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"FirstName\": \"Hermann\",\r\n    \"LastName\": \"Hinz\",\r\n    \"Company\": \"Baustoffcenter Hinz GmbH\"\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
+									"raw": "{\r\n    \"FirstName\": \"Hermann\",\r\n    \"LastName\": \"Hinz\",\r\n    \"Company\": \"Baustoffcenter Hinz GmbH\"\r\n}"
 								},
 								"url": {
 									"raw": "{{url}}/Prospects/2/ContactPersons",
@@ -5139,12 +5428,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"Company\": \"Baustoffcenter Hinz KG\"\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
+									"raw": "{\r\n    \"Company\": \"Baustoffcenter Hinz KG\"\r\n}"
 								},
 								"url": {
 									"raw": "{{url}}/Prospects/2/ContactPersons/1529",
@@ -5162,9 +5446,7 @@
 							},
 							"response": []
 						}
-					],
-					"protocolProfileBehavior": {},
-					"_postman_isSubFolder": true
+					]
 				},
 				{
 					"name": "Supplier",
@@ -5265,12 +5547,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n  \"Number\": \"7777\",\r\n  \"FirstName\": \"Max\",\r\n  \"LastName\": \"Mustermann\",\r\n  \"Address\": {\r\n    \"Street\": \"Musterweg 2\",\r\n    \"City\": \"Musterort\"\r\n  }\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
+									"raw": "{\r\n  \"Number\": \"7777\",\r\n  \"FirstName\": \"Max\",\r\n  \"LastName\": \"Mustermann\",\r\n  \"Address\": {\r\n    \"Street\": \"Musterweg 2\",\r\n    \"City\": \"Musterort\"\r\n  }\r\n}"
 								},
 								"url": {
 									"raw": "{{url}}/Suppliers",
@@ -5314,12 +5591,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n  \"FirstName\": \"Max\",\r\n  \"LastName\": \"Mustermann\"\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
+									"raw": "{\r\n  \"FirstName\": \"Max\",\r\n  \"LastName\": \"Mustermann\"\r\n}"
 								},
 								"url": {
 									"raw": "{{url}}/Suppliers/70001",
@@ -5435,12 +5707,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"FirstName\": \"Hermann\",\r\n    \"LastName\": \"Hinz\",\r\n    \"Company\": \"Baustoffcenter Hinz GmbH\"\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
+									"raw": "{\r\n    \"FirstName\": \"Hermann\",\r\n    \"LastName\": \"Hinz\",\r\n    \"Company\": \"Baustoffcenter Hinz GmbH\"\r\n}"
 								},
 								"url": {
 									"raw": "{{url}}/Suppliers/70001/ContactPersons",
@@ -5486,12 +5753,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"FirstName\": \"Hermann\",\r\n    \"LastName\": \"Hinz\",\r\n    \"Company\": \"Baustoffcenter Hinz GmbH\"\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
+									"raw": "{\r\n    \"FirstName\": \"Hermann\",\r\n    \"LastName\": \"Hinz\",\r\n    \"Company\": \"Baustoffcenter Hinz GmbH\"\r\n}"
 								},
 								"url": {
 									"raw": "{{url}}/Suppliers/70001/ContactPersons/31",
@@ -5509,9 +5771,7 @@
 							},
 							"response": []
 						}
-					],
-					"protocolProfileBehavior": {},
-					"_postman_isSubFolder": true
+					]
 				},
 				{
 					"name": "Employee",
@@ -5644,13 +5904,13 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{url}}/Employees/1/CompetenceGroups",
+									"raw": "{{url}}/Employees/2/CompetenceGroups",
 									"host": [
 										"{{url}}"
 									],
 									"path": [
 										"Employees",
-										"1",
+										"2",
 										"CompetenceGroups"
 									]
 								},
@@ -5658,12 +5918,9 @@
 							},
 							"response": []
 						}
-					],
-					"protocolProfileBehavior": {},
-					"_postman_isSubFolder": true
+					]
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		},
 		{
 			"name": "Inventory ✔",
@@ -5802,10 +6059,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"Quantity\": 1,\r\n  \"Serialnumber\": \"SNR1\"\r\n}\r\n",
-							"options": {
-								"raw": {}
-							}
+							"raw": "{\r\n  \"Quantity\": 1,\r\n  \"Serialnumber\": \"SNR1\"\r\n}\r\n"
 						},
 						"url": {
 							"raw": "{{url}}/Inventories/Inv001/Warehouses/100/Articles/120005",
@@ -5854,12 +6108,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"Quantity\": 1,\r\n  \"Serialnumber\": \"SNR1\"\r\n}\r\n",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
+							"raw": "{\r\n  \"Quantity\": 1,\r\n  \"Serialnumber\": \"SNR1\"\r\n}\r\n"
 						},
 						"url": {
 							"raw": "{{url}}/Inventories/Inv001/Warehouses/100/Articles/120005",
@@ -5879,8 +6128,7 @@
 					},
 					"response": []
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		},
 		{
 			"name": "Journal ✔",
@@ -6080,7 +6328,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"Date\": \"2019-06-19T06:18:32.835Z\",\r\n  \"StatusId\": 1,\r\n  \"Label\": \"test\",\r\n  \"Text\": \"test\",\r\n  \"JournalLinkInformation\": {\r\n    \"LinkType\": \"document\",\r\n    \"DocumentType\": \"L\",\r\n    \"DocumentNumber\": \"LS488\"\r\n  }\r\n}"
+							"raw": "{\r\n  \"Date\": \"2019-06-19T06:18:32.835Z\",\r\n  \"StatusId\": 1,\r\n  \"Label\": \"test\",\r\n  \"Text\": \"test\",\r\n  \"JournalLinkInformation\": {\r\n    \"LinkType\": \"document\",\r\n    \"DocumentType\": \"L\",\r\n    \"DocumentNumber\": \"LS531\"\r\n  }\r\n}"
 						},
 						"url": {
 							"raw": "{{url}}/Journals",
@@ -6140,8 +6388,7 @@
 					},
 					"response": []
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		},
 		{
 			"name": "Macro",
@@ -6175,12 +6422,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"MacroName\": \"SQL 3001\",\r\n  \"Parameters\":[\r\n  {\r\n    \"Name\": \"artikel\",\r\n    \"Value\": \"\\\"100003\\\"\"\r\n  }\r\n]\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
+							"raw": "{\r\n  \"MacroName\": \"SQLsv000\",\r\n  \"Parameters\":[\r\n        {   \r\n            \"Name\": \"Artikel\",\r\n            \"Value\": \"\\\"100001\\\"\"\r\n        },\r\n        {\r\n            \"Name\": \"Anzahl\",\r\n            \"Value\": \"\\\"3\\\"\"\r\n        }\r\n    ] \r\n}"
 						},
 						"url": {
 							"raw": "{{url}}/Macros",
@@ -6223,10 +6465,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "[\r\n\t{\r\n\t\t\"Name\": \"artikelnummer\",\r\n\t\t\"Value\": \"11001\"\r\n\t}\r\n]",
-							"options": {
-								"raw": {}
-							}
+							"raw": "[\r\n\t{\r\n\t\t\"Name\": \"artikelnummer\",\r\n\t\t\"Value\": \"\\\"130003\\\"\"\r\n\t}\r\n]"
 						},
 						"url": {
 							"raw": "{{url}}/Macros/SelectArticleByExplicitNumber",
@@ -6241,8 +6480,7 @@
 					},
 					"response": []
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		},
 		{
 			"name": "Production ✔",
@@ -6431,9 +6669,7 @@
 							},
 							"response": []
 						}
-					],
-					"protocolProfileBehavior": {},
-					"_postman_isSubFolder": true
+					]
 				},
 				{
 					"name": "Operating Times",
@@ -6619,9 +6855,7 @@
 							},
 							"response": []
 						}
-					],
-					"protocolProfileBehavior": {},
-					"_postman_isSubFolder": true
+					]
 				},
 				{
 					"name": "Read all production orders",
@@ -6871,14 +7105,20 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{url}}/ProductionOrders/1008/Articles",
+							"raw": "{{url}}/ProductionOrders/FA2/Articles?filter=Type EQ 'V'",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
 								"ProductionOrders",
-								"1008",
+								"FA2",
 								"Articles"
+							],
+							"query": [
+								{
+									"key": "filter",
+									"value": "Type EQ 'V'"
+								}
 							]
 						},
 						"description": "Liest die Artikel zu einem Fertigungsauftrag."
@@ -7194,10 +7434,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"ProductionOrderIdentifier\": \"8\",\n\t\"Date\": \"2019-07-17T00:00:00\",\n\t\"WarehouseList\": [\n\t\t{\n\t\t\t\"ProductionArticleIdentifier\": \"114\",\n\t\t\t\"Warehouse\": 200,\n\t\t\t\"Quantity\": 1\n\t\t}\n\t]\n}",
-							"options": {
-								"raw": {}
-							}
+							"raw": "{\n\t\"ProductionOrderIdentifier\": \"8\",\n\t\"Date\": \"2019-07-17T00:00:00\",\n\t\"WarehouseList\": [\n\t\t{\n\t\t\t\"ProductionArticleIdentifier\": \"114\",\n\t\t\t\"Warehouse\": 200,\n\t\t\t\"Quantity\": 1\n\t\t}\n\t]\n}"
 						},
 						"url": {
 							"raw": "{{url}}/ProductionOrders/8/Store",
@@ -7243,10 +7480,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"ProductionOderIdentifier\": \"1005\",\n\t\"Date\": \"2019-12-17T00:00:00\",\n\t\"WarehouseList\": [\n\t\t{\n\t\t\t\"ProductionArticleIdentifier\": 144,\n\t\t\t\"Warehouse\": 200,\n\t\t\t\"Quantity\": 1,\n\t\t\t\"ExpirationDate\": \"2019-12-17T00:00:00\"\n\t\t}\n    ]\n}",
-							"options": {
-								"raw": {}
-							}
+							"raw": "{\n\t\"ProductionOderIdentifier\": \"1005\",\n\t\"Date\": \"2019-12-17T00:00:00\",\n\t\"WarehouseList\": [\n\t\t{\n\t\t\t\"ProductionArticleIdentifier\": 144,\n\t\t\t\"Warehouse\": 200,\n\t\t\t\"Quantity\": 1,\n\t\t\t\"ExpirationDate\": \"2019-12-17T00:00:00\"\n\t\t}\n    ]\n}"
 						},
 						"url": {
 							"raw": "{{url}}/ProductionOrders/1005/Outsource",
@@ -7292,10 +7526,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"ProductionOrderIdentifier\": \"3\",\n\t\"WarehouseList\": [\t\t{\n\t\t\"ProductionArticleIdentifier\": 43,\n\t\t\"Quantity\": 1,\n\t\t\"StoragePlaceIdentifier\": 1,\n\t\t\"TargetWarehouse\": \"200\"\n\t}]\n}",
-							"options": {
-								"raw": {}
-							}
+							"raw": "{\n\t\"ProductionOrderIdentifier\": \"3\",\n\t\"WarehouseList\": [\t\t{\n\t\t\"ProductionArticleIdentifier\": 43,\n\t\t\"Quantity\": 1,\n\t\t\"StoragePlaceIdentifier\": 1,\n\t\t\"TargetWarehouse\": \"200\"\n\t}]\n}"
 						},
 						"url": {
 							"raw": "{{url}}/ProductionOrders/3/Restore",
@@ -7340,10 +7571,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"ProductionOrderIdentifier\": \"1002\",\n\t\"WarehouseList\": [{\n\t\t\"ProductionArticleIdentifier\": 110,\n\t\t\"Warehouse\": 100,\n\t\t\"Quantity\": 1,\n\t\t\"StoragePlace\": 4\n\t}]\n}",
-							"options": {
-								"raw": {}
-							}
+							"raw": "{\n\t\"ProductionOrderIdentifier\": \"1002\",\n\t\"WarehouseList\": [{\n\t\t\"ProductionArticleIdentifier\": 110,\n\t\t\"Warehouse\": 100,\n\t\t\"Quantity\": 1,\n\t\t\"StoragePlace\": 4\n\t}]\n}"
 						},
 						"url": {
 							"raw": "{{url}}/ProductionOrders/1002/OutsourceUndo",
@@ -7388,10 +7616,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"ProductionOrderIdentifier\": \"1008\",\n\t\"WarehouseList\": [\t\t{\n\t\t\"ProductionArticleIdentifier\": 169,\n\t\t\"Warehouse\": 100,\n\t\t\"Quantity\": 1\n\t}]\n}",
-							"options": {
-								"raw": {}
-							}
+							"raw": "{\n\t\"ProductionOrderIdentifier\": \"1008\",\n\t\"WarehouseList\": [\t\t{\n\t\t\"ProductionArticleIdentifier\": 169,\n\t\t\"Warehouse\": 100,\n\t\t\"Quantity\": 1\n\t}]\n}"
 						},
 						"url": {
 							"raw": "{{url}}/ProductionOrders/1008/StoreUndo",
@@ -7549,7 +7774,7 @@
 					"response": []
 				},
 				{
-					"name": "Update production step status",
+					"name": "Update production step state",
 					"request": {
 						"auth": {
 							"type": "apikey",
@@ -7673,10 +7898,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "1",
-							"options": {
-								"raw": {}
-							}
+							"raw": "1"
 						},
 						"url": {
 							"raw": "{{url}}/ProductionOrders/3/Status",
@@ -7691,9 +7913,45 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "Delete Production Order",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{AccessToken}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "Authorization",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/ProductionOrders/15",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"ProductionOrders",
+								"15"
+							]
+						}
+					},
+					"response": []
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		},
 		{
 			"name": "Produktionssteuerung",
@@ -8430,8 +8688,7 @@
 					},
 					"response": []
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		},
 		{
 			"name": "Resource  ✔",
@@ -8727,8 +8984,7 @@
 					},
 					"response": []
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		},
 		{
 			"name": "SerialNumber",
@@ -8803,8 +9059,7 @@
 					},
 					"response": []
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		},
 		{
 			"name": "Warehouses  ✔",
@@ -8836,6 +9091,13 @@
 							],
 							"path": [
 								"Warehouses"
+							],
+							"query": [
+								{
+									"key": "filter",
+									"value": "WarehouseLocationNumber EQ '1'",
+									"disabled": true
+								}
 							]
 						},
 						"description": "Gibt alle Läger zurück."
@@ -9001,7 +9263,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{url}}/Warehouses/1001/StoragePlaces/139/Stocks",
+							"raw": "{{url}}/Warehouses/1001/StoragePlaces/262/Stocks",
 							"host": [
 								"{{url}}"
 							],
@@ -9009,7 +9271,7 @@
 								"Warehouses",
 								"1001",
 								"StoragePlaces",
-								"139",
+								"262",
 								"Stocks"
 							]
 						},
@@ -9072,13 +9334,13 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{url}}/Warehouses/1001/StoragePlaces",
+							"raw": "{{url}}/Warehouses/500/StoragePlaces",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
 								"Warehouses",
-								"1001",
+								"500",
 								"StoragePlaces"
 							]
 						},
@@ -9086,8 +9348,7 @@
 					},
 					"response": []
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		},
 		{
 			"name": "WarehouseLocation ✔",
@@ -9126,7 +9387,7 @@
 					"response": []
 				},
 				{
-					"name": "Read warehouse location",
+					"name": "Read warehouse locations Copy",
 					"request": {
 						"auth": {
 							"type": "apikey",
@@ -9146,22 +9407,19 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{url}}/WarehouseLocations/1",
+							"raw": "{{url}}/WarehouseLocations",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
-								"WarehouseLocations",
-								"1"
+								"WarehouseLocations"
 							]
 						},
-						"description": "Gibt einen Standort zurück."
+						"description": "Gibt alle Standorte zurück."
 					},
 					"response": []
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		}
-	],
-	"protocolProfileBehavior": {}
+	]
 }
