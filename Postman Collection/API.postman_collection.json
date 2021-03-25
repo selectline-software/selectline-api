@@ -1,7 +1,7 @@
 {
 	"info": {
-		"_postman_id": "456dedc3-1d96-4baf-af5a-d35f53e16984",
 		"name": "API",
+		"_postman_id": "83af8404-ff64-4a76-b15b-b9844ecdd046",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
@@ -1623,7 +1623,7 @@
 			"name": "Belege",
 			"item": [
 				{
-					"name": "DeleiveryTerm",
+					"name": "DeliveryTerm",
 					"item": [
 						{
 							"name": "Read all delivery terms",
@@ -2841,6 +2841,40 @@
 									]
 								},
 								"description": "Belegübergabe, alle Positionen werden mit Menge = 0 übergeben."
+							},
+							"response": []
+						},
+						{
+							"name": "🔑 Read Journals of document",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{AccessToken}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "Authorization",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/Documents/LLS538/Journals",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"Documents",
+										"LLS538",
+										"Journals"
+									]
+								}
 							},
 							"response": []
 						},
