@@ -3,7 +3,7 @@
 # Die SelectLine API
 
 Für die SelectLine API gibt es die folgenden digitalen Schnittstellenbeschreibungen:
--	Swagger: <https://demo.slmobile.de/demoApi/swagger/ui/index#/>
+-	Swagger: <https://demo.slmobile.de/demoApi/swagger/ui/index#/> --> [Wiki](https://github.com/selectline-software/selectline-api/wiki/Swagger)
 -	SelectLine API - Hilfeseite: <https://demo.slmobile.de/demoApi/help>
 -	Postman-Collection: <https://github.com/selectline-software/selectline-api/tree/master/Postman%20Collection>
 
