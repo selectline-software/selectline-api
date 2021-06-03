@@ -1,7 +1,7 @@
 {
 	"info": {
+		"_postman_id": "456dedc3-1d96-4baf-af5a-d35f53e16984",
 		"name": "API",
-		"_postman_id": "83af8404-ff64-4a76-b15b-b9844ecdd046",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
@@ -889,18 +889,74 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{url}}/Articles/130004?considerReferenceAndSerial=true",
+									"raw": "{{url}}/Articles/abab?additionalFields=None&considerReferenceAndSerial=true",
 									"host": [
 										"{{url}}"
 									],
 									"path": [
 										"Articles",
-										"130004"
+										"abab"
 									],
 									"query": [
 										{
+											"key": "additionalFields",
+											"value": "None"
+										},
+										{
 											"key": "considerReferenceAndSerial",
 											"value": "true"
+										}
+									]
+								},
+								"description": "Gibt einen Artikel zurück."
+							},
+							"response": []
+						},
+						{
+							"name": "Read article with useless flags",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{AccessToken}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "Authorization",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/Articles/120005?additionalFields=None&considerReferenceAndSerial=false&documentDetailAddressNumber=H190&businessPartnerType=Supplier",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"Articles",
+										"120005"
+									],
+									"query": [
+										{
+											"key": "additionalFields",
+											"value": "None"
+										},
+										{
+											"key": "considerReferenceAndSerial",
+											"value": "false"
+										},
+										{
+											"key": "documentDetailAddressNumber",
+											"value": "H190"
+										},
+										{
+											"key": "businessPartnerType",
+											"value": "Supplier"
 										}
 									]
 								},
@@ -1155,7 +1211,7 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{url}}/Articles/Stock?filter=ArticleNumber EQ '120008'",
+									"raw": "{{url}}/Articles/Stock",
 									"host": [
 										"{{url}}"
 									],
@@ -1164,10 +1220,6 @@
 										"Stock"
 									],
 									"query": [
-										{
-											"key": "filter",
-											"value": "ArticleNumber EQ '120008'"
-										},
 										{
 											"key": "filter",
 											"value": "StoragePlace.WarehouseName EQ 'Verkaufsraum'",
@@ -1767,16 +1819,16 @@
 												],
 												"body": {
 													"mode": "raw",
-													"raw": "{\r\n    \"Information\": {\r\n        \"ArticleNumber\": \"700047\",\r\n        \"CalculatedQuantityValue\": 1,\r\n        \"StoreInformation\": [{\r\n            \"ArticleNumber\": \"700047\",\r\n            \"ExpirationDate\": \"2021-01-29T00:00:00+01:00\",\r\n            \"StorageplaceIdentifier\": 189,\r\n            \"SerialNumber\": \"500009-20070719\",\r\n            \"Quantity\": 1\r\n        }]\r\n    }\r\n}"
+													"raw": "{\r\n    \"Information\": {\r\n        \"ArticleNumber\": \"100007\",\r\n        \"CalculatedQuantityValue\": 1,\r\n        \"OSSProcedure\": {\r\n                \"Value\": 2\r\n            },\r\n        \"StoreInformation\": [{\r\n            \"ArticleNumber\": \"100007\",\r\n            \"ExpirationDate\": \"2021-01-29T00:00:00+01:00\",\r\n            \"StorageplaceIdentifier\": 189,\r\n            \"SerialNumber\": \"500009-20070719\",\r\n            \"Quantity\": 1\r\n        }]\r\n    }\r\n}"
 												},
 												"url": {
-													"raw": "{{url}}/Documents/LLS474/SalesBOMPosition",
+													"raw": "{{url}}/Documents/RAR092/SalesBOMPosition",
 													"host": [
 														"{{url}}"
 													],
 													"path": [
 														"Documents",
-														"LLS474",
+														"RAR092",
 														"SalesBOMPosition"
 													]
 												},
@@ -2010,13 +2062,13 @@
 										"method": "GET",
 										"header": [],
 										"url": {
-											"raw": "{{url}}/Documents/D21000002/Positions",
+											"raw": "{{url}}/Documents/FAU345/Positions",
 											"host": [
 												"{{url}}"
 											],
 											"path": [
 												"Documents",
-												"D21000002",
+												"FAU345",
 												"Positions"
 											],
 											"query": [
@@ -2144,16 +2196,16 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "{\r\n  \"ArticleNumber\": \"210011\",\r\n  \"UnitPrice\": 4.05,\r\n  \"StoreInformation\": [\r\n      {\r\n        \"ArticleNumber\": \"210011\",\r\n        \"Warehouse\": 100,\r\n        \"Quantity\": 1\r\n      }\r\n  ]\r\n}"
+											"raw": "{\r\n  \"ArticleNumber\": \"210011\",\r\n  \"UnitPrice\": 4.05,\r\n  \"OSSProcedure\": {\r\n        \"Value\": \"3\"\r\n    },\r\n  \"StoreInformation\": [\r\n      {\r\n        \"ArticleNumber\": \"210011\",\r\n        \"Warehouse\": 100,\r\n        \"Quantity\": 1\r\n      }\r\n  ]\r\n}"
 										},
 										"url": {
-											"raw": "{{url}}/Documents/FAU527/ArticleItem",
+											"raw": "{{url}}/Documents/RAR092/ArticleItem",
 											"host": [
 												"{{url}}"
 											],
 											"path": [
 												"Documents",
-												"FAU527",
+												"RAR092",
 												"ArticleItem"
 											]
 										},
@@ -2283,16 +2335,16 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "{\r\n  \"ArticleNumber\": \"100001\",\r\n  \"UnitPrice\": 4.05,\r\n  \"AlternativePositionDescription\": \"Schneckenpost Express\"\r\n}"
+											"raw": "{\r\n  \"ArticleNumber\": \"100001\",\r\n  \"UnitPrice\": 4.05,\r\n  \"AlternativePositionDescription\": \"Schneckenpost Express\",  \r\n  \"OSSProcedure\": {\r\n        \"Name\": \"ImportAccordingToUStG18k\"\r\n   }\r\n}"
 										},
 										"url": {
-											"raw": "{{url}}/Documents/FAU502/ShippingItemPosition",
+											"raw": "{{url}}/Documents/RAR092/ShippingItemPosition",
 											"host": [
 												"{{url}}"
 											],
 											"path": [
 												"Documents",
-												"FAU502",
+												"RAR092",
 												"ShippingItemPosition"
 											]
 										},
@@ -2484,18 +2536,18 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "{\r\n  \"Memo\": \"Das ist ne Solarteichpumpe mit 49 Metern Saughöhe!\",\r\n  \"CalculatedQuantityValue\":3,\r\n  \"StoreInformation\": [{\r\n      \"ArticleNumber\": \"700044\",\r\n        \"StoragePlaceIdentifier\": 189,\r\n        \"SerialNumber\": \"500009-20070720\",\r\n        \"ExpirationDate\": \"2021-01-29T00:00:00+01:00\",\r\n      \"Quantity\": 1\r\n  },\r\n  {\r\n      \"ArticleNumber\": \"700044\",\r\n        \"StoragePlaceIdentifier\": 188,\r\n        \"SerialNumber\": \"500009-20070722\",\r\n        \"ExpirationDate\": \"2021-01-29T00:00:00+01:00\",\r\n      \"Quantity\": 1\r\n  }]\r\n}"
+											"raw": "{\r\n  \"OSSProcedure\": {\r\n        \"Value\": 0\r\n    }\r\n}"
 										},
 										"url": {
-											"raw": "{{url}}/Documents/LLS474/Positions/86DA1220-0E58-4DF3-8B11-DA5F31681160",
+											"raw": "{{url}}/Documents/U21000001/Positions/D58F33C1-5D79-4066-907C-EBE225B06520",
 											"host": [
 												"{{url}}"
 											],
 											"path": [
 												"Documents",
-												"LLS474",
+												"U21000001",
 												"Positions",
-												"86DA1220-0E58-4DF3-8B11-DA5F31681160"
+												"D58F33C1-5D79-4066-907C-EBE225B06520"
 											]
 										},
 										"description": "Bearbeiten einer Belegposition."
@@ -2627,18 +2679,18 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "{\r\n  \"WarehouseId\": \"200\"\r\n}"
+											"raw": "{\r\n  \"OSSProcedure\": {\r\n        \"Value\": \"0\"\r\n    }\r\n}"
 										},
 										"url": {
-											"raw": "{{url}}/Documents/FAU509/ShippingItemPosition/2eba2404-5c7e-479c-a6a3-137b52d468db",
+											"raw": "{{url}}/Documents/RAR092/ShippingItemPosition/6EB8D1DA-D996-4725-9555-53E86FE77C8D",
 											"host": [
 												"{{url}}"
 											],
 											"path": [
 												"Documents",
-												"FAU509",
+												"RAR092",
 												"ShippingItemPosition",
-												"2eba2404-5c7e-479c-a6a3-137b52d468db"
+												"6EB8D1DA-D996-4725-9555-53E86FE77C8D"
 											]
 										},
 										"description": "Bearbeiten einer Versandposition eines Beleges"
@@ -2744,7 +2796,7 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{url}}/Documents?filter=DeliveryDate GE '20200916' AND DeliveryDate LT '20200917'",
+									"raw": "{{url}}/Documents?filter=KindFlag EQ 'F'",
 									"host": [
 										"{{url}}"
 									],
@@ -2754,7 +2806,7 @@
 									"query": [
 										{
 											"key": "filter",
-											"value": "DeliveryDate GE '20200916' AND DeliveryDate LT '20200917'"
+											"value": "KindFlag EQ 'F'"
 										}
 									]
 								},
@@ -2783,13 +2835,13 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{url}}/Documents/FAU458",
+									"raw": "{{url}}/Documents/FAU345",
 									"host": [
 										"{{url}}"
 									],
 									"path": [
 										"Documents",
-										"FAU458"
+										"FAU345"
 									]
 								},
 								"description": "Gibt ein Beleg zurück.\n\ndocumentKey = BelegTyp + Belegnummer z.B. SWE250\n\nStandard:\n=============================\nB - Bestellung\nS - Wareneingang\nF - Auftrag\nP - Packzettel\nL - Lieferschein"
@@ -2907,7 +2959,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n\t\"KindFlag\": \"F\",\r\n\t\"BusinessPartner\":\r\n\t\t{\r\n\t\t\t\"Address\":\r\n\t\t\t{\r\n\t\t\t\"Number\": \"10001\"\r\n\t\t\t}\r\n\t\t}\r\n}"
+									"raw": "{\r\n\t\"KindFlag\": \"L\",\r\n\t\"BusinessPartner\":\r\n\t\t{\r\n\t\t\t\"Address\":\r\n\t\t\t{\r\n\t\t\t\"Number\": \"10001\"\r\n\t\t\t}\r\n\t\t}\r\n}"
 								},
 								"url": {
 									"raw": "{{url}}/Documents",
@@ -2959,13 +3011,13 @@
 									}
 								},
 								"url": {
-									"raw": "{{url}}/Documents/C21000003/Successors",
+									"raw": "{{url}}/Documents/FAU345/Successors",
 									"host": [
 										"{{url}}"
 									],
 									"path": [
 										"Documents",
-										"C21000003",
+										"FAU345",
 										"Successors"
 									]
 								},
@@ -3048,16 +3100,16 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{ \"MasterName\" : \"!LISTE1\" }"
+									"raw": "{ \r\n    \"MasterName\" : \"!BLATT1\",\r\n    \"PrintTarget\": \"File\" \r\n}"
 								},
 								"url": {
-									"raw": "{{url}}/Documents/FAU526/Print",
+									"raw": "{{url}}/Documents/FAU345/Print",
 									"host": [
 										"{{url}}"
 									],
 									"path": [
 										"Documents",
-										"FAU526",
+										"FAU345",
 										"Print"
 									]
 								}
@@ -3561,7 +3613,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"DocumentType\": \"M\",\r\n    \"DocumentNumber\": \"15000029\",\r\n    \"Signer\": \"Superman\",\r\n    \"TransferId\": \"M15000029\",\r\n    \"Picture\": \"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\"\r\n}",
+									"raw": "{\r\n    \"DocumentType\": \"F\",\r\n    \"DocumentNumber\": \"AU521\",\r\n    \"Signer\": \"Superman\",\r\n    \"Picture\": \"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\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -3569,12 +3621,18 @@
 									}
 								},
 								"url": {
-									"raw": "{{url}}/Signatures",
+									"raw": "{{url}}/Signatures?shallOverwrite=false",
 									"host": [
 										"{{url}}"
 									],
 									"path": [
 										"Signatures"
+									],
+									"query": [
+										{
+											"key": "shallOverwrite",
+											"value": "false"
+										}
 									]
 								}
 							},
@@ -3618,10 +3676,6 @@
 							"response": []
 						}
 					]
-				},
-				{
-					"name": "TransferHandover",
-					"item": []
 				}
 			]
 		},
@@ -3814,16 +3868,16 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "[\r\n  {  \r\n    \"ArticleNumber\": \"100001\",\r\n    \"Warehouse\": \"100\",\r\n    \"Quantity\": 3,\r\n    \"TargetWarehouse\": \"400\"\r\n  }\r\n]"
+							"raw": "[\r\n  {  \r\n    \"ArticleNumber\": \"100003\",\r\n    \"Warehouse\": \"100\",\r\n    \"Quantity\": 3,\r\n    \"TargetWarehouse\": \"400\"\r\n  }\r\n]"
 						},
 						"url": {
-							"raw": "{{url}}/ManualStorages/15000033/Positions/Store",
+							"raw": "{{url}}/ManualStorages/15000031/Positions/Store",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
 								"ManualStorages",
-								"15000033",
+								"15000031",
 								"Positions",
 								"Store"
 							]
@@ -3860,16 +3914,16 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"NumberOfCopies\" : \"1\",\r\n  \"MasterName\" : \"!LISTE1\",\r\n  \"PrintTarget\" : \"Printer\"\r\n}"
+							"raw": "{\r\n  \"MasterName\" : \"!LISTE1\",\r\n  \"PrintTarget\" : \"File\"\r\n}"
 						},
 						"url": {
-							"raw": "{{url}}/ManualStorages/15000010/Print",
+							"raw": "{{url}}/ManualStorages/21000001/Print",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
 								"ManualStorages",
-								"15000010",
+								"21000001",
 								"Print"
 							]
 						}
@@ -3923,7 +3977,50 @@
 					"response": []
 				},
 				{
-					"name": "🔑 Update manual storage",
+					"name": "🔑 Update manual storage Copy",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{AccessToken}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "Authorization",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"BusinessPartnerType\": 0,\r\n    \"BusinessPartner\": {\r\n        \"LastName\": \"Musterla\",\r\n        \"FirstName\": \"Maxima\",\r\n        \"Address\": {\r\n            \"Number\": 10047\r\n        }\r\n    },\r\n    \"Payment\": {\r\n        \"CostCenterNumber\": \"P002\"\r\n    }\r\n}"
+						},
+						"url": {
+							"raw": "{{url}}/ManualStorages/15000041",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"ManualStorages",
+								"15000041"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "🔑 Update manual storage Copy 2",
 					"request": {
 						"auth": {
 							"type": "apikey",
@@ -4358,7 +4455,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"Fields\": {\n        \"_Breite\": 3,\n        \"_Datum\": \"2020-09-18T07:36:34.705Z\",\n        \"_Fertigungsauftrag\": \"3A\",\n        \"_IstFertig\": false,\n        \"_Laenge\": 2,\n        \"_Mitarbeiter\": \"Claudia Sommer\",\n        \"_Termin\": \"2020-09-20T00:00:00.000Z\"\n\t}\n}",
+							"raw": "{\n    \"IdentifierName\": \"IDX\",\n\t\"Fields\": {\n        \"_FARBE\": \"GRUEN\",\n        \"_AKTIV\": false\n\t}\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -4366,13 +4463,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{url}}/ExtraTable/XMeineTabelle",
+							"raw": "{{url}}/ExtraTable/XTEST2",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
 								"ExtraTable",
-								"XMeineTabelle"
+								"XTEST2"
 							]
 						},
 						"description": "Rückgabe aller Fertigungsaufträge und deren Kopfinformationen"
@@ -4408,7 +4505,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"IdentifierName\": \"Id\",\n\t\"Fields\": {\n\t\t\"_MYTEXT\": \"Neuer Test456\",\n\t\t\"_MYBOOLEAN\": false,\n\t\t\"_MYDATE\" :\"2020-04-28\",\n\t\t\"_MYSHORTNUMBER\": 123,\n\t\t\"_MYLONGNUMBER\": 123456789,\n\t\t\"_MYGUID\": \"fb98d72f-8c7d-4dbf-8efc-90316da628ed\"\n\t}\n}",
+							"raw": "{\n\t\"IdentifierName\": \"ID\",\n\t\"Fields\": {\n            \"_TEST\": \"Ich bin ein Test.\"\n    }\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -4416,14 +4513,14 @@
 							}
 						},
 						"url": {
-							"raw": "{{url}}/ExtraTable/XMeineTabelle2/28",
+							"raw": "{{url}}/ExtraTable/XMeineTabelle/3",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
 								"ExtraTable",
-								"XMeineTabelle2",
-								"28"
+								"XMeineTabelle",
+								"3"
 							]
 						},
 						"description": "Rückgabe aller Fertigungsaufträge und deren Kopfinformationen"
@@ -6249,13 +6346,13 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "{{url}}/Journals/3223744c-385f-4f49-8aac-acdbb8742b13",
+							"raw": "{{url}}/Journals/a19b5c51-fa33-46f0-a292-4ec33628b133",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
 								"Journals",
-								"3223744c-385f-4f49-8aac-acdbb8742b13"
+								"a19b5c51-fa33-46f0-a292-4ec33628b133"
 							]
 						},
 						"description": "Gibt eine Journal zurück."
@@ -6362,7 +6459,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"Date\": \"2019-06-19T06:18:32.835Z\",\r\n  \"StatusId\": 1,\r\n  \"Label\": \"test\",\r\n  \"Text\": \"test\",\r\n  \"JournalLinkInformation\": {\r\n    \"LinkType\": \"document\",\r\n    \"DocumentType\": \"L\",\r\n    \"DocumentNumber\": \"LS531\"\r\n  }\r\n}"
+							"raw": "{\r\n  \"Date\": \"2019-06-19T06:18:32.835Z\",\r\n  \"StatusId\": 1,\r\n  \"Label\": \"la le lu\",\r\n  \"Text\": \"test\",\r\n  \"JournalLinkInformation\": {\r\n    \"LinkType\": \"document\",\r\n    \"DocumentType\": \"L\",\r\n    \"DocumentNumber\": \"LS538\"\r\n  }\r\n}"
 						},
 						"url": {
 							"raw": "{{url}}/Journals",
@@ -6404,18 +6501,18 @@
 									"key": "",
 									"description": "Datei",
 									"type": "file",
-									"src": "/C:/Users/ssteglitz/Desktop/drink.png"
+									"src": "/C:/Users/vschuboth/Downloads/eichhoernchen-geert-weggen-zeigt-die-welt-der-kleinen-nager-.jpg"
 								}
 							]
 						},
 						"url": {
-							"raw": "{{url}}/Journals/077D2B66-158B-4FA1-966E-DD4074F59280/Attachments",
+							"raw": "{{url}}/Journals/d3940674-1ecd-44f0-b7bd-e7e466cbfc61/Attachments",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
 								"Journals",
-								"077D2B66-158B-4FA1-966E-DD4074F59280",
+								"d3940674-1ecd-44f0-b7bd-e7e466cbfc61",
 								"Attachments"
 							]
 						}
@@ -6472,6 +6569,50 @@
 				},
 				{
 					"name": "Run API Macro",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{AccessToken}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "Authorization",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n\t{\r\n\t\t\"Name\": \"artikelnummer\",\r\n\t\t\"Value\": \"\\\"130003\\\"\"\r\n\t}\r\n]"
+						},
+						"url": {
+							"raw": "{{url}}/Macros/SelectArticleByExplicitNumber",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"Macros",
+								"SelectArticleByExplicitNumber"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Run API Macro Copy",
 					"request": {
 						"auth": {
 							"type": "apikey",
@@ -6918,6 +7059,13 @@
 							],
 							"path": [
 								"ProductionOrders"
+							],
+							"query": [
+								{
+									"key": "filter",
+									"value": "Status EQ 1",
+									"disabled": true
+								}
 							]
 						},
 						"description": "Rückgabe aller Fertigungsaufträge und deren Kopfinformationen"
@@ -6945,13 +7093,13 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{url}}/ProductionOrders/3",
+							"raw": "{{url}}/ProductionOrders/17",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
 								"ProductionOrders",
-								"3"
+								"17"
 							]
 						},
 						"description": "Rückgabe der Kopfinformationen zu einem Fertigungsauftrag"
@@ -7139,13 +7287,13 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{url}}/ProductionOrders/FA2/Articles?filter=Type EQ 'V'",
+							"raw": "{{url}}/ProductionOrders/17/Articles?filter=Type EQ 'V'",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
 								"ProductionOrders",
-								"FA2",
+								"17",
 								"Articles"
 							],
 							"query": [
@@ -7514,16 +7662,16 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"ProductionOderIdentifier\": \"1005\",\n\t\"Date\": \"2019-12-17T00:00:00\",\n\t\"WarehouseList\": [\n\t\t{\n\t\t\t\"ProductionArticleIdentifier\": 144,\n\t\t\t\"Warehouse\": 200,\n\t\t\t\"Quantity\": 1,\n\t\t\t\"ExpirationDate\": \"2019-12-17T00:00:00\"\n\t\t}\n    ]\n}"
+							"raw": "{\n\t\"ProductionOderIdentifier\": \"17\",\n\t\"Date\": \"2019-12-17T00:00:00\",\n\t\"WarehouseList\": [\n\t\t{\n\t\t\t\"ProductionArticleIdentifier\": 199,\n\t\t\t\"Warehouse\": 400,\n\t\t\t\"Quantity\": 1,\n\t\t\t\"SerialNumber\": \"$88\"\n\t\t}\n    ]\n}"
 						},
 						"url": {
-							"raw": "{{url}}/ProductionOrders/1005/Outsource",
+							"raw": "{{url}}/ProductionOrders/17/Outsource",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
 								"ProductionOrders",
-								"1005",
+								"17",
 								"Outsource"
 							]
 						},
@@ -9025,6 +9173,70 @@
 			"item": [
 				{
 					"name": "Get serial numbers",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{AccessToken}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "Authorization",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/SerialNumbers",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"SerialNumbers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get serial number",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{AccessToken}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "Authorization",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/SerialNumbers",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"SerialNumbers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update serial numbers",
 					"request": {
 						"auth": {
 							"type": "apikey",
