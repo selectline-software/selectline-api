@@ -7,6 +7,9 @@ Für die SelectLine API gibt es die folgenden digitalen Schnittstellenbeschreibu
 -	[SelectLine API - Hilfeseite](https://github.com/selectline-software/selectline-api/wiki/API-Online-Hilfe)
 -	[Postman-Collection](<https://github.com/selectline-software/selectline-api/tree/master/Postman%20Collection>)
 
+Inhaltliche Änderungen zwischen den verschiedenen Versionsständen können hier angezeigt werden:
+- [API Update-Hilfe](https://apiupdate.selectline.de/)
+
 ## Beispielprojekte
 Der hier veröffentlichte Code zeigt die Nutzung der **SelectLine API** in verschiedenen Programmiersprachen. 
 Die Beschreibungen zu den Funktionalitäten der Selectline API finden Sie auf der Selectline API - Hilfeseite.
