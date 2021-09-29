@@ -9,7 +9,7 @@
 			"name": "Administration ✔",
 			"item": [
 				{
-					"name": "Account",
+					"name": "Account ✔",
 					"item": [
 						{
 							"name": "Login with AppKey",
@@ -210,7 +210,7 @@
 					]
 				},
 				{
-					"name": "Info",
+					"name": "Info ✔",
 					"item": [
 						{
 							"name": "🆓 Get Information",
@@ -322,7 +322,7 @@
 			]
 		},
 		{
-			"name": "❌ Analysis   ✔",
+			"name": "❌ Analysis",
 			"item": [
 				{
 					"name": "❌ Read total analysis",
@@ -1672,7 +1672,7 @@
 			]
 		},
 		{
-			"name": "Belege",
+			"name": "Belege ✔",
 			"item": [
 				{
 					"name": "DeliveryTerm",
@@ -2959,7 +2959,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n\t\"KindFlag\": \"L\",\r\n\t\"BusinessPartner\":\r\n\t\t{\r\n\t\t\t\"Address\":\r\n\t\t\t{\r\n\t\t\t\"Number\": \"10001\"\r\n\t\t\t}\r\n\t\t}\r\n}"
+									"raw": "{\r\n\t\"KindFlag\": \"F\",\r\n\t\"BusinessPartner\":\r\n\t\t{\r\n\t\t\t\"Address\":\r\n\t\t\t{\r\n\t\t\t    \"Number\": \"1\"\r\n\t\t\t}\r\n\t\t}\r\n}"
 								},
 								"url": {
 									"raw": "{{url}}/Documents",
@@ -3111,6 +3111,49 @@
 										"Documents",
 										"FAU345",
 										"Print"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "🔑 Assign project to document",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{AccessToken}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "Authorization",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"ProjectIdentifier\": 1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/Documents/FAU552/Project",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"Documents",
+										"FAU552",
+										"Project"
 									]
 								}
 							},
@@ -3680,7 +3723,7 @@
 			]
 		},
 		{
-			"name": "ManualStorages",
+			"name": "ManualStorages ✔",
 			"item": [
 				{
 					"name": "Read all manual storages",
@@ -4336,7 +4379,7 @@
 			]
 		},
 		{
-			"name": "ExtraTable",
+			"name": "ExtraTable ✔",
 			"item": [
 				{
 					"name": "Read",
@@ -6522,6 +6565,79 @@
 			]
 		},
 		{
+			"name": "Localization ✔",
+			"item": [
+				{
+					"name": "Get languages",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{AccessToken}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "Authorization",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/Localization/Languages",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"Localization",
+								"Languages"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get translation",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{AccessToken}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "Authorization",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/Localization/Dictionary/MDE/Deutsch-DE",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"Localization",
+								"Dictionary",
+								"MDE",
+								"Deutsch-DE"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
 			"name": "Macro",
 			"item": [
 				{
@@ -7301,6 +7417,39 @@
 									"key": "filter",
 									"value": "Type EQ 'V'"
 								}
+							]
+						},
+						"description": "Liest die Artikel zu einem Fertigungsauftrag."
+					},
+					"response": []
+				},
+				{
+					"name": "Read productionsteps",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{AccessToken}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "Authorization",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/ProductionSteps",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"ProductionSteps"
 							]
 						},
 						"description": "Liest die Artikel zu einem Fertigungsauftrag."
@@ -8136,7 +8285,7 @@
 			]
 		},
 		{
-			"name": "Produktionssteuerung",
+			"name": "Produktionssteuerung ✔",
 			"item": [
 				{
 					"name": "Read all jobs",
@@ -9169,7 +9318,7 @@
 			]
 		},
 		{
-			"name": "SerialNumber",
+			"name": "SerialNumber ✔",
 			"item": [
 				{
 					"name": "Get serial numbers",
