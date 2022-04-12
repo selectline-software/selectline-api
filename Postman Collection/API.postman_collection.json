@@ -6,10 +6,10 @@
 	},
 	"item": [
 		{
-			"name": "Administration ✔",
+			"name": "Administration",
 			"item": [
 				{
-					"name": "Account ✔",
+					"name": "Account",
 					"item": [
 						{
 							"name": "Login with AppKey",
@@ -37,7 +37,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"username\": \"{{user}}\",\r\n    \"password\": \"{{password}}\",\r\n    \"LoginKind\": \"{{loginKind}}\",\r\n    \"AppKey\": \"{{appKey}}\"\r\n}"
+									"raw": "{\r\n    \"username\": \"{{user}}\",\r\n    \"password\": \"{{password}}\",\r\n    \"AppKey\": \"{{appKey}}\"\r\n}"
 								},
 								"url": {
 									"raw": "{{url}}/Login",
@@ -210,10 +210,10 @@
 					]
 				},
 				{
-					"name": "Info ✔",
+					"name": "Info",
 					"item": [
 						{
-							"name": "🆓 Get Information",
+							"name": "Get Information",
 							"request": {
 								"method": "GET",
 								"header": [],
@@ -322,424 +322,7 @@
 			]
 		},
 		{
-			"name": "❌ Analysis",
-			"item": [
-				{
-					"name": "❌ Read total analysis",
-					"request": {
-						"auth": {
-							"type": "apikey",
-							"apikey": [
-								{
-									"key": "value",
-									"value": "{{AccessToken}}",
-									"type": "string"
-								},
-								{
-									"key": "key",
-									"value": "Authorization",
-									"type": "string"
-								}
-							]
-						},
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{url}}/Analysis/Total",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"Analysis",
-								"Total"
-							]
-						},
-						"description": "Liefert die Gesamtauswertungen."
-					},
-					"response": []
-				},
-				{
-					"name": "❌ Read analysis of article",
-					"request": {
-						"auth": {
-							"type": "apikey",
-							"apikey": [
-								{
-									"key": "value",
-									"value": "{{AccessToken}}",
-									"type": "string"
-								},
-								{
-									"key": "key",
-									"value": "Authorization",
-									"type": "string"
-								}
-							]
-						},
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{url}}/Analysis/Total",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"Analysis",
-								"Total"
-							]
-						},
-						"description": "Liefert die Auswertung für einen bestimmten Kunden."
-					},
-					"response": []
-				},
-				{
-					"name": "❌ Read analysis of customer",
-					"request": {
-						"auth": {
-							"type": "apikey",
-							"apikey": [
-								{
-									"key": "value",
-									"value": "{{AccessToken}}",
-									"type": "string"
-								},
-								{
-									"key": "key",
-									"value": "Authorization",
-									"type": "string"
-								}
-							]
-						},
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{url}}/Analysis/Total",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"Analysis",
-								"Total"
-							]
-						},
-						"description": "Liefert die Auswertung für einen bestimmten Kunden."
-					},
-					"response": []
-				},
-				{
-					"name": "❌ Read analysis of supplier",
-					"request": {
-						"auth": {
-							"type": "apikey",
-							"apikey": [
-								{
-									"key": "value",
-									"value": "{{AccessToken}}",
-									"type": "string"
-								},
-								{
-									"key": "key",
-									"value": "Authorization",
-									"type": "string"
-								}
-							]
-						},
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{url}}/Analysis/Total",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"Analysis",
-								"Total"
-							]
-						},
-						"description": "Liefert die Auswertungen für einen bstimmten Lieferanten."
-					},
-					"response": []
-				},
-				{
-					"name": "❌ Read analysis of employee",
-					"request": {
-						"auth": {
-							"type": "apikey",
-							"apikey": [
-								{
-									"key": "value",
-									"value": "{{AccessToken}}",
-									"type": "string"
-								},
-								{
-									"key": "key",
-									"value": "Authorization",
-									"type": "string"
-								}
-							]
-						},
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{url}}/Analysis/Employees/1",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"Analysis",
-								"Employees",
-								"1"
-							]
-						},
-						"description": "Liefert die Auswertungen für einen bstimmten Mitarbeiter."
-					},
-					"response": []
-				},
-				{
-					"name": "❌ Read analysis of article group",
-					"request": {
-						"auth": {
-							"type": "apikey",
-							"apikey": [
-								{
-									"key": "value",
-									"value": "{{AccessToken}}",
-									"type": "string"
-								},
-								{
-									"key": "key",
-									"value": "Authorization",
-									"type": "string"
-								}
-							]
-						},
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{url}}/Analysis/ArticleGroups/101",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"Analysis",
-								"ArticleGroups",
-								"101"
-							]
-						},
-						"description": "Liefert die Auswertungen für einen bestimmten Artikelgruppe."
-					},
-					"response": []
-				},
-				{
-					"name": "❌ Read analysis of supplier group",
-					"request": {
-						"auth": {
-							"type": "apikey",
-							"apikey": [
-								{
-									"key": "value",
-									"value": "{{AccessToken}}",
-									"type": "string"
-								},
-								{
-									"key": "key",
-									"value": "Authorization",
-									"type": "string"
-								}
-							]
-						},
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{url}}/Analysis/SupplierGroup/101",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"Analysis",
-								"SupplierGroup",
-								"101"
-							]
-						},
-						"description": "Liefert die Auswertungen für einen bestimmten Lieferantengruppe."
-					},
-					"response": []
-				},
-				{
-					"name": "❌ Read analysis of top articles",
-					"request": {
-						"auth": {
-							"type": "apikey",
-							"apikey": [
-								{
-									"key": "value",
-									"value": "{{AccessToken}}",
-									"type": "string"
-								},
-								{
-									"key": "key",
-									"value": "Authorization",
-									"type": "string"
-								}
-							]
-						},
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{url}}/Analysis/TopArticles",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"Analysis",
-								"TopArticles"
-							]
-						},
-						"description": "Liefert die Auswertungen für eine bestimmte Anzahl an Top - Artikel. Wird die Anzahl nicht übergeben, werden standardmäßig die Top 3 - Artikel geliefert."
-					},
-					"response": []
-				},
-				{
-					"name": "❌ Read analysis of top customers",
-					"request": {
-						"auth": {
-							"type": "apikey",
-							"apikey": [
-								{
-									"key": "value",
-									"value": "{{AccessToken}}",
-									"type": "string"
-								},
-								{
-									"key": "key",
-									"value": "Authorization",
-									"type": "string"
-								}
-							]
-						},
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{url}}/Analysis/TopArticles",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"Analysis",
-								"TopArticles"
-							]
-						},
-						"description": "Liefert die Auswertungen für eine bestimmte Anzahl an Top - Artikel. Wird die Anzahl nicht übergeben, werden standardmäßig die Top 3 - Artikel geliefert."
-					},
-					"response": []
-				},
-				{
-					"name": "❌ Read analysis of top suppliers",
-					"request": {
-						"auth": {
-							"type": "apikey",
-							"apikey": [
-								{
-									"key": "value",
-									"value": "{{AccessToken}}",
-									"type": "string"
-								},
-								{
-									"key": "key",
-									"value": "Authorization",
-									"type": "string"
-								}
-							]
-						},
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{url}}/Analysis/TopSuppliers",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"Analysis",
-								"TopSuppliers"
-							]
-						},
-						"description": "Liefert die Auswertungen für eine bestimmte Anzahl an Top - Lieferanten. Wird die Anzahl nicht übergeben, werden standardmäßig die Top 3 - Lieferanten geliefert."
-					},
-					"response": []
-				},
-				{
-					"name": "❌ Read analysis of top employees",
-					"request": {
-						"auth": {
-							"type": "apikey",
-							"apikey": [
-								{
-									"key": "value",
-									"value": "{{AccessToken}}",
-									"type": "string"
-								},
-								{
-									"key": "key",
-									"value": "Authorization",
-									"type": "string"
-								}
-							]
-						},
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{url}}/Analysis/TopEmployees",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"Analysis",
-								"TopEmployees"
-							]
-						},
-						"description": "Liefert die Auswertungen für eine bestimmte Anzahl an Top - Mitarbeiter. Wird die Anzahl nicht übergeben, werden standardmäßig die Top 3 - Mitarbeiter geliefert."
-					},
-					"response": []
-				},
-				{
-					"name": "❌ Read analysis of customer group",
-					"request": {
-						"auth": {
-							"type": "apikey",
-							"apikey": [
-								{
-									"key": "value",
-									"value": "{{AccessToken}}",
-									"type": "string"
-								},
-								{
-									"key": "key",
-									"value": "Authorization",
-									"type": "string"
-								}
-							]
-						},
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{url}}/Analysis/CustomerGroup/101",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"Analysis",
-								"CustomerGroup",
-								"101"
-							]
-						},
-						"description": "Liefert die Auswertungen für einen bestimmten Kundengruppe."
-					},
-					"response": []
-				}
-			]
-		},
-		{
-			"name": "Artikel ✔",
+			"name": "Artikel",
 			"item": [
 				{
 					"name": "AccessoryArticle",
@@ -782,8 +365,169 @@
 					]
 				},
 				{
-					"name": "Article",
+					"name": "Articles",
 					"item": [
+						{
+							"name": "Images",
+							"item": [
+								{
+									"name": "Read meta data of all article images",
+									"request": {
+										"auth": {
+											"type": "apikey",
+											"apikey": [
+												{
+													"key": "value",
+													"value": "{{AccessToken}}",
+													"type": "string"
+												},
+												{
+													"key": "key",
+													"value": "Authorization",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{url}}/Articles/200008/Images/",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"Articles",
+												"200008",
+												"Images",
+												""
+											]
+										},
+										"description": "Gibt die Metadaten aller Bilder zum Artikel zurück."
+									},
+									"response": []
+								},
+								{
+									"name": "Read meta data of an article image",
+									"request": {
+										"auth": {
+											"type": "apikey",
+											"apikey": [
+												{
+													"key": "value",
+													"value": "{{AccessToken}}",
+													"type": "string"
+												},
+												{
+													"key": "key",
+													"value": "Authorization",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{url}}/Articles/200008/Images/0",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"Articles",
+												"200008",
+												"Images",
+												"0"
+											]
+										},
+										"description": "Gibt die Metadaten des angegebenen Bildes zum Artikel zurück"
+									},
+									"response": []
+								},
+								{
+									"name": "Read article image",
+									"request": {
+										"auth": {
+											"type": "apikey",
+											"apikey": [
+												{
+													"key": "value",
+													"value": "{{AccessToken}}",
+													"type": "string"
+												},
+												{
+													"key": "key",
+													"value": "Authorization",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{url}}/Articles/200008/Images/0/Content",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"Articles",
+												"200008",
+												"Images",
+												"0",
+												"Content"
+											]
+										},
+										"description": "Gibt das Bild zu einem Artikel zurück."
+									},
+									"response": []
+								},
+								{
+									"name": "Read article image with custom size",
+									"request": {
+										"auth": {
+											"type": "apikey",
+											"apikey": [
+												{
+													"key": "value",
+													"value": "{{AccessToken}}",
+													"type": "string"
+												},
+												{
+													"key": "key",
+													"value": "Authorization",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{url}}/Articles/200008/Images/0/Content?width=200&height=150",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"Articles",
+												"200008",
+												"Images",
+												"0",
+												"Content"
+											],
+											"query": [
+												{
+													"key": "width",
+													"value": "200"
+												},
+												{
+													"key": "height",
+													"value": "150"
+												}
+											]
+										},
+										"description": "Gibt das Bild zu einem Artikel in der gewünschten Größe zurück. Das Seitenverhältnis wird beibehalten."
+									},
+									"response": []
+								}
+							]
+						},
 						{
 							"name": "Read all articles",
 							"request": {
@@ -1140,7 +884,7 @@
 							"response": []
 						},
 						{
-							"name": "Read article stocks",
+							"name": "[deprecated] Read article stocks",
 							"request": {
 								"auth": {
 									"type": "apikey",
@@ -1191,7 +935,7 @@
 							"response": []
 						},
 						{
-							"name": "Read article stocks with filter",
+							"name": "[deprecated] Read article stocks with filter",
 							"request": {
 								"auth": {
 									"type": "apikey",
@@ -1672,7 +1416,7 @@
 			]
 		},
 		{
-			"name": "Belege ✔",
+			"name": "Belege",
 			"item": [
 				{
 					"name": "DeliveryTerm",
@@ -1791,7 +1535,7 @@
 									"name": "Handelsstücklisten",
 									"item": [
 										{
-											"name": "🔑 Create sales BOM position",
+											"name": "Create sales BOM position",
 											"request": {
 												"auth": {
 													"type": "apikey",
@@ -1837,7 +1581,7 @@
 											"response": []
 										},
 										{
-											"name": "🔑 Create bill of material item",
+											"name": "Create bill of material item",
 											"protocolProfileBehavior": {
 												"disabledSystemHeaders": {
 													"content-type": true
@@ -1888,7 +1632,7 @@
 											"response": []
 										},
 										{
-											"name": "🔑 Update bill of material item",
+											"name": "Update bill of material item",
 											"request": {
 												"auth": {
 													"type": "apikey",
@@ -1939,7 +1683,7 @@
 									]
 								},
 								{
-									"name": "🔑 Read all positions of document with options",
+									"name": "Read all positions of document with options",
 									"request": {
 										"auth": {
 											"type": "apikey",
@@ -2009,7 +1753,7 @@
 									"response": []
 								},
 								{
-									"name": "🔑 Read document positions without documentKey",
+									"name": "Read document positions without documentKey",
 									"request": {
 										"auth": {
 											"type": "apikey",
@@ -2042,7 +1786,7 @@
 									"response": []
 								},
 								{
-									"name": "🔑 Read document position",
+									"name": "Read document position",
 									"request": {
 										"auth": {
 											"type": "apikey",
@@ -2084,7 +1828,7 @@
 									"response": []
 								},
 								{
-									"name": "🔑 Read all store informations of position",
+									"name": "Read all store informations of position",
 									"request": {
 										"auth": {
 											"type": "apikey",
@@ -2121,7 +1865,7 @@
 									"response": []
 								},
 								{
-									"name": "🔑 Store in position",
+									"name": "Store in position",
 									"request": {
 										"auth": {
 											"type": "apikey",
@@ -2149,16 +1893,16 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "[\r\n  {\r\n    \"Identifier\": \"66DED9AD-6BB4-4071-B085-725E81C3A718\",\r\n    \"ArticleNumber\": \"\",\r\n    \"Warehouse\": \"3\",\r\n    \"Quantity\": 3\r\n  }\r\n]"
+											"raw": "[\r\n  {\r\n    \"Identifier\": \"2f626836-3d6e-4c69-b6f6-9e67fc193d7f\",\r\n    \"ArticleNumber\": \"700034\",\r\n    \"StoragePlaceIdentifier\": \"1\",\r\n    \"QuantityUnit\": \"Stück\",\r\n    \"Quantity\": 5\r\n  }\r\n]"
 										},
 										"url": {
-											"raw": "{{url}}/Documents/FAU396/Positions/Store",
+											"raw": "{{url}}/Documents/SWE305/Positions/Store",
 											"host": [
 												"{{url}}"
 											],
 											"path": [
 												"Documents",
-												"FAU396",
+												"SWE305",
 												"Positions",
 												"Store"
 											]
@@ -2168,7 +1912,7 @@
 									"response": []
 								},
 								{
-									"name": "🔑 Create article position",
+									"name": "Create article position",
 									"request": {
 										"auth": {
 											"type": "apikey",
@@ -2196,7 +1940,7 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "{\r\n  \"ArticleNumber\": \"210011\",\r\n  \"UnitPrice\": 4.05,\r\n  \"OSSProcedure\": {\r\n        \"Value\": \"3\"\r\n    },\r\n  \"StoreInformation\": [\r\n      {\r\n        \"ArticleNumber\": \"210011\",\r\n        \"Warehouse\": 100,\r\n        \"Quantity\": 1\r\n      }\r\n  ]\r\n}"
+											"raw": "{\r\n  \"ArticleNumber\": \"210011\",\r\n  \"UnitPrice\": 4.05,\r\n  \"CalculatedQuantityValue\": 1,\r\n  \"OSSProcedure\": {\r\n        \"Value\": \"3\"\r\n    },\r\n  \"StoreInformation\": [\r\n      {\r\n        \"ArticleNumber\": \"210011\",\r\n        \"Warehouse\": 100,\r\n        \"Quantity\": 1\r\n      }\r\n  ]\r\n}"
 										},
 										"url": {
 											"raw": "{{url}}/Documents/RAR092/ArticleItem",
@@ -2214,7 +1958,7 @@
 									"response": []
 								},
 								{
-									"name": "🔑 Create surcharge item position",
+									"name": "Create surcharge item position",
 									"request": {
 										"auth": {
 											"type": "apikey",
@@ -2261,7 +2005,7 @@
 									"response": []
 								},
 								{
-									"name": "🔑 Create accessory article item position",
+									"name": "Create accessory article item position",
 									"request": {
 										"auth": {
 											"type": "apikey",
@@ -2307,7 +2051,7 @@
 									"response": []
 								},
 								{
-									"name": "🔑 Create shipping item position",
+									"name": "Create shipping item position",
 									"request": {
 										"auth": {
 											"type": "apikey",
@@ -2353,7 +2097,7 @@
 									"response": []
 								},
 								{
-									"name": "🔑 Create new page",
+									"name": "Create new page",
 									"request": {
 										"auth": {
 											"type": "apikey",
@@ -2387,7 +2131,7 @@
 									"response": []
 								},
 								{
-									"name": "🔑 Create comment position",
+									"name": "Create comment position",
 									"request": {
 										"auth": {
 											"type": "apikey",
@@ -2430,7 +2174,7 @@
 									"response": []
 								},
 								{
-									"name": "🔑 Create intermediate total position",
+									"name": "Create intermediate total position",
 									"request": {
 										"auth": {
 											"type": "apikey",
@@ -2464,7 +2208,7 @@
 									"response": []
 								},
 								{
-									"name": "🔑 Create subtotal position",
+									"name": "Create subtotal position",
 									"request": {
 										"auth": {
 											"type": "apikey",
@@ -2508,7 +2252,7 @@
 									"response": []
 								},
 								{
-									"name": "🔑 Update document position",
+									"name": "Update document position",
 									"request": {
 										"auth": {
 											"type": "apikey",
@@ -2555,7 +2299,7 @@
 									"response": []
 								},
 								{
-									"name": "🔑 Update document position with accessory article item",
+									"name": "Update document position with accessory article item",
 									"request": {
 										"auth": {
 											"type": "apikey",
@@ -2604,7 +2348,149 @@
 									"response": []
 								},
 								{
-									"name": "🔑 Update extra fields",
+									"name": "Update document position with surcharge ArticleItem",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													"pm.variables.set('BelegTyp', 'F');\r",
+													"\r",
+													"pm.sendRequest({ // Beleg anlegen\r",
+													"    url: pm.environment.get('url') + \"/Documents\",\r",
+													"    method: \"POST\",\r",
+													"    header: {\r",
+													"        \"Authorization\": pm.environment.get('AccessToken'),\r",
+													"        \"content-type\": \"application/json\"\r",
+													"    },\r",
+													"    body: {\r",
+													"        mode: \"raw\",\r",
+													"        raw: JSON.stringify({\r",
+													"            \"KindFlag\": pm.variables.get('BelegTyp'),\r",
+													"            \"BusinessPartner\":{\r",
+													"                \"Address\": {\r",
+													"                    \"Number\": \"10001\"\r",
+													"                }\r",
+													"            }\r",
+													"        })\r",
+													"    }\r",
+													"}, function(err, res) {\r",
+													"    let createBelegResponse = res.json();\r",
+													"    pm.variables.set('BelegNummer', createBelegResponse.documentNumber);\r",
+													"    pm.variables.set('BelegKey', pm.variables.get('BelegTyp') + pm.variables.get('BelegNummer'));\r",
+													"\r",
+													"    pm.sendRequest({ // Hauptposition anlegen\r",
+													"        url: pm.environment.get('url') + \"/Documents/\" + pm.variables.get('BelegKey') + \"/ArticleItem\",\r",
+													"        method: \"POST\",\r",
+													"        header: {\r",
+													"            \"Authorization\": pm.environment.get('AccessToken'),\r",
+													"            \"content-type\": \"application/json\"\r",
+													"        },\r",
+													"        body: {\r",
+													"            mode: \"raw\",\r",
+													"            raw: JSON.stringify(\r",
+													"                {\r",
+													"                    \"ArticleNumber\": \"599998\",\r",
+													"                    \"UseQuantityFormula\": true\r",
+													"                })\r",
+													"        }\r",
+													"    }, function(err, res) {\r",
+													"        let createPositionResponse = res.json();\r",
+													"        pm.variables.set('Kennung', createPositionResponse.Kennung);\r",
+													"\r",
+													"        pm.sendRequest({ // Zubehörposition anlegen\r",
+													"            url: pm.environment.get('url') + \"/Documents/\" + pm.variables.get('BelegKey') + \"/Positions/\" + createPositionResponse.Kennung + \"/SurchargeArticleItem\",\r",
+													"            method: \"POST\",\r",
+													"            header: {\r",
+													"                \"Authorization\": pm.environment.get('AccessToken'),\r",
+													"                \"content-type\": \"application/json\"\r",
+													"            },\r",
+													"            body: {\r",
+													"                mode: \"raw\",\r",
+													"                raw: JSON.stringify(\r",
+													"                    {\r",
+													"                        \"ArticleNumber\": \"600002\",\r",
+													"                        \"UseQuantityFormula\": true,\r",
+													"                        \"OSSProcedure\": {\r",
+													"                            \"Value\": \"3\"\r",
+													"                        }\r",
+													"                    })\r",
+													"            }\r",
+													"        }, function(err, res) {\r",
+													"            let createZuschlagPositionResponse = res.json();\r",
+													"            pm.variables.set('ZuschlagKennung', createZuschlagPositionResponse.Kennung);\r",
+													"        });\r",
+													"    });\r",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										},
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test('Zuschlag ändern mit OSS Verfahren', function() {\r",
+													"    pm.response.to.have.status(204);\r",
+													"\r",
+													"    pm.sendRequest(\r",
+													"        {\r",
+													"            url: pm.environment.get('url') + '/Documents/' + pm.variables.get('BelegKey') + '/Positions?documentPositionListFilter.filter=Identifier EQ ' + pm.variables.get('ZuschlagKennung'),\r",
+													"            method: \"GET\",\r",
+													"            header: {\r",
+													"                \"Authorization\": pm.environment.get('AccessToken'),\r",
+													"                \"content-type\": \"application/json\"\r",
+													"            }\r",
+													"        },\r",
+													"        function(err, res) \r",
+													"        {\r",
+													"            let responseData = res.json();\r",
+													"            let position = responseData[0];\r",
+													"            let ossValue = position.OSSProcedure.Value;\r",
+													"            pm.expect(position.Identifier, 'Kennung').equals(pm.variables.get('ZuschlagKennung').toLowerCase());\r",
+													"            pm.expect(ossValue, 'OSSVerfahren').to.equal(1);\r",
+													"        }\r",
+													"    );\r",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"type": "text",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"OSSProcedure\": {\r\n        \"Value\": 1\r\n    }\r\n}"
+										},
+										"url": {
+											"raw": "{{url}}/Documents/BelegKey/Positions/Kennung/SurchargeArticleItem/ZuschlagKennung",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"Documents",
+												"BelegKey",
+												"Positions",
+												"Kennung",
+												"SurchargeArticleItem",
+												"ZuschlagKennung"
+											]
+										},
+										"description": "Lagerbuchung auf einer Position"
+									},
+									"response": []
+								},
+								{
+									"name": "Update extra fields",
 									"request": {
 										"auth": {
 											"type": "apikey",
@@ -2651,7 +2537,7 @@
 									"response": []
 								},
 								{
-									"name": "🔑 Update shipping item position",
+									"name": "Update shipping item position",
 									"request": {
 										"auth": {
 											"type": "apikey",
@@ -2698,7 +2584,7 @@
 									"response": []
 								},
 								{
-									"name": "🔑 Delete document position",
+									"name": "Delete document position",
 									"request": {
 										"auth": {
 											"type": "apikey",
@@ -2849,7 +2735,7 @@
 							"response": []
 						},
 						{
-							"name": "🔑 Read document successors",
+							"name": "Read document successors",
 							"request": {
 								"auth": {
 									"type": "apikey",
@@ -2897,7 +2783,7 @@
 							"response": []
 						},
 						{
-							"name": "🔑 Read Journals of document",
+							"name": "Read Journals of document",
 							"request": {
 								"auth": {
 									"type": "apikey",
@@ -2931,7 +2817,7 @@
 							"response": []
 						},
 						{
-							"name": "🔑 Create document",
+							"name": "Create document",
 							"request": {
 								"auth": {
 									"type": "apikey",
@@ -2959,7 +2845,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n\t\"KindFlag\": \"F\",\r\n\t\"BusinessPartner\":\r\n\t\t{\r\n\t\t\t\"Address\":\r\n\t\t\t{\r\n\t\t\t    \"Number\": \"1\"\r\n\t\t\t}\r\n\t\t}\r\n}"
+									"raw": "{\r\n\t\"KindFlag\": \"F\",\r\n\t\"BusinessPartner\":\r\n\t\t{\r\n\t\t\t\"Address\":\r\n\t\t\t{\r\n\t\t\t    \"Number\": \"10001\"\r\n\t\t\t}\r\n\t\t}\r\n}"
 								},
 								"url": {
 									"raw": "{{url}}/Documents",
@@ -2975,7 +2861,7 @@
 							"response": []
 						},
 						{
-							"name": "🔑 Create document successors",
+							"name": "Create document successors",
 							"request": {
 								"auth": {
 									"type": "apikey",
@@ -3026,7 +2912,7 @@
 							"response": []
 						},
 						{
-							"name": "🔑 Create document successors with positions",
+							"name": "Create document successors with positions",
 							"request": {
 								"auth": {
 									"type": "apikey",
@@ -3117,7 +3003,7 @@
 							"response": []
 						},
 						{
-							"name": "🔑 Assign project to document",
+							"name": "Assign project to document",
 							"request": {
 								"auth": {
 									"type": "apikey",
@@ -3160,7 +3046,50 @@
 							"response": []
 						},
 						{
-							"name": "🔑 Update document",
+							"name": "Remove project from document",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{AccessToken}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "Authorization",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/Documents/FAU552/Project",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"Documents",
+										"FAU552",
+										"Project"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update document",
 							"request": {
 								"auth": {
 									"type": "apikey",
@@ -3205,53 +3134,7 @@
 							"response": []
 						},
 						{
-							"name": "[Deprecated] Update status flag",
-							"request": {
-								"auth": {
-									"type": "apikey",
-									"apikey": [
-										{
-											"key": "value",
-											"value": "{{AccessToken}}",
-											"type": "string"
-										},
-										{
-											"key": "key",
-											"value": "Authorization",
-											"type": "string"
-										}
-									]
-								},
-								"method": "PUT",
-								"header": [
-									{
-										"key": "Content-Type",
-										"name": "Content-Type",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n\t\"StatusFlag\": \"0\"\r\n}"
-								},
-								"url": {
-									"raw": "{{url}}/Documents/FAU517/StatusFlag",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"Documents",
-										"FAU517",
-										"StatusFlag"
-									]
-								},
-								"description": "Setzen des Belegstatus"
-							},
-							"response": []
-						},
-						{
-							"name": "[New] Update document status",
+							"name": "Update document status",
 							"request": {
 								"auth": {
 									"type": "apikey",
@@ -3297,7 +3180,7 @@
 							"response": []
 						},
 						{
-							"name": "🔑 Delete document",
+							"name": "Delete document",
 							"request": {
 								"auth": {
 									"type": "apikey",
@@ -3520,7 +3403,7 @@
 							"response": []
 						},
 						{
-							"name": "❌ Read project",
+							"name": "Read project",
 							"request": {
 								"auth": {
 									"type": "apikey",
@@ -3540,12 +3423,13 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{url}}/Projects",
+									"raw": "{{url}}/Projects/P001",
 									"host": [
 										"{{url}}"
 									],
 									"path": [
-										"Projects"
+										"Projects",
+										"P001"
 									]
 								},
 								"description": "Gibt alle Projekte zurück."
@@ -3682,48 +3566,11 @@
 							"response": []
 						}
 					]
-				},
-				{
-					"name": "TransferDocument",
-					"item": [
-						{
-							"name": "Read transfer documents",
-							"request": {
-								"auth": {
-									"type": "apikey",
-									"apikey": [
-										{
-											"key": "key",
-											"value": "Authorization",
-											"type": "string"
-										},
-										{
-											"key": "value",
-											"value": "{{AccessToken}}",
-											"type": "string"
-										}
-									]
-								},
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "{{url}}/TransferDocuments",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"TransferDocuments"
-									]
-								}
-							},
-							"response": []
-						}
-					]
 				}
 			]
 		},
 		{
-			"name": "ManualStorages ✔",
+			"name": "ManualStorages",
 			"item": [
 				{
 					"name": "Read all manual storages",
@@ -4020,7 +3867,7 @@
 					"response": []
 				},
 				{
-					"name": "🔑 Update manual storage Copy",
+					"name": "Update manual storage Copy",
 					"request": {
 						"auth": {
 							"type": "apikey",
@@ -4063,7 +3910,7 @@
 					"response": []
 				},
 				{
-					"name": "🔑 Update manual storage Copy 2",
+					"name": "Update manual storage Copy 2",
 					"request": {
 						"auth": {
 							"type": "apikey",
@@ -4148,7 +3995,7 @@
 			"description": "Ressourcen der Manuellen Lagerung"
 		},
 		{
-			"name": "Benutzerverwaltung  ✔",
+			"name": "Benutzerverwaltung",
 			"item": [
 				{
 					"name": "User",
@@ -4184,76 +4031,6 @@
 									]
 								},
 								"description": "Gibt den angemeldeten Benutzer zurück."
-							},
-							"response": []
-						},
-						{
-							"name": "Read current MDE configuration",
-							"request": {
-								"auth": {
-									"type": "apikey",
-									"apikey": [
-										{
-											"key": "value",
-											"value": "{{AccessToken}}",
-											"type": "string"
-										},
-										{
-											"key": "key",
-											"value": "Authorization",
-											"type": "string"
-										}
-									]
-								},
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "{{url}}/Users/Current/MDEConfiguration",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"Users",
-										"Current",
-										"MDEConfiguration"
-									]
-								},
-								"description": "Gibt die MDE Konfiguration zu dem angemeldeten Benutzer zurück."
-							},
-							"response": []
-						},
-						{
-							"name": "Read current BDE configuration",
-							"request": {
-								"auth": {
-									"type": "apikey",
-									"apikey": [
-										{
-											"key": "value",
-											"value": "{{AccessToken}}",
-											"type": "string"
-										},
-										{
-											"key": "key",
-											"value": "Authorization",
-											"type": "string"
-										}
-									]
-								},
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "{{url}}/Users/Current/BDEConfiguration",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"Users",
-										"Current",
-										"BDEConfiguration"
-									]
-								},
-								"description": "Gibt die BDE Konfiguration zu dem angemeldeten Benutzer zurück."
 							},
 							"response": []
 						},
@@ -4307,79 +4084,7 @@
 			]
 		},
 		{
-			"name": "Currency",
-			"item": [
-				{
-					"name": "Read all currencies",
-					"request": {
-						"auth": {
-							"type": "apikey",
-							"apikey": [
-								{
-									"key": "value",
-									"value": "{{AccessToken}}",
-									"type": "string"
-								},
-								{
-									"key": "key",
-									"value": "Authorization",
-									"type": "string"
-								}
-							]
-						},
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{url}}/Currencies",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"Currencies"
-							]
-						},
-						"description": "Gibt alle Währungen zurück."
-					},
-					"response": []
-				},
-				{
-					"name": "Read currency",
-					"request": {
-						"auth": {
-							"type": "apikey",
-							"apikey": [
-								{
-									"key": "value",
-									"value": "{{AccessToken}}",
-									"type": "string"
-								},
-								{
-									"key": "key",
-									"value": "Authorization",
-									"type": "string"
-								}
-							]
-						},
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{url}}/Currencies/AUD",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"Currencies",
-								"AUD"
-							]
-						},
-						"description": "Gibt eine Währung anhand des Währungscodes zurück."
-					},
-					"response": []
-				}
-			]
-		},
-		{
-			"name": "ExtraTable ✔",
+			"name": "ExtraTable",
 			"item": [
 				{
 					"name": "Read",
@@ -4620,7 +4325,7 @@
 			]
 		},
 		{
-			"name": "Geschäftspartner  ✔",
+			"name": "Geschäftspartner",
 			"item": [
 				{
 					"name": "Customer",
@@ -6097,7 +5802,7 @@
 			]
 		},
 		{
-			"name": "Inventory ✔",
+			"name": "Inventory",
 			"item": [
 				{
 					"name": "Read all inventories",
@@ -6305,7 +6010,7 @@
 			]
 		},
 		{
-			"name": "Journal ✔",
+			"name": "Journale",
 			"item": [
 				{
 					"name": "Read Journals",
@@ -6565,216 +6270,496 @@
 			]
 		},
 		{
-			"name": "Localization ✔",
+			"name": "Lager",
 			"item": [
 				{
-					"name": "Get languages",
-					"request": {
-						"auth": {
-							"type": "apikey",
-							"apikey": [
-								{
-									"key": "value",
-									"value": "{{AccessToken}}",
-									"type": "string"
+					"name": "WarehouseLocation",
+					"item": [
+						{
+							"name": "Read all warehouse locations",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{AccessToken}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "Authorization",
+											"type": "string"
+										}
+									]
 								},
-								{
-									"key": "key",
-									"value": "Authorization",
-									"type": "string"
-								}
-							]
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/WarehouseLocations",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"WarehouseLocations"
+									]
+								},
+								"description": "Gibt alle Standorte zurück."
+							},
+							"response": []
 						},
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{url}}/Localization/Languages",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"Localization",
-								"Languages"
-							]
+						{
+							"name": "Read warehouse locations Copy",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{AccessToken}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "Authorization",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/WarehouseLocations",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"WarehouseLocations"
+									]
+								},
+								"description": "Gibt alle Standorte zurück."
+							},
+							"response": []
 						}
-					},
-					"response": []
+					]
 				},
 				{
-					"name": "Get translation",
-					"request": {
-						"auth": {
-							"type": "apikey",
-							"apikey": [
-								{
-									"key": "value",
-									"value": "{{AccessToken}}",
-									"type": "string"
+					"name": "Warehouses",
+					"item": [
+						{
+							"name": "Read all warehouses",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{AccessToken}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "Authorization",
+											"type": "string"
+										}
+									]
 								},
-								{
-									"key": "key",
-									"value": "Authorization",
-									"type": "string"
-								}
-							]
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/Warehouses",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"Warehouses"
+									],
+									"query": [
+										{
+											"key": "filter",
+											"value": "WarehouseLocationNumber EQ '1'",
+											"disabled": true
+										}
+									]
+								},
+								"description": "Gibt alle Läger zurück."
+							},
+							"response": []
 						},
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{url}}/Localization/Dictionary/MDE/Deutsch-DE",
-							"host": [
-								"{{url}}"
+						{
+							"name": "Read Warehouse",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{AccessToken}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "Authorization",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/Warehouses/500",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"Warehouses",
+										"500"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Read Warehouse by name",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
 							],
-							"path": [
-								"Localization",
-								"Dictionary",
-								"MDE",
-								"Deutsch-DE"
-							]
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{AccessToken}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "Authorization",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/Warehouses/flächenlager?considerName=true",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"Warehouses",
+										"flächenlager"
+									],
+									"query": [
+										{
+											"key": "considerName",
+											"value": "true"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Read All Stocks",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{AccessToken}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "Authorization",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/Warehouses/Stocks",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"Warehouses",
+										"Stocks"
+									]
+								},
+								"description": "Gibt alle Läger zurück."
+							},
+							"response": []
+						},
+						{
+							"name": "Read stocks by warehouse",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{AccessToken}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "Authorization",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/Warehouses/100/Stocks",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"Warehouses",
+										"100",
+										"Stocks"
+									]
+								},
+								"description": "Gibt alle Läger zurück."
+							},
+							"response": []
+						},
+						{
+							"name": "Read stocks by warehouse and storageplace identifier",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{AccessToken}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "Authorization",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/Warehouses/1001/StoragePlaces/Stocks",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"Warehouses",
+										"1001",
+										"StoragePlaces",
+										"Stocks"
+									]
+								},
+								"description": "Gibt alle Läger zurück."
+							},
+							"response": []
+						},
+						{
+							"name": "Read stocks by storageplace identifier",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{AccessToken}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "Authorization",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/Warehouses/1001/StoragePlaces/262/Stocks",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"Warehouses",
+										"1001",
+										"StoragePlaces",
+										"262",
+										"Stocks"
+									]
+								},
+								"description": "Gibt alle Läger zurück."
+							},
+							"response": []
+						},
+						{
+							"name": "Read warehouse",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{AccessToken}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "Authorization",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/Warehouses/100",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"Warehouses",
+										"100"
+									]
+								},
+								"description": "Gibt ein Läger zurück."
+							},
+							"response": []
+						},
+						{
+							"name": "Read all storageplaces of warehouse",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{AccessToken}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "Authorization",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/Warehouses/500/StoragePlaces",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"Warehouses",
+										"500",
+										"StoragePlaces"
+									]
+								},
+								"description": "Gibt alle Lagerplätze eines Lagers zurück."
+							},
+							"response": []
+						},
+						{
+							"name": "Read StoragePlace by number",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{AccessToken}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "Authorization",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/Warehouses/StoragePlaces/510,1,2,3",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"Warehouses",
+										"StoragePlaces",
+										"510,1,2,3"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Read StoragePlace by name",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{AccessToken}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "Authorization",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/Warehouses/StoragePlaces/kekse?considerName=true",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"Warehouses",
+										"StoragePlaces",
+										"kekse"
+									],
+									"query": [
+										{
+											"key": "considerName",
+											"value": "true"
+										}
+									]
+								}
+							},
+							"response": []
 						}
-					},
-					"response": []
+					]
 				}
 			]
 		},
 		{
-			"name": "Macro",
-			"item": [
-				{
-					"name": "Run wawi macro",
-					"request": {
-						"auth": {
-							"type": "apikey",
-							"apikey": [
-								{
-									"key": "value",
-									"value": "{{AccessToken}}",
-									"type": "string"
-								},
-								{
-									"key": "key",
-									"value": "Authorization",
-									"type": "string"
-								}
-							]
-						},
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"name": "Content-Type",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n  \"MacroName\": \"SQLsv000\",\r\n  \"Parameters\":[\r\n        {   \r\n            \"Name\": \"Artikel\",\r\n            \"Value\": \"\\\"100001\\\"\"\r\n        },\r\n        {\r\n            \"Name\": \"Anzahl\",\r\n            \"Value\": \"\\\"3\\\"\"\r\n        }\r\n    ] \r\n}"
-						},
-						"url": {
-							"raw": "{{url}}/Macros",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"Macros"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Run API Macro",
-					"request": {
-						"auth": {
-							"type": "apikey",
-							"apikey": [
-								{
-									"key": "value",
-									"value": "{{AccessToken}}",
-									"type": "string"
-								},
-								{
-									"key": "key",
-									"value": "Authorization",
-									"type": "string"
-								}
-							]
-						},
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"name": "Content-Type",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "[\r\n\t{\r\n\t\t\"Name\": \"artikelnummer\",\r\n\t\t\"Value\": \"\\\"130003\\\"\"\r\n\t}\r\n]"
-						},
-						"url": {
-							"raw": "{{url}}/Macros/SelectArticleByExplicitNumber",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"Macros",
-								"SelectArticleByExplicitNumber"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Run API Macro Copy",
-					"request": {
-						"auth": {
-							"type": "apikey",
-							"apikey": [
-								{
-									"key": "value",
-									"value": "{{AccessToken}}",
-									"type": "string"
-								},
-								{
-									"key": "key",
-									"value": "Authorization",
-									"type": "string"
-								}
-							]
-						},
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"name": "Content-Type",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "[\r\n\t{\r\n\t\t\"Name\": \"artikelnummer\",\r\n\t\t\"Value\": \"\\\"130003\\\"\"\r\n\t}\r\n]"
-						},
-						"url": {
-							"raw": "{{url}}/Macros/SelectArticleByExplicitNumber",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"Macros",
-								"SelectArticleByExplicitNumber"
-							]
-						}
-					},
-					"response": []
-				}
-			]
-		},
-		{
-			"name": "Production ✔",
+			"name": "Production",
 			"item": [
 				{
 					"name": "Working Hours",
@@ -8285,7 +8270,7 @@
 			]
 		},
 		{
-			"name": "Produktionssteuerung ✔",
+			"name": "Produktionssteuerung",
 			"item": [
 				{
 					"name": "Read all jobs",
@@ -9022,41 +9007,8 @@
 			]
 		},
 		{
-			"name": "Resource  ✔",
+			"name": "Resource",
 			"item": [
-				{
-					"name": "Read all resources",
-					"request": {
-						"auth": {
-							"type": "apikey",
-							"apikey": [
-								{
-									"key": "value",
-									"value": "{{AccessToken}}",
-									"type": "string"
-								},
-								{
-									"key": "key",
-									"value": "Authorization",
-									"type": "string"
-								}
-							]
-						},
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{url}}/Resources",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"Resources"
-							]
-						},
-						"description": "Gibt alle Ressourchen zurück"
-					},
-					"response": []
-				},
 				{
 					"name": "Read all operating resources",
 					"request": {
@@ -9087,40 +9039,6 @@
 							]
 						},
 						"description": "Gibt alle Ressourchen zurück"
-					},
-					"response": []
-				},
-				{
-					"name": "Read resource",
-					"request": {
-						"auth": {
-							"type": "apikey",
-							"apikey": [
-								{
-									"key": "value",
-									"value": "{{AccessToken}}",
-									"type": "string"
-								},
-								{
-									"key": "key",
-									"value": "Authorization",
-									"type": "string"
-								}
-							]
-						},
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{url}}/Resources/0400",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"Resources",
-								"0400"
-							]
-						},
-						"description": "Gibt eine Ressource zurück"
 					},
 					"response": []
 				},
@@ -9318,7 +9236,7 @@
 			]
 		},
 		{
-			"name": "SerialNumber ✔",
+			"name": "SerialNumber",
 			"item": [
 				{
 					"name": "Get serial numbers",
@@ -9457,10 +9375,10 @@
 			]
 		},
 		{
-			"name": "Warehouses  ✔",
+			"name": "Currency",
 			"item": [
 				{
-					"name": "Read all warehouses",
+					"name": "Read all currencies",
 					"request": {
 						"auth": {
 							"type": "apikey",
@@ -9480,27 +9398,20 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{url}}/Warehouses",
+							"raw": "{{url}}/Currencies",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
-								"Warehouses"
-							],
-							"query": [
-								{
-									"key": "filter",
-									"value": "WarehouseLocationNumber EQ '1'",
-									"disabled": true
-								}
+								"Currencies"
 							]
 						},
-						"description": "Gibt alle Läger zurück."
+						"description": "Gibt alle Währungen zurück."
 					},
 					"response": []
 				},
 				{
-					"name": "Read Warehouse",
+					"name": "Read currency",
 					"request": {
 						"auth": {
 							"type": "apikey",
@@ -9520,236 +9431,26 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{url}}/Warehouses/500",
+							"raw": "{{url}}/Currencies/AUD",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
-								"Warehouses",
-								"500"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Read All Stocks",
-					"request": {
-						"auth": {
-							"type": "apikey",
-							"apikey": [
-								{
-									"key": "value",
-									"value": "{{AccessToken}}",
-									"type": "string"
-								},
-								{
-									"key": "key",
-									"value": "Authorization",
-									"type": "string"
-								}
+								"Currencies",
+								"AUD"
 							]
 						},
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{url}}/Warehouses/Stocks",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"Warehouses",
-								"Stocks"
-							]
-						},
-						"description": "Gibt alle Läger zurück."
-					},
-					"response": []
-				},
-				{
-					"name": "Read stocks by warehouse",
-					"request": {
-						"auth": {
-							"type": "apikey",
-							"apikey": [
-								{
-									"key": "value",
-									"value": "{{AccessToken}}",
-									"type": "string"
-								},
-								{
-									"key": "key",
-									"value": "Authorization",
-									"type": "string"
-								}
-							]
-						},
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{url}}/Warehouses/100/Stocks",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"Warehouses",
-								"100",
-								"Stocks"
-							]
-						},
-						"description": "Gibt alle Läger zurück."
-					},
-					"response": []
-				},
-				{
-					"name": "Read stocks by warehouse and storageplace identifier",
-					"request": {
-						"auth": {
-							"type": "apikey",
-							"apikey": [
-								{
-									"key": "value",
-									"value": "{{AccessToken}}",
-									"type": "string"
-								},
-								{
-									"key": "key",
-									"value": "Authorization",
-									"type": "string"
-								}
-							]
-						},
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{url}}/Warehouses/1001/StoragePlaces/Stocks",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"Warehouses",
-								"1001",
-								"StoragePlaces",
-								"Stocks"
-							]
-						},
-						"description": "Gibt alle Läger zurück."
-					},
-					"response": []
-				},
-				{
-					"name": "Read stocks by storageplace identifier",
-					"request": {
-						"auth": {
-							"type": "apikey",
-							"apikey": [
-								{
-									"key": "value",
-									"value": "{{AccessToken}}",
-									"type": "string"
-								},
-								{
-									"key": "key",
-									"value": "Authorization",
-									"type": "string"
-								}
-							]
-						},
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{url}}/Warehouses/1001/StoragePlaces/262/Stocks",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"Warehouses",
-								"1001",
-								"StoragePlaces",
-								"262",
-								"Stocks"
-							]
-						},
-						"description": "Gibt alle Läger zurück."
-					},
-					"response": []
-				},
-				{
-					"name": "Read warehouse",
-					"request": {
-						"auth": {
-							"type": "apikey",
-							"apikey": [
-								{
-									"key": "value",
-									"value": "{{AccessToken}}",
-									"type": "string"
-								},
-								{
-									"key": "key",
-									"value": "Authorization",
-									"type": "string"
-								}
-							]
-						},
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{url}}/Warehouses/100",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"Warehouses",
-								"100"
-							]
-						},
-						"description": "Gibt ein Läger zurück."
-					},
-					"response": []
-				},
-				{
-					"name": "Read all storageplaces of warehouse",
-					"request": {
-						"auth": {
-							"type": "apikey",
-							"apikey": [
-								{
-									"key": "value",
-									"value": "{{AccessToken}}",
-									"type": "string"
-								},
-								{
-									"key": "key",
-									"value": "Authorization",
-									"type": "string"
-								}
-							]
-						},
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{url}}/Warehouses/500/StoragePlaces",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"Warehouses",
-								"500",
-								"StoragePlaces"
-							]
-						},
-						"description": "Gibt alle Lagerplätze eines Lagers zurück."
+						"description": "Gibt eine Währung anhand des Währungscodes zurück."
 					},
 					"response": []
 				}
 			]
 		},
 		{
-			"name": "WarehouseLocation ✔",
+			"name": "Macro",
 			"item": [
 				{
-					"name": "Read all warehouse locations",
+					"name": "Run wawi macro",
 					"request": {
 						"auth": {
 							"type": "apikey",
@@ -9766,23 +9467,33 @@
 								}
 							]
 						},
-						"method": "GET",
-						"header": [],
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"MacroName\": \"SQLsv000\",\r\n  \"Parameters\":[\r\n        {   \r\n            \"Name\": \"Artikel\",\r\n            \"Value\": \"\\\"100001\\\"\"\r\n        },\r\n        {\r\n            \"Name\": \"Anzahl\",\r\n            \"Value\": \"\\\"3\\\"\"\r\n        }\r\n    ] \r\n}"
+						},
 						"url": {
-							"raw": "{{url}}/WarehouseLocations",
+							"raw": "{{url}}/Macros",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
-								"WarehouseLocations"
+								"Macros"
 							]
-						},
-						"description": "Gibt alle Standorte zurück."
+						}
 					},
 					"response": []
 				},
 				{
-					"name": "Read warehouse locations Copy",
+					"name": "Run API Macro",
 					"request": {
 						"auth": {
 							"type": "apikey",
@@ -9799,18 +9510,29 @@
 								}
 							]
 						},
-						"method": "GET",
-						"header": [],
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n\t{\r\n\t\t\"Name\": \"Artikelnummer\",\r\n\t\t\"Value\": \"130003\"\r\n\t}\r\n]"
+						},
 						"url": {
-							"raw": "{{url}}/WarehouseLocations",
+							"raw": "{{url}}/Macros/SelectArticleByExplicitNumber",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
-								"WarehouseLocations"
+								"Macros",
+								"SelectArticleByExplicitNumber"
 							]
-						},
-						"description": "Gibt alle Standorte zurück."
+						}
 					},
 					"response": []
 				}
