@@ -94,47 +94,6 @@
 							"response": []
 						},
 						{
-							"name": "Login BDE per UserTag",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"exec": [
-											"var jsonData = JSON.parse(responseBody);\r",
-											"postman.setEnvironmentVariable(\"AccessToken\", \"LoginId \"+jsonData.AccessToken);"
-										],
-										"type": "text/javascript"
-									}
-								}
-							],
-							"request": {
-								"method": "POST",
-								"header": [
-									{
-										"key": "Content-Type",
-										"name": "Content-Type",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n    \"LoginKind\": \"{{loginKind}}\",\r\n    \"usertag\": \"123\"\r\n}"
-								},
-								"url": {
-									"raw": "{{url}}/LoginByUserTag",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"LoginByUserTag"
-									]
-								},
-								"description": "Anmelden an die BDE mit UserTag."
-							},
-							"response": []
-						},
-						{
 							"name": "Logout",
 							"event": [
 								{
@@ -2997,6 +2956,51 @@
 										"Documents",
 										"FAU345",
 										"Print"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Print document pdf",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{AccessToken}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "Authorization",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{ \r\n    \"MasterName\" : \"!BLATT1\"\r\n}"
+								},
+								"url": {
+									"raw": "{{url}}/Documents/FAU345/PrintPdf",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"Documents",
+										"FAU345",
+										"PrintPdf"
 									]
 								}
 							},
