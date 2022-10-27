@@ -12,7 +12,7 @@
 					"name": "Account",
 					"item": [
 						{
-							"name": "Login with AppKey",
+							"name": "Login",
 							"event": [
 								{
 									"listen": "test",
@@ -53,55 +53,13 @@
 							"response": []
 						},
 						{
-							"name": "Login ohne AppKey",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"exec": [
-											"var jsonData = JSON.parse(responseBody);\r",
-											"postman.setEnvironmentVariable(\"AccessToken\", \"LoginId \"+jsonData.AccessToken);"
-										],
-										"type": "text/javascript"
-									}
-								}
-							],
-							"request": {
-								"method": "POST",
-								"header": [
-									{
-										"key": "Content-Type",
-										"name": "Content-Type",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n    \"username\": \"{{user}}\",\r\n    \"password\": \"{{password}}\",\r\n    \"LoginKind\": \"{{loginKind}}\"\r\n}"
-								},
-								"url": {
-									"raw": "{{url}}/Login",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"Login"
-									]
-								},
-								"description": "Anmelden bei der API."
-							},
-							"response": []
-						},
-						{
 							"name": "Logout",
 							"event": [
 								{
 									"listen": "test",
 									"script": {
 										"exec": [
-											"var jsonData = JSON.parse(responseBody);\r",
-											"postman.setEnvironmentVariable(\"AccessToken\", \"LoginId \"+jsonData.AccessToken);"
+											""
 										],
 										"type": "text/javascript"
 									}
@@ -839,98 +797,6 @@
 									]
 								},
 								"description": "Gibt eine Liste der Alternativartikel zu einem Artikel zurück."
-							},
-							"response": []
-						},
-						{
-							"name": "[deprecated] Read article stocks",
-							"request": {
-								"auth": {
-									"type": "apikey",
-									"apikey": [
-										{
-											"key": "value",
-											"value": "{{AccessToken}}",
-											"type": "string"
-										},
-										{
-											"key": "key",
-											"value": "Authorization",
-											"type": "string"
-										}
-									]
-								},
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "{{url}}/Articles/Stock",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"Articles",
-										"Stock"
-									],
-									"query": [
-										{
-											"key": "filter",
-											"value": "WarehouseName EQ 'Verkaufsraum'",
-											"disabled": true
-										},
-										{
-											"key": "filter",
-											"value": "StoragePlace.Warehouse EQ 1000",
-											"disabled": true
-										},
-										{
-											"key": "filter",
-											"value": "StorageTypeLabel EQ 'DefaultStorage'",
-											"disabled": true
-										}
-									]
-								},
-								"description": "Gibt die Lagerbestände zu den Artikeln zurück."
-							},
-							"response": []
-						},
-						{
-							"name": "[deprecated] Read article stocks with filter",
-							"request": {
-								"auth": {
-									"type": "apikey",
-									"apikey": [
-										{
-											"key": "value",
-											"value": "{{AccessToken}}",
-											"type": "string"
-										},
-										{
-											"key": "key",
-											"value": "Authorization",
-											"type": "string"
-										}
-									]
-								},
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "{{url}}/Articles/Stock",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"Articles",
-										"Stock"
-									],
-									"query": [
-										{
-											"key": "filter",
-											"value": "StoragePlace.WarehouseName EQ 'Verkaufsraum'",
-											"disabled": true
-										}
-									]
-								},
-								"description": "Gibt die Lagerbestände zu den Artikeln zurück."
 							},
 							"response": []
 						},
@@ -2820,6 +2686,51 @@
 							"response": []
 						},
 						{
+							"name": "Create journal of document",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{AccessToken}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "Authorization",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"Date\": \"2022-08-17T10:27:20.6746515+02:00\",\r\n    \"ContactKindIdentifier\": 0,\r\n    \"StatusId\": 1,\r\n    \"Cycle\": \"None\",\r\n    \"CategoryId\": 0,\r\n    \"Label\": \"Neubestellung zu Artikel 100001\",\r\n    \"Text\": \"Bitte an die Neubestellung denken.\",\r\n    \"IsPrivateContact\": false\r\n}"
+								},
+								"url": {
+									"raw": "{{url}}/Documents/FAU563/Journals",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"Documents",
+										"FAU563",
+										"Journals"
+									]
+								}
+							},
+							"response": []
+						},
+						{
 							"name": "Create document successors",
 							"request": {
 								"auth": {
@@ -4207,7 +4118,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"IdentifierName\": \"IDX\",\n\t\"Fields\": {\n        \"_FARBE\": \"GRUEN\",\n        \"_AKTIV\": false\n\t}\n}",
+							"raw": "{\n\t\"Fields\": {\n        \"_FARBE\": \"GRUEN\",\n        \"_AKTIV\": false\n\t}\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -4257,7 +4168,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"IdentifierName\": \"ID\",\n\t\"Fields\": {\n            \"_TEST\": \"Ich bin ein Test.\"\n    }\n}",
+							"raw": "{\n    \"Fields\": {\n        \"_TEST\": \"Ich bin ein Test.\"\n    }\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -4307,19 +4218,14 @@
 							}
 						],
 						"url": {
-							"raw": "{{url}}/ExtraTable/XMeineTabelle?filter=Id EQ '26'",
+							"raw": "{{url}}/ExtraTable/XMeineTabelle/26",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
 								"ExtraTable",
-								"XMeineTabelle"
-							],
-							"query": [
-								{
-									"key": "filter",
-									"value": "Id EQ '26'"
-								}
+								"XMeineTabelle",
+								"26"
 							]
 						},
 						"description": "Rückgabe aller Fertigungsaufträge und deren Kopfinformationen"
@@ -4947,13 +4853,13 @@
 									}
 								],
 								"url": {
-									"raw": "{{url}}/Prospects/1/DeliveryAddresses",
+									"raw": "{{url}}/Documents/RAR535/DeliveryAddresses",
 									"host": [
 										"{{url}}"
 									],
 									"path": [
-										"Prospects",
-										"1",
+										"Documents",
+										"RAR535",
 										"DeliveryAddresses"
 									]
 								},
@@ -4989,18 +4895,18 @@
 									}
 								],
 								"url": {
-									"raw": "{{url}}/Prospects/1/DeliveryAddresses/1",
+									"raw": "{{url}}/Documents/RAR535/DeliveryAddresses/96",
 									"host": [
 										"{{url}}"
 									],
 									"path": [
-										"Prospects",
-										"1",
+										"Documents",
+										"RAR535",
 										"DeliveryAddresses",
-										"1"
+										"96"
 									]
 								},
-								"description": "Gibt eine Liste aller Lieferadressen eines Beleges zurück."
+								"description": "Gibt eine Lieferadresse eines Beleges zurück."
 							},
 							"response": []
 						}
@@ -7668,7 +7574,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\tArticleNumber: \"700025\",\n\tQuantity: 10\n}"
+							"raw": "{\n    \"ArticleNumber\": \"700025\",\n    \"Quantity\": 10\n}"
 						},
 						"url": {
 							"raw": "{{url}}/ProductionOrders",
@@ -7680,6 +7586,51 @@
 							]
 						},
 						"description": "Erstellt einem Fertigungsauftrag anhand der Artikelnummer eines Ergebnisartikels und der Bedarfsmenge."
+					},
+					"response": []
+				},
+				{
+					"name": "Create journal of productionorder",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{AccessToken}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "Authorization",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"Date\": \"2022-08-17T00:00:00+02:00\",\n    \"ContactKindIdentifier\": 0,\n    \"StatusId\": 1,\n    \"Cycle\": \"None\",\n    \"CategoryId\": 0,\n    \"Label\": \"Zeichnung zum Fertigungsschritt 3\",\n    \"Text\": \"Bitte die Zeichnung im Journal beachten.\",\n    \"IsPrivateContact\": false\n}"
+						},
+						"url": {
+							"raw": "{{url}}/ProductionOrders/11/Journals",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"ProductionOrders",
+								"11",
+								"Journals"
+							]
+						}
 					},
 					"response": []
 				},
@@ -9101,12 +9052,12 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{url}}/Resources",
+							"raw": "{{url}}/AlternativeResources",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
-								"Resources"
+								"AlternativeResources"
 							]
 						},
 						"description": "Gibt alle Alternativressourchen zurück."
@@ -9144,51 +9095,6 @@
 							]
 						},
 						"description": "Gibt eine Alternativressource zurück."
-					},
-					"response": []
-				},
-				{
-					"name": "Update resource",
-					"request": {
-						"auth": {
-							"type": "apikey",
-							"apikey": [
-								{
-									"key": "value",
-									"value": "{{AccessToken}}",
-									"type": "string"
-								},
-								{
-									"key": "key",
-									"value": "Authorization",
-									"type": "string"
-								}
-							]
-						},
-						"method": "PUT",
-						"header": [
-							{
-								"key": "Content-Type",
-								"name": "Content-Type",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n\t\"Failure\": true\n}"
-						},
-						"url": {
-							"raw": "{{url}}/Resources/0140",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"Resources",
-								"0140"
-							]
-						},
-						"description": "Gibt alle Ressourchen zurück"
 					},
 					"response": []
 				},
