@@ -7,12 +7,11 @@ assignees: ''
 
 ---
 
-#### Current version number:
+### Details
+- Current version number: 
+- Previous version number (optional): 
+- Function or route: 
+- [ ] Test status checked in Mobile Manager
 
-#### Previous version number (optional):
-
-#### Function or route:
-
-#### Status of test in Mobile Manager:
 
 #### Steps to replicate the behavior:
