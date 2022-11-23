@@ -10,8 +10,8 @@ assignees: ''
 ### Details
 - Current version number: 
 - Previous version number (optional): 
-- Function or route: 
 - [ ] Test status checked in Mobile Manager
-
+- Function or route (request): 
+- Error (response):
 
 #### Steps to replicate the behavior:
