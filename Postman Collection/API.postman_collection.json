@@ -3095,6 +3095,51 @@
 							"response": []
 						},
 						{
+							"name": "Transfer positions to document",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{AccessToken}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "Authorization",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"Positions\": [\r\n        {\r\n            \"Identifier\": \"c4111d20-9e00-4aa1-b315-afa3b0bcbaef\",\r\n            \"ArticleNumber\": \"130010\"\r\n        }\r\n    ]\r\n}"
+								},
+								"url": {
+									"raw": "{{url}}/Documents/LLS614/Predecessors/FAU575",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"Documents",
+										"LLS614",
+										"Predecessors",
+										"FAU575"
+									]
+								}
+							},
+							"response": []
+						},
+						{
 							"name": "Delete document",
 							"request": {
 								"auth": {
