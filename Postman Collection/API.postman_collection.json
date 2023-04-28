@@ -2,7 +2,9 @@
 	"info": {
 		"_postman_id": "456dedc3-1d96-4baf-af5a-d35f53e16984",
 		"name": "API",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "8147828",
+		"_collection_link": "https://selectline-dev-api.postman.co/workspace/Dev-API~54d397ff-2f74-4f73-841a-fdb3e6cf9368/collection/8144432-456dedc3-1d96-4baf-af5a-d35f53e16984?action=share&creator=8147828&source=collection_link"
 	},
 	"item": [
 		{
@@ -974,6 +976,140 @@
 										"Articles",
 										"599998",
 										"SurchargeDetails"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Read sales prices",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "key",
+											"value": "Authorization",
+											"type": "string"
+										},
+										{
+											"key": "value",
+											"value": "{{AccessToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/Articles/100001/Sales/Prices/10001",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"Articles",
+										"100001",
+										"Sales",
+										"Prices",
+										"10001"
+									],
+									"query": [
+										{
+											"key": "NetPrice",
+											"value": "true",
+											"description": "Ermittelt nur Nettopreise. (Optional)",
+											"disabled": true
+										},
+										{
+											"key": "Date",
+											"value": "2023-03-01T00:00:00",
+											"description": "Das Datum für den die Preise ermittelt werden sollen. Es wird das aktuelle Datum verwendet, wenn nicht angegeben. (Optional)",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Read purchasing prices",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "key",
+											"value": "Authorization",
+											"type": "string"
+										},
+										{
+											"key": "value",
+											"value": "{{AccessToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/Articles/400003/Purchasing/Prices/10001",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"Articles",
+										"400003",
+										"Purchasing",
+										"Prices",
+										"10001"
+									],
+									"query": [
+										{
+											"key": "NetPrice",
+											"value": "true",
+											"description": "Ermittelt nur Nettopreise. (Optional)",
+											"disabled": true
+										},
+										{
+											"key": "Date",
+											"value": "2023-03-01T00:00:00",
+											"description": "Das Datum für den die Preise ermittelt werden sollen. Es wird das aktuelle Datum verwendet, wenn nicht angegeben. (Optional)",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Read Journals of Article",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{AccessToken}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "Authorization",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/Articles/120005/Journals",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"Articles",
+										"120005",
+										"Journals"
 									]
 								}
 							},
@@ -3530,7 +3666,7 @@
 			]
 		},
 		{
-			"name": "ManualStorages",
+			"name": "Manuelle Lagerung",
 			"item": [
 				{
 					"name": "Read all manual storages",
@@ -3671,7 +3807,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"BusinessPartnerType\": 1,\r\n    \"BusinessPartner\": {\r\n        \"LastName\": \"Mustermann\",\r\n        \"FirstName\": \"Max\",\r\n        \"Address\": {\r\n            \"Number\": 70011\r\n        }\r\n    },\r\n    \"Payment\": {\r\n        \"CostCenterNumber\": \"P001\"\r\n    }\r\n}",
+							"raw": "{\r\n    \"Number\": \"123456\", // optionale Belegnummer\r\n    \"BusinessPartnerType\": 1,\r\n    \"BusinessPartner\": {\r\n        \"LastName\": \"Mustermann\",\r\n        \"FirstName\": \"Max\",\r\n        \"Address\": {\r\n            \"Number\": 70011\r\n        }\r\n    },\r\n    \"Payment\": {\r\n        \"CostCenterNumber\": \"P001\"\r\n    }\r\n}\r\n",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -3827,50 +3963,7 @@
 					"response": []
 				},
 				{
-					"name": "Update manual storage Copy",
-					"request": {
-						"auth": {
-							"type": "apikey",
-							"apikey": [
-								{
-									"key": "value",
-									"value": "{{AccessToken}}",
-									"type": "string"
-								},
-								{
-									"key": "key",
-									"value": "Authorization",
-									"type": "string"
-								}
-							]
-						},
-						"method": "PUT",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"BusinessPartnerType\": 0,\r\n    \"BusinessPartner\": {\r\n        \"LastName\": \"Musterla\",\r\n        \"FirstName\": \"Maxima\",\r\n        \"Address\": {\r\n            \"Number\": 10047\r\n        }\r\n    },\r\n    \"Payment\": {\r\n        \"CostCenterNumber\": \"P002\"\r\n    }\r\n}"
-						},
-						"url": {
-							"raw": "{{url}}/ManualStorages/15000041",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"ManualStorages",
-								"15000041"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Update manual storage Copy 2",
+					"name": "Update manual storage",
 					"request": {
 						"auth": {
 							"type": "apikey",
@@ -4609,6 +4702,40 @@
 								"description": "Bearbeiten eine Kontaktperson zu einem Kunden."
 							},
 							"response": []
+						},
+						{
+							"name": "Read Journals of Customer",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{AccessToken}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "Authorization",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/Customers/10004/Journals",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"Customers",
+										"10004",
+										"Journals"
+									]
+								}
+							},
+							"response": []
 						}
 					]
 				},
@@ -5279,6 +5406,40 @@
 								"description": "Bearbeiten einer Kontaktperson zu einen Interessenten."
 							},
 							"response": []
+						},
+						{
+							"name": "Read Journals of Prospect",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{AccessToken}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "Authorization",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/Prospects/1/Journals",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"Prospects",
+										"1",
+										"Journals"
+									]
+								}
+							},
+							"response": []
 						}
 					]
 				},
@@ -5604,6 +5765,40 @@
 								"description": "Erstellt einen Kontakt zu einen Lieferanten."
 							},
 							"response": []
+						},
+						{
+							"name": "Read Journals of Supplier",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{AccessToken}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "Authorization",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/Suppliers/70041/Journals",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"Suppliers",
+										"70041",
+										"Journals"
+									]
+								}
+							},
+							"response": []
 						}
 					]
 				},
@@ -5751,13 +5946,47 @@
 								"description": "Gibt die letzten x beareiteten Arbeitsschritte zurück."
 							},
 							"response": []
+						},
+						{
+							"name": "Read Journals of Employee",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{AccessToken}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "Authorization",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/Employees/50001/Journals",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"Employees",
+										"50001",
+										"Journals"
+									]
+								}
+							},
+							"response": []
 						}
 					]
 				}
 			]
 		},
 		{
-			"name": "Inventory",
+			"name": "Inventur",
 			"item": [
 				{
 					"name": "Read all inventories",
@@ -6714,7 +6943,7 @@
 			]
 		},
 		{
-			"name": "Production",
+			"name": "Produktion",
 			"item": [
 				{
 					"name": "Working Hours",
@@ -7631,6 +7860,49 @@
 							]
 						},
 						"description": "Erstellt einem Fertigungsauftrag anhand der Artikelnummer eines Ergebnisartikels und der Bedarfsmenge."
+					},
+					"response": []
+				},
+				{
+					"name": "Create productionorder using productionlistidentifier",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{AccessToken}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "Authorization",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"ProductionListIdentifier\": \"2\",\n    \"ManufactureArticles\": \n    [\n        {\n            \"ArticleNumber\": \"700026\",\n            \"Quantity\": 5\n        }\n    ]\n}"
+						},
+						"url": {
+							"raw": "{{url}}/ProductionOrders",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"ProductionOrders"
+							]
+						}
 					},
 					"response": []
 				},
@@ -9191,74 +9463,10 @@
 			]
 		},
 		{
-			"name": "SerialNumber",
+			"name": "Serien- / Chargennummern",
 			"item": [
 				{
 					"name": "Get serial numbers",
-					"request": {
-						"auth": {
-							"type": "apikey",
-							"apikey": [
-								{
-									"key": "value",
-									"value": "{{AccessToken}}",
-									"type": "string"
-								},
-								{
-									"key": "key",
-									"value": "Authorization",
-									"type": "string"
-								}
-							]
-						},
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{url}}/SerialNumbers",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"SerialNumbers"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Get serial number",
-					"request": {
-						"auth": {
-							"type": "apikey",
-							"apikey": [
-								{
-									"key": "value",
-									"value": "{{AccessToken}}",
-									"type": "string"
-								},
-								{
-									"key": "key",
-									"value": "Authorization",
-									"type": "string"
-								}
-							]
-						},
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{url}}/SerialNumbers",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"SerialNumbers"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Update serial numbers",
 					"request": {
 						"auth": {
 							"type": "apikey",
@@ -9322,6 +9530,81 @@
 									"key": "filter",
 									"value": "RecordId NOTEQ 9"
 								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get serial number",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{AccessToken}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "Authorization",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/SerialNumbers/{serialNumberId}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"SerialNumbers",
+								"{serialNumberId}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update serial number",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{AccessToken}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "Authorization",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"ArticleNumber\": \"300012\",\r\n  \"Description\": \"Beschreibung\",\r\n  \"Serialnumber\": \"300012-20190810\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/SerialNumbers/47",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"SerialNumbers",
+								"47"
 							]
 						}
 					},
