@@ -3,8 +3,8 @@
 		"_postman_id": "456dedc3-1d96-4baf-af5a-d35f53e16984",
 		"name": "API",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "8147828",
-		"_collection_link": "https://selectline-dev-api.postman.co/workspace/Dev-API~54d397ff-2f74-4f73-841a-fdb3e6cf9368/collection/8144432-456dedc3-1d96-4baf-af5a-d35f53e16984?action=share&creator=8147828&source=collection_link"
+		"_exporter_id": "18638996",
+		"_collection_link": "https://selectline-dev-api.postman.co/workspace/Dev-API~54d397ff-2f74-4f73-841a-fdb3e6cf9368/collection/8144432-456dedc3-1d96-4baf-af5a-d35f53e16984?action=share&source=collection_link&creator=18638996"
 	},
 	"item": [
 		{
@@ -32,8 +32,8 @@
 								"header": [
 									{
 										"key": "Content-Type",
-										"name": "Content-Type",
 										"value": "application/json",
+										"name": "Content-Type",
 										"type": "text"
 									}
 								],
@@ -87,9 +87,9 @@
 								"header": [
 									{
 										"key": "Content-Type",
+										"value": "application/json",
 										"name": "Content-Type",
-										"type": "text",
-										"value": "application/json"
+										"type": "text"
 									}
 								],
 								"url": {
@@ -1517,9 +1517,9 @@
 												"header": [
 													{
 														"key": "Content-Type",
+														"value": "application/json",
 														"name": "Content-Type",
-														"type": "text",
-														"value": "application/json"
+														"type": "text"
 													}
 												],
 												"body": {
@@ -1614,9 +1614,9 @@
 												"header": [
 													{
 														"key": "Content-Type",
+														"value": "application/json",
 														"name": "Content-Type",
-														"type": "text",
-														"value": "application/json"
+														"type": "text"
 													}
 												],
 												"body": {
@@ -1847,9 +1847,9 @@
 										"header": [
 											{
 												"key": "Content-Type",
+												"value": "application/json",
 												"name": "Content-Type",
-												"type": "text",
-												"value": "application/json"
+												"type": "text"
 											}
 										],
 										"body": {
@@ -1894,9 +1894,9 @@
 										"header": [
 											{
 												"key": "Content-Type",
+												"value": "application/json",
 												"name": "Content-Type",
-												"type": "text",
-												"value": "application/json"
+												"type": "text"
 											}
 										],
 										"body": {
@@ -1940,8 +1940,8 @@
 										"header": [
 											{
 												"key": "Content-Type",
-												"type": "text",
-												"value": "application/json"
+												"value": "application/json",
+												"type": "text"
 											}
 										],
 										"body": {
@@ -2033,9 +2033,9 @@
 										"header": [
 											{
 												"key": "Content-Type",
+												"value": "application/json",
 												"name": "Content-Type",
-												"type": "text",
-												"value": "application/json"
+												"type": "text"
 											}
 										],
 										"body": {
@@ -2234,9 +2234,9 @@
 										"header": [
 											{
 												"key": "Content-Type",
+												"value": "application/json",
 												"name": "Content-Type",
-												"type": "text",
-												"value": "application/json"
+												"type": "text"
 											}
 										],
 										"body": {
@@ -2281,9 +2281,9 @@
 										"header": [
 											{
 												"key": "Content-Type",
+												"value": "application/json",
 												"name": "Content-Type",
-												"type": "text",
-												"value": "application/json"
+												"type": "text"
 											}
 										],
 										"body": {
@@ -2423,9 +2423,9 @@
 										"header": [
 											{
 												"key": "Content-Type",
+												"value": "application/json",
 												"name": "Content-Type",
-												"type": "text",
-												"value": "application/json"
+												"type": "text"
 											}
 										],
 										"body": {
@@ -2472,9 +2472,9 @@
 										"header": [
 											{
 												"key": "Content-Type",
+												"value": "application/json",
 												"name": "Content-Type",
-												"type": "text",
-												"value": "application/json"
+												"type": "text"
 											}
 										],
 										"body": {
@@ -2519,9 +2519,9 @@
 										"header": [
 											{
 												"key": "Content-Type",
+												"value": "application/json",
 												"name": "Content-Type",
-												"type": "text",
-												"value": "application/json"
+												"type": "text"
 											}
 										],
 										"body": {
@@ -2566,9 +2566,9 @@
 										"header": [
 											{
 												"key": "Content-Type",
+												"value": "application/json",
 												"name": "Content-Type",
-												"type": "text",
-												"value": "application/json"
+												"type": "text"
 											}
 										],
 										"url": {
@@ -2717,9 +2717,9 @@
 								"header": [
 									{
 										"key": "Content-Type",
+										"value": "application/json",
 										"name": "Content-Type",
-										"type": "text",
-										"value": "application/json"
+										"type": "text"
 									}
 								],
 								"url": {
@@ -2799,8 +2799,8 @@
 								"header": [
 									{
 										"key": "Content-Type",
-										"name": "Content-Type",
 										"value": "application/json",
+										"name": "Content-Type",
 										"type": "text"
 									}
 								],
@@ -2843,8 +2843,8 @@
 								"header": [
 									{
 										"key": "Content-Type",
-										"name": "Content-Type",
 										"value": "application/json",
+										"name": "Content-Type",
 										"type": "text"
 									}
 								],
@@ -2888,8 +2888,8 @@
 								"header": [
 									{
 										"key": "Content-Type",
-										"name": "Content-Type",
 										"value": "application/json",
+										"name": "Content-Type",
 										"type": "text"
 									}
 								],
@@ -2939,9 +2939,9 @@
 								"header": [
 									{
 										"key": "Content-Type",
+										"value": "application/json",
 										"name": "Content-Type",
-										"type": "text",
-										"value": "application/json"
+										"type": "text"
 									}
 								],
 								"body": {
@@ -2985,8 +2985,8 @@
 								"header": [
 									{
 										"key": "Content-Type",
-										"name": "Content-Type",
 										"value": "application/json",
+										"name": "Content-Type",
 										"type": "text"
 									}
 								],
@@ -3030,8 +3030,8 @@
 								"header": [
 									{
 										"key": "Content-Type",
-										"name": "Content-Type",
 										"value": "application/json",
+										"name": "Content-Type",
 										"type": "text"
 									}
 								],
@@ -3161,9 +3161,9 @@
 								"header": [
 									{
 										"key": "Content-Type",
+										"value": "application/json",
 										"name": "Content-Type",
-										"type": "text",
-										"value": "application/json"
+										"type": "text"
 									}
 								],
 								"body": {
@@ -3206,9 +3206,9 @@
 								"header": [
 									{
 										"key": "Content-Type",
+										"value": "application/json",
 										"name": "Content-Type",
-										"type": "text",
-										"value": "application/json"
+										"type": "text"
 									}
 								],
 								"body": {
@@ -3297,9 +3297,9 @@
 								"header": [
 									{
 										"key": "Content-Type",
+										"value": "application/json",
 										"name": "Content-Type",
-										"type": "text",
-										"value": "application/json"
+										"type": "text"
 									}
 								],
 								"url": {
@@ -3893,9 +3893,9 @@
 						"header": [
 							{
 								"key": "Content-Type",
+								"value": "application/json",
 								"name": "Content-Type",
-								"type": "text",
-								"value": "application/json"
+								"type": "text"
 							}
 						],
 						"body": {
@@ -3938,9 +3938,9 @@
 						"header": [
 							{
 								"key": "Content-Type",
+								"value": "application/json",
 								"name": "Content-Type",
-								"type": "text",
-								"value": "application/json"
+								"type": "text"
 							}
 						],
 						"body": {
@@ -4043,6 +4043,99 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "Read Journals of manual storage",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "key",
+									"value": "Authorization",
+									"type": "string"
+								},
+								{
+									"key": "value",
+									"value": "{{AccessToken}}",
+									"type": "string"
+								},
+								{
+									"key": "in",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/ManualStorages/UL0001/Journals",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"ManualStorages",
+								"UL0001",
+								"Journals"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Journal of manual storage",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "key",
+									"value": "Authorization",
+									"type": "string"
+								},
+								{
+									"key": "value",
+									"value": "{{AccessToken}}",
+									"type": "string"
+								},
+								{
+									"key": "in",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Date\": \"2022-08-17T10:27:20.6746515+02:00\",\r\n    \"ContactKindIdentifier\": 0,\r\n    \"StatusId\": 1,\r\n    \"Cycle\": \"None\",\r\n    \"CategoryId\": 0,\r\n    \"Label\": \"Umlagerungsauftrag\",\r\n    \"Text\": \"Bitte das Lager wieder auffüllen.\",\r\n    \"IsPrivateContact\": false\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/ManualStorages/UL001/Journals",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"ManualStorages",
+								"UL001",
+								"Journals"
+							]
+						}
+					},
+					"response": []
 				}
 			],
 			"description": "Ressourcen der Manuellen Lagerung"
@@ -4109,8 +4202,8 @@
 								"header": [
 									{
 										"key": "Content-Type",
-										"name": "Content-Type",
 										"value": "application/json",
+										"name": "Content-Type",
 										"type": "text"
 									}
 								],
@@ -4161,9 +4254,9 @@
 						"header": [
 							{
 								"key": "Content-Type",
+								"value": "application/json",
 								"name": "Content-Type",
-								"type": "text",
-								"value": "application/json"
+								"type": "text"
 							}
 						],
 						"url": {
@@ -4202,9 +4295,9 @@
 						"header": [
 							{
 								"key": "Content-Type",
+								"value": "application/json",
 								"name": "Content-Type",
-								"type": "text",
-								"value": "application/json"
+								"type": "text"
 							}
 						],
 						"url": {
@@ -4249,9 +4342,9 @@
 						"header": [
 							{
 								"key": "Content-Type",
+								"value": "application/json",
 								"name": "Content-Type",
-								"type": "text",
-								"value": "application/json"
+								"type": "text"
 							}
 						],
 						"body": {
@@ -4299,9 +4392,9 @@
 						"header": [
 							{
 								"key": "Content-Type",
+								"value": "application/json",
 								"name": "Content-Type",
-								"type": "text",
-								"value": "application/json"
+								"type": "text"
 							}
 						],
 						"body": {
@@ -4350,9 +4443,9 @@
 						"header": [
 							{
 								"key": "Content-Type",
+								"value": "application/json",
 								"name": "Content-Type",
-								"type": "text",
-								"value": "application/json"
+								"type": "text"
 							}
 						],
 						"url": {
@@ -4473,8 +4566,8 @@
 								"header": [
 									{
 										"key": "Content-Type",
-										"name": "Content-Type",
 										"value": "application/json",
+										"name": "Content-Type",
 										"type": "text"
 									}
 								],
@@ -4517,9 +4610,9 @@
 								"header": [
 									{
 										"key": "Content-Type",
+										"value": "application/json",
 										"name": "Content-Type",
-										"type": "text",
-										"value": "application/json"
+										"type": "text"
 									}
 								],
 								"body": {
@@ -4632,8 +4725,8 @@
 								"header": [
 									{
 										"key": "Content-Type",
-										"name": "Content-Type",
 										"value": "application/json",
+										"name": "Content-Type",
 										"type": "text"
 									}
 								],
@@ -4678,9 +4771,9 @@
 								"header": [
 									{
 										"key": "Content-Type",
+										"value": "application/json",
 										"name": "Content-Type",
-										"type": "text",
-										"value": "application/json"
+										"type": "text"
 									}
 								],
 								"body": {
@@ -4764,8 +4857,8 @@
 								"header": [
 									{
 										"key": "Content-Type",
-										"name": "Content-Type",
 										"value": "application/json",
+										"name": "Content-Type",
 										"type": "text"
 									}
 								],
@@ -4806,9 +4899,9 @@
 								"header": [
 									{
 										"key": "Content-Type",
+										"value": "application/json",
 										"name": "Content-Type",
-										"type": "text",
-										"value": "application/json"
+										"type": "text"
 									}
 								],
 								"url": {
@@ -4849,9 +4942,9 @@
 								"header": [
 									{
 										"key": "Content-Type",
+										"value": "application/json",
 										"name": "Content-Type",
-										"type": "text",
-										"value": "application/json"
+										"type": "text"
 									}
 								],
 								"url": {
@@ -4891,9 +4984,9 @@
 								"header": [
 									{
 										"key": "Content-Type",
+										"value": "application/json",
 										"name": "Content-Type",
-										"type": "text",
-										"value": "application/json"
+										"type": "text"
 									}
 								],
 								"url": {
@@ -4934,9 +5027,9 @@
 								"header": [
 									{
 										"key": "Content-Type",
+										"value": "application/json",
 										"name": "Content-Type",
-										"type": "text",
-										"value": "application/json"
+										"type": "text"
 									}
 								],
 								"url": {
@@ -4976,9 +5069,9 @@
 								"header": [
 									{
 										"key": "Content-Type",
+										"value": "application/json",
 										"name": "Content-Type",
-										"type": "text",
-										"value": "application/json"
+										"type": "text"
 									}
 								],
 								"url": {
@@ -5019,9 +5112,9 @@
 								"header": [
 									{
 										"key": "Content-Type",
+										"value": "application/json",
 										"name": "Content-Type",
-										"type": "text",
-										"value": "application/json"
+										"type": "text"
 									}
 								],
 								"url": {
@@ -5061,9 +5154,9 @@
 								"header": [
 									{
 										"key": "Content-Type",
+										"value": "application/json",
 										"name": "Content-Type",
-										"type": "text",
-										"value": "application/json"
+										"type": "text"
 									}
 								],
 								"url": {
@@ -5176,8 +5269,8 @@
 								"header": [
 									{
 										"key": "Content-Type",
-										"name": "Content-Type",
 										"value": "application/json",
+										"name": "Content-Type",
 										"type": "text"
 									}
 								],
@@ -5220,9 +5313,9 @@
 								"header": [
 									{
 										"key": "Content-Type",
+										"value": "application/json",
 										"name": "Content-Type",
-										"type": "text",
-										"value": "application/json"
+										"type": "text"
 									}
 								],
 								"body": {
@@ -5336,8 +5429,8 @@
 								"header": [
 									{
 										"key": "Content-Type",
-										"name": "Content-Type",
 										"value": "application/json",
+										"name": "Content-Type",
 										"type": "text"
 									}
 								],
@@ -5382,9 +5475,9 @@
 								"header": [
 									{
 										"key": "Content-Type",
+										"value": "application/json",
 										"name": "Content-Type",
-										"type": "text",
-										"value": "application/json"
+										"type": "text"
 									}
 								],
 								"body": {
@@ -5535,8 +5628,8 @@
 								"header": [
 									{
 										"key": "Content-Type",
-										"name": "Content-Type",
 										"value": "application/json",
+										"name": "Content-Type",
 										"type": "text"
 									}
 								],
@@ -5579,9 +5672,9 @@
 								"header": [
 									{
 										"key": "Content-Type",
+										"value": "application/json",
 										"name": "Content-Type",
-										"type": "text",
-										"value": "application/json"
+										"type": "text"
 									}
 								],
 								"body": {
@@ -5695,8 +5788,8 @@
 								"header": [
 									{
 										"key": "Content-Type",
-										"name": "Content-Type",
 										"value": "application/json",
+										"name": "Content-Type",
 										"type": "text"
 									}
 								],
@@ -5741,8 +5834,8 @@
 								"header": [
 									{
 										"key": "Content-Type",
-										"name": "Content-Type",
 										"value": "application/json",
+										"name": "Content-Type",
 										"type": "text"
 									}
 								],
@@ -5968,13 +6061,13 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{url}}/Employees/50001/Journals",
+									"raw": "{{url}}/Employees/1/Journals",
 									"host": [
 										"{{url}}"
 									],
 									"path": [
 										"Employees",
-										"50001",
+										"1",
 										"Journals"
 									]
 								}
@@ -6115,8 +6208,8 @@
 						"header": [
 							{
 								"key": "Content-Type",
-								"name": "Content-Type",
 								"value": "application/json",
+								"name": "Content-Type",
 								"type": "text"
 							}
 						],
@@ -6164,9 +6257,9 @@
 						"header": [
 							{
 								"key": "Content-Type",
+								"value": "application/json",
 								"name": "Content-Type",
-								"type": "text",
-								"value": "application/json"
+								"type": "text"
 							}
 						],
 						"body": {
@@ -6221,8 +6314,8 @@
 						"header": [
 							{
 								"key": "Content-Type",
-								"name": "Content-Type",
 								"value": "application/json",
+								"name": "Content-Type",
 								"type": "text"
 							}
 						],
@@ -6268,8 +6361,8 @@
 						"header": [
 							{
 								"key": "Content-Type",
-								"name": "Content-Type",
 								"value": "application/json",
+								"name": "Content-Type",
 								"type": "text"
 							}
 						],
@@ -6359,50 +6452,6 @@
 							]
 						},
 						"description": "Gibt einen Anhang zu einen Journal zurück."
-					},
-					"response": []
-				},
-				{
-					"name": "Create Journal",
-					"request": {
-						"auth": {
-							"type": "apikey",
-							"apikey": [
-								{
-									"key": "value",
-									"value": "{{AccessToken}}",
-									"type": "string"
-								},
-								{
-									"key": "key",
-									"value": "Authorization",
-									"type": "string"
-								}
-							]
-						},
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"name": "Content-Type",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n  \"Date\": \"2019-06-19T06:18:32.835Z\",\r\n  \"StatusId\": 1,\r\n  \"Label\": \"la le lu\",\r\n  \"Text\": \"test\",\r\n  \"JournalLinkInformation\": {\r\n    \"LinkType\": \"document\",\r\n    \"DocumentType\": \"L\",\r\n    \"DocumentNumber\": \"LS538\"\r\n  }\r\n}"
-						},
-						"url": {
-							"raw": "{{url}}/Journals",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"Journals"
-							]
-						},
-						"description": "Journaleintrag anlegen"
 					},
 					"response": []
 				},
@@ -7007,9 +7056,9 @@
 								"header": [
 									{
 										"key": "Content-Type",
+										"value": "application/json",
 										"name": "Content-Type",
-										"type": "text",
-										"value": "application/json"
+										"type": "text"
 									}
 								],
 								"body": {
@@ -7055,9 +7104,9 @@
 								"header": [
 									{
 										"key": "Content-Type",
+										"value": "application/json",
 										"name": "Content-Type",
-										"type": "text",
-										"value": "application/json"
+										"type": "text"
 									}
 								],
 								"body": {
@@ -7103,9 +7152,9 @@
 								"header": [
 									{
 										"key": "Content-Type",
+										"value": "application/json",
 										"name": "Content-Type",
-										"type": "text",
-										"value": "application/json"
+										"type": "text"
 									}
 								],
 								"body": {
@@ -7193,9 +7242,9 @@
 								"header": [
 									{
 										"key": "Content-Type",
+										"value": "application/json",
 										"name": "Content-Type",
-										"type": "text",
-										"value": "application/json"
+										"type": "text"
 									}
 								],
 								"body": {
@@ -7241,9 +7290,9 @@
 								"header": [
 									{
 										"key": "Content-Type",
+										"value": "application/json",
 										"name": "Content-Type",
-										"type": "text",
-										"value": "application/json"
+										"type": "text"
 									}
 								],
 								"body": {
@@ -7289,9 +7338,9 @@
 								"header": [
 									{
 										"key": "Content-Type",
+										"value": "application/json",
 										"name": "Content-Type",
-										"type": "text",
-										"value": "application/json"
+										"type": "text"
 									}
 								],
 								"body": {
@@ -7717,9 +7766,9 @@
 						"header": [
 							{
 								"key": "Content-Type",
+								"value": "application/json",
 								"name": "Content-Type",
-								"type": "text",
-								"value": "application/json"
+								"type": "text"
 							}
 						],
 						"url": {
@@ -7763,9 +7812,9 @@
 						"header": [
 							{
 								"key": "Content-Type",
+								"value": "application/json",
 								"name": "Content-Type",
-								"type": "text",
-								"value": "application/json"
+								"type": "text"
 							}
 						],
 						"url": {
@@ -7841,9 +7890,9 @@
 						"header": [
 							{
 								"key": "Content-Type",
+								"value": "application/json",
 								"name": "Content-Type",
-								"type": "text",
-								"value": "application/json"
+								"type": "text"
 							}
 						],
 						"body": {
@@ -7885,9 +7934,9 @@
 						"header": [
 							{
 								"key": "Content-Type",
+								"value": "application/json",
 								"name": "Content-Type",
-								"type": "text",
-								"value": "application/json"
+								"type": "text"
 							}
 						],
 						"body": {
@@ -7928,9 +7977,9 @@
 						"header": [
 							{
 								"key": "Content-Type",
+								"value": "application/json",
 								"name": "Content-Type",
-								"type": "text",
-								"value": "application/json"
+								"type": "text"
 							}
 						],
 						"body": {
@@ -7973,9 +8022,9 @@
 						"header": [
 							{
 								"key": "Content-Type",
+								"value": "application/json",
 								"name": "Content-Type",
-								"type": "text",
-								"value": "application/json"
+								"type": "text"
 							}
 						],
 						"url": {
@@ -8015,9 +8064,9 @@
 						"header": [
 							{
 								"key": "Content-Type",
+								"value": "application/json",
 								"name": "Content-Type",
-								"type": "text",
-								"value": "application/json"
+								"type": "text"
 							}
 						],
 						"body": {
@@ -8061,9 +8110,9 @@
 						"header": [
 							{
 								"key": "Content-Type",
+								"value": "application/json",
 								"name": "Content-Type",
-								"type": "text",
-								"value": "application/json"
+								"type": "text"
 							}
 						],
 						"body": {
@@ -8107,8 +8156,8 @@
 						"header": [
 							{
 								"key": "Content-Type",
-								"name": "Content-Type",
 								"value": "application/json",
+								"name": "Content-Type",
 								"type": "text"
 							}
 						],
@@ -8153,8 +8202,8 @@
 						"header": [
 							{
 								"key": "Content-Type",
-								"type": "text",
-								"value": "application/json"
+								"value": "application/json",
+								"type": "text"
 							}
 						],
 						"body": {
@@ -8198,8 +8247,8 @@
 						"header": [
 							{
 								"key": "Content-Type",
-								"type": "text",
-								"value": "application/json"
+								"value": "application/json",
+								"type": "text"
 							}
 						],
 						"body": {
@@ -8243,8 +8292,8 @@
 						"header": [
 							{
 								"key": "Content-Type",
-								"type": "text",
-								"value": "application/json"
+								"value": "application/json",
+								"type": "text"
 							}
 						],
 						"body": {
@@ -8288,9 +8337,9 @@
 						"header": [
 							{
 								"key": "Content-Type",
+								"value": "application/json",
 								"name": "Content-Type",
-								"type": "text",
-								"value": "application/json"
+								"type": "text"
 							}
 						],
 						"body": {
@@ -8336,8 +8385,8 @@
 						"header": [
 							{
 								"key": "Content-Type",
-								"name": "Content-Type",
 								"value": "application/json",
+								"name": "Content-Type",
 								"type": "text"
 							}
 						],
@@ -8383,9 +8432,9 @@
 						"header": [
 							{
 								"key": "Content-Type",
+								"value": "application/json",
 								"name": "Content-Type",
-								"type": "text",
-								"value": "application/json"
+								"type": "text"
 							}
 						],
 						"body": {
@@ -8431,9 +8480,9 @@
 						"header": [
 							{
 								"key": "Content-Type",
+								"value": "application/json",
 								"name": "Content-Type",
-								"type": "text",
-								"value": "application/json"
+								"type": "text"
 							}
 						],
 						"body": {
@@ -8480,8 +8529,8 @@
 						"header": [
 							{
 								"key": "content-type",
-								"type": "text",
-								"value": "application/json"
+								"value": "application/json",
+								"type": "text"
 							}
 						],
 						"body": {
@@ -9437,9 +9486,9 @@
 						"header": [
 							{
 								"key": "Content-Type",
+								"value": "application/json",
 								"name": "Content-Type",
-								"type": "text",
-								"value": "application/json"
+								"type": "text"
 							}
 						],
 						"body": {
@@ -9709,8 +9758,8 @@
 						"header": [
 							{
 								"key": "Content-Type",
-								"name": "Content-Type",
 								"value": "application/json",
+								"name": "Content-Type",
 								"type": "text"
 							}
 						],
@@ -9752,8 +9801,8 @@
 						"header": [
 							{
 								"key": "Content-Type",
-								"name": "Content-Type",
 								"value": "application/json",
+								"name": "Content-Type",
 								"type": "text"
 							}
 						],
