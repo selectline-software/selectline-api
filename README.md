@@ -14,13 +14,6 @@ Inhaltliche Änderungen zwischen den verschiedenen Versionsständen können hier
 Der hier veröffentlichte Code zeigt die Nutzung der **SelectLine API** in verschiedenen Programmiersprachen. 
 Die Beschreibungen zu den Funktionalitäten der Selectline API finden Sie auf der Selectline API - Hilfeseite.
 
-## DEMO-API-Zugangsdaten
-
-> **Demo-Url:** `https://demo.slmobile.de/demoapi/`<br/>
-> **Username:**	`APIDemo`<br/>
-> **Password:**	`Ap1Dem0`<br/>
-> **AppKey:**	`App-Demo20191122`<br/>
-
 ## Derzeitige Programmiersprachen
 
 - **C#/Console** 
