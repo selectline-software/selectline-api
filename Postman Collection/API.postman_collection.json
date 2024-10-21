@@ -9824,6 +9824,863 @@
 					"response": []
 				}
 			]
+		},
+		{
+			"name": "Accounting",
+			"item": [
+				{
+					"name": "Read all accounts",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{AccessToken}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "Authorization",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/Accounting/Accounts?top=10&select=Account,AccountNumber,Name",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"Accounting",
+								"Accounts"
+							],
+							"query": [
+								{
+									"key": "count",
+									"value": "true",
+									"disabled": true
+								},
+								{
+									"key": "top",
+									"value": "10"
+								},
+								{
+									"key": "skip",
+									"value": "10",
+									"disabled": true
+								},
+								{
+									"key": "orderby",
+									"value": "Account",
+									"disabled": true
+								},
+								{
+									"key": "filter",
+									"value": "Type eq 'FinanceAccount'",
+									"disabled": true
+								},
+								{
+									"key": "select",
+									"value": "Account,AccountNumber,Name"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Read all accounts with filter",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{AccessToken}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "Authorization",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/Accounting/Accounts?top=10&select=Account,AccountNumber,Name",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"Accounting",
+								"Accounts"
+							],
+							"query": [
+								{
+									"key": "count",
+									"value": "true",
+									"disabled": true
+								},
+								{
+									"key": "top",
+									"value": "10"
+								},
+								{
+									"key": "skip",
+									"value": "10",
+									"disabled": true
+								},
+								{
+									"key": "orderby",
+									"value": "Account",
+									"disabled": true
+								},
+								{
+									"key": "filter",
+									"value": "Type eq 'FinanceAccount'",
+									"disabled": true
+								},
+								{
+									"key": "select",
+									"value": "Account,AccountNumber,Name"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create account",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{AccessToken}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "Authorization",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"Account\": \"1021\",\r\n  \"Name\": \"Test POST Account GmbH\",\r\n  \"NameLong\": null,\r\n  \"Assignment\": \"None\",\r\n  \"Type\": \"Debtor\",\r\n  \"TaxCode\": null,\r\n  \"PostingBlockFrom\": null,\r\n  \"AccountOfExchange\": null,\r\n  \"AutoText\": null,\r\n  \"DatevTax\": true,\r\n  \"ChamberOfLaborContributionObligation\": \"Without\",\r\n  \"ConsolidationAccount\": \"string\",\r\n  \"DatevAccount\": \"string\",\r\n  \"FiscalYearChangeAccount\": \"string\",\r\n  \"PostingFunction\": 0,\r\n  \"Options\": {\r\n    \"OnlyPostAccountIndirectly\": false,\r\n    \"DetermineTaxCode\": false,\r\n    \"AssetAccount\": false,\r\n    \"FiscalYearChangeWithoutAccountBalance\": false,\r\n    \"SummariseAccountSheet\": false\r\n  },\r\n  \"Settings\": {\r\n    \"ForeignCurrency\": false,\r\n    \"DefineForeignCurrency\": false,\r\n    \"Currency\": null,\r\n    \"RequestOSS\": true,\r\n    \"TaxWithAccounting\": true,\r\n    \"CostEntry\": \"NoCostEntry\",\r\n    \"CostTypeAccount\": null,\r\n    \"CostPostingSchema\": null,\r\n    \"CostCentre\": null,\r\n    \"CostUnit\": null,\r\n    \"CountryCodes\": null,\r\n    \"Addition1\": null,\r\n    \"Addition2\": null,\r\n    \"CollectiveAccount\": \"\",\r\n    \"AccessLevel\": null,\r\n    \"PostFunction\": \"None\",\r\n    \"RecapitulativeStatement\": false,\r\n    \"TriangularTrade\": false,\r\n    \"MiscellaneousServices\": false,\r\n    \"OSSProcess\": \"NoParticipation\",\r\n    \"OSSTurnoverType\": null,\r\n    \"OSSTaxRate\": null\r\n  },\r\n  \"CustomFields\": {\r\n    \"CustomText1\": null,\r\n    \"CustomText2\": null,\r\n    \"CustomNumber1\": null,\r\n    \"CustomNumber2\": null,\r\n    \"CustomNumber3\": null,\r\n    \"CustomNumber4\": null,\r\n    \"CustomDate1\": null,\r\n    \"CustomDate2\": null,\r\n    \"CustomIndicator1\": false,\r\n    \"CustomIndicator2\": false,\r\n    \"CustomIndicator3\": false,\r\n    \"CustomIndicator4\": false\r\n  }\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/Accounting/Accounts",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"Accounting",
+								"Accounts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Read all balances",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{AccessToken}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "Authorization",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/Accounting/Balances",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"Accounting",
+								"Balances"
+							],
+							"query": [
+								{
+									"key": "isProfitLoss",
+									"value": "true",
+									"description": "Nur GuV Konten",
+									"disabled": true
+								},
+								{
+									"key": "isDebCred",
+									"value": "true",
+									"description": "Nur Debitor / Kreditor Konten",
+									"disabled": true
+								},
+								{
+									"key": "isBalance",
+									"value": "true",
+									"description": "Nur Bilanzkonten",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Read all batches",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{AccessToken}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "Authorization",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/Accounting/BatchPostings",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"Accounting",
+								"BatchPostings"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create batch posting",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{AccessToken}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "Authorization",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"BatchNumber\": 0,\r\n  \"Description\": \"Beschreibung\",\r\n  \"ProcessingType\": \"Once\",\r\n  \"DocumentDayReplace\": false,\r\n  \"DocumentMonthReplace\": false,\r\n  \"DocumentYearReplace\": false,\r\n  \"Replacement5\": \"string\",\r\n  \"Replacement6\": \"string\",\r\n  \"Replacement7\": \"string\",\r\n  \"Replacement8\": \"string\",\r\n  \"Preprocessing\": false,\r\n  \"NumberRange\": \"string\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/Accounting/BatchPostings",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"Accounting",
+								"BatchPostings"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update batch posting",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{AccessToken}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "Authorization",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Replacement5\": \"Ersetzung\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/Accounting/BatchPostings/:batchPostingId",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"Accounting",
+								"BatchPostings",
+								":batchPostingId"
+							],
+							"variable": [
+								{
+									"key": "batchPostingId",
+									"value": "99"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete batch posting",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{AccessToken}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "Authorization",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/Accounting/BatchPostings/:batchPostingId",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"Accounting",
+								"BatchPostings",
+								":batchPostingId"
+							],
+							"variable": [
+								{
+									"key": "batchPostingId",
+									"value": "99"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Read all postings of a batch posting",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{AccessToken}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "Authorization",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/Accounting/BatchPostings/:batchPostingId/Postings/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"Accounting",
+								"BatchPostings",
+								":batchPostingId",
+								"Postings",
+								""
+							],
+							"variable": [
+								{
+									"key": "batchPostingId",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create a posting of a batch posting",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{AccessToken}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "Authorization",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"PostDate\": \"2023-12-31\",\r\n    \"Period\": \"2023120\",\r\n    \"PostingDocument\": \"2032\",\r\n    \"BalanceType\": \"BalanceOfTrade\",\r\n    \"Positions\": [\r\n        {\r\n            \"Account\": \"70000\",\r\n            \"OffsetAccount\": \"8400\",\r\n            \"Text\": \"KRE\",\r\n            \"Text2\": \"\",\r\n            \"Amount\": 119.0,\r\n            \"CashDiscount\": 0.0,\r\n            \"DebitCreditLabel\": 1,\r\n            \"TaxCode\": \"3\",\r\n            \"Tax\": 19.0,\r\n            \"TaxValue\": 19.0,\r\n            \"Currency\": \"EUR\",\r\n            \"CurrencyFactor\": 1.0,\r\n            \"CustomerSupplierNumber\": \"70000\",\r\n            \"VATID\": \"\",\r\n            \"AdditionalInformation\": \"\",\r\n            \"OSSProcess\": \"NoParticipation\",\r\n            \"OSSTurnoverType\": null,\r\n            \"OSSTaxRate\": null,\r\n            \"OpenItem\": {\r\n                \"ValueDate\": \"2023-12-31\"\r\n            },\r\n            \"Costs\": [\r\n                {\r\n                    \"CostMapping\": \"OffsetAccount\",\r\n                    \"Amount\": -100.0,\r\n                    \"CostUsingType\": \"Fixed\",\r\n                    \"CostType\": \"8400\",\r\n                    \"CostCentre\": \"KST_002\",\r\n                    \"CostUnit\": \"\"\r\n                }\r\n            ]\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/Accounting/BatchPostings/:batchPostingId/Postings/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"Accounting",
+								"BatchPostings",
+								":batchPostingId",
+								"Postings",
+								""
+							],
+							"variable": [
+								{
+									"key": "batchPostingId",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update a posting of a batch posting",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{AccessToken}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "Authorization",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"PostingDocument\": \"2035\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/Accounting/BatchPostings/:batchPostingId/Postings/:postingId",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"Accounting",
+								"BatchPostings",
+								":batchPostingId",
+								"Postings",
+								":postingId"
+							],
+							"variable": [
+								{
+									"key": "batchPostingId",
+									"value": "2"
+								},
+								{
+									"key": "postingId",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a posting of a batch posting",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{AccessToken}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "Authorization",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/Accounting/BatchPostings/:batchPostingId/Postings/:postingId",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"Accounting",
+								"BatchPostings",
+								":batchPostingId",
+								"Postings",
+								":postingId"
+							],
+							"variable": [
+								{
+									"key": "batchPostingId",
+									"value": "2"
+								},
+								{
+									"key": "postingId",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Read all cost centres",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{AccessToken}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "Authorization",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/Accounting/CostCentres",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"Accounting",
+								"CostCentres"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Read all cost types",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{AccessToken}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "Authorization",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/Accounting/CostTypes",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"Accounting",
+								"CostTypes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Read all cost units",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{AccessToken}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "Authorization",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/Accounting/CostUnits",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"Accounting",
+								"CostUnits"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Read all number ranges",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{AccessToken}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "Authorization",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/Accounting/NumberRanges",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"Accounting",
+								"NumberRanges"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Read all open items",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{AccessToken}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "Authorization",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/Accounting/OpenItems",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"Accounting",
+								"OpenItems"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Read all tax codes",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{AccessToken}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "Authorization",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/Accounting/TaxCodes",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"Accounting",
+								"TaxCodes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Read all validities of a tax code",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{AccessToken}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "Authorization",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/Accounting/TaxCodes/:steuercode/Validities/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"Accounting",
+								"TaxCodes",
+								":steuercode",
+								"Validities",
+								""
+							],
+							"variable": [
+								{
+									"key": "steuercode",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Read all tenant information",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{AccessToken}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "Authorization",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/Accounting/TaxCodes",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"Accounting",
+								"TaxCodes"
+							]
+						}
+					},
+					"response": []
+				}
+			]
 		}
 	]
 }
