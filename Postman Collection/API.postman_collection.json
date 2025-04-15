@@ -2964,6 +2964,53 @@
 							"response": []
 						},
 						{
+							"name": "Digital Document",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{AccessToken}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "Authorization",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{url}}/Documents/RAR851/DigitalDocument",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"Documents",
+										"RAR851",
+										"DigitalDocument"
+									]
+								}
+							},
+							"response": []
+						},
+						{
 							"name": "Print document",
 							"request": {
 								"auth": {
@@ -5529,6 +5576,49 @@
 										"Prospects",
 										"1",
 										"Journals"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create Customer from Prospect",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{AccessToken}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "Authorization",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"ConvertType\": \"InactiveWithDocumentLock\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/Prospects/1/Customer",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"Prospects",
+										"1",
+										"Customer"
 									]
 								}
 							},
@@ -10043,6 +10133,65 @@
 									"value": "true",
 									"description": "Nur Bilanzkonten",
 									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Upload bank statement (camt.053)",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{AccessToken}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "Authorization",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"description": "Select an upload file",
+									"type": "file",
+									"src": "/C:/Temp/KontoauszugCamt053.xml"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/Accounting/BankStatement/camt?StartImportFrom=01.01.2024&UseCollectivePositions=false&UseValueDateAsBookingDate=false",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"Accounting",
+								"BankStatement",
+								"camt"
+							],
+							"query": [
+								{
+									"key": "StartImportFrom",
+									"value": "01.01.2024"
+								},
+								{
+									"key": "UseCollectivePositions",
+									"value": "false"
+								},
+								{
+									"key": "UseValueDateAsBookingDate",
+									"value": "false"
 								}
 							]
 						}
