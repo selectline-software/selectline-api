@@ -10171,7 +10171,7 @@
 							]
 						},
 						"url": {
-							"raw": "{{url}}/Accounting/BankStatement/camt?StartImportFrom=01.01.2024&UseCollectivePositions=false&UseValueDateAsBookingDate=false",
+							"raw": "{{url}}/Accounting/BankStatement/camt?StartImportFrom=01.01.2024&UseCollectivePositions=false&UseValueDateAsBookingDate=false&IsOnline=false&IgnoreOfflineCheck=false",
 							"host": [
 								"{{url}}"
 							],
@@ -10191,6 +10191,14 @@
 								},
 								{
 									"key": "UseValueDateAsBookingDate",
+									"value": "false"
+								},
+								{
+									"key": "IsOnline",
+									"value": "false"
+								},
+								{
+									"key": "IgnoreOfflineCheck",
 									"value": "false"
 								}
 							]
