@@ -10,22 +10,12 @@ Für die SelectLine API gibt es die folgenden digitalen Schnittstellenbeschreibu
 Inhaltliche Änderungen zwischen den verschiedenen Versionsständen können hier angezeigt werden:
 - [API Update-Hilfe](https://apiupdate.selectline.de/)
 
-## Beispielprojekte
-Der hier veröffentlichte Code zeigt die Nutzung der **SelectLine API** in verschiedenen Programmiersprachen. 
 Die Beschreibungen zu den Funktionalitäten der Selectline API finden Sie auf der Selectline API - Hilfeseite.
-
-## Derzeitige Programmiersprachen
-
-- **C#/Console** 
-- **C#/WPF**
-- **Angular**
-- **HTML-JavaScript** 
-- **PHP**
-- **PowerShell**
-- **Python 3.x**
 
 ## Fragen und Antworten
 
 Bei Problemen oder detaillierteren Fragen rund um die SelectLine API und deren Funktionalitäten können Sie gerne einen Beitrag in dieses Forum unter dem Bereich "Issues" einstellen.
 
-Wir, als Entwickler der SelectLine API, schauen hier regelmäßig nach, um Ihnen bei der Entwicklung Ihrer Projekte bestmöglich zu unterstützen.
+Bitte platzieren Sie Wünsche und Verbesserungsvorschläge ausschließlich in unserem [UserVoice-Portal](https://members.selectline.de/partner/partnerwuensche/).
+Dort werden alle Ideen zentral gesammelt, priorisiert und vom Produktmanagement bewertet.
+Über andere Kanäle eingereichte Beiträge können wir in der Produktweiterentwicklung leider nur eingeschränkt berücksichtigen.
