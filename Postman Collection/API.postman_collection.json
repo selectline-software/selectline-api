@@ -2801,7 +2801,6 @@
                 "header": [
                   {
                     "key": "Content-Type",
-                    "name": "Content-Type",
                     "value": "application/json",
                     "type": "text"
                   }
@@ -4686,6 +4685,85 @@
               ]
             },
             {
+              "name": "Delivery addresses",
+              "item": [
+                {
+                  "name": "POST DeliveryAddresses",
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json",
+                        "type": "text"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\r\n    \"LetterSalutation\": \"Briefanrede\",\r\n    \"Salutation\": \"Anrede\",\r\n    \"FirstName\":  \"Vorname\",\r\n    \"Name\": \"Nachname\"\r\n}"
+                    },
+                    "url": {
+                      "raw": "{{url}}/Customers/:customerNumber/DeliveryAddresses",
+                      "host": [
+                        "{{url}}"
+                      ],
+                      "path": [
+                        "Customers",
+                        ":customerNumber",
+                        "DeliveryAddresses"
+                      ],
+                      "variable": [
+                        {
+                          "key": "customerNumber",
+                          "value": "10001"
+                        }
+                      ]
+                    }
+                  },
+                  "response": []
+                },
+                {
+                  "name": "PUT DeliveryAddresses",
+                  "request": {
+                    "method": "PUT",
+                    "header": [],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\r\n    \"LetterSalutation\": \"Briefanrede\",\r\n    \"Salutation\": \"Anrede\",\r\n    \"FirstName\":  \"Vorname\",\r\n    \"Name\": \"Nachname\"\r\n}",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{url}}/Customers/:customerNumber/DeliveryAddresses/:deliveryAddressNumber",
+                      "host": [
+                        "{{url}}"
+                      ],
+                      "path": [
+                        "Customers",
+                        ":customerNumber",
+                        "DeliveryAddresses",
+                        ":deliveryAddressNumber"
+                      ],
+                      "variable": [
+                        {
+                          "key": "customerNumber",
+                          "value": "10001"
+                        },
+                        {
+                          "key": "deliveryAddressNumber",
+                          "value": "208"
+                        }
+                      ]
+                    }
+                  },
+                  "response": []
+                }
+              ]
+            },
+            {
               "name": "Read all customers",
               "request": {
                 "auth": {
@@ -5396,6 +5474,92 @@
           "name": "Prospect",
           "item": [
             {
+              "name": "Delivery addresses",
+              "item": [
+                {
+                  "name": "POST DeliveryAddresses",
+                  "request": {
+                    "method": "POST",
+                    "header": [],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\r\n    \"LetterSalutation\": \"Briefanrede\",\r\n    \"Salutation\": \"Anrede\",\r\n    \"FirstName\":  \"Vorname\",\r\n    \"Name\": \"Nachname\"\r\n}",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{url}}/Prospects/:prospectNumber/DeliveryAddresses",
+                      "host": [
+                        "{{url}}"
+                      ],
+                      "path": [
+                        "Prospects",
+                        ":prospectNumber",
+                        "DeliveryAddresses"
+                      ],
+                      "variable": [
+                        {
+                          "key": "prospectNumber",
+                          "value": "1"
+                        }
+                      ]
+                    }
+                  },
+                  "response": []
+                },
+                {
+                  "name": "PUT DeliveryAddresses",
+                  "request": {
+                    "method": "PUT",
+                    "header": [],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\r\n    \"LetterSalutation\": \"Briefanrede\",\r\n    \"Salutation\": \"Anrede\",\r\n    \"FirstName\":  \"Vorname\",\r\n    \"Name\": \"Nachname\"\r\n}",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{url}}/Prospects/:prospectNumber/DeliveryAddresses/:deliveryAddressNumber",
+                      "host": [
+                        "{{url}}"
+                      ],
+                      "path": [
+                        "Prospects",
+                        ":prospectNumber",
+                        "DeliveryAddresses",
+                        ":deliveryAddressNumber"
+                      ],
+                      "variable": [
+                        {
+                          "key": "prospectNumber",
+                          "value": "1"
+                        },
+                        {
+                          "key": "deliveryAddressNumber",
+                          "value": "210"
+                        }
+                      ]
+                    }
+                  },
+                  "response": []
+                },
+                {
+                  "name": "New Request",
+                  "request": {
+                    "method": "GET",
+                    "header": []
+                  },
+                  "response": []
+                }
+              ]
+            },
+            {
               "name": "Read all prospects",
               "request": {
                 "auth": {
@@ -5797,6 +5961,84 @@
         {
           "name": "Supplier",
           "item": [
+            {
+              "name": "Delivery Addresses",
+              "item": [
+                {
+                  "name": "POST DeliveryAddresses",
+                  "request": {
+                    "method": "POST",
+                    "header": [],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\r\n    \"LetterSalutation\": \"Briefanrede\",\r\n    \"Salutation\": \"Anrede\",\r\n    \"FirstName\":  \"Vorname\",\r\n    \"Name\": \"Nachname\"\r\n}",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{url}}/Suppliers/:supplierNumber/DeliveryAddresses",
+                      "host": [
+                        "{{url}}"
+                      ],
+                      "path": [
+                        "Suppliers",
+                        ":supplierNumber",
+                        "DeliveryAddresses"
+                      ],
+                      "variable": [
+                        {
+                          "key": "supplierNumber",
+                          "value": "70001"
+                        }
+                      ]
+                    }
+                  },
+                  "response": []
+                },
+                {
+                  "name": "PUT DeliveryAddresses",
+                  "request": {
+                    "method": "PUT",
+                    "header": [],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\r\n    \"LetterSalutation\": \"Briefanrede\",\r\n    \"Salutation\": \"Anrede\",\r\n    \"FirstName\":  \"Vorname\",\r\n    \"Name\": \"Nachname\"\r\n}\r\n\r\n",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{url}}/Suppliers/:supplierNumber/DeliveryAddresses/:deliveryAddressNumber",
+                      "host": [
+                        "{{url}}"
+                      ],
+                      "path": [
+                        "Suppliers",
+                        ":supplierNumber",
+                        "DeliveryAddresses",
+                        ":deliveryAddressNumber"
+                      ],
+                      "variable": [
+                        {
+                          "key": "supplierNumber",
+                          "value": "70001"
+                        },
+                        {
+                          "key": "deliveryAddressNumber",
+                          "value": "209"
+                        }
+                      ]
+                    }
+                  },
+                  "response": []
+                }
+              ]
+            },
             {
               "name": "Read all suppliers",
               "request": {
@@ -6327,6 +6569,65 @@
                     "Employees",
                     "1",
                     "Journals"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "AddressManagement",
+          "item": [
+            {
+              "name": "Adresses",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{url}}/AddressManagement/Addresses?top=2",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "AddressManagement",
+                    "Addresses"
+                  ],
+                  "query": [
+                    {
+                      "key": "count",
+                      "value": "true",
+                      "disabled": true
+                    },
+                    {
+                      "key": "top",
+                      "value": "2",
+                      "type": "text"
+                    },
+                    {
+                      "key": "skip",
+                      "value": "5",
+                      "type": "text",
+                      "disabled": true
+                    },
+                    {
+                      "key": "orderby",
+                      "value": "ID desc",
+                      "type": "text",
+                      "disabled": true
+                    },
+                    {
+                      "key": "filter",
+                      "value": "ID eq 6",
+                      "type": "text",
+                      "disabled": true
+                    },
+                    {
+                      "key": "select",
+                      "value": "ID, name",
+                      "type": "text",
+                      "disabled": true
+                    }
                   ]
                 }
               },
@@ -11287,6 +11588,651 @@
               "path": [
                 "GraphApiManagement",
                 "Mails"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Opportunities",
+      "item": [
+        {
+          "name": "GET OpportunityManagement Groups",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{url}}/OpportunityManagement/Groups",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "OpportunityManagement",
+                "Groups"
+              ],
+              "query": [
+                {
+                  "key": "count",
+                  "value": "true",
+                  "disabled": true
+                },
+                {
+                  "key": "top",
+                  "value": "2",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "skip",
+                  "value": "5",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "orderby",
+                  "value": "Id desc",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "filter",
+                  "value": "Id eq 1",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "select",
+                  "value": "Id, name",
+                  "type": "text",
+                  "disabled": true
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GET OpportunitiyManagement Phases",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{url}}/OpportunityManagement/Phases",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "OpportunityManagement",
+                "Phases"
+              ],
+              "query": [
+                {
+                  "key": "count",
+                  "value": "true",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "top",
+                  "value": "2",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "skip",
+                  "value": "5",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "orderby",
+                  "value": "Id desc",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "filter",
+                  "value": "ID eq 1",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "select",
+                  "value": "Id, name",
+                  "type": "text",
+                  "disabled": true
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GET OpportunityManagement Products",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{url}}/OpportunityManagement/Products",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "OpportunityManagement",
+                "Products"
+              ],
+              "query": [
+                {
+                  "key": "count",
+                  "value": "true",
+                  "disabled": true
+                },
+                {
+                  "key": "top",
+                  "value": "2",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "skip",
+                  "value": "5",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "orderby",
+                  "value": "Id desc",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "filter",
+                  "value": "Id eq 1",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "select",
+                  "value": "Id, name",
+                  "type": "text",
+                  "disabled": true
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GET OpportunityManagement Sources",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{url}}/OpportunityManagement/Sources",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "OpportunityManagement",
+                "Sources"
+              ],
+              "query": [
+                {
+                  "key": "count",
+                  "value": "true",
+                  "disabled": true
+                },
+                {
+                  "key": "top",
+                  "value": "2",
+                  "disabled": true
+                },
+                {
+                  "key": "skip",
+                  "value": "5",
+                  "disabled": true
+                },
+                {
+                  "key": "orderby",
+                  "value": "ID desc",
+                  "disabled": true
+                },
+                {
+                  "key": "filter",
+                  "value": "ID eq 1",
+                  "disabled": true
+                },
+                {
+                  "key": "select",
+                  "value": "ID, name",
+                  "disabled": true
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GET OpportunityManagement  Reasons",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{url}}/OpportunityManagement/Reasons",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "OpportunityManagement",
+                "Reasons"
+              ],
+              "query": [
+                {
+                  "key": "count",
+                  "value": "true",
+                  "disabled": true
+                },
+                {
+                  "key": "top",
+                  "value": "2",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "skip",
+                  "value": "5",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "orderby",
+                  "value": "ID desc",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "filter",
+                  "value": "ID eq 1",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "select",
+                  "value": "ID, name",
+                  "type": "text",
+                  "disabled": true
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GET OpportunityManagement Journals",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{url}}/OpportunityManagement/Journals",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "OpportunityManagement",
+                "Journals"
+              ],
+              "query": [
+                {
+                  "key": "count",
+                  "value": "true",
+                  "disabled": true
+                },
+                {
+                  "key": "top",
+                  "value": "2",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "skip",
+                  "value": "5",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "orderby",
+                  "value": "ID desc",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "filter",
+                  "value": "ID eq 6",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "select",
+                  "value": "ID, name",
+                  "type": "text",
+                  "disabled": true
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GET Opportunities",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{url}}/OpportunityManagement/Opportunities",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "OpportunityManagement",
+                "Opportunities"
+              ],
+              "query": [
+                {
+                  "key": "count",
+                  "value": "true",
+                  "disabled": true
+                },
+                {
+                  "key": "top",
+                  "value": "10",
+                  "disabled": true
+                },
+                {
+                  "key": "skip",
+                  "value": "5",
+                  "disabled": true
+                },
+                {
+                  "key": "orderby",
+                  "value": "ID desc",
+                  "disabled": true
+                },
+                {
+                  "key": "filter",
+                  "value": "ID eq 1",
+                  "disabled": true
+                },
+                {
+                  "key": "select",
+                  "value": "ID, name",
+                  "disabled": true
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "POST Opportunities",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"CrmAddressId\": 7,\r\n  \"PersonId\": 15,\r\n  \"Name\": \"Verkaufschance\",\r\n  \"PhaseId\": 1,\r\n  \"SourceId\": 1,\r\n  \"Probability\": 50,\r\n  \"ReasonId\": 1\r\n}\r\n\r\n"
+            },
+            "url": {
+              "raw": "{{url}}/OpportunityManagement/Opportunities",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "OpportunityManagement",
+                "Opportunities"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "DELETE Opportunities",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{url}}/OpportunityManagement/Opportunities/:opportunitiyID",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "OpportunityManagement",
+                "Opportunities",
+                ":opportunitiyID"
+              ],
+              "variable": [
+                {
+                  "key": "opportunitiyID",
+                  "value": "1"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GET Opportunities Volumes",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{url}}/OpportunityManagement/Volumes",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "OpportunityManagement",
+                "Volumes"
+              ],
+              "query": [
+                {
+                  "key": "count",
+                  "value": "true",
+                  "disabled": true
+                },
+                {
+                  "key": "top",
+                  "value": "2",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "skip",
+                  "value": "5",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "orderby",
+                  "value": "ID desc",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "filter",
+                  "value": "ID eq 6",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "select",
+                  "value": "ID, name",
+                  "type": "text",
+                  "disabled": true
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "POST Opportunities Volumes",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"OpportunityId\": 2,\r\n  \"Group\": \"200\",\r\n  \"Product\": \"Software\",\r\n  \"Revenue\": 0\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{url}}/OpportunityManagement/Volumes",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "OpportunityManagement",
+                "Volumes"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "DELETE Opportunities Volumes",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{url}}/OpportunityManagement/Volumes/:volumeID",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "OpportunityManagement",
+                "Volumes",
+                ":volumeID"
+              ],
+              "variable": [
+                {
+                  "key": "volumeID",
+                  "value": "5"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "POST OpportunityManagement LinkDocuments",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"OpportunityId\": 2,\r\n  \"Belegnummer\": \"AU562\",\r\n  \"Belegtyp\": \"F\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{url}}/OpportunityManagement/LinkDocuments",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "OpportunityManagement",
+                "LinkDocuments"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "POST OpportunityManagement LinkJournal",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"OpportunityId\": 2,\r\n  \"JournalId\": \"3474a912-e489-4234-93a7-514def06867a\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{url}}/OpportunityManagement/LinkJournal",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "OpportunityManagement",
+                "LinkJournal"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "DELETE Opportunity UnlinkDocument",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{url}}/OpportunityManagement/UnlinkDocument/:documentLinkID",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "OpportunityManagement",
+                "UnlinkDocument",
+                ":documentLinkID"
+              ],
+              "variable": [
+                {
+                  "key": "documentLinkID",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "DELETE Opportunity UnlinkJournal",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{url}}/OpportunityManagement/UnlinkJournal/:journalLinkID",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "OpportunityManagement",
+                "UnlinkJournal",
+                ":journalLinkID"
+              ],
+              "variable": [
+                {
+                  "key": "journalLinkID",
+                  "value": ""
+                }
               ]
             }
           },
