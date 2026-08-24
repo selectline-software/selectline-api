@@ -2547,6 +2547,77 @@
                   "response": []
                 },
                 {
+                  "name": "ExtendedDescription",
+                  "request": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{url}}/Documents/:documentKey/Positions/:documentPositionIdentifier/ExtendedDescription",
+                      "host": [
+                        "{{url}}"
+                      ],
+                      "path": [
+                        "Documents",
+                        ":documentKey",
+                        "Positions",
+                        ":documentPositionIdentifier",
+                        "ExtendedDescription"
+                      ],
+                      "variable": [
+                        {
+                          "key": "documentKey",
+                          "value": "RAR10001"
+                        },
+                        {
+                          "key": "documentPositionIdentifier",
+                          "value": "98cd1a64-e607-4a67-b289-ae78af4d58b2"
+                        }
+                      ]
+                    }
+                  },
+                  "response": []
+                },
+                {
+                  "name": "ExtendedDescription",
+                  "request": {
+                    "method": "PUT",
+                    "header": [],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\r\n    \"Text\": \"Das ist Ihr Artikel.\"\r\n}",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{url}}/Documents/:documentKey/Positions/:documentPositionIdentifier/ExtendedDescription",
+                      "host": [
+                        "{{url}}"
+                      ],
+                      "path": [
+                        "Documents",
+                        ":documentKey",
+                        "Positions",
+                        ":documentPositionIdentifier",
+                        "ExtendedDescription"
+                      ],
+                      "variable": [
+                        {
+                          "key": "documentKey",
+                          "value": "RAR10001"
+                        },
+                        {
+                          "key": "documentPositionIdentifier",
+                          "value": "98cd1a64-e607-4a67-b289-ae78af4d58b2"
+                        }
+                      ]
+                    }
+                  },
+                  "response": []
+                },
+                {
                   "name": "Delete document position",
                   "request": {
                     "auth": {
@@ -3323,6 +3394,124 @@
               "response": []
             },
             {
+              "name": "HeaderText",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{url}}/Documents/:documentKey/HeaderText",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "Documents",
+                    ":documentKey",
+                    "HeaderText"
+                  ],
+                  "variable": [
+                    {
+                      "key": "documentKey",
+                      "value": "RAR10001"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "FooterText",
+              "request": {
+                "method": "PUT",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"Text\": \"Vielen Dank für Ihre Bestellung.\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{url}}/Documents/:documentKey/FooterText",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "Documents",
+                    ":documentKey",
+                    "FooterText"
+                  ],
+                  "variable": [
+                    {
+                      "key": "documentKey",
+                      "value": "RAR10001"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "FooterText",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{url}}/Documents/:documentKey/FooterText",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "Documents",
+                    ":documentKey",
+                    "FooterText"
+                  ],
+                  "variable": [
+                    {
+                      "key": "documentKey",
+                      "value": "RAR10001"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "HeaderText",
+              "request": {
+                "method": "PUT",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"Text\": \"Vielen Dank für Ihre Bestellung.\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{url}}/Documents/:documentKey/HeaderText",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "Documents",
+                    ":documentKey",
+                    "HeaderText"
+                  ],
+                  "variable": [
+                    {
+                      "key": "documentKey",
+                      "value": "RAR10001"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
               "name": "Delete document",
               "request": {
                 "auth": {
@@ -3576,6 +3765,31 @@
                   ]
                 },
                 "description": "Gibt alle Projekte zurück."
+              },
+              "response": []
+            },
+            {
+              "name": "Read Project ExtendedDescription",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{url}}/Projects/:projectNumber/ExtendedDescription",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "Projects",
+                    ":projectNumber",
+                    "ExtendedDescription"
+                  ],
+                  "variable": [
+                    {
+                      "key": "projectNumber",
+                      "value": "P021"
+                    }
+                  ]
+                }
               },
               "response": []
             }
@@ -5090,6 +5304,124 @@
               "response": []
             },
             {
+              "name": "ExtendedDescription",
+              "request": {
+                "method": "PUT",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"Text\": \"Vielen Dank für Ihren Einkauf\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{url}}/Customers/:customerNumber/ExtendedDescription",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "Customers",
+                    ":customerNumber",
+                    "ExtendedDescription"
+                  ],
+                  "variable": [
+                    {
+                      "key": "customerNumber",
+                      "value": "10001"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "ExtendedDescription",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{url}}/Customers/:customerNumber/ExtendedDescription",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "Customers",
+                    ":customerNumber",
+                    "ExtendedDescription"
+                  ],
+                  "variable": [
+                    {
+                      "key": "customerNumber",
+                      "value": "10001"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Memo",
+              "request": {
+                "method": "PUT",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"Text\": \"Vielen Dank für Ihren Einkauf\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{url}}/Customers/:customerNumber/Memo",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "Customers",
+                    ":customerNumber",
+                    "Memo"
+                  ],
+                  "variable": [
+                    {
+                      "key": "customerNumber",
+                      "value": "10001"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Memo",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{url}}/Customers/:customerNumber/Memo",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "Customers",
+                    ":customerNumber",
+                    "Memo"
+                  ],
+                  "variable": [
+                    {
+                      "key": "customerNumber",
+                      "value": "10001"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
               "name": "Read Journals of Customer",
               "request": {
                 "auth": {
@@ -5880,6 +6212,124 @@
               "response": []
             },
             {
+              "name": "ExtendedDescription",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{url}}/Prospects/:prospectNumber/ExtendedDescription",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "Prospects",
+                    ":prospectNumber",
+                    "ExtendedDescription"
+                  ],
+                  "variable": [
+                    {
+                      "key": "prospectNumber",
+                      "value": "1000"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "ExtendedDescription",
+              "request": {
+                "method": "PUT",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"Text\": \"Vielen Dank für Ihr Interesse\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{url}}/Prospects/:prospectNumber/ExtendedDescription",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "Prospects",
+                    ":prospectNumber",
+                    "ExtendedDescription"
+                  ],
+                  "variable": [
+                    {
+                      "key": "prospectNumber",
+                      "value": "1000"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Memo",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{url}}/Prospects/:prospectNumber/Memo",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "Prospects",
+                    ":prospectNumber",
+                    "Memo"
+                  ],
+                  "variable": [
+                    {
+                      "key": "prospectNumber",
+                      "value": "1000"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Memo",
+              "request": {
+                "method": "PUT",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"Text\": \"Vielen Dank für Ihr Interesse\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{url}}/Prospects/:prospectNumber/Memo",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "Prospects",
+                    ":prospectNumber",
+                    "Memo"
+                  ],
+                  "variable": [
+                    {
+                      "key": "prospectNumber",
+                      "value": "1000"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
               "name": "Read Journals of Prospect",
               "request": {
                 "auth": {
@@ -6192,6 +6642,124 @@
                   ]
                 },
                 "description": "Legt einen neuen Lieferanten an."
+              },
+              "response": []
+            },
+            {
+              "name": "ExtendedDescription",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{url}}/Suppliers/:supplierNumber/ExtendedDescription",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "Suppliers",
+                    ":supplierNumber",
+                    "ExtendedDescription"
+                  ],
+                  "variable": [
+                    {
+                      "key": "supplierNumber",
+                      "value": "10004"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "ExtendedDescription",
+              "request": {
+                "method": "PUT",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"Text\": \"Vielen Dank für Ihre Lieferung\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{url}}/Suppliers/:supplierNumber/ExtendedDescription",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "Suppliers",
+                    ":supplierNumber",
+                    "ExtendedDescription"
+                  ],
+                  "variable": [
+                    {
+                      "key": "supplierNumber",
+                      "value": "10004"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Memo",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{url}}/Suppliers/:supplierNumber/Memo",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "Suppliers",
+                    ":supplierNumber",
+                    "Memo"
+                  ],
+                  "variable": [
+                    {
+                      "key": "supplierNumber",
+                      "value": "10004"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Memo",
+              "request": {
+                "method": "PUT",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"Text\": \"Vielen Dank für Ihre Lieferung\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{url}}/Suppliers/:supplierNumber/Memo",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "Suppliers",
+                    ":supplierNumber",
+                    "Memo"
+                  ],
+                  "variable": [
+                    {
+                      "key": "supplierNumber",
+                      "value": "10004"
+                    }
+                  ]
+                }
               },
               "response": []
             },
