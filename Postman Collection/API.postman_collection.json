@@ -448,6 +448,62 @@
               ]
             },
             {
+              "name": "AiFlags",
+              "item": [
+                {
+                  "name": "AiFlags",
+                  "request": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{url}}/Articles/:artcleNumber/AiFlags",
+                      "host": [
+                        "{{url}}"
+                      ],
+                      "path": [
+                        "Articles",
+                        ":artcleNumber",
+                        "AiFlags"
+                      ],
+                      "variable": [
+                        {
+                          "key": "artcleNumber",
+                          "value": "100001"
+                        }
+                      ]
+                    }
+                  },
+                  "response": []
+                },
+                {
+                  "name": "AiFlags Summary",
+                  "request": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{url}}/Articles/:artcleNumber/AiFlags/Summary",
+                      "host": [
+                        "{{url}}"
+                      ],
+                      "path": [
+                        "Articles",
+                        ":artcleNumber",
+                        "AiFlags",
+                        "Summary"
+                      ],
+                      "variable": [
+                        {
+                          "key": "artcleNumber",
+                          "value": "100001"
+                        }
+                      ]
+                    }
+                  },
+                  "response": []
+                }
+              ]
+            },
+            {
               "name": "Read all articles",
               "request": {
                 "auth": {
@@ -2657,6 +2713,121 @@
                       ]
                     },
                     "description": "Löschen einer Belegposition."
+                  },
+                  "response": []
+                }
+              ]
+            },
+            {
+              "name": "AiFlags",
+              "item": [
+                {
+                  "name": "AiFlags",
+                  "request": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{url}}/Documents/:documentKey/AiFlags",
+                      "host": [
+                        "{{url}}"
+                      ],
+                      "path": [
+                        "Documents",
+                        ":documentKey",
+                        "AiFlags"
+                      ],
+                      "variable": [
+                        {
+                          "key": "documentKey",
+                          "value": "RAR10001"
+                        }
+                      ]
+                    }
+                  },
+                  "response": []
+                },
+                {
+                  "name": "AiFlags Summary",
+                  "request": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{url}}/Documents/:documentKey/AiFlags/Summary",
+                      "host": [
+                        "{{url}}"
+                      ],
+                      "path": [
+                        "Documents",
+                        ":documentKey",
+                        "AiFlags",
+                        "Summary"
+                      ],
+                      "variable": [
+                        {
+                          "key": "documentKey",
+                          "value": "RAR10001"
+                        }
+                      ]
+                    }
+                  },
+                  "response": []
+                },
+                {
+                  "name": "Change AiFlags",
+                  "request": {
+                    "method": "PUT",
+                    "header": [],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\r\n    \"HeaderText\": true\r\n}",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{url}}/Documents/:documentKey/AiFlags",
+                      "host": [
+                        "{{url}}"
+                      ],
+                      "path": [
+                        "Documents",
+                        ":documentKey",
+                        "AiFlags"
+                      ],
+                      "variable": [
+                        {
+                          "key": "documentKey",
+                          "value": "RAR10001"
+                        }
+                      ]
+                    }
+                  },
+                  "response": []
+                },
+                {
+                  "name": "Delete AiFlags",
+                  "request": {
+                    "method": "DELETE",
+                    "header": [],
+                    "url": {
+                      "raw": "{{url}}/Documents/:documentKey/AiFlags",
+                      "host": [
+                        "{{url}}"
+                      ],
+                      "path": [
+                        "Documents",
+                        ":documentKey",
+                        "AiFlags"
+                      ],
+                      "variable": [
+                        {
+                          "key": "documentKey",
+                          "value": "RAR10001"
+                        }
+                      ]
+                    }
                   },
                   "response": []
                 }
@@ -7626,6 +7797,39 @@
             }
           },
           "response": []
+        },
+        {
+          "name": "PUT Journals",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"ContactKindId\": 0,\r\n  \"ContactKind\": \"string\",\r\n  \"StatusCompleted\": true,\r\n  \"Cycle\": \"None\",\r\n  \"CategoryId\": 0,\r\n  \"IsPrivateContact\": true,\r\n  \"ResponsiblePerson\": \"AB\",\r\n  \"StatusLabel\": \"string\",\r\n  \"CategoryLabel\": \"string\",\r\n  \"CustomFields\": {\r\n    \"Text1\": \"string\",\r\n    \"Text2\": \"string\",\r\n    \"Number1\": 0,\r\n    \"Number2\": 0,\r\n    \"Number3\": 0,\r\n    \"Number4\": 0,\r\n    \"Date1\": \"2026-09-09T11:16:52.543Z\",\r\n    \"Date2\": \"2026-09-09T11:16:52.543Z\",\r\n    \"Flag1\": true,\r\n    \"Flag2\": true,\r\n    \"Flag3\": true,\r\n    \"Flag4\": true\r\n  },\r\n  \"Date\": \"2026-09-09T11:16:52.543Z\",\r\n  \"StatusId\": 0,\r\n  \"Label\": \"Franzis Journal\",\r\n  \"Text\": \"string\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{url}}/Journals/:Journalid",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "Journals",
+                ":Journalid"
+              ],
+              "variable": [
+                {
+                  "key": "Journalid",
+                  "value": "88337255-945d-403b-b934-51ae2b2c0f65"
+                }
+              ]
+            }
+          },
+          "response": []
         }
       ]
     },
@@ -10889,14 +11093,17 @@
             "header": [
               {
                 "key": "Content-Type",
-                "name": "Content-Type",
-                "value": "application/json",
-                "type": "text"
+                "value": "application/json"
               }
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\r\n  \"MacroName\": \"SQLsv000\",\r\n  \"Parameters\":[\r\n        {   \r\n            \"Name\": \"Artikel\",\r\n            \"Value\": \"\\\"100001\\\"\"\r\n        },\r\n        {\r\n            \"Name\": \"Anzahl\",\r\n            \"Value\": \"\\\"3\\\"\"\r\n        }\r\n    ] \r\n}"
+              "raw": "{\r\n  \"MacroName\": \"SQLAPIDruck\",\r\n  \"Parameters\":[\r\n  {\r\n    \"Name\": \"Anzahl\",\r\n    \"Value\": \"1\"\r\n  },\r\n    {\r\n    \"Name\": \"Artikel\",\r\n    \"Value\":\"\\\"500008wL\\\"\"\r\n  }\r\n]\r\n}",
+              "options": {
+                "raw": {
+                  "language": "text"
+                }
+              }
             },
             "url": {
               "raw": "{{url}}/Macros",
@@ -12800,6 +13007,632 @@
                 {
                   "key": "journalLinkID",
                   "value": ""
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "POST Opportunities Journals",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"Date\": \"2026-08-07T07:31:11.284Z\",\r\n  \"ContactKindIdentifier\": 0,\r\n  \"StatusId\": 0,\r\n  \"Cycle\": \"None\",\r\n  \"CategoryId\": 0,\r\n  \"Label\": \"Test Journal\",\r\n  \"Text\": \"Hallo Welt\",\r\n  \"IsPrivateContact\": true,\r\n  \"ResponsiblePerson\": \"AB\",\r\n  \"AppointmentOn\": \"2026-08-07T07:31:11.284Z\",\r\n  \"Reminder\": \"string\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{url}}/OpportunityManagement/Opportunities/:opportunitiyID/Journals",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "OpportunityManagement",
+                "Opportunities",
+                ":opportunitiyID",
+                "Journals"
+              ],
+              "variable": [
+                {
+                  "key": "opportunitiyID",
+                  "value": "3"
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Campaigns",
+      "item": [
+        {
+          "name": "Campaigns",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{url}}/CampaignManagement/Campaigns",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "CampaignManagement",
+                "Campaigns"
+              ],
+              "query": [
+                {
+                  "key": "count",
+                  "value": null,
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "top",
+                  "value": null,
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "skip",
+                  "value": null,
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "orderby",
+                  "value": null,
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "filter",
+                  "value": null,
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "select",
+                  "value": null,
+                  "type": "text",
+                  "disabled": true
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Campaigns Activities",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{url}}/CampaignManagement/Activities",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "CampaignManagement",
+                "Activities"
+              ],
+              "query": [
+                {
+                  "key": "count",
+                  "value": null,
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "top",
+                  "value": null,
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "skip",
+                  "value": null,
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "orderby",
+                  "value": null,
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "filter",
+                  "value": null,
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "select",
+                  "value": null,
+                  "type": "text",
+                  "disabled": true
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Campaign Categories",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{url}}/CampaignManagement/Categories",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "CampaignManagement",
+                "Categories"
+              ],
+              "query": [
+                {
+                  "key": "count",
+                  "value": null,
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "top",
+                  "value": null,
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "skip",
+                  "value": null,
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "orderby",
+                  "value": null,
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "filter",
+                  "value": null,
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "select",
+                  "value": null,
+                  "type": "text",
+                  "disabled": true
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Campaign Participants",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{url}}/CampaignManagement/Campaigns/:campaignid/Participants",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "CampaignManagement",
+                "Campaigns",
+                ":campaignid",
+                "Participants"
+              ],
+              "query": [
+                {
+                  "key": "count",
+                  "value": null,
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "top",
+                  "value": null,
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "skip",
+                  "value": null,
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "orderby",
+                  "value": null,
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "filter",
+                  "value": null,
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "select",
+                  "value": null,
+                  "type": "text",
+                  "disabled": true
+                }
+              ],
+              "variable": [
+                {
+                  "key": "campaignid",
+                  "value": "1"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Campaigns Journals",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"Name\": \"456\",\r\n  \"CategoryId\": 1,\r\n  \"Status\": \"Planned\",\r\n  \"StartDate\": \"2026-08-19T12:46:44.071Z\",\r\n  \"EndDate\": \"2026-08-19T12:46:44.071Z\",\r\n  \"Memotext\": \"string\",\r\n  \"CustomFields\": {\r\n    \"Text1\": \"string\",\r\n    \"Text2\": \"string\",\r\n    \"Number1\": 0,\r\n    \"Number2\": 0,\r\n    \"Number3\": 0,\r\n    \"Number4\": 0,\r\n    \"Date1\": \"2026-08-19T12:46:44.071Z\",\r\n    \"Date2\": \"2026-08-19T12:46:44.071Z\",\r\n    \"Flag1\": true,\r\n    \"Flag2\": true,\r\n    \"Flag3\": true,\r\n    \"Flag4\": true\r\n  }\r\n}"
+            },
+            "url": {
+              "raw": "{{url}}/CampaignManagement/Journals",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "CampaignManagement",
+                "Journals"
+              ],
+              "query": [
+                {
+                  "key": "count",
+                  "value": null,
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "top",
+                  "value": null,
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "skip",
+                  "value": null,
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "orderby",
+                  "value": null,
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "filter",
+                  "value": null,
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "select",
+                  "value": null,
+                  "type": "text",
+                  "disabled": true
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Campaigns",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"Name\": \"123\",\r\n  \"CategoryId\": 1,\r\n  \"Status\": \"Finished\",\r\n  \"StartDate\": \"2026-08-19T12:26:58.722Z\",\r\n  \"EndDate\": \"2026-08-19T12:26:58.722Z\",\r\n  \"Memotext\": \"Blub\",\r\n  \"CustomFields\": {\r\n    \"Text1\": \"string\",\r\n    \"Text2\": \"string\",\r\n    \"Number1\": 0,\r\n    \"Number2\": 0,\r\n    \"Number3\": 0,\r\n    \"Number4\": 0,\r\n    \"Date1\": \"2026-08-19T12:26:58.722Z\",\r\n    \"Date2\": \"2026-08-19T12:26:58.722Z\",\r\n    \"Flag1\": true,\r\n    \"Flag2\": true,\r\n    \"Flag3\": true,\r\n    \"Flag4\": true\r\n  }\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{url}}/CampaignManagement/Campaigns",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "CampaignManagement",
+                "Campaigns"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Campaign Participants",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"CrmAddressId\": 2,\r\n  \"ActivityId\": 14,\r\n  \"Remark\": \"Blub\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{url}}/CampaignManagement/Campaigns/:campaignid/Participants",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "CampaignManagement",
+                "Campaigns",
+                ":campaignid",
+                "Participants"
+              ],
+              "variable": [
+                {
+                  "key": "campaignid",
+                  "value": "28"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Campaigns Journals",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"ContactKindId\": 0,\r\n  \"Cycle\": \"None\",\r\n  \"CategoryId\": 0,\r\n  \"IsPrivateContact\": false,\r\n  \"ResponsiblePerson\": \"AB\",\r\n  \"CustomFields\": {\r\n    \"Text1\": \"string\",\r\n    \"Text2\": \"string\",\r\n    \"Number1\": 0,\r\n    \"Number2\": 0,\r\n    \"Number3\": 0,\r\n    \"Number4\": 0,\r\n    \"Date1\": \"2026-10-02T06:41:40.272Z\",\r\n    \"Date2\": \"2026-10-02T06:41:40.272Z\",\r\n    \"Flag1\": true,\r\n    \"Flag2\": true,\r\n    \"Flag3\": true,\r\n    \"Flag4\": true\r\n  },\r\n  \"Date\": \"2026-10-02T06:41:40.272Z\",\r\n  \"StatusId\": 0,\r\n  \"Label\": \"string\",\r\n  \"Text\": \"string\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{url}}/CampaignManagement/Campaigns/:campaignid/Journals",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "CampaignManagement",
+                "Campaigns",
+                ":campaignid",
+                "Journals"
+              ],
+              "variable": [
+                {
+                  "key": "campaignid",
+                  "value": "38"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Campaigns LinkJournal",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"CampaignId\": 0,\r\n  \"JournalId\": \"00000000-0000-0000-0000-000000000000\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{url}}/CampaignManagement/LinkJournal",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "CampaignManagement",
+                "LinkJournal"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Campaigns",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"Name\": \"456\",\r\n  \"CategoryId\": 1,\r\n  \"Status\": \"Planned\",\r\n  \"StartDate\": \"2026-08-19T12:46:44.071Z\",\r\n  \"EndDate\": \"2026-08-19T12:46:44.071Z\",\r\n  \"Memotext\": \"string\",\r\n  \"CustomFields\": {\r\n    \"Text1\": \"string\",\r\n    \"Text2\": \"string\",\r\n    \"Number1\": 0,\r\n    \"Number2\": 0,\r\n    \"Number3\": 0,\r\n    \"Number4\": 0,\r\n    \"Date1\": \"2026-08-19T12:46:44.071Z\",\r\n    \"Date2\": \"2026-08-19T12:46:44.071Z\",\r\n    \"Flag1\": true,\r\n    \"Flag2\": true,\r\n    \"Flag3\": true,\r\n    \"Flag4\": true\r\n  }\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{url}}/CampaignManagement/Campaigns/:id",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "CampaignManagement",
+                "Campaigns",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "26"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Campaigns Participants",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"ActivityId\": 4,\r\n  \"Remark\": \"blibla\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{url}}/CampaignManagement/Campaigns/:campaignid/Participants/:participantid",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "CampaignManagement",
+                "Campaigns",
+                ":campaignid",
+                "Participants",
+                ":participantid"
+              ],
+              "variable": [
+                {
+                  "key": "campaignid",
+                  "value": "1"
+                },
+                {
+                  "key": "participantid",
+                  "value": "3"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Campaigns",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "{{url}}/CampaignManagement/Campaigns/:Id",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "CampaignManagement",
+                "Campaigns",
+                ":Id"
+              ],
+              "variable": [
+                {
+                  "key": "Id",
+                  "value": "27"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Campaigns Participants",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "{{url}}/CampaignManagement/Campaigns/:campaignid/Participants/::participantid",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "CampaignManagement",
+                "Campaigns",
+                ":campaignid",
+                "Participants",
+                "::participantid"
+              ],
+              "variable": [
+                {
+                  "key": "campaignid",
+                  "value": "1"
+                },
+                {
+                  "key": ":participantid",
+                  "value": "5"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Campaigns UnLinkJournal",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": []
+            },
+            "url": {
+              "raw": "{{url}}/CampaignManagement/UnlinkJournal/:journalLinkId",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "CampaignManagement",
+                "UnlinkJournal",
+                ":journalLinkId"
+              ],
+              "variable": [
+                {
+                  "key": "journalLinkId",
+                  "value": "65"
                 }
               ]
             }
